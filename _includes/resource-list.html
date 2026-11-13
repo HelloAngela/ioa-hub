@@ -1,0 +1,17 @@
+<div class="resource-list">
+<ul class="grid">
+{% for resource in site.data.resources %}
+<li class="card">
+<h3>{{ resource.title | escape }}</h3>
+<ul class="tags">
+<li class="tag">{{ resource.type | default: "other" | capitalize | escape }}</li>
+<li class="tag tag--navy">{{ resource.licence | default: "CC BY 4.0" | escape }}</li>
+{% if resource.status == "draft" %}<li class="tag tag--draft">Draft — may change</li>{% endif %}
+</ul>
+<p class="card__meta">{{ resource.authors | escape }}{% if resource.updated %}. Updated {{ resource.updated | date: "%-d %B %Y" }}{% endif %}</p>
+<p>{{ resource.description | escape }}</p>
+<p class="card__action"><a href="{{ resource.file | prepend: '/resources/files/' | relative_url }}" download data-goatcounter-click="download: {{ resource.file | escape }}" data-goatcounter-title="{{ resource.title | escape }}">Download<span class="visually-hidden">: {{ resource.title | escape }}</span></a></p>
+</li>
+{% endfor %}
+</ul>
+</div>

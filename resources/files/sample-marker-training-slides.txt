@@ -1,0 +1,2 @@
+[SAMPLE] This is a stand-in file so the download link on the Resources page works.
+Replace it with a real resource, or delete it and remove its entry from _data/resources.yml.

@@ -1,0 +1,5 @@
+name,title,institution,country,faculty_or_school,discipline,unit_code,unit_name,cohort_size,year_started,ioa_format,contact_public,profile_url,resource_url,consent_date
+[SAMPLE] Dr Sam Example,Senior Lecturer,[SAMPLE] Example University,Australia,School of Life Sciences,Microbiology,SAMP2001,Sample Microbiology,450,2023,"10 minute one-to-one conversation, in person",sam.example@example.edu,https://example.edu/sam,,2026-11-14
+[SAMPLE] Prof Alex Placeholder,Professor,[SAMPLE] Placeholder Institute of Technology,New Zealand,Business School,Finance,SAMP3002,Sample Finance,120,2021,"12 minute one-to-one conversation, online",,https://example.edu/alex,https://example.edu/alex/rubric,2026-11-14
+[SAMPLE] Dr Jo Demo,Lecturer,[SAMPLE] Demo College,United Kingdom,Faculty of Arts,Writing studies,SAMP1003,Sample Writing,900,2024,8 minute paired conversation,https://example.edu/jo,,,2026-11-14
+[SAMPLE] Hidden Row,Lecturer,[SAMPLE] No Consent University,Australia,School of Testing,Testing,SAMP0000,This row has no consent date so it must not appear on the site,10,2025,Not shown,,,,

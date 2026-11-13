@@ -1,0 +1,30 @@
+# Informal resources (tier 2). The files themselves go in resources/files/.
+# Keep each file under 20 MB.
+#
+# Each entry:
+#   title:       shown as the card heading
+#   file:        file name in resources/files/
+#   description: one or two sentences
+#   type:        slides / guide / template / other
+#   authors:     who made it
+#   licence:     leave out for the default, CC BY 4.0
+#   updated:     date as YYYY-MM-DD
+#   status:      current / draft   (draft shows a "Draft — may change" label)
+
+- title: "[SAMPLE] IOA marker training slides"
+  file: sample-marker-training-slides.txt
+  description: "[PLACEHOLDER: sample entry. Replace with a real resource or delete it.]"
+  type: slides
+  authors: "[SAMPLE] IOA Hub team"
+  licence: CC BY 4.0
+  updated: 2026-11-14
+  status: current
+
+- title: "[SAMPLE] IOA scenario template"
+  file: sample-scenario-template.txt
+  description: "[PLACEHOLDER: sample entry. Replace with a real resource or delete it.]"
+  type: template
+  authors: "[SAMPLE] IOA Hub team"
+  licence: CC BY 4.0
+  updated: 2026-11-14
+  status: draft

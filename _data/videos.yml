@@ -1,0 +1,25 @@
+# Videos shown on the Videos page. Videos are hosted on YouTube, never in this repository.
+#
+# Each entry:
+#   title:       shown as the card heading
+#   youtube_id:  the part of the YouTube address after "v=", e.g. dQw4w9WgXcQ
+#   description: one or two sentences
+#   audience:    staff / students / both
+#   topic:       one word, e.g. preparation, nerves, calibration, logistics
+#   people:      (optional) who appears in the video
+#
+# A card shows "Video coming soon" while youtube_id still contains PLACEHOLDER.
+
+- title: Practice and preparation
+  youtube_id: "[PLACEHOLDER: YouTube ID]"
+  description: "[PLACEHOLDER: one or two sentences about what Mitch covers in this video.]"
+  audience: students
+  topic: preparation
+  people: Mitch, Science and Finance student, MIMI2002
+
+- title: Helping students deal with nerves in interactive orals
+  youtube_id: "[PLACEHOLDER: YouTube ID]"
+  description: "[PLACEHOLDER: one or two sentences about what Anastasia, Ben and Jiva cover in this video.]"
+  audience: both
+  topic: nerves
+  people: Anastasia, Ben and Jiva, WRIT1001

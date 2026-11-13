@@ -1,0 +1,20 @@
+<li class="card video-card" data-audience="{{ include.video.audience | escape }}" data-topic="{{ include.video.topic | escape }}">
+{% if include.video.youtube_id contains "PLACEHOLDER" %}
+<div class="video-frame video-frame--pending">Video coming soon</div>
+{% else %}
+<a class="video-frame" href="https://www.youtube.com/watch?v={{ include.video.youtube_id }}" data-youtube-id="{{ include.video.youtube_id }}" data-title="{{ include.video.title | escape }}">
+<img src="https://i.ytimg.com/vi/{{ include.video.youtube_id }}/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
+<span class="video-frame__play" aria-hidden="true"></span>
+<span class="visually-hidden">Play video: {{ include.video.title | escape }}</span>
+</a>
+{% endif %}
+<div class="video-card__body">
+<h3>{{ include.video.title | escape }}</h3>
+<ul class="tags">
+<li class="tag tag--navy">{% if include.video.audience == "both" %}Staff and students{% else %}For {{ include.video.audience | escape }}{% endif %}</li>
+<li class="tag">{{ include.video.topic | capitalize | escape }}</li>
+</ul>
+{% if include.video.people %}<p class="card__meta">{{ include.video.people | escape }}</p>{% endif %}
+<p>{{ include.video.description | escape }}</p>
+</div>
+</li>

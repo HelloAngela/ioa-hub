@@ -1,0 +1,68 @@
+<div class="catalog">
+{% comment %} Only rows with a consent date are published. The date itself is never shown. {% endcomment %}
+{% assign published = "" | split: "" %}
+{% for row in site.data.catalog %}
+{% assign consent = row.consent_date | strip %}
+{% if consent != "" %}{% assign published = published | push: row %}{% endif %}
+{% endfor %}
+{% assign institutions = published | map: "institution" | uniq %}
+{% assign countries = published | map: "country" | uniq %}
+<ul class="stats">
+<li><strong>{{ published.size }}</strong> {% if published.size == 1 %}entry{% else %}entries{% endif %}</li>
+<li><strong>{{ institutions.size }}</strong> {% if institutions.size == 1 %}institution{% else %}institutions{% endif %}</li>
+<li><strong>{{ countries.size }}</strong> {% if countries.size == 1 %}country{% else %}countries{% endif %}</li>
+</ul>
+<div class="filters filters--fields" id="catalog-filters" hidden>
+<div class="field">
+<label for="catalog-search">Search</label>
+<input type="search" id="catalog-search" autocomplete="off">
+</div>
+<div class="field">
+<label for="catalog-country">Country</label>
+<select id="catalog-country" data-filter="country"><option value="">All countries</option></select>
+</div>
+<div class="field">
+<label for="catalog-discipline">Discipline</label>
+<select id="catalog-discipline" data-filter="discipline"><option value="">All disciplines</option></select>
+</div>
+<div class="field">
+<label for="catalog-institution">Institution</label>
+<select id="catalog-institution" data-filter="institution"><option value="">All institutions</option></select>
+</div>
+</div>
+<p class="status" id="catalog-status" role="status"></p>
+<table class="catalog-table" id="catalog-table" role="table">
+<caption class="visually-hidden">People running interactive oral assessment</caption>
+<thead role="rowgroup">
+<tr role="row">
+<th scope="col" role="columnheader" data-sort="text">Name</th>
+<th scope="col" role="columnheader" data-sort="text">Institution</th>
+<th scope="col" role="columnheader" data-sort="text">Country</th>
+<th scope="col" role="columnheader" data-sort="text">Discipline</th>
+<th scope="col" role="columnheader" data-sort="text">Unit</th>
+<th scope="col" role="columnheader" data-sort="number">Cohort</th>
+<th scope="col" role="columnheader" data-sort="number">Started</th>
+<th scope="col" role="columnheader">Format</th>
+<th scope="col" role="columnheader">Links</th>
+</tr>
+</thead>
+<tbody role="rowgroup">
+{% for row in published %}
+{% assign contact = row.contact_public | strip %}
+{% assign profile = row.profile_url | strip %}
+{% assign resource = row.resource_url | strip %}
+<tr role="row" data-country="{{ row.country | escape }}" data-discipline="{{ row.discipline | escape }}" data-institution="{{ row.institution | escape }}">
+<td role="cell" data-label="Name">{{ row.name | escape }}{% if row.title %}<span class="sub">{{ row.title | escape }}</span>{% endif %}</td>
+<td role="cell" data-label="Institution">{{ row.institution | escape }}{% if row.faculty_or_school %}<span class="sub">{{ row.faculty_or_school | escape }}</span>{% endif %}</td>
+<td role="cell" data-label="Country">{{ row.country | escape }}</td>
+<td role="cell" data-label="Discipline">{{ row.discipline | escape }}</td>
+<td role="cell" data-label="Unit">{{ row.unit_code | escape }}{% if row.unit_name %}<span class="sub">{{ row.unit_name | escape }}</span>{% endif %}</td>
+<td role="cell" data-label="Cohort">{{ row.cohort_size | escape }}</td>
+<td role="cell" data-label="Started">{{ row.year_started | escape }}</td>
+<td role="cell" data-label="Format">{{ row.ioa_format | escape }}</td>
+<td role="cell" data-label="Links">{% if contact != "" %}{% if contact contains "://" %}<a href="{{ contact | escape }}">Contact</a>{% elsif contact contains "@" %}<a href="mailto:{{ contact | escape }}">Email</a>{% else %}{{ contact | escape }}{% endif %}<span class="visually-hidden"> {{ row.name | escape }}</span>{% endif %}{% if profile != "" %}{% if contact != "" %}<br>{% endif %}<a href="{{ profile | escape }}">Profile<span class="visually-hidden"> of {{ row.name | escape }}</span></a>{% endif %}{% if resource != "" %}{% if contact != "" or profile != "" %}<br>{% endif %}<a href="{{ resource | escape }}">Resource<span class="visually-hidden"> from {{ row.name | escape }}</span></a>{% endif %}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</div>

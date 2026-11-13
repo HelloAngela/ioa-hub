@@ -1,0 +1,31 @@
+# Only add people who have agreed to be listed with this photo and title.
+#
+# Each entry: name, role, unit, photo (file name in images/team/, optional),
+# link (optional), group (Project team / Student partners / Contributors).
+# Photos: square, 400x400 px, JPG, under 100 KB.
+
+- name: Dr Angela Sun
+  role: Lecturer (Education-focused)
+  unit: School of Life and Environmental Sciences, Faculty of Science
+  photo: angela-sun.jpg
+  group: Project team
+- name: Anne Rogerson
+  role: Senior Lecturer
+  unit: Faculty of Arts and Social Sciences
+  photo: anne-rogerson.jpg
+  group: Project team
+- name: Eszter Kalman
+  role: Associate Professor
+  unit: Division of Teaching and Learning
+  photo: eszter-kalman.jpg
+  group: Project team
+- name: Adam Gall
+  role: Learning Success Advisor
+  unit: Learning Hub
+  photo: adam-gall.jpg
+  group: Project team
+- name: Alexandra García
+  role: Learning Hub Lead
+  unit: Academic Language and Learning, Learning Hub
+  photo: alexandra-garcia.jpg
+  group: Project team

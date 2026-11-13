@@ -1,0 +1,24 @@
+<div class="video-section">
+{% assign topics = site.data.videos | map: "topic" | uniq | sort %}
+<div class="filters" id="video-filters" hidden>
+<fieldset class="filters__group" data-filter-group="audience">
+<legend>Audience</legend>
+<button type="button" class="filter-button" data-filter-value="all" aria-pressed="true">All</button>
+<button type="button" class="filter-button" data-filter-value="staff" aria-pressed="false">Staff</button>
+<button type="button" class="filter-button" data-filter-value="students" aria-pressed="false">Students</button>
+</fieldset>
+<fieldset class="filters__group" data-filter-group="topic">
+<legend>Topic</legend>
+<button type="button" class="filter-button" data-filter-value="all" aria-pressed="true">All</button>
+{% for topic in topics %}
+<button type="button" class="filter-button" data-filter-value="{{ topic | escape }}" aria-pressed="false">{{ topic | capitalize | escape }}</button>
+{% endfor %}
+</fieldset>
+</div>
+<p class="status" id="video-status" role="status"></p>
+<ul class="grid" id="video-grid">
+{% for video in site.data.videos %}
+{% include video-card.html video=video %}
+{% endfor %}
+</ul>
+</div>
