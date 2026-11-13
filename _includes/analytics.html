@@ -1,0 +1,10 @@
+{% comment %}
+  GoatCounter: no cookies, so no consent banner is needed.
+  Loads only on the published site, and only once the site code in _config.yml is filled in.
+  Links with a data-goatcounter-click attribute are counted as events.
+{% endcomment %}
+{% if jekyll.environment == "production" %}
+{% unless site.goatcounter_code contains "PLACEHOLDER" %}
+<script data-goatcounter="https://{{ site.goatcounter_code }}.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+{% endunless %}
+{% endif %}

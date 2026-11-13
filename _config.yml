@@ -1,0 +1,38 @@
+# IOA Hub site settings.
+# After changing this file, stop and restart the local preview to see the change.
+
+title: IOA Hub
+tagline: Interactive Oral Assessment Hub
+description: >-
+  Videos, teaching resources and a catalog of people running interactive oral
+  assessment (IOA), led from the University of Sydney.
+lang: en-AU
+
+# --- Address of the site -------------------------------------------------
+# Until the ioahub.au domain is connected, the site lives at
+# https://<github username>.github.io/ioa-hub
+# [PLACEHOLDER: GitHub username] Replace the text after the colon with your username.
+github_username: PLACEHOLDER-github-username
+url: ""            # leave empty until the domain is connected
+baseurl: "/ioa-hub"
+
+# --- Things Angela still needs to supply ----------------------------------
+google_form_url: "[PLACEHOLDER: Google Form URL]"
+goatcounter_code: "[PLACEHOLDER: goatcounter code]"
+contact_email: "[PLACEHOLDER: contact email]"
+# Provisional. Change this once the Zenodo community is created.
+zenodo_community: ioa-hub
+
+# --- Fixed links ----------------------------------------------------------
+youtube_channel: "https://www.youtube.com/@OralAssessmentLibrary"
+
+# --- Build settings (no need to change) ------------------------------------
+markdown: kramdown
+exclude:
+  - CLAUDE.md
+  - README.md
+  - LICENSE
+  - LICENSE-content.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
