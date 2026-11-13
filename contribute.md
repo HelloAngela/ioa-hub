@@ -2,7 +2,7 @@
 layout: page
 title: Contribute
 permalink: /contribute/
-description: Three ways to contribute to IOA Hub. Add yourself to the catalog, share a citable resource, or suggest a video.
+description: Three ways to contribute to IOA Hub. Add yourself to the catalog, share a citable resource, or suggest a publication or video.
 lead: There are three ways to add to IOA Hub, the hub for interactive oral assessment (IOA). None of them needs coding.
 ---
 
@@ -31,10 +31,11 @@ Finished guides, rubrics and frameworks go on Zenodo, a free repository run by C
 <p><strong>A published Zenodo record cannot be deleted.</strong> You can upload a new version, but the old one stays available. Check your file before you publish.</p>
 </div>
 
-## 3. Suggest a video or informal resource, or report a problem
+## 3. Suggest a publication, video or informal resource, or report a problem
 
 Open a [suggestion issue](https://github.com/{{ site.github_username }}/ioa-hub/issues/new?template=suggest-resource.yml) to:
 
+- suggest an article or post for the [Publications page]({{ '/publications/' | relative_url }}). Send the link only, nothing needs uploading
 - suggest a video for the [Videos page]({{ '/videos/' | relative_url }})
 - offer training slides, a workshop deck or a draft
 - report a broken link or a mistake.

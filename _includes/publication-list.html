@@ -1,0 +1,12 @@
+<div class="publications">
+{% assign publications = site.data.publications | sort: "date" | reverse %}
+<ul class="pub-list">
+{% for item in publications %}
+<li>
+<a class="pub-title" href="{{ item.url | escape }}" data-goatcounter-click="publication: {{ item.title | escape }}">{{ item.title | escape }}</a>
+<span class="pub-meta">{{ item.authors | escape }}{% if item.date %} ({{ item.date | date: "%Y" }}){% endif %}{% if item.source %}. {{ item.source | escape }}{% endif %}</span>
+{% if item.note %}<span class="pub-note">{{ item.note | escape }}</span>{% endif %}
+</li>
+{% endfor %}
+</ul>
+</div>

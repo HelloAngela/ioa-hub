@@ -1,5 +1,5 @@
-name: Suggest a video or resource, or report a problem
-description: Suggest a video or an informal resource for IOA Hub, or tell us about a mistake or broken link.
+name: Suggest a publication, video or resource, or report a problem
+description: Suggest a publication, a video or an informal resource for IOA Hub, or tell us about a mistake or broken link.
 title: "Suggestion: "
 labels: ["suggestion"]
 body:
@@ -8,6 +8,7 @@ body:
     attributes:
       label: What is this about?
       options:
+        - A publication or useful link (already published elsewhere)
         - A video
         - An informal resource (slides, workshop deck, draft)
         - A problem with the site (broken link, mistake, accessibility)

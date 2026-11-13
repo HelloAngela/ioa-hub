@@ -48,7 +48,7 @@ scripts:
 </li>
 <li class="card">
 <h3>Resources</h3>
-<p>Guides, rubrics and frameworks with a DOI you can cite, training slides, and where to get support.</p>
+<p>Guides, rubrics and frameworks with a DOI you can cite, training slides, and a list of publications.</p>
 <p class="card__action"><a href="{{ '/resources/' | relative_url }}">Browse the resources</a></p>
 </li>
 <li class="card">
@@ -66,7 +66,7 @@ scripts:
 <hr class="rule">
 <div class="prose">
 <p>If you run an IOA, add yourself to the catalog. It takes about five minutes. You can also share a resource or suggest a video.</p>
-<p>Staff can also join the <a href="https://bit.ly/IOAexchange">Interactive Oral Exchange</a>, a community of practice for people who run an IOA or plan to.</p>
+<p>Staff at any institution can also join the <a href="https://bit.ly/IOAexchange">Interactive Oral Exchange</a>, a community of practice for people who run an IOA or plan to.</p>
 <p><a class="button" href="{{ '/contribute/' | relative_url }}">How to contribute</a></p>
 </div>
 </div>

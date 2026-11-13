@@ -521,3 +521,11 @@ th[aria-sort="descending"] .sort-button::after { content: " \2193"; }
 .carousel__track .video-card h3 { font-size: 1.15rem; }
 .carousel__more { margin: 0.75rem 0 0; font-weight: 600; }
 .band--videos { padding-bottom: 3rem; }
+
+/* ---------- Publications list ---------- */
+
+.pub-list { max-width: var(--prose); margin: 1.5rem 0 0; padding: 0; list-style: none; }
+.pub-list li { padding: 1rem 0; border-bottom: 1px solid var(--grey-light); }
+.pub-list li:first-child { border-top: 1px solid var(--grey-light); }
+.pub-title { display: block; font-weight: 600; }
+.pub-meta, .pub-note { display: block; font-size: 1rem; }

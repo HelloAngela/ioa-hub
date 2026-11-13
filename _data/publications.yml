@@ -1,0 +1,59 @@
+# Publications and useful links shown on the Publications page.
+# These are things already published somewhere else. The site only links to them.
+# The page sorts them newest first, so add new entries anywhere.
+#
+# Each entry:
+#   title:   the title of the article or post
+#   url:     its web address
+#   authors: who wrote it
+#   date:    when it was published, as YYYY-MM-DD (use the 1st if you only know the month)
+#   source:  where it was published, e.g. Teaching@Sydney, or a journal name
+#   note:    (optional) one sentence on what it covers
+
+- title: Teaching and Learning with Interactive Orals
+  url: https://educational-innovation.sydney.edu.au/teaching@sydney/teaching-and-learning-with-interactive-orals/
+  authors: Arpita Das
+  date: 2026-10-23
+  source: Teaching@Sydney
+
+- title: A guide to Honours oral exams
+  url: https://educational-innovation.sydney.edu.au/teaching@sydney/a-guide-to-honours-oral-exams/
+  authors: Eszter Kalman and Mary Wright
+  date: 2026-05-19
+  source: Teaching@Sydney
+
+- title: What we learned from 400+ Interactive Oral Assessments in STEM
+  url: https://educational-innovation.sydney.edu.au/teaching@sydney/what-we-learned-from-400-interactive-oral-assessments-in-stem/
+  authors: Angela Sun and Helen McGuire
+  date: 2026-02-16
+  source: Teaching@Sydney
+
+- title: "From Page to Performance: How Interactive Orals Transform Academic Writing Pedagogy"
+  url: https://educational-innovation.sydney.edu.au/teaching@sydney/from-page-to-performance-how-interactive-orals-transform-academic-writing-pedagogy/
+  authors: Jiva Lamsal
+  date: 2025-09-24
+  source: Teaching@Sydney
+
+- title: Interactive Oral Assessment in practice
+  url: https://educational-innovation.sydney.edu.au/teaching@sydney/interactive-oral-assessment-in-practice/
+  authors: Leanne Stevenson, Benjamin Miller and Clara Sitbon
+  date: 2025-06-03
+  source: Teaching@Sydney
+
+- title: Five myths about interactive oral assessments and how to get started
+  url: https://educational-innovation.sydney.edu.au/teaching@sydney/five-myths-about-interactive-oral-assessments-and-how-to-get-started/
+  authors: Eszter Kalman, Benjamin Miller and Danny Liu
+  date: 2024-04-18
+  source: Teaching@Sydney
+
+- title: "'Tell me what you learned': oral assessments and assurance of learning in the age of generative AI"
+  url: https://educational-innovation.sydney.edu.au/teaching@sydney/tell-me-what-you-learned-interactive-oral-assessments-and-assurance-of-learning-in-the-age-of-generative-ai/
+  authors: Meraiah Foley, Ju Li Ng and Vanessa Loh
+  date: 2024-01-26
+  source: Teaching@Sydney
+
+- title: "With living voice: the power of oral examinations"
+  url: https://educational-innovation.sydney.edu.au/teaching@sydney/with-living-voice-the-power-of-oral-examinations/
+  authors: Inam Haq, Ruth Weeks, Rebecca Denham and Adam Bridgeman
+  date: 2021-06-02
+  source: Teaching@Sydney

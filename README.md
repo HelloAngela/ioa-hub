@@ -28,6 +28,23 @@ To give a video filter tags, add an entry to `_data/videos.yml`:
 
 Do not edit `_data/playlist.json` by hand. The daily copy overwrites it.
 
+## Add a publication
+
+The Publications page lists articles and posts that are already published somewhere else, such as on Teaching@Sydney or in a journal. The site only links to them. Open `_data/publications.yml` and add an entry anywhere in the file:
+
+```yaml
+- title: Five myths about interactive oral assessments and how to get started
+  url: https://educational-innovation.sydney.edu.au/teaching@sydney/five-myths-about-interactive-oral-assessments-and-how-to-get-started/
+  authors: Eszter Kalman, Benjamin Miller and Danny Liu
+  date: 2024-04-18
+  source: Teaching@Sydney
+```
+
+- The page sorts by `date`, newest first. If you only know the month, use the 1st.
+- `source` is where it was published.
+- `note` is optional: one sentence on what it covers.
+- If a title contains a colon or starts with a quote mark, put double quotes around the whole title.
+
 ## Add an informal resource
 
 1. Put the file in `resources/files/`. Keep it under 20 MB.
