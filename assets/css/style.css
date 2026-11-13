@@ -176,6 +176,7 @@ img { max-width: 100%; height: auto; }
   list-style: none;
 }
 .site-footer__small { font-size: 0.95rem; margin-bottom: 0; }
+.site-footer__credit { font-size: 0.8rem; margin-bottom: 0.75rem; }
 
 /* ---------- Page layout ---------- */
 
