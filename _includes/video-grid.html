@@ -1,5 +1,5 @@
 <div class="video-section">
-{% assign topics = site.data.videos | map: "topic" | uniq | sort %}
+{% assign topics = site.data.videos | map: "topic" | compact | uniq | sort %}
 <div class="filters" id="video-filters" hidden>
 <fieldset class="filters__group" data-filter-group="audience">
 <legend>Audience</legend>
@@ -17,8 +17,8 @@
 </div>
 <p class="status" id="video-status" role="status"></p>
 <ul class="grid" id="video-grid">
-{% for video in site.data.videos %}
-{% include video-card.html video=video %}
+{% for item in site.data.playlist.videos %}
+{% include video-card.html item=item %}
 {% endfor %}
 </ul>
 </div>

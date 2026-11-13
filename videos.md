@@ -8,7 +8,7 @@ scripts:
   - videos.js
 ---
 
-Each video is hosted on the [Oral Assessment Library YouTube channel]({{ site.youtube_channel }}). The player loads only when you press play.
+Each video is hosted on YouTube, in the [Interactive Oral Assessment in Practice playlist](https://www.youtube.com/playlist?list={{ site.youtube_playlist }}). The player loads only when you press play.
 
 {% include video-grid.html %}
 

@@ -1,27 +1,32 @@
 # IOA Hub
 
-The website for IOA Hub (Interactive Oral Assessment Hub), led by Dr Angela Sun at the University of Sydney. It is built with Jekyll and hosted on GitHub Pages.
+The website for IOA Hub (Interactive Oral Assessment Hub), developed by Dr Angela Sun. It is built with Jekyll and hosted on GitHub Pages.
 
 This guide covers the everyday jobs. You only ever need to edit the files in `_data/`, the six `.md` pages, and `_config.yml`. The layout code is in `_layouts/`, `_includes/` and `assets/`, and you can leave it alone.
 
 ## Add a video
 
-Videos stay on YouTube. Open `_data/videos.yml` and add an entry at the bottom:
+Add the video to the YouTube playlist. That is all. Once a day the site copies the playlist, and the new video appears on the Videos page in playlist order. The home page carousel shows the first 8 videos in the playlist, so reorder the playlist on YouTube to change what is featured.
+
+To update the site straight away, go to the repository on GitHub, then Actions > YouTube playlist sync > Run workflow.
+
+A YouTube title written as `Title - People` is split in two on the site, so name videos that way.
+
+To give a video filter tags, add an entry to `_data/videos.yml`:
 
 ```yaml
-- title: Calibrating markers before an IOA
-  youtube_id: "abc123XYZ00"
-  description: Two unit coordinators explain how they ran a one-hour calibration session.
+- youtube_id: abc123XYZ00
   audience: staff
   topic: calibration
-  people: Name One and Name Two, UNIT1001
 ```
 
 - `youtube_id` is the part of the YouTube address after `v=`. For `https://www.youtube.com/watch?v=abc123XYZ00` it is `abc123XYZ00`.
 - `audience` is `staff`, `students` or `both`.
 - `topic` is one word. A new word adds a new filter button on the Videos page.
-- `description` and `people` are optional.
-- The home page carousel shows the first 8 videos in the file. Move an entry up to feature it.
+- You can also add `title`, `people` or `description` to change what the card shows.
+- A video with no entry still shows, but only under the "All" filters.
+
+Do not edit `_data/playlist.json` by hand. The daily copy overwrites it.
 
 ## Add an informal resource
 

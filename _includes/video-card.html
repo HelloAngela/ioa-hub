@@ -1,20 +1,29 @@
-<li class="card video-card" data-audience="{{ include.video.audience | escape }}" data-topic="{{ include.video.topic | escape }}">
-{% if include.video.youtube_id contains "PLACEHOLDER" %}
-<div class="video-frame video-frame--pending">Video coming soon</div>
-{% else %}
-<a class="video-frame" href="https://www.youtube.com/watch?v={{ include.video.youtube_id }}" data-youtube-id="{{ include.video.youtube_id }}" data-title="{{ include.video.title | escape }}">
-<img src="https://i.ytimg.com/vi/{{ include.video.youtube_id }}/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
+{% comment %}
+  One video card. Pass "item", an entry from _data/playlist.json (id and title).
+  Extra details come from the matching entry in _data/videos.yml, if there is one.
+{% endcomment %}
+{% assign extra = site.data.videos | where: "youtube_id", include.item.id | first %}
+{% assign parts = include.item.title | split: " - " %}
+{% assign v_title = include.item.title %}
+{% assign v_people = "" %}
+{% if parts.size == 2 %}{% assign v_title = parts[0] %}{% assign v_people = parts[1] %}{% endif %}
+{% if extra.title %}{% assign v_title = extra.title %}{% endif %}
+{% if extra.people %}{% assign v_people = extra.people %}{% endif %}
+<li class="card video-card" data-audience="{{ extra.audience | escape }}" data-topic="{{ extra.topic | escape }}">
+<a class="video-frame" href="https://www.youtube.com/watch?v={{ include.item.id }}" data-youtube-id="{{ include.item.id }}" data-title="{{ v_title | escape }}">
+<img src="https://i.ytimg.com/vi/{{ include.item.id }}/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
 <span class="video-frame__play" aria-hidden="true"></span>
-<span class="visually-hidden">Play video: {{ include.video.title | escape }}</span>
+<span class="visually-hidden">Play video: {{ v_title | escape }}</span>
 </a>
-{% endif %}
 <div class="video-card__body">
-<h3>{{ include.video.title | escape }}</h3>
+<h3>{{ v_title | escape }}</h3>
+{% if extra.audience or extra.topic %}
 <ul class="tags">
-<li class="tag tag--navy">{% if include.video.audience == "both" %}Staff and students{% else %}For {{ include.video.audience | escape }}{% endif %}</li>
-<li class="tag">{{ include.video.topic | capitalize | escape }}</li>
+{% if extra.audience %}<li class="tag tag--navy">{% if extra.audience == "both" %}Staff and students{% else %}For {{ extra.audience | escape }}{% endif %}</li>{% endif %}
+{% if extra.topic %}<li class="tag">{{ extra.topic | capitalize | escape }}</li>{% endif %}
 </ul>
-{% if include.video.people %}<p class="card__meta">{{ include.video.people | escape }}</p>{% endif %}
-{% if include.video.description %}<p>{{ include.video.description | escape }}</p>{% endif %}
+{% endif %}
+{% if v_people != "" %}<p class="card__meta">{{ v_people | escape }}</p>{% endif %}
+{% if extra.description %}<p>{{ extra.description | escape }}</p>{% endif %}
 </div>
 </li>

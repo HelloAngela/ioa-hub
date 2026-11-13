@@ -27,11 +27,11 @@ scripts:
 </div>
 </div>
 <ul class="carousel__track" tabindex="0" aria-label="Featured videos">
-{% for video in site.data.videos limit: 8 %}
-{% include video-card.html video=video %}
+{% for item in site.data.playlist.videos limit: 8 %}
+{% include video-card.html item=item %}
 {% endfor %}
 </ul>
-<p class="carousel__more"><a href="{{ '/videos/' | relative_url }}">See all {{ site.data.videos.size }} videos</a></p>
+<p class="carousel__more"><a href="{{ '/videos/' | relative_url }}">See all videos</a></p>
 </div>
 </div>
 </section>
@@ -67,16 +67,6 @@ scripts:
 <div class="prose">
 <p>If you run an IOA, add yourself to the catalog. It takes about five minutes. You can also share a resource or suggest a video.</p>
 <p><a class="button" href="{{ '/contribute/' | relative_url }}">How to contribute</a></p>
-</div>
-</div>
-</section>
-
-<section class="band band--sandstone" aria-labelledby="led-heading">
-<div class="container">
-<h2 id="led-heading">Led by the University of Sydney</h2>
-<hr class="rule">
-<div class="prose">
-<p>IOA Hub is led by Dr Angela Sun, with a team from Science, the Faculty of Arts and Social Sciences, the Division of Teaching and Learning and the Learning Hub. <a href="{{ '/about/' | relative_url }}">Meet the team</a>.</p>
 </div>
 </div>
 </section>

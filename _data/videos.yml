@@ -1,89 +1,83 @@
-# Videos shown on the Videos page and in the carousel on the home page.
-# Videos are hosted on YouTube, never in this repository.
-# Playlist: https://www.youtube.com/playlist?list=PLJFJAoICnsnA
+# Extra details for videos. You do NOT need to add new videos here.
 #
-# The home page carousel shows the first 8 videos in this file, in this order.
-# Move an entry up to feature it.
+# The list of videos is copied from the YouTube playlist once a day into
+# _data/playlist.json (do not edit that file by hand). A new video in the playlist
+# appears on the site by itself, in playlist order, with its YouTube title.
+# The home page carousel shows the first 8 videos in the playlist.
 #
-# Each entry:
-#   title:       shown as the card heading
-#   youtube_id:  the part of the YouTube address after "v=", e.g. Ebf5RcYbG-s
-#   description: (optional) one or two sentences
-#   audience:    staff / students / both
+# A YouTube title written as "Title - People" is split in two automatically.
+#
+# Add an entry here only to give a video filter tags or to change how it is shown:
+#   youtube_id:  (needed) the part of the YouTube address after "v=", e.g. Ebf5RcYbG-s
+#   audience:    staff / students / both     (for the filter buttons)
 #   topic:       one word, e.g. preparation, nerves, calibration, logistics
-#   people:      (optional) who appears in the video
+#   title:       (optional) use this instead of the YouTube title
+#   people:      (optional) use this instead of the names in the YouTube title
+#   description: (optional) one or two sentences
 #
-# [PLACEHOLDER: Angela to check] The audience and topic of each video below were
-# guessed from its title. Change any that are wrong, and add descriptions if wanted.
+# A video with no entry here still shows, but only under the "All" filters.
+#
+# [PLACEHOLDER: Angela to check] The audience and topic below were guessed from
+# each video's title. Change any that are wrong.
 
-- title: Asking students how the IOA felt
-  youtube_id: Ebf5RcYbG-s
+# Asking students how the IOA felt - Andy Tran
+- youtube_id: Ebf5RcYbG-s
   audience: staff
   topic: experience
-  people: Andy Tran
 
-- title: What students wish educators knew
-  youtube_id: iS2ySWJXPV8
-  audience: staff
-  topic: experience
+# IOA - What students wish educators knew
+- youtube_id: iS2ySWJXPV8
+  title: What students wish educators knew
   people: Student perspectives
+  audience: staff
+  topic: experience
 
-- title: What orals reveal that written exams don't
-  youtube_id: SIYbvklkEJg
+# What orals reveal that written exams don't - Student perspectives
+- youtube_id: SIYbvklkEJg
   audience: both
   topic: experience
-  people: Student perspectives
 
-- title: Running IOAs with experienced educators
-  youtube_id: d7SGUZ9rn5U
+# Running IOAs with experienced educators - Jess & Eszter
+- youtube_id: d7SGUZ9rn5U
   audience: staff
   topic: logistics
-  people: Jess and Eszter
 
-- title: Preparing students and tutors for interactive oral assessments
-  youtube_id: GxhzbOMRQFc
+# Preparing students and tutors for interactive oral assessments - Jiva, Ben, Anastasia
+- youtube_id: GxhzbOMRQFc
   audience: staff
   topic: preparation
-  people: Jiva, Ben and Anastasia
 
-- title: Dealing with nerves in interactive orals
-  youtube_id: AA_7MCIMDqw
+# Preparing a first time teaching team for IOAs - Arpita Das
+- youtube_id: u0PXFE3_MuU
+  audience: staff
+  topic: preparation
+
+# Nervous and negative experience with IOA - Student perspective
+- youtube_id: zGD917j2vzc
   audience: both
   topic: nerves
-  people: Anastasia, Ben and Jiva
 
-- title: Keeping marks consistent across a large team
-  youtube_id: XxhSkjwEdbk
+# Keeping marks consistent across a large team - Helen McGuire & Mike Widjaja
+- youtube_id: XxhSkjwEdbk
   audience: staff
   topic: calibration
-  people: Helen McGuire and Mike Widjaja
 
-- title: Assessing communication with a three part rubric
-  youtube_id: rHvBHSwxlBM
-  audience: staff
-  topic: design
-  people: Kellie Charles
-
-- title: Preparing a first time teaching team for IOAs
-  youtube_id: u0PXFE3_MuU
-  audience: staff
-  topic: preparation
-  people: Arpita Das
-
-- title: Nervous and negative experience with IOA
-  youtube_id: zGD917j2vzc
-  audience: both
-  topic: nerves
-  people: Student perspective
-
-- title: Getting to know students through the IOA
-  youtube_id: Tu4Qj7aBDq4
+# Getting to know students through the IOA - Chris Preston
+- youtube_id: Tu4Qj7aBDq4
   audience: staff
   topic: experience
-  people: Chris Preston
 
-- title: Building the IOA into a research capstone
-  youtube_id: PUs43RFhLY0
+# Building the IOA into a research capstone - Hao Zhou
+- youtube_id: PUs43RFhLY0
   audience: staff
   topic: design
-  people: Hao Zhou
+
+# Assessing communication with a three part rubric - Kellie Charles
+- youtube_id: rHvBHSwxlBM
+  audience: staff
+  topic: design
+
+# Dealing with nerves in interactive orals - Anastasia, Ben and Jiva
+- youtube_id: AA_7MCIMDqw
+  audience: both
+  topic: nerves

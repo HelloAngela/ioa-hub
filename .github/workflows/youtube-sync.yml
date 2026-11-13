@@ -1,0 +1,80 @@
+# Copies the list of videos in the YouTube playlist into _data/playlist.json,
+# so a video added to the playlist appears on the site by itself.
+# Runs once a day, or when started by hand (Actions tab > YouTube playlist sync > Run workflow).
+#
+# It reads the public playlist page, so it needs no API key. Never add a key here.
+# The playlist comes from "youtube_playlist" in _config.yml.
+
+name: YouTube playlist sync
+
+on:
+  schedule:
+    - cron: "47 17 * * *"   # every day at 17:47 UTC (early morning in Sydney)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: youtube-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Fetch the playlist
+        run: |
+          set -euo pipefail
+
+          playlist=$(sed -n 's/^youtube_playlist:[[:space:]]*//p' _config.yml | tr -d "\"' \r")
+          if [ -z "$playlist" ]; then
+            echo "::error::youtube_playlist is not set in _config.yml"
+            exit 1
+          fi
+          echo "Playlist: $playlist"
+
+          # yt-dlp reads the public playlist page. --flat-playlist lists the videos
+          # without downloading anything.
+          pipx run yt-dlp --flat-playlist --dump-single-json \
+            "https://www.youtube.com/playlist?list=$playlist" > "$RUNNER_TEMP/playlist-raw.json"
+
+          # Keep the id and title of each video, in playlist order.
+          # Private and deleted videos are left out.
+          jq --arg playlist "$playlist" '
+            {
+              playlist: $playlist,
+              videos: [
+                .entries[]
+                | select(.id != null and .title != null)
+                | select(.title != "[Private video]" and .title != "[Deleted video]")
+                | { id: .id, title: .title }
+              ]
+            }
+          ' "$RUNNER_TEMP/playlist-raw.json" > "$RUNNER_TEMP/playlist.json"
+
+          count=$(jq '.videos | length' "$RUNNER_TEMP/playlist.json")
+          echo "Videos found: $count"
+
+          # An empty list means something went wrong. Keep the list the site already has.
+          if [ "$count" -eq 0 ]; then
+            echo "::error::No videos were found in the playlist. Nothing was changed."
+            exit 1
+          fi
+
+          cp "$RUNNER_TEMP/playlist.json" _data/playlist.json
+
+      - name: Commit if the list changed
+        run: |
+          if git diff --quiet -- _data/playlist.json; then
+            echo "No change."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add _data/playlist.json
+          git commit -m "Update video list from YouTube playlist"
+          git push

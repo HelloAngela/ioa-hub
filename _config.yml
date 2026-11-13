@@ -5,7 +5,7 @@ title: IOA Hub
 tagline: Interactive Oral Assessment Hub
 description: >-
   Videos, teaching resources and a catalog of people running interactive oral
-  assessment (IOA), led from the University of Sydney.
+  assessment (IOA), open to educators at any institution.
 lang: en-AU
 
 # --- Address of the site -------------------------------------------------
@@ -27,6 +27,8 @@ zenodo_community: ioa-hub
 
 # --- Fixed links ----------------------------------------------------------
 youtube_channel: "https://www.youtube.com/@OralAssessmentLibrary"
+# The playlist the Videos page and home page carousel are copied from (the part after "list=").
+youtube_playlist: PLJFJAoICnsnA
 
 # --- Build settings (no need to change) ------------------------------------
 markdown: kramdown
