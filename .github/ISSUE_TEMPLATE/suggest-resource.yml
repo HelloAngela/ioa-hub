@@ -1,0 +1,51 @@
+name: Suggest a video or resource, or report a problem
+description: Suggest a video or an informal resource for IOA Hub, or tell us about a mistake or broken link.
+title: "Suggestion: "
+labels: ["suggestion"]
+body:
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What is this about?
+      options:
+        - A video
+        - An informal resource (slides, workshop deck, draft)
+        - A problem with the site (broken link, mistake, accessibility)
+        - Something else
+    validations:
+      required: true
+  - type: input
+    id: title
+    attributes:
+      label: Title
+      description: The title of the video or resource, or a few words about the problem.
+    validations:
+      required: true
+  - type: input
+    id: link
+    attributes:
+      label: Link (optional)
+      description: Where we can see the video or resource, or the page with the problem.
+    validations:
+      required: false
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: Who made it, who it is for (staff, students or both), and why it is useful. For a problem, say what you expected and what you saw.
+    validations:
+      required: true
+  - type: input
+    id: licence
+    attributes:
+      label: Licence (optional)
+      description: For a resource you made. We recommend CC BY 4.0.
+    validations:
+      required: false
+  - type: checkboxes
+    id: permission
+    attributes:
+      label: Permission
+      options:
+        - label: If I am offering a video or resource, I have the right to share it
+          required: false

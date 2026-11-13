@@ -1,0 +1,7 @@
+# [PLACEHOLDER: GitHub username] Replace PLACEHOLDER-github-username in the link below.
+# When the ioahub.au domain is connected, change the link to https://ioahub.au/contribute/
+blank_issues_enabled: false
+contact_links:
+  - name: How to contribute
+    url: https://PLACEHOLDER-github-username.github.io/ioa-hub/contribute/
+    about: Read the three ways to contribute to IOA Hub, including a form that needs no GitHub account.

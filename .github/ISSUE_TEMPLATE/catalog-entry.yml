@@ -1,0 +1,112 @@
+name: Add me to the IOA catalog
+description: Add your details to the public catalog of people running interactive oral assessment (IOA).
+title: "Catalog entry: "
+labels: ["catalog"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for adding yourself. This issue is public, and the details below will be published on the IOA Hub catalog once we have checked them.
+        Leave optional fields empty if you do not want them published.
+  - type: input
+    id: name
+    attributes:
+      label: Name
+      description: As you want it shown, including a title such as Dr if you use one.
+    validations:
+      required: true
+  - type: input
+    id: title
+    attributes:
+      label: Position title
+      placeholder: Senior Lecturer
+    validations:
+      required: false
+  - type: input
+    id: institution
+    attributes:
+      label: Institution
+    validations:
+      required: true
+  - type: input
+    id: country
+    attributes:
+      label: Country
+    validations:
+      required: true
+  - type: input
+    id: faculty_or_school
+    attributes:
+      label: Faculty or school
+    validations:
+      required: false
+  - type: input
+    id: discipline
+    attributes:
+      label: Discipline
+      placeholder: Microbiology
+    validations:
+      required: true
+  - type: input
+    id: unit_code
+    attributes:
+      label: Unit code
+      description: The code of the unit (subject or course) that uses IOA.
+    validations:
+      required: false
+  - type: input
+    id: unit_name
+    attributes:
+      label: Unit name
+    validations:
+      required: false
+  - type: input
+    id: cohort_size
+    attributes:
+      label: Cohort size
+      description: About how many students take the IOA each time it runs. A number only.
+      placeholder: "450"
+    validations:
+      required: false
+  - type: input
+    id: year_started
+    attributes:
+      label: Year you started using IOA in this unit
+      placeholder: "2023"
+    validations:
+      required: false
+  - type: textarea
+    id: ioa_format
+    attributes:
+      label: IOA format
+      description: One sentence. For example, "10 minute one-to-one conversation, in person".
+    validations:
+      required: true
+  - type: input
+    id: contact_public
+    attributes:
+      label: Public contact (optional)
+      description: An email address or a link that people can use to contact you. It will be shown on the site. Leave empty to publish no contact.
+    validations:
+      required: false
+  - type: input
+    id: profile_url
+    attributes:
+      label: Profile link (optional)
+      description: Your staff profile page or similar.
+    validations:
+      required: false
+  - type: input
+    id: resource_url
+    attributes:
+      label: Resource link (optional)
+      description: A link to a rubric, guide or paper about your IOA.
+    validations:
+      required: false
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Consent
+      options:
+        - label: I agree to these details being published on IOA Hub
+          required: true
