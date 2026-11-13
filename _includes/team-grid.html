@@ -9,11 +9,11 @@
 {% if person.photo %}
 <img class="team-photo" src="{{ person.photo | prepend: '/images/team/' | relative_url }}" alt="{{ person.name | escape }}" width="160" height="160" loading="lazy">
 {% else %}
-{% assign parts = person.name | remove: "Dr " | remove: "Professor " | remove: "Prof " | split: " " %}
+{% assign parts = person.name | remove: "Dr " | remove: "Associate Professor " | remove: "Professor " | remove: "Prof " | split: " " %}
 <span class="team-photo team-photo--initials" aria-hidden="true">{{ parts.first | slice: 0 }}{% if parts.size > 1 %}{{ parts.last | slice: 0 }}{% endif %}</span>
 {% endif %}
 {% if person.link %}<a class="team-name" href="{{ person.link | escape }}">{{ person.name | escape }}</a>{% else %}<span class="team-name">{{ person.name | escape }}</span>{% endif %}
-<span class="team-role">{{ person.role | escape }}</span>
+{% if person.role %}<span class="team-role">{{ person.role | escape }}</span>{% endif %}
 <span class="team-unit">{{ person.unit | escape }}</span>
 </li>
 {% endif %}

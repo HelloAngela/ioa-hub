@@ -136,22 +136,22 @@ Also add `.github/ISSUE_TEMPLATE/config.yml` that disables blank issues and link
   unit: School of Life and Environmental Sciences, Faculty of Science
   photo: angela-sun.jpg
   group: Project team
-- name: Anne Rogerson
+- name: Dr Anne Rogerson
   role: Senior Lecturer
   unit: Faculty of Arts and Social Sciences
   photo: anne-rogerson.jpg
   group: Project team
-- name: Eszter Kalman
+- name: Associate Professor Eszter Kalman
   role: Associate Professor
   unit: Division of Teaching and Learning
   photo: eszter-kalman.jpg
   group: Project team
-- name: Adam Gall
+- name: Dr Adam Gall
   role: Learning Success Advisor
   unit: Learning Hub
   photo: adam-gall.jpg
   group: Project team
-- name: Alexandra García
+- name: Dr Alexandra García
   role: Learning Hub Lead
   unit: Academic Language and Learning, Learning Hub
   photo: alexandra-garcia.jpg
