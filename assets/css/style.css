@@ -380,6 +380,7 @@ img { max-width: 100%; height: auto; }
   padding: 0;
   list-style: none;
 }
+.stats[hidden], .catalog-table[hidden] { display: none; }
 .stats li {
   min-width: 9rem;
   padding: 1rem 1.5rem;
@@ -477,3 +478,45 @@ th[aria-sort="descending"] .sort-button::after { content: " \2193"; }
   .team-photo { width: 120px; height: 120px; }
   .team-photo--initials { font-size: 2.25rem; }
 }
+
+/* ---------- Video carousel (home page) ---------- */
+
+.carousel__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.carousel__controls { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; }
+.carousel__controls[hidden] { display: none; }
+.carousel__button {
+  width: 2.75rem; height: 2.75rem;
+  font: inherit;
+  font-size: 1.25rem;
+  line-height: 1;
+  color: var(--charcoal);
+  background: var(--white);
+  border: 2px solid var(--charcoal);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.carousel__button:hover:not(:disabled) { color: var(--white); background: var(--charcoal); }
+.carousel__button:disabled { opacity: 0.35; cursor: default; }
+
+.carousel__track {
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0.25rem 0.25rem 1rem;
+  list-style: none;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+}
+.carousel__track > li {
+  flex: 0 0 min(22rem, 82%);
+  scroll-snap-align: start;
+}
+.carousel__track .video-card h3 { font-size: 1.15rem; }
+.carousel__more { margin: 0.75rem 0 0; font-weight: 600; }
+.band--videos { padding-bottom: 3rem; }

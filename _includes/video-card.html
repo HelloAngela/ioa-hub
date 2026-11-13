@@ -15,6 +15,6 @@
 <li class="tag">{{ include.video.topic | capitalize | escape }}</li>
 </ul>
 {% if include.video.people %}<p class="card__meta">{{ include.video.people | escape }}</p>{% endif %}
-<p>{{ include.video.description | escape }}</p>
+{% if include.video.description %}<p>{{ include.video.description | escape }}</p>{% endif %}
 </div>
 </li>

@@ -1,25 +1,89 @@
-# Videos shown on the Videos page. Videos are hosted on YouTube, never in this repository.
+# Videos shown on the Videos page and in the carousel on the home page.
+# Videos are hosted on YouTube, never in this repository.
+# Playlist: https://www.youtube.com/playlist?list=PLJFJAoICnsnA
+#
+# The home page carousel shows the first 8 videos in this file, in this order.
+# Move an entry up to feature it.
 #
 # Each entry:
 #   title:       shown as the card heading
-#   youtube_id:  the part of the YouTube address after "v=", e.g. dQw4w9WgXcQ
-#   description: one or two sentences
+#   youtube_id:  the part of the YouTube address after "v=", e.g. Ebf5RcYbG-s
+#   description: (optional) one or two sentences
 #   audience:    staff / students / both
 #   topic:       one word, e.g. preparation, nerves, calibration, logistics
 #   people:      (optional) who appears in the video
 #
-# A card shows "Video coming soon" while youtube_id still contains PLACEHOLDER.
+# [PLACEHOLDER: Angela to check] The audience and topic of each video below were
+# guessed from its title. Change any that are wrong, and add descriptions if wanted.
 
-- title: Practice and preparation
-  youtube_id: "[PLACEHOLDER: YouTube ID]"
-  description: "[PLACEHOLDER: one or two sentences about what Mitch covers in this video.]"
-  audience: students
+- title: Asking students how the IOA felt
+  youtube_id: Ebf5RcYbG-s
+  audience: staff
+  topic: experience
+  people: Andy Tran
+
+- title: What students wish educators knew
+  youtube_id: iS2ySWJXPV8
+  audience: staff
+  topic: experience
+  people: Student perspectives
+
+- title: What orals reveal that written exams don't
+  youtube_id: SIYbvklkEJg
+  audience: both
+  topic: experience
+  people: Student perspectives
+
+- title: Running IOAs with experienced educators
+  youtube_id: d7SGUZ9rn5U
+  audience: staff
+  topic: logistics
+  people: Jess and Eszter
+
+- title: Preparing students and tutors for interactive oral assessments
+  youtube_id: GxhzbOMRQFc
+  audience: staff
   topic: preparation
-  people: Mitch, Science and Finance student, MIMI2002
+  people: Jiva, Ben and Anastasia
 
-- title: Helping students deal with nerves in interactive orals
-  youtube_id: "[PLACEHOLDER: YouTube ID]"
-  description: "[PLACEHOLDER: one or two sentences about what Anastasia, Ben and Jiva cover in this video.]"
+- title: Dealing with nerves in interactive orals
+  youtube_id: AA_7MCIMDqw
   audience: both
   topic: nerves
-  people: Anastasia, Ben and Jiva, WRIT1001
+  people: Anastasia, Ben and Jiva
+
+- title: Keeping marks consistent across a large team
+  youtube_id: XxhSkjwEdbk
+  audience: staff
+  topic: calibration
+  people: Helen McGuire and Mike Widjaja
+
+- title: Assessing communication with a three part rubric
+  youtube_id: rHvBHSwxlBM
+  audience: staff
+  topic: design
+  people: Kellie Charles
+
+- title: Preparing a first time teaching team for IOAs
+  youtube_id: u0PXFE3_MuU
+  audience: staff
+  topic: preparation
+  people: Arpita Das
+
+- title: Nervous and negative experience with IOA
+  youtube_id: zGD917j2vzc
+  audience: both
+  topic: nerves
+  people: Student perspective
+
+- title: Getting to know students through the IOA
+  youtube_id: Tu4Qj7aBDq4
+  audience: staff
+  topic: experience
+  people: Chris Preston
+
+- title: Building the IOA into a research capstone
+  youtube_id: PUs43RFhLY0
+  audience: staff
+  topic: design
+  people: Hao Zhou

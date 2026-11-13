@@ -2,6 +2,8 @@
 layout: default
 title: Home
 permalink: /
+scripts:
+  - videos.js
 ---
 <section class="hero">
 <div class="container">
@@ -11,7 +13,30 @@ permalink: /
 </div>
 </section>
 
-<section class="band" aria-labelledby="explore-heading">
+<section class="band band--videos" aria-labelledby="videos-heading">
+<div class="container">
+<div class="carousel" data-carousel>
+<div class="carousel__head">
+<div>
+<h2 id="videos-heading">Hear from staff and students</h2>
+<hr class="rule">
+</div>
+<div class="carousel__controls" hidden>
+<button type="button" class="carousel__button" data-carousel-previous aria-label="Previous videos"><span aria-hidden="true">&larr;</span></button>
+<button type="button" class="carousel__button" data-carousel-next aria-label="More videos"><span aria-hidden="true">&rarr;</span></button>
+</div>
+</div>
+<ul class="carousel__track" tabindex="0" aria-label="Featured videos">
+{% for video in site.data.videos limit: 8 %}
+{% include video-card.html video=video %}
+{% endfor %}
+</ul>
+<p class="carousel__more"><a href="{{ '/videos/' | relative_url }}">See all {{ site.data.videos.size }} videos</a></p>
+</div>
+</div>
+</section>
+
+<section class="band band--sandstone" aria-labelledby="explore-heading">
 <div class="container">
 <h2 id="explore-heading">What is on IOA Hub</h2>
 <hr class="rule">
@@ -35,7 +60,7 @@ permalink: /
 </div>
 </section>
 
-<section class="band band--sandstone" aria-labelledby="contribute-heading">
+<section class="band" aria-labelledby="contribute-heading">
 <div class="container">
 <h2 id="contribute-heading">Contribute</h2>
 <hr class="rule">
@@ -46,7 +71,7 @@ permalink: /
 </div>
 </section>
 
-<section class="band" aria-labelledby="led-heading">
+<section class="band band--sandstone" aria-labelledby="led-heading">
 <div class="container">
 <h2 id="led-heading">Led by the University of Sydney</h2>
 <hr class="rule">
