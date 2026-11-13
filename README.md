@@ -97,7 +97,7 @@ Only add people who have agreed to be listed with this photo and title.
 
 You need Ruby. Do this once:
 
-1. Download **Ruby+Devkit 3.3 (x64)** from <https://rubyinstaller.org/downloads/> and install it with the default options.
+1. Download **Ruby+Devkit (x64)** from <https://rubyinstaller.org/downloads/> and install it with the default options.
 2. On the last screen, leave "Run ridk install" ticked. In the window that opens, press Enter.
 3. Close and reopen VS Code.
 4. In the VS Code terminal, in this folder, run `bundle install`. It takes a few minutes.
@@ -116,7 +116,6 @@ Search the project for `PLACEHOLDER` to find them all.
 
 | What | Where |
 |---|---|
-| Your GitHub username | `_config.yml` (`github_username`) and `.github/ISSUE_TEMPLATE/config.yml` |
 | Google Form address for catalog entries | `_config.yml` (`google_form_url`) |
 | GoatCounter site code | `_config.yml` (`goatcounter_code`) |
 | Contact email shown on the Catalog and Contribute pages | `_config.yml` (`contact_email`) |

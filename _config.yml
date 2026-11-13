@@ -11,8 +11,7 @@ lang: en-AU
 # --- Address of the site -------------------------------------------------
 # Until the ioahub.au domain is connected, the site lives at
 # https://<github username>.github.io/ioa-hub
-# [PLACEHOLDER: GitHub username] Replace the text after the colon with your username.
-github_username: PLACEHOLDER-github-username
+github_username: HelloAngela
 url: ""            # leave empty until the domain is connected
 baseurl: "/ioa-hub"
 
