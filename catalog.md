@@ -3,12 +3,12 @@ layout: page
 title: Catalog
 permalink: /catalog/
 description: A searchable catalog of people running interactive oral assessment (IOA), by institution, country and discipline.
-lead: This catalog lists people running interactive oral assessment (IOA), with their unit, cohort size and format.
+lead: This catalog lists people running interactive oral assessment (IOA), with their unit, student numbers, weighting and how they run it.
 scripts:
   - catalog.js
 ---
 
-Everyone listed has agreed to be here. Use it to find someone in your discipline or country who has already run an IOA.
+Everyone listed has agreed to be here. Use it to find someone to contact who runs an IOA like yours, by institution, year level, number of students or length.
 
 {% include catalog-table.html %}
 

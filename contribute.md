@@ -8,7 +8,7 @@ lead: There are three ways to add to IOA Hub, the hub for interactive oral asses
 
 ## 1. Add yourself to the catalog
 
-The [catalog]({{ '/catalog/' | relative_url }}) lists people running an IOA. An entry has your name, institution, unit, cohort size and IOA format. A contact email or profile link is optional. We publish only what you agree to.
+The [catalog]({{ '/catalog/' | relative_url }}) lists people running an IOA. An entry has your name, institution, unit, year level, number of students, the length and weighting of the IOA, and a sentence or two on how you run it. A contact email or profile link is optional. We publish only what you agree to.
 
 **No GitHub account:** fill in the {% if site.google_form_url contains "PLACEHOLDER" %}catalog form ({{ site.google_form_url }}){% else %}<a href="{{ site.google_form_url }}">catalog form</a>{% endif %}. It takes about five minutes.
 

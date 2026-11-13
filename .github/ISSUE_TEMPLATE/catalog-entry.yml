@@ -60,12 +60,41 @@ body:
       label: Unit name
     validations:
       required: false
+  - type: dropdown
+    id: year_level
+    attributes:
+      label: Year level
+      options:
+        - 1st year
+        - 2nd year
+        - 3rd year
+        - 4th year or Honours
+        - Postgraduate
+        - Other
+    validations:
+      required: false
   - type: input
     id: cohort_size
     attributes:
-      label: Cohort size
+      label: Number of students
       description: About how many students take the IOA each time it runs. A number only.
       placeholder: "450"
+    validations:
+      required: false
+  - type: input
+    id: length_minutes
+    attributes:
+      label: Length of each IOA, in minutes
+      description: A number only.
+      placeholder: "10"
+    validations:
+      required: false
+  - type: input
+    id: weighting_percent
+    attributes:
+      label: Weighting, as a percentage of the unit mark
+      description: A number only.
+      placeholder: "30"
     validations:
       required: false
   - type: input
@@ -78,8 +107,8 @@ body:
   - type: textarea
     id: ioa_format
     attributes:
-      label: IOA format
-      description: One sentence. For example, "10 minute one-to-one conversation, in person".
+      label: How you run it
+      description: One or two sentences. For example, "One-to-one conversation in person, set in a hospital laboratory scenario. Six markers run sessions in parallel over one week."
     validations:
       required: true
   - type: input

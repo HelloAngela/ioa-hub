@@ -1,21 +1,27 @@
-<div class="catalog">
-{% comment %} Only rows with a consent date are published. The date itself is never shown. {% endcomment %}
-{% assign published = "" | split: "" %}
-{% for row in site.data.catalog %}
-{% assign consent = row.consent_date | strip %}
-{% if consent != "" %}{% assign published = published | push: row %}{% endif %}
-{% endfor %}
-{% assign institutions = published | map: "institution" | uniq %}
-{% assign countries = published | map: "country" | uniq %}
-<ul class="stats">
-<li><strong>{{ published.size }}</strong> {% if published.size == 1 %}entry{% else %}entries{% endif %}</li>
-<li><strong>{{ institutions.size }}</strong> {% if institutions.size == 1 %}institution{% else %}institutions{% endif %}</li>
-<li><strong>{{ countries.size }}</strong> {% if countries.size == 1 %}country{% else %}countries{% endif %}</li>
+{% comment %}
+  The catalog rows come from one of two places:
+  1. The public tab of the Google Sheet, when catalog_sheet_csv_url is filled in in _config.yml.
+     The page reads the sheet each time it is opened, so approved entries appear within minutes.
+  2. Otherwise, _data/catalog.csv (rows with a consent date only). The date itself is never shown.
+  assets/js/catalog.js builds the table from whichever is used.
+{% endcomment %}
+{% assign use_sheet = true %}
+{% if site.catalog_sheet_csv_url == nil or site.catalog_sheet_csv_url == "" or site.catalog_sheet_csv_url contains "PLACEHOLDER" %}{% assign use_sheet = false %}{% endif %}
+<div class="catalog" id="catalog"{% if use_sheet %} data-sheet-url="{{ site.catalog_sheet_csv_url | escape }}"{% endif %}>
+<noscript><p class="note">The catalog needs JavaScript to load. Turn JavaScript on in your browser, or email us for a copy of the list.</p></noscript>
+<ul class="stats" id="catalog-stats" hidden>
+<li><strong data-stat="entries">0</strong> <span>entries</span></li>
+<li><strong data-stat="institutions">0</strong> <span>institutions</span></li>
+<li><strong data-stat="countries">0</strong> <span>countries</span></li>
 </ul>
 <div class="filters filters--fields" id="catalog-filters" hidden>
 <div class="field">
 <label for="catalog-search">Search</label>
 <input type="search" id="catalog-search" autocomplete="off">
+</div>
+<div class="field">
+<label for="catalog-institution">Institution</label>
+<select id="catalog-institution" data-filter="institution"><option value="">All institutions</option></select>
 </div>
 <div class="field">
 <label for="catalog-country">Country</label>
@@ -26,43 +32,56 @@
 <select id="catalog-discipline" data-filter="discipline"><option value="">All disciplines</option></select>
 </div>
 <div class="field">
-<label for="catalog-institution">Institution</label>
-<select id="catalog-institution" data-filter="institution"><option value="">All institutions</option></select>
+<label for="catalog-year">Year level</label>
+<select id="catalog-year" data-filter="year"><option value="">All year levels</option></select>
+</div>
+<div class="field">
+<label for="catalog-students">Number of students</label>
+<select id="catalog-students" data-range="students">
+<option value="">Any number</option>
+<option value="0-99">Under 100</option>
+<option value="100-499">100 to 499</option>
+<option value="500-">500 or more</option>
+</select>
+</div>
+<div class="field">
+<label for="catalog-minutes">Length of assessment</label>
+<select id="catalog-minutes" data-range="minutes">
+<option value="">Any length</option>
+<option value="0-9">Under 10 minutes</option>
+<option value="10-15">10 to 15 minutes</option>
+<option value="16-">Over 15 minutes</option>
+</select>
 </div>
 </div>
 <p class="status" id="catalog-status" role="status"></p>
-<table class="catalog-table" id="catalog-table" role="table">
+<table class="catalog-table" id="catalog-table" role="table" hidden>
 <caption class="visually-hidden">People running interactive oral assessment</caption>
 <thead role="rowgroup">
 <tr role="row">
 <th scope="col" role="columnheader" data-sort="text">Name</th>
 <th scope="col" role="columnheader" data-sort="text">Institution</th>
-<th scope="col" role="columnheader" data-sort="text">Country</th>
 <th scope="col" role="columnheader" data-sort="text">Discipline</th>
 <th scope="col" role="columnheader" data-sort="text">Unit</th>
-<th scope="col" role="columnheader" data-sort="number">Cohort</th>
-<th scope="col" role="columnheader" data-sort="number">Started</th>
-<th scope="col" role="columnheader">Format</th>
+<th scope="col" role="columnheader" data-sort="number">Students</th>
+<th scope="col" role="columnheader" data-sort="number">Minutes</th>
+<th scope="col" role="columnheader" data-sort="number">Weighting</th>
+<th scope="col" role="columnheader">How it runs</th>
 <th scope="col" role="columnheader">Links</th>
 </tr>
 </thead>
-<tbody role="rowgroup">
-{% for row in published %}
-{% assign contact = row.contact_public | strip %}
-{% assign profile = row.profile_url | strip %}
-{% assign resource = row.resource_url | strip %}
-<tr role="row" data-country="{{ row.country | escape }}" data-discipline="{{ row.discipline | escape }}" data-institution="{{ row.institution | escape }}">
-<td role="cell" data-label="Name">{{ row.name | escape }}{% if row.title %}<span class="sub">{{ row.title | escape }}</span>{% endif %}</td>
-<td role="cell" data-label="Institution">{{ row.institution | escape }}{% if row.faculty_or_school %}<span class="sub">{{ row.faculty_or_school | escape }}</span>{% endif %}</td>
-<td role="cell" data-label="Country">{{ row.country | escape }}</td>
-<td role="cell" data-label="Discipline">{{ row.discipline | escape }}</td>
-<td role="cell" data-label="Unit">{{ row.unit_code | escape }}{% if row.unit_name %}<span class="sub">{{ row.unit_name | escape }}</span>{% endif %}</td>
-<td role="cell" data-label="Cohort">{{ row.cohort_size | escape }}</td>
-<td role="cell" data-label="Started">{{ row.year_started | escape }}</td>
-<td role="cell" data-label="Format">{{ row.ioa_format | escape }}</td>
-<td role="cell" data-label="Links">{% if contact != "" %}{% if contact contains "://" %}<a href="{{ contact | escape }}">Contact</a>{% elsif contact contains "@" %}<a href="mailto:{{ contact | escape }}">Email</a>{% else %}{{ contact | escape }}{% endif %}<span class="visually-hidden"> {{ row.name | escape }}</span>{% endif %}{% if profile != "" %}{% if contact != "" %}<br>{% endif %}<a href="{{ profile | escape }}">Profile<span class="visually-hidden"> of {{ row.name | escape }}</span></a>{% endif %}{% if resource != "" %}{% if contact != "" or profile != "" %}<br>{% endif %}<a href="{{ resource | escape }}">Resource<span class="visually-hidden"> from {{ row.name | escape }}</span></a>{% endif %}</td>
-</tr>
-{% endfor %}
-</tbody>
+<tbody role="rowgroup"></tbody>
 </table>
+{% unless use_sheet %}
+<script type="application/json" id="catalog-local">[
+{% assign first = true %}
+{% for row in site.data.catalog %}
+{% assign consent = row.consent_date | strip %}
+{% if consent != "" %}
+{% unless first %},{% endunless %}{% assign first = false %}
+{"name":{{ row.name | jsonify }},"title":{{ row.title | jsonify }},"institution":{{ row.institution | jsonify }},"country":{{ row.country | jsonify }},"faculty_or_school":{{ row.faculty_or_school | jsonify }},"discipline":{{ row.discipline | jsonify }},"unit_code":{{ row.unit_code | jsonify }},"unit_name":{{ row.unit_name | jsonify }},"year_level":{{ row.year_level | jsonify }},"cohort_size":{{ row.cohort_size | jsonify }},"length_minutes":{{ row.length_minutes | jsonify }},"weighting_percent":{{ row.weighting_percent | jsonify }},"year_started":{{ row.year_started | jsonify }},"ioa_format":{{ row.ioa_format | jsonify }},"contact_public":{{ row.contact_public | jsonify }},"profile_url":{{ row.profile_url | jsonify }},"resource_url":{{ row.resource_url | jsonify }}}
+{% endif %}
+{% endfor %}
+]</script>
+{% endunless %}
 </div>

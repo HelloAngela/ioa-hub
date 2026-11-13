@@ -20,7 +20,8 @@ Videos stay on YouTube. Open `_data/videos.yml` and add an entry at the bottom:
 - `youtube_id` is the part of the YouTube address after `v=`. For `https://www.youtube.com/watch?v=abc123XYZ00` it is `abc123XYZ00`.
 - `audience` is `staff`, `students` or `both`.
 - `topic` is one word. A new word adds a new filter button on the Videos page.
-- `people` is optional.
+- `description` and `people` are optional.
+- The home page carousel shows the first 8 videos in the file. Move an entry up to feature it.
 
 ## Add an informal resource
 
@@ -44,35 +45,73 @@ Videos stay on YouTube. Open `_data/videos.yml` and add an entry at the bottom:
 
 Citable resources are different. They live on Zenodo, and the site copies the list from Zenodo once a day. You do not add them here.
 
-## Add a catalog entry
+## The catalog: Google Form and Google Sheet
 
-Open `_data/catalog.csv` and add one line at the bottom. The columns are, in order:
+People submit a Google Form. Each response lands as a row in a Google Sheet. You tick an "Approved" box on the row, and the entry appears on the Catalog page within a few minutes. No file editing and no push.
+
+Only a second tab of the sheet, called `Public`, is published. It holds approved rows only, without the timestamp or the consent answer.
+
+### Set it up (once)
+
+**1. Make the form.** In Google Forms, add these questions in this exact order. The order matters.
+
+| # | Question | Type | Required |
+|---|---|---|---|
+| 1 | Name (as you want it shown) | Short answer | Yes |
+| 2 | Position title | Short answer | No |
+| 3 | Institution | Short answer | Yes |
+| 4 | Country | Short answer | Yes |
+| 5 | Faculty or school | Short answer | No |
+| 6 | Discipline | Short answer | Yes |
+| 7 | Unit code | Short answer | No |
+| 8 | Unit name | Short answer | No |
+| 9 | Year level | Dropdown: 1st year, 2nd year, 3rd year, 4th year or Honours, Postgraduate, Other | No |
+| 10 | Number of students (a number only) | Short answer, validation: number | No |
+| 11 | Length of each IOA in minutes (a number only) | Short answer, validation: number | No |
+| 12 | Weighting, as a percentage of the unit mark (a number only) | Short answer, validation: number | No |
+| 13 | Year you started using IOA in this unit | Short answer | No |
+| 14 | How you run it, in one or two sentences | Paragraph | Yes |
+| 15 | Public contact: an email or link that will be shown on the site (optional) | Short answer | No |
+| 16 | Profile link (optional) | Short answer | No |
+| 17 | Resource link (optional) | Short answer | No |
+| 18 | Consent | Checkboxes, one option: "I agree to these details being published on IOA Hub" | Yes |
+
+At the top of the form, say that the answers will be published on IOA Hub after a check. Do not turn on "Collect email addresses".
+
+**2. Link the sheet.** In the form's Responses tab, choose "Link to Sheets". The responses tab is called `Form responses 1`. Column A is the timestamp, B to R are questions 1 to 17, and S is consent.
+
+**3. Add the Approved column.** In `Form responses 1`, type `Approved` in cell T1. Select column T, then choose Insert > Tick box.
+
+**4. Add the Public tab.** Add a new tab and name it `Public`. Paste this into cell A1 (it fills row 1 with the column names):
 
 ```
-name,title,institution,country,faculty_or_school,discipline,unit_code,unit_name,cohort_size,year_started,ioa_format,contact_public,profile_url,resource_url,consent_date
+=SPLIT("name,title,institution,country,faculty_or_school,discipline,unit_code,unit_name,year_level,cohort_size,length_minutes,weighting_percent,year_started,ioa_format,contact_public,profile_url,resource_url", ",")
 ```
 
-Example:
+Paste this into cell A2 (it copies the approved rows):
 
 ```
-Dr Jane Citizen,Senior Lecturer,University of Somewhere,Australia,School of Chemistry,Chemistry,CHEM2001,Organic Chemistry,300,2024,"10 minute one-to-one conversation, in person",jane.citizen@somewhere.edu,https://somewhere.edu/jane,,2026-11-14
+=IFERROR(FILTER('Form responses 1'!B2:R, 'Form responses 1'!T2:T = TRUE), "")
 ```
 
-- Leave a field empty if you have nothing for it, but keep the comma.
-- If a value contains a comma, put double quotes around it, as in the format above.
-- `consent_date` is the date the person agreed to be listed, written as `YYYY-MM-DD`. **A row with no consent date is not shown on the site.** The date itself is never shown.
-- `contact_public` holds only what the person agreed to publish.
+**5. Publish the Public tab.** Choose File > Share > Publish to web. In the first box pick `Public` (not "Entire document"). In the second box pick "Comma-separated values (.csv)". Press Publish and copy the link.
 
-## Approve a catalog submission from an issue
+**6. Tell the site.** In `_config.yml`, paste that link as `catalog_sheet_csv_url` and the form's address as `google_form_url`. Commit and push.
 
-1. Open the issue on GitHub and read the details. Check the consent box is ticked.
-2. Add a line to `_data/catalog.csv` using the details in the issue (see above). Use the date of the issue as `consent_date`.
-3. Commit the change with a message such as `Add catalog entry for Jane Citizen`, and push.
-4. Comment on the issue to say the entry is live, then close it.
+Share the sheet with colleagues as editors if they will help approve. Never publish the `Form responses 1` tab.
 
-For Google Form submissions, do step 2 using the form response, with the date of the response as `consent_date`.
+### Approve, correct or remove an entry
 
-To remove someone, delete their line from `_data/catalog.csv`.
+- **Approve:** read the row in `Form responses 1`, then tick its Approved box. If a new row has no tick box, type `TRUE` in the cell instead.
+- **Correct:** edit the row in `Form responses 1`.
+- **Remove:** untick the Approved box, or delete the row.
+- **Submission from a GitHub issue:** type the details into a new row at the bottom of `Form responses 1` and tick Approved. Then comment on the issue and close it.
+
+Changes show on the site within about five minutes.
+
+### Before the sheet is connected
+
+Until `catalog_sheet_csv_url` is filled in, the Catalog page shows the `[SAMPLE]` rows in `_data/catalog.csv`. Once the sheet is connected, that file is no longer used.
 
 ## Add a team member
 
@@ -117,12 +156,13 @@ Search the project for `PLACEHOLDER` to find them all.
 | What | Where |
 |---|---|
 | Google Form address for catalog entries | `_config.yml` (`google_form_url`) |
+| Published link of the catalog sheet's Public tab | `_config.yml` (`catalog_sheet_csv_url`) |
 | GoatCounter site code | `_config.yml` (`goatcounter_code`) |
 | Contact email shown on the Catalog and Contribute pages | `_config.yml` (`contact_email`) |
 | Zenodo community name (currently `ioa-hub`) | `_config.yml` (`zenodo_community`) |
-| YouTube IDs and descriptions for the two videos | `_data/videos.yml` |
+| Audience and topic of each video (guessed from titles, to check) | `_data/videos.yml` |
 | Sample informal resources, marked `[SAMPLE]` | `_data/resources.yml` and `resources/files/` |
-| Sample catalog rows, marked `[SAMPLE]` | `_data/catalog.csv` |
+| Sample catalog rows, marked `[SAMPLE]` (shown until the sheet is connected) | `_data/catalog.csv` |
 
 A video card shows "Video coming soon" until its YouTube ID is filled in. Analytics stay off until the GoatCounter code is filled in.
 

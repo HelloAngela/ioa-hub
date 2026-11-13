@@ -226,3 +226,11 @@ When Angela asks to "build the starter site":
 - [ ] Consent from each team member to use their photo and title
 - [ ] Higher-resolution photo of Angela (the current one came from slides and is small)
 - [ ] Confirm the domain `ioahub.au` is purchased
+
+## 14. Decisions made after the first build (these override the sections above)
+
+- **Catalog data source (replaces part of 6.4 and 6.5):** submissions come through a Google Form into a Google Sheet. Angela ticks an "Approved" box, and a `Public` tab (approved rows, public columns only) is published as CSV. `assets/js/catalog.js` reads that CSV live when `catalog_sheet_csv_url` is set in `_config.yml`. Until then the page shows the `[SAMPLE]` rows in `_data/catalog.csv`. Setup steps are in `README.md`.
+- **Catalog columns:** `year_level`, `length_minutes` and `weighting_percent` were added. `ioa_format` is shown as "How it runs" (one or two sentences). Filters: institution, country, discipline, year level, number of students, length of assessment.
+- **Videos (adds to 6.1 and 6.2):** the home page has a video carousel directly under the introduction, showing the first 8 entries of `_data/videos.yml`. Videos come from the playlist `https://www.youtube.com/playlist?list=PLJFJAoICnsnA`. `description` is optional.
+- **Local preview (replaces part of 9):** Angela's computer has Ruby 4, which the `github-pages` gem does not support. The `Gemfile` uses `jekyll ~> 3.10.0` directly (the version GitHub Pages runs). Preview address: `http://localhost:4000/ioa-hub/`.
+- **GitHub:** the repository is `HelloAngela/ioa-hub`.

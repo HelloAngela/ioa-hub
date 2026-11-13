@@ -17,6 +17,9 @@ baseurl: "/ioa-hub"
 
 # --- Things Angela still needs to supply ----------------------------------
 google_form_url: "[PLACEHOLDER: Google Form URL]"
+# The "Publish to web" CSV link of the Public tab of the catalog Google Sheet (see README).
+# Until this is filled in, the Catalog page shows the sample rows in _data/catalog.csv.
+catalog_sheet_csv_url: "[PLACEHOLDER: published Google Sheet CSV link]"
 goatcounter_code: "[PLACEHOLDER: goatcounter code]"
 contact_email: "[PLACEHOLDER: contact email]"
 # Provisional. Change this once the Zenodo community is created.
