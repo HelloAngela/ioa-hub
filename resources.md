@@ -28,10 +28,6 @@ The Interactive Oral Exchange is a community of practice (CoP) hosted by the Uni
 
 <p><a class="button" href="https://bit.ly/IOAexchange" data-goatcounter-click="link: IOA Exchange">Interactive Oral Exchange information</a></p>
 
-## Workshops for University of Sydney staff
-
-The Division of Teaching and Learning runs IOA workshops. Search for "Interactive Oral Assessment" in Workday Learn to register.
-
 ## Share a resource
 
 The [Contribute page]({{ '/contribute/' | relative_url }}) explains how to publish a resource on Zenodo or suggest an informal one.
