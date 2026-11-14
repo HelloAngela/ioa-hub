@@ -1,21 +1,21 @@
 ---
 layout: page
-title: Catalog
+title: Catalogue
 permalink: /catalog/
-description: A searchable catalog of people running interactive oral assessment (IOA), by institution, country and discipline.
-lead: This catalog lists people running interactive oral assessment (IOA), with their unit, student numbers, weighting and how they run it.
+description: A searchable catalogue of educators using oral assessments, by assessment type, institution, country and discipline.
+lead: Find educators using interactive orals, viva-style examinations and hybrid oral assessment formats.
 scripts:
   - catalog.js
 ---
 
-Everyone listed has agreed to be here. Use it to find someone to contact who runs an IOA like yours, by institution, year level, number of students or length.
+Everyone listed has agreed to be here. Search by assessment type, institution, year level, student numbers or assessment length to find an educator using an oral assessment format like yours.
 
 {% include catalog-table.html %}
 
 ## Add yourself
 
-If you run an IOA, you can add your own entry. The [Contribute page]({{ '/contribute/' | relative_url }}) has a short form.
+If you run an oral assessment, you can add your own entry to the catalogue. The [Contribute page]({{ '/contribute/' | relative_url }}) has a short form.
 
 ## Ask for removal or a correction
 
-[Open an issue on GitHub](https://github.com/{{ site.github_username }}/ioa-hub/issues/new/choose) or email {{ site.contact_email }}. We will remove or correct your entry.
+{% if site.intake_form_url contains "PLACEHOLDER" %}Use the shared team request form once it is set up to ask for a removal or correction.{% else %}[Ask the team to remove or correct your entry]({{ site.intake_form_url }}).{% endif %} Include the institution and name shown in the catalogue so we can find it.

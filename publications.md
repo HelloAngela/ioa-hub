@@ -2,12 +2,16 @@
 layout: page
 title: Publications
 permalink: /publications/
-description: Articles and posts about interactive oral assessment (IOA), published elsewhere and listed in one place.
-lead: These articles and posts about interactive oral assessment (IOA) are published on other sites. Each title links to the original.
+description: Articles and posts about oral assessment, published elsewhere and listed in one place.
+lead: These articles and posts about oral assessment are published on other sites. Each title links to the original. Most current entries are about interactive oral assessment (IOA).
 ---
 
 {% include publication-list.html %}
 
+## Related website
+
+[IO Assessment](https://ioassessment.wordpress.com/) shares guidance and examples for designing and running interactive oral assessments.
+
 ## Suggest a publication
 
-If you have written or read something that belongs here, [send us the link]({{ '/contribute/' | relative_url }}). It can be a journal article, a blog post or a guide from any institution. You do not need to upload anything.
+If you have written or read something that belongs here, {% if site.intake_form_url contains "PLACEHOLDER" %}use the shared team request form once it is set up.{% else %}[send the team a suggestion]({{ site.intake_form_url }}).{% endif %} A link is all we need. It can be a journal article, a blog post or a guide from any institution.

@@ -7,7 +7,7 @@ You may copy, share and adapt this material for any purpose, including commercia
 - Licence summary: <https://creativecommons.org/licenses/by/4.0/>
 - Full legal text: <https://creativecommons.org/licenses/by/4.0/legalcode>
 
-Suggested credit: "IOA Hub, developed by Dr Angela Sun, CC BY 4.0."
+Suggested credit: "IOA Hub resources were developed by the Advanced HE IOA team and are maintained by Dr Angela Sun, CC BY 4.0."
 
 ## What this licence does not cover
 

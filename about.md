@@ -3,12 +3,12 @@ layout: page
 title: About
 permalink: /about/
 description: Why IOA Hub exists, who developed it and the team behind it.
-lead: IOA Hub is a public collection of videos, resources and contacts for interactive oral assessment (IOA), open to educators at any institution.
+lead: IOA Hub brings together oral assessment resources and examples, and connects educators who want to share their practice.
 ---
 
-IOA is used in many institutions, but the videos, guides and contacts are scattered. IOA Hub puts them in one public place, so that educators can find working examples and the people behind them.
+Oral assessments take many forms. This site helps educators find examples, share resources and learn from one another. It includes interactive oral assessments (IOAs), viva-style examinations and hybrid approaches. The catalogue includes educators working across these formats.
 
-The site was developed by Dr Angela Sun. Anyone running an IOA can [add to it]({{ '/contribute/' | relative_url }}).
+IOA Hub resources were developed by the Advanced HE IOA team and are maintained by Dr Angela Sun. Educators can [add an oral assessment to the catalogue]({{ '/contribute/' | relative_url }}).
 
 ## Team
 
@@ -18,7 +18,7 @@ These people planned IOA Hub and made its videos and resources.
 
 ## Acknowledgement
 
-IOA Hub started at the University of Sydney with a Community and Leadership grant, "Creating Space for Collective Leadership". The project has 18 collaborators across Science, the Faculty of Arts and Social Sciences, the Division of Teaching and Learning and the Learning Hub. Six of them are students.
+This work was supported by a 2026 Seed and Scale Grant from the University of Sydney’s Community and Leadership Portfolio. The funded project, “Creating Space for Collective Leadership: Cross-Portfolio Pilot for Translational Assessment Practice”, brought together 18 collaborators from Science, the Faculty of Arts and Social Sciences, the Division of Teaching and Learning and the Learning Hub, including six students. We thank everyone who contributed.
 
 ## Licence
 

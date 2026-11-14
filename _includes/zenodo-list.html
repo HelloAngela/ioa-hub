@@ -1,27 +1,22 @@
 <div class="zenodo-list">
 {% assign records = site.data.zenodo.records %}
 {% if records and records.size > 0 %}
-<ul class="grid">
+<ul class="pub-list zenodo-list__items">
 {% for record in records %}
 {% assign year = record.publication_date | slice: 0, 4 %}
 {% assign authors = record.creators | join: "; " %}
-<li class="card">
-<h3>{{ record.title | escape }}</h3>
+<li>
+<span class="pub-title">{{ record.title | escape }}</span>
 <ul class="tags">
 {% if record.resource_type %}<li class="tag">{{ record.resource_type | escape }}</li>{% endif %}
-<li class="tag tag--navy">{% if record.licence %}{{ record.licence | upcase | escape }}{% else %}Licence not stated{% endif %}</li>
+<li class="tag">{% if record.licence %}{{ record.licence | upcase | escape }}{% else %}Licence not stated{% endif %}</li>
 </ul>
-<p class="card__meta">{{ authors | escape }}{% if year != "" %} ({{ year }}){% endif %}</p>
-{% if record.description %}<p>{{ record.description | escape }}</p>{% endif %}
-<p class="card__meta"><strong>How to cite:</strong> {{ authors | escape }} ({{ year }}). <em>{{ record.title | escape }}</em>. Zenodo.{% if record.doi %} https://doi.org/{{ record.doi | escape }}{% endif %}</p>
-{% if record.downloads or record.views %}<p class="card__meta">{% if record.views %}{{ record.views }} views{% endif %}{% if record.downloads and record.views %}, {% endif %}{% if record.downloads %}{{ record.downloads }} downloads{% endif %}</p>{% endif %}
-<p class="card__action">
+<p class="pub-meta">{{ authors | escape }}{% if year != "" %} ({{ year }}){% endif %}</p>
 {% if record.doi %}
 <a href="https://doi.org/{{ record.doi | escape }}" data-goatcounter-click="zenodo: {{ record.doi | escape }}" data-goatcounter-title="{{ record.title | escape }}">Cite / DOI<span class="visually-hidden">: {{ record.title | escape }}</span></a>
 {% else %}
 <a href="{{ record.url | escape }}" data-goatcounter-click="zenodo: {{ record.url | escape }}" data-goatcounter-title="{{ record.title | escape }}">View on Zenodo<span class="visually-hidden">: {{ record.title | escape }}</span></a>
 {% endif %}
-</p>
 </li>
 {% endfor %}
 </ul>

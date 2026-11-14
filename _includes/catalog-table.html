@@ -1,5 +1,5 @@
 {% comment %}
-  The catalog rows come from one of two places:
+  The catalogue rows come from one of two places:
   1. The public tab of the Google Sheet, when catalog_sheet_csv_url is filled in in _config.yml.
      The page reads the sheet each time it is opened, so approved entries appear within minutes.
   2. Otherwise, _data/catalog.csv (rows with a consent date only). The date itself is never shown.
@@ -8,7 +8,7 @@
 {% assign use_sheet = true %}
 {% if site.catalog_sheet_csv_url == nil or site.catalog_sheet_csv_url == "" or site.catalog_sheet_csv_url contains "PLACEHOLDER" %}{% assign use_sheet = false %}{% endif %}
 <div class="catalog" id="catalog"{% if use_sheet %} data-sheet-url="{{ site.catalog_sheet_csv_url | escape }}"{% endif %}>
-<noscript><p class="note">The catalog needs JavaScript to load. Turn JavaScript on in your browser, or email us for a copy of the list.</p></noscript>
+<noscript><p class="note">The catalogue needs JavaScript to load. Turn JavaScript on in your browser{% unless site.intake_form_url contains "PLACEHOLDER" %}, or <a href="{{ site.intake_form_url }}">ask the team for help</a>{% endunless %}.</p></noscript>
 <ul class="stats" id="catalog-stats" hidden>
 <li><strong data-stat="entries">0</strong> <span>entries</span></li>
 <li><strong data-stat="institutions">0</strong> <span>institutions</span></li>
@@ -30,6 +30,10 @@
 <div class="field">
 <label for="catalog-discipline">Discipline</label>
 <select id="catalog-discipline" data-filter="discipline"><option value="">All disciplines</option></select>
+</div>
+<div class="field">
+<label for="catalog-assessment-type">Assessment type</label>
+<select id="catalog-assessment-type" data-filter="assessment_type"><option value="">All assessment types</option></select>
 </div>
 <div class="field">
 <label for="catalog-year">Year level</label>
@@ -56,12 +60,13 @@
 </div>
 <p class="status" id="catalog-status" role="status"></p>
 <table class="catalog-table" id="catalog-table" role="table" hidden>
-<caption class="visually-hidden">People running interactive oral assessment</caption>
+<caption class="visually-hidden">Educators using oral assessment</caption>
 <thead role="rowgroup">
 <tr role="row">
 <th scope="col" role="columnheader" data-sort="text">Name</th>
 <th scope="col" role="columnheader" data-sort="text">Institution</th>
 <th scope="col" role="columnheader" data-sort="text">Discipline</th>
+<th scope="col" role="columnheader" data-sort="text">Assessment type</th>
 <th scope="col" role="columnheader" data-sort="text">Unit</th>
 <th scope="col" role="columnheader" data-sort="number">Students</th>
 <th scope="col" role="columnheader" data-sort="number">Minutes</th>
@@ -79,7 +84,7 @@
 {% assign consent = row.consent_date | strip %}
 {% if consent != "" %}
 {% unless first %},{% endunless %}{% assign first = false %}
-{"name":{{ row.name | jsonify }},"title":{{ row.title | jsonify }},"institution":{{ row.institution | jsonify }},"country":{{ row.country | jsonify }},"faculty_or_school":{{ row.faculty_or_school | jsonify }},"discipline":{{ row.discipline | jsonify }},"unit_code":{{ row.unit_code | jsonify }},"unit_name":{{ row.unit_name | jsonify }},"year_level":{{ row.year_level | jsonify }},"cohort_size":{{ row.cohort_size | jsonify }},"length_minutes":{{ row.length_minutes | jsonify }},"weighting_percent":{{ row.weighting_percent | jsonify }},"year_started":{{ row.year_started | jsonify }},"ioa_format":{{ row.ioa_format | jsonify }},"contact_public":{{ row.contact_public | jsonify }},"profile_url":{{ row.profile_url | jsonify }},"resource_url":{{ row.resource_url | jsonify }}}
+{"name":{{ row.name | jsonify }},"title":{{ row.title | jsonify }},"institution":{{ row.institution | jsonify }},"country":{{ row.country | jsonify }},"faculty_or_school":{{ row.faculty_or_school | jsonify }},"discipline":{{ row.discipline | jsonify }},"unit_code":{{ row.unit_code | jsonify }},"unit_name":{{ row.unit_name | jsonify }},"year_level":{{ row.year_level | jsonify }},"assessment_type":{{ row.assessment_type | jsonify }},"cohort_size":{{ row.cohort_size | jsonify }},"length_minutes":{{ row.length_minutes | jsonify }},"weighting_percent":{{ row.weighting_percent | jsonify }},"year_started":{{ row.year_started | jsonify }},"assessment_format":{{ row.assessment_format | jsonify }},"contact_public":{{ row.contact_public | jsonify }},"profile_url":{{ row.profile_url | jsonify }},"resource_url":{{ row.resource_url | jsonify }}}
 {% endif %}
 {% endfor %}
 ]</script>

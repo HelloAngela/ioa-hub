@@ -2,7 +2,7 @@
 layout: default
 ---
 <div class="container page">
-  <h1>{{ page.title | escape }}</h1>
+  <h1>{{ page.title | escape }}{% if page.subtitle %}<span class="accent">{{ page.subtitle | escape }}</span>{% endif %}</h1>
   {% if page.lead %}<p class="lead">{{ page.lead }}</p>{% endif %}
   {{ content }}
 </div>

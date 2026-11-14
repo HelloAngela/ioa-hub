@@ -1,4 +1,4 @@
-// Catalog page: loads the entries, builds the table, and runs the search,
+// Catalogue page: loads the entries, builds the table, and runs the search,
 // filters and sortable columns.
 //
 // The entries come from the public tab of the Google Sheet (if its link is set
@@ -123,17 +123,19 @@
     tr.setAttribute("data-country", clean(entry.country));
     tr.setAttribute("data-discipline", clean(entry.discipline));
     tr.setAttribute("data-year", clean(entry.year_level));
+    tr.setAttribute("data-assessment_type", clean(entry.assessment_type));
     if (students !== null) tr.setAttribute("data-students", students);
     if (minutes !== null) tr.setAttribute("data-minutes", minutes);
 
     tr.appendChild(cell("Name", name, [clean(entry.title)]));
     tr.appendChild(cell("Institution", clean(entry.institution), [clean(entry.faculty_or_school), clean(entry.country)]));
     tr.appendChild(cell("Discipline", clean(entry.discipline)));
+    tr.appendChild(cell("Assessment type", clean(entry.assessment_type)));
     tr.appendChild(cell("Unit", clean(entry.unit_code), [clean(entry.unit_name), clean(entry.year_level), started ? "Since " + started : ""]));
     tr.appendChild(cell("Students", students === null ? "" : String(students)));
     tr.appendChild(cell("Minutes", minutes === null ? "" : String(minutes)));
     tr.appendChild(cell("Weighting", weighting === null ? "" : weighting + "%"));
-    tr.appendChild(cell("How it runs", clean(entry.ioa_format)));
+    tr.appendChild(cell("How it runs", clean(entry.assessment_format)));
     tr.appendChild(linksCell(entry, name));
     return tr;
   }
@@ -265,7 +267,7 @@
   var local = document.getElementById("catalog-local");
 
   if (sheetUrl) {
-    status.textContent = "Loading the catalog…";
+    status.textContent = "Loading the catalogue…";
     fetch(sheetUrl)
       .then(function (response) {
         if (!response.ok) throw new Error("HTTP " + response.status);
@@ -273,7 +275,7 @@
       })
       .then(function (text) { show(csvToEntries(text)); })
       .catch(function () {
-        status.textContent = "The catalog could not be loaded. Please try again later.";
+        status.textContent = "The catalogue could not be loaded. Please try again later.";
       });
   } else if (local) {
     show(JSON.parse(local.textContent));

@@ -2,31 +2,31 @@
 layout: page
 title: Resources
 permalink: /resources/
-description: Citable guides, rubrics and frameworks for interactive oral assessment (IOA), informal training slides and a community of practice.
-lead: Resources for designing, running and marking interactive oral assessment (IOA), and a community of practice to join.
+description: Citable guides, rubrics and frameworks for oral assessment, informal training slides and a community of practice.
+lead: Guides, examples, publications and training materials for oral assessment, from interactive oral assessment (IOA) to viva-style and hybrid formats.
 ---
 
-## Citable resources
+## Guides and frameworks
 
-These guides, rubrics and frameworks are published on [Zenodo](https://zenodo.org/communities/{{ site.zenodo_community }}), a free research repository. Each one has a DOI, a permanent link you can cite. Each keeps the licence its authors chose.
+These guides, rubrics and frameworks are shared as formal publications through [Zenodo](https://zenodo.org/communities/{{ site.zenodo_community }}), a free research repository run by CERN (the European Organization for Nuclear Research). Published records have a DOI. Requests to include records in the IOA Hub community are reviewed by its moderators; accepted records will appear here automatically.
 
 {% include zenodo-list.html %}
 
-## Informal resources
+## Shared materials
 
-These are training slides, workshop decks and drafts. They may change or be removed. They are licensed CC BY 4.0 unless the resource says otherwise.
+These are draft and working materials, such as training slides, workshop decks and templates, shared as supplied. The team manages the files through GitHub and can update or remove them on request. Please check the [Contribute page]({{ '/contribute/' | relative_url }}) before sending material to share. Unless a resource says otherwise, it is licensed CC BY 4.0.
 
 {% include resource-list.html %}
 
 ## Publications
 
-Articles and posts about IOA that are already published elsewhere are listed on the [Publications page]({{ '/publications/' | relative_url }}).
+Articles and posts about oral assessment are listed on the [Publications page]({{ '/publications/' | relative_url }}). Most current entries discuss interactive oral assessment (IOA).
 
-## Join the Interactive Oral Exchange
+## Interactive Oral Exchange community
 
-The Interactive Oral Exchange is a community of practice for staff who run an IOA or plan to. It is open to people at any institution. Members share what they do and ask each other questions.
+The Interactive Oral Exchange is a community of practice (CoP) hosted by the University of Sydney. Educators from any institution are welcome to share experiences, ask questions and learn from one another.
 
-<p><a class="button" href="https://bit.ly/IOAexchange" data-goatcounter-click="link: IOA Exchange">Join the Interactive Oral Exchange</a></p>
+<p><a class="button" href="https://bit.ly/IOAexchange" data-goatcounter-click="link: IOA Exchange">Interactive Oral Exchange information</a></p>
 
 ## Workshops for University of Sydney staff
 

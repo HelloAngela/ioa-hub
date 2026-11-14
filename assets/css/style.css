@@ -1,19 +1,18 @@
 /* IOA Hub stylesheet.
-   Colours: University of Sydney Branding Document V2.0 (see CLAUDE.md section 5).
+   Brand implementation: docs/brand/brand-notes.md.
    Always use the variables below, not raw hex values. */
 
 :root {
-  --ochre: #E74726;        /* large text (24px+, or 19px bold) and non-text only */
+  --ochre: #E64626;        /* large text (24px+, or 18px bold) and non-text only */
   --ochre-dark: #B8341A;   /* links and small accent text */
   --charcoal: #424242;
+  --black: #000000;
   --white: #FFFFFF;
-  --sandstone: #FBEEE2;
-  --grey-light: #E6E7E9;
-  --navy: #1B355E;
-  --eucalypt: #71A499;     /* borders and tags only, never text */
+  --sandstone: #FCEDE2;
+  --grey-light: #F1F1F1;
 
-  --font-heading: "Source Serif 4", Georgia, "Times New Roman", serif;
   --font-body: "Source Sans 3", "Segoe UI", Arial, sans-serif;
+  --font-accent: "Newsreader", Georgia, "Times New Roman", serif;
 
   --container: 72rem;
   --prose: 44rem;
@@ -36,8 +35,8 @@ body {
 }
 
 h1, h2, h3 {
-  font-family: var(--font-heading);
-  font-weight: 700;
+  font-family: var(--font-body);
+  font-weight: 600;
   line-height: 1.2;
   margin: 2.5rem 0 0.75rem;
 }
@@ -53,7 +52,7 @@ a:hover { text-decoration-thickness: 2px; }
 img { max-width: 100%; height: auto; }
 
 :focus-visible {
-  outline: 3px solid var(--navy);
+  outline: 3px solid var(--black);
   outline-offset: 2px;
 }
 
@@ -103,13 +102,13 @@ img { max-width: 100%; height: auto; }
 .site-title { text-decoration: none; color: var(--charcoal); }
 .site-title__name {
   display: block;
-  font-family: var(--font-heading);
-  font-weight: 700;
+  font-family: var(--font-body);
+  font-weight: 600;
   font-size: 1.6rem;
   line-height: 1.1;
   color: var(--ochre);
 }
-.site-title__tagline { display: block; font-size: 0.9rem; }
+.site-title__tagline { display: block; font-family: var(--font-accent); font-style: italic; font-size: 0.9rem; }
 
 .site-nav ul {
   display: flex;
@@ -161,9 +160,9 @@ img { max-width: 100%; height: auto; }
 /* ---------- Footer ---------- */
 
 .site-footer {
-  margin-top: 4rem;
-  padding: 2.5rem 0 2rem;
-  background: var(--navy);
+  margin-top: 3rem;
+  padding: 1.5rem 0 1.25rem;
+  background: var(--charcoal);
   color: var(--white);
 }
 .site-footer a { color: var(--white); }
@@ -171,18 +170,22 @@ img { max-width: 100%; height: auto; }
 .site-footer__links {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem 2rem;
+  gap: 0.25rem 1.5rem;
+  margin-bottom: 0.5rem;
   padding: 0;
   list-style: none;
 }
-.site-footer__small { font-size: 0.95rem; margin-bottom: 0; }
-.site-footer__credit { font-size: 0.8rem; margin-bottom: 0.75rem; }
+.site-footer__small { font-size: 0.85rem; line-height: 1.4; margin-bottom: 0; }
+.site-footer__credit { font-size: 0.85rem; margin-bottom: 0.4rem; }
 
 /* ---------- Page layout ---------- */
 
 .page { padding-top: 3rem; }
 .page > p, .page > ul, .page > ol, .page > h2, .page > h3 { max-width: var(--prose); }
 .lead { font-size: 1.3rem; max-width: var(--prose); }
+.lead, .accent, .team-role { font-family: var(--font-accent); font-weight: 400; }
+.accent, .team-role { font-style: italic; }
+.accent { display: block; }
 
 .band { padding: 3.5rem 0; }
 .band--sandstone { background: var(--sandstone); }
@@ -207,20 +210,24 @@ img { max-width: 100%; height: auto; }
 
 /* ---------- Home ---------- */
 
-.hero { padding: 4.5rem 0 4rem; background: var(--sandstone); }
-.hero h1 { font-size: 3rem; max-width: 20ch; }
-.hero p { max-width: var(--prose); font-size: 1.25rem; }
+.hero { padding: 2.25rem 0 2rem; background: var(--sandstone); }
+.hero h1 { font-size: 2.25rem; max-width: 28ch; }
+.hero p { max-width: var(--prose); font-size: 1.05rem; line-height: 1.45; }
 .hero p:last-child { margin-bottom: 0; }
+.band--videos { padding-top: 2rem; }
+.band--videos h2 { margin-top: 0; }
 
 @media (max-width: 47.99rem) {
   h1 { font-size: 2rem; }
-  .hero { padding: 3rem 0 2.5rem; }
-  .hero h1 { font-size: 2.25rem; }
+  .hero { padding: 1.5rem 0; }
+  .hero h1 { font-size: 1.8rem; }
+  .hero p { font-size: 1rem; }
+  .band--videos { padding-top: 1.5rem; }
 }
 
 /* ---------- Buttons ---------- */
 
-/* White on ochre is 3.9:1, so button text must stay at 19px bold or larger. */
+/* White on ochre is low contrast, so button text must stay large and bold. */
 .button {
   display: inline-block;
   padding: 0.65rem 1.5rem;
@@ -271,12 +278,11 @@ img { max-width: 100%; height: auto; }
   border-radius: 999px;
   color: var(--charcoal);
   background: var(--white);
-  border: 2px solid var(--eucalypt);
+  border: 2px solid var(--charcoal);
 }
-.tag--navy { color: var(--white); background: var(--navy); border-color: var(--navy); }
 .tag--draft { border-color: var(--ochre); }
 
-/* ---------- Filters (videos and catalog) ---------- */
+/* ---------- Filters (videos and catalogue) ---------- */
 
 .filters { margin: 1.5rem 0 0.5rem; }
 .filters[hidden] { display: none; }
@@ -335,7 +341,7 @@ img { max-width: 100%; height: auto; }
   position: relative;
   display: block;
   aspect-ratio: 16 / 9;
-  background: var(--navy);
+  background: var(--charcoal);
   color: var(--white);
 }
 .video-frame img, .video-frame iframe {
@@ -371,7 +377,7 @@ img { max-width: 100%; height: auto; }
   font-weight: 600;
 }
 
-/* ---------- Catalog ---------- */
+/* ---------- Catalogue ---------- */
 
 .stats {
   display: flex;
@@ -390,7 +396,7 @@ img { max-width: 100%; height: auto; }
 }
 .stats strong {
   display: block;
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   font-size: 2.25rem;
   line-height: 1.1;
   color: var(--ochre);
@@ -466,7 +472,7 @@ th[aria-sort="descending"] .sort-button::after { content: " \2193"; }
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   font-weight: 700;
   font-size: 3rem;
   color: var(--charcoal);

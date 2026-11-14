@@ -19,7 +19,7 @@
 <h3>{{ v_title | escape }}</h3>
 {% if extra.audience or extra.topic %}
 <ul class="tags">
-{% if extra.audience %}<li class="tag tag--navy">{% if extra.audience == "both" %}Staff and students{% else %}For {{ extra.audience | escape }}{% endif %}</li>{% endif %}
+{% if extra.audience %}<li class="tag">{% if extra.audience == "both" %}Staff and students{% else %}For {{ extra.audience | escape }}{% endif %}</li>{% endif %}
 {% if extra.topic %}<li class="tag">{{ extra.topic | capitalize | escape }}</li>{% endif %}
 </ul>
 {% endif %}
