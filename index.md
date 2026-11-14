@@ -48,8 +48,8 @@ scripts:
 </li>
 <li class="card">
 <h3>Resources</h3>
-<p>Guides, rubrics, publications, training slides and other shared materials.</p>
-<p class="card__action"><a href="{{ '/resources/' | relative_url }}">Resources and publications</a></p>
+<p>Guides, rubrics, training slides and other shared materials.</p>
+<p class="card__action"><a href="{{ '/resources/' | relative_url }}">Resources</a></p>
 </li>
 <li class="card">
 <h3>Catalogue</h3>
@@ -60,13 +60,23 @@ scripts:
 </div>
 </section>
 
-<section class="band" aria-labelledby="contribute-heading">
+<section class="band" aria-labelledby="exchange-heading">
 <div class="container">
-<h2 id="contribute-heading">Sharing and community</h2>
+<h2 id="exchange-heading">Interactive Oral Exchange community</h2>
+<hr class="rule">
+<div class="prose">
+<p>The Interactive Oral Exchange is a community of practice (CoP) hosted by the University of Sydney. Educators from any institution are welcome to share experiences, ask questions and learn from one another.</p>
+<p><a class="button" href="https://bit.ly/IOAexchange" data-goatcounter-click="link: IOA Exchange">Interactive Oral Exchange information</a></p>
+</div>
+</div>
+</section>
+
+<section class="band band--sandstone" aria-labelledby="contribute-heading">
+<div class="container">
+<h2 id="contribute-heading">Sharing</h2>
 <hr class="rule">
 <div class="prose">
 <p>Educators can add an oral assessment to the catalogue or share a resource or example with others.</p>
-<p>The <a href="https://bit.ly/IOAexchange">Interactive Oral Exchange</a> is a community of practice hosted by the University of Sydney. Educators from any institution are welcome.</p>
 <p><a class="button" href="{{ '/contribute/' | relative_url }}">Sharing resources</a></p>
 </div>
 </div>
