@@ -1,10 +1,10 @@
-# IOA Hub — instructions for AI coding assistants
+# IOA Commons — instructions for AI coding assistants
 
 This file tells any AI coding assistant (Claude Code, Codex, Copilot, Cursor, Gemini and others) what this website is, how it is built, and how Angela wants it done. Read it at the start of every session. If an instruction here conflicts with a request in the chat, follow the chat and suggest updating this file.
 
 ## 1. What this site is
 
-**IOA Hub** (Interactive Oral Assessment Hub) is a public website about oral assessment across higher education. It collects videos, teaching resources and educator examples, including interactive oral assessment (IOA), viva-style examinations and hybrid formats. The catalogue includes educators using these oral assessment formats.
+**IOA Commons** (Interactive Oral Assessment Commons) is a public website about oral assessment across higher education. It collects videos, teaching resources and educator examples, including interactive oral assessment (IOA), viva-style examinations and hybrid formats. The catalogue includes educators using these oral assessment formats.
 
 - **Owner:** Dr Angela Sun, Lecturer (Education-focused), School of Life and Environmental Sciences, University of Sydney.
 - **Led from:** the University of Sydney, with a cross-portfolio team from Science, FASS, the Division of Teaching and Learning (DTL) and the Learning Hub.
@@ -60,11 +60,11 @@ Define these as CSS variables in `:root` and use the variables everywhere. The f
 - Headings, body and UI: **Source Sans 3** (weights 400, 600, 700)
 - Short accents and page leads: **Newsreader** (weight 400; italic for accents)
 
-Headings use the sans serif. Keep the serif to short accents, never long body text. IOA Hub is not formally affiliated with the University and must not use its crest, logo, licensed fonts or protected tagline.
+Headings use the sans serif. Keep the serif to short accents, never long body text. IOA Commons is not formally affiliated with the University and must not use its crest, logo, licensed fonts or protected tagline.
 
 **Look and feel:** minimal, lots of white space, sandstone section bands, ochre used as an accent rather than a flood. The 2026 IOA talk slides use a sandstone background with circular headshots and a serif title; match that feel.
 
-**Footer on every page:** "IOA Hub is led by Dr Angela Sun at the University of Sydney." plus links to the About page, the GitHub repository, and the content licence.
+**Footer on every page:** "IOA Commons is led by Dr Angela Sun at the University of Sydney." plus links to the About page, the GitHub repository, and the content licence.
 
 ## 6. Site structure
 
@@ -96,7 +96,7 @@ Top navigation in this order: Home, Videos, Resources, Catalogue, Contribute, Ab
 
 ### 6.3 Resources (two tiers)
 
-**Tier 1 — Citable resources on Zenodo.** Polished resources (guides, rubrics, frameworks) live on Zenodo with a DOI, in the IOA Hub community (`ioahub`).
+**Tier 1 — Citable resources on Zenodo.** Polished resources (guides, rubrics, frameworks) live on Zenodo with a DOI, in the IOA Commons community (`ioahub`).
 - A GitHub Action (`.github/workflows/zenodo-sync.yml`) runs once a day and on manual trigger. It calls the public Zenodo API, `https://zenodo.org/api/communities/<slug>/records?size=100&sort=newest`, needs no API key, and saves a trimmed list to `_data/zenodo.json` with: title, creators, publication date, DOI, licence, resource type, description (first 300 characters), record URL, and download/view counts if present. It commits only if the file changed.
 - The Resources page shows these as cards with title, authors, year, licence badge, and a "Cite / DOI" link. Include a "How to cite" line generated from the metadata.
 - Never put an API token in the repository or in front-end code.
@@ -122,14 +122,14 @@ Three routes, explained in plain language:
 1. **Add yourself to the catalogue**
    - Use the catalogue Google Form (`google_form_url`) and its linked Google Sheet approval process. Do not direct people to GitHub issues.
 2. **Share a citable resource**
-   - Step-by-step guide: create a Zenodo account, upload, choose a licence (recommend CC BY 4.0), and submit to the IOA Hub community. Note that Zenodo records cannot be deleted once published, only versioned.
+   - Step-by-step guide: create a Zenodo account, upload, choose a licence (recommend CC BY 4.0), and submit to the IOA Commons community. Note that Zenodo records cannot be deleted once published, only versioned.
 3. **Suggest a video or informal resource, or report a problem**
    - Use the shared Google Forms intake configured as `intake_form_url` in `_config.yml`. Team members track and assign submissions in its linked response sheet.
 
 Keep public suggestions, corrections and general enquiries in the shared Google Forms intake queue. GitHub issues are for site code work, not public content submissions.
 
 ### 6.6 About
-- Short paragraph: why IOA Hub exists, who leads it, and the funding (2026 Seed and Scale Grant through the University of Sydney Community and Leadership Portfolio, for "Creating Space for Collective Leadership: Cross-Portfolio Pilot for Translational Assessment Practice"; 18 collaborators across Science, FASS, DTL and the Learning Hub, including 6 students).
+- Short paragraph: why IOA Commons exists, who leads it, and the funding (2026 Seed and Scale Grant through the University of Sydney Community and Leadership Portfolio, for "Creating Space for Collective Leadership: Cross-Portfolio Pilot for Translational Assessment Practice"; 18 collaborators across Science, FASS, DTL and the Learning Hub, including 6 students).
 - Team grid from `_data/team.yml`. Each entry: `name`, `role`, `unit`, `photo` (file name in `images/team/`), `link` (optional), `group` (e.g. Project team / Student partners / Contributors).
 - Circular photos, 160px on desktop, name and role underneath, grouped by `group`. Alt text is the person's name.
 - If an entry has no photo, show initials in a sandstone circle.
@@ -237,7 +237,7 @@ When Angela asks to "build the starter site":
 - **Catalogue data source (replaces part of 6.4 and 6.5):** submissions come through a Google Form into a Google Sheet. Angela ticks an "Approved" box, and a `Public` tab (approved rows, public columns only) is published as CSV. `assets/js/catalog.js` reads that CSV live when `catalog_sheet_csv_url` is set in `_config.yml`. Until then the page shows the `[SAMPLE]` rows in `_data/catalog.csv`. Setup steps are in `README.md`.
 - **Catalogue columns:** the catalogue covers oral assessment broadly. `assessment_type` identifies IOA, viva/oral examination, hybrid or other formats; `assessment_format` is shown as "How it runs" (one or two sentences). Filters: assessment type, institution, country, discipline, year level, number of students and length.
 - **Videos (replaces part of 6.1 and 6.2):** the video list is copied daily from the playlist `https://www.youtube.com/playlist?list=PLJFJAoICnsnA` into `_data/playlist.json` by `.github/workflows/youtube-sync.yml` (uses yt-dlp, no API key). `_data/videos.yml` now only holds optional extras per `youtube_id` (audience, topic, title, people, description). The home page has a video carousel directly under the introduction, showing 8 videos picked at random from the whole playlist; the pick changes once a day and is the same for every visitor that day (`pickForToday` in `assets/js/videos.js`, number set by `data-carousel-pick` in `index.md`). Without JavaScript it shows every playlist video. Do not show a count of videos.
-- **Institution-neutral wording (replaces parts of 1, 5, 6.1 and 6.6):** IOA Hub is presented as open to any institution. Do not imply that the site itself is a University of Sydney site. The Interactive Oral Exchange is hosted by the University and open to all educators. Footer attribution (on every page): "IOA Hub was developed by a team based at the University of Sydney and is maintained by Angela Sun.", a link to About ("About the team"), and the public contact email (`contact_email` in `_config.yml`). No GitHub repository link and no separate licence link in the footer (Angela removed them); the closing line "Site text and informal resources are licensed CC BY 4.0…" links to the licence. The same credit is used on the About page and in `LICENSE-content.md`. The About page acknowledges the University's grant and project contribution.
+- **Institution-neutral wording (replaces parts of 1, 5, 6.1 and 6.6):** IOA Commons is presented as open to any institution. Do not imply that the site itself is a University of Sydney site. The Interactive Oral Exchange is hosted by the University and open to all educators. Footer attribution (on every page): "IOA Commons was developed by a team based at the University of Sydney and is maintained by Angela Sun.", a link to About ("About the team"), and the public contact email (`contact_email` in `_config.yml`). No GitHub repository link and no separate licence link in the footer (Angela removed them); the closing line "Site text and informal resources are licensed CC BY 4.0…" links to the licence. The same credit is used on the About page and in `LICENSE-content.md`. The About page acknowledges the University's grant and project contribution.
 - **Local preview (replaces part of 9):** Angela's computer has Ruby 4, which the `github-pages` gem does not support. The `Gemfile` uses `jekyll ~> 3.10.0` directly (the version GitHub Pages runs). Preview address: `http://localhost:4000/ioa-hub/`.
 - **GitHub:** the repository is `HelloAngela/ioa-hub`.
 - **Publications page (adds to 6):** `/publications/` is a simple list of articles and posts already published elsewhere (starting with Teaching@Sydney posts), from `_data/publications.yml` (`title`, `url`, `authors`, `date`, `source`, optional `note`), newest first. Navigation order is now Home, Videos, Resources, Publications, Catalogue, Contribute, About.
@@ -247,11 +247,12 @@ When Angela asks to "build the starter site":
   - *Catalogue form* (`google_form_url`): 18 questions plus consent, in the exact order of the `Public` tab columns. Its sheet has `Form responses 1` (column U = Approved tick box, added to each new response by a trigger) and a `Public` tab (FILTER of approved rows, columns B to S), published as CSV (`catalog_sheet_csv_url`). Never add, remove or reorder catalogue questions without also changing the `Public` tab and `catalog.js`.
   - *Request form* (`intake_form_url`): suggestions (publications, videos), draft materials shared as a link (no file upload, because uploads force a Google sign-in), catalogue corrections and removals, site problems and questions. Its sheet has Status, Owner, Team notes and Last updated columns (J to M); a trigger sets Status to "New". Requests are acted on by hand (edit `_data/` files, commit, push).
   - Form links in `_config.yml` must not include the `ouid=` parameter (it is Angela's Google account ID).
+  - Google Drive file names (renamed by Angela on 15 November 2026; use these exactly, with a lowercase "commons"): forms `IOA commons catalogue entry` and `IOA commons request form`; sheets `IOA commons catalogue responses` and `IOA commons requests`. Files can be renamed without breaking links, because Google links them by ID. Never rename the tabs `Form responses 1` or `Public` in the catalogue sheet.
 - **Resources page list (replaces the earlier decision of two plain lists):** Zenodo records and shared materials appear in one combined list, so filters work across both. Each item keeps the plain Publications-style look (title link, then a meta line starting "Citable (DOI)." or "Shared material."), followed by a "Topics:" line in plain text. No cards or badges. Items are rendered in Liquid by `_includes/resource-list.html` with data attributes; `assets/js/resources.js` filters (topic, any of several; audience; source), searches, sorts (newest, oldest, title) and keeps the filters in the address (`?topic=a,b&audience=staff&source=doi&q=…&sort=title`). Without JavaScript all items show, newest first, and the controls stay hidden.
 - **Resource topics:** the only topic list is `_data/topics.yml` (`slug`, `label`, `description`). Shared materials set `topics` and `audience` in `_data/resources.yml`. Zenodo records take them from `_data/zenodo-tags.yml` (keyed by `doi`), or, with no entry there, from Zenodo keywords matching a topic slug or label (the Zenodo sync saves `keywords`). Unknown slugs show a warning box in local previews only. Tags are applied by the team at curation, never taken unchecked from a submitter. The Google Forms are NOT changed for tags: the request sheet's trigger writes Status and Last updated to fixed columns J and M, so adding a form question would break it. Videos keep their own single-topic system in `_data/videos.yml`.
 - **Analytics:** GoatCounter is live with code `ioahub` (dashboard `https://ioahub.goatcounter.com`). Do not switch to Google Analytics: it needs a cookie consent banner.
 - **`docs/`** holds reference material (brand notes, the forms script) and is excluded from the published site.
 - **Catalogue page:** no entry, institution or country counters above the filters (Angela removed them). The table and filters start straight after the intro text.
-- **Full name:** IOA Hub stands for **Interactive Oral Assessment Hub**, not "Oral Assessment Hub", even though the site also covers viva-style and hybrid formats.
+- **Name (changed 15 November 2026):** the site is **IOA Commons**, short for **Interactive Oral Assessment Commons** (keep "Interactive" even though the site also covers viva-style and hybrid formats). It was called IOA Hub until then; do not use "Hub" for the site in any visible text. Some identifiers still contain "ioahub" or "ioa-hub" because they belong to outside accounts: the GitHub repository and folder `ioa-hub` (and so `baseurl: "/ioa-hub"`), the Zenodo community slug `ioahub`, the GoatCounter code `ioahub` and the planned domain `ioahub.au`. Change them only when Angela asks, together with the matching account.
 - **Preparing resources outside Claude Code:** `docs/resource-guidelines.md` tells any assistant (for example Claude in Cowork) how to prepare materials and where to put them (Zenodo, `resources/files/` with `_data/resources.yml`, publications, videos). Keep it in step with this file when routes or data fields change.
 - **Contact emails:** the footer shows `contact_email` (Angela's address). The About page team grid shows each member's `email` from `_data/team.yml`. Only add an email with that person's agreement.

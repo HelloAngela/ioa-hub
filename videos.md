@@ -8,7 +8,7 @@ scripts:
   - videos.js
 ---
 
-Each video is hosted on YouTube, in the [Interactive Oral Assessment in Practice playlist](https://www.youtube.com/playlist?list={{ site.youtube_playlist }}). This collection focuses on IOA; the Hub welcomes examples of other oral assessment formats too. The player loads only when you press play.
+Each video is hosted on YouTube, in the [Interactive Oral Assessment in Practice playlist](https://www.youtube.com/playlist?list={{ site.youtube_playlist }}). This collection focuses on IOA; IOA Commons welcomes examples of other oral assessment formats too. The player loads only when you press play.
 
 {% include video-grid.html %}
 

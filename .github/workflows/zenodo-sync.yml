@@ -1,4 +1,4 @@
-# Copies the list of records in the IOA Hub Zenodo community into _data/zenodo.json,
+# Copies the list of records in the IOA Commons Zenodo community into _data/zenodo.json,
 # so the Resources page can show them. Runs once a day, or when started by hand
 # (Actions tab > Zenodo sync > Run workflow).
 #

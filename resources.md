@@ -10,7 +10,7 @@ lead: Guides, examples, publications and training materials for oral assessment,
 
 ## Find a resource
 
-Resources come from two places. **Citable (DOI)** resources are guides, rubrics and frameworks published through [Zenodo](https://zenodo.org/communities/{{ site.zenodo_community }}), a free research repository run by CERN (the European Organization for Nuclear Research). Each has a DOI, and records accepted into the IOA Hub community appear here automatically. **Shared materials** are draft and working materials, such as training slides, workshop decks and templates, shared as supplied. The team can update or remove them on request. Unless a resource says otherwise, it is licensed CC BY 4.0. Please check the [Contribute page]({{ '/contribute/' | relative_url }}) before sending material to share.
+Resources come from two places. **Citable (DOI)** resources are guides, rubrics and frameworks published through [Zenodo](https://zenodo.org/communities/{{ site.zenodo_community }}), a free research repository run by CERN (the European Organization for Nuclear Research). Each has a DOI, and records accepted into the IOA Commons community appear here automatically. **Shared materials** are draft and working materials, such as training slides, workshop decks and templates, shared as supplied. The team can update or remove them on request. Unless a resource says otherwise, it is licensed CC BY 4.0. Please check the [Contribute page]({{ '/contribute/' | relative_url }}) before sending material to share.
 
 {% include resource-list.html %}
 

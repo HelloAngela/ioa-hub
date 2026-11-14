@@ -1,8 +1,8 @@
-# Brand notes for IOA Hub
+# Brand notes for IOA Commons
 
-IOA Hub is not an official University of Sydney website and is not formally affiliated with the University. The site takes cues from the University's visual identity without implying endorsement or using protected assets.
+IOA Commons is not an official University of Sydney website and is not formally affiliated with the University. The site takes cues from the University's visual identity without implying endorsement or using protected assets.
 
-**Reference:** University of Sydney Visual Identity Guidelines, February 2023. A project copy is saved at [`assets/brand/brand-guidelines-2023.pdf`](../../assets/brand/brand-guidelines-2023.pdf) and excluded from the published site. Consult it when creating pages or components. These notes describe how IOA Hub applies the guidance; they are not University rules or permission to use University marks.
+**Reference:** University of Sydney Visual Identity Guidelines, February 2023. A project copy is saved at [`assets/brand/brand-guidelines-2023.pdf`](../../assets/brand/brand-guidelines-2023.pdf) and excluded from the published site. Consult it when creating pages or components. These notes describe how IOA Commons applies the guidance; they are not University rules or permission to use University marks.
 
 ## Do not use
 
@@ -12,14 +12,14 @@ IOA Hub is not an official University of Sydney website and is not formally affi
 
 ## Typography
 
-The guidelines pair Apercu Pro with Lyon Display. IOA Hub uses free web fonts with a similar character:
+The guidelines pair Apercu Pro with Lyon Display. IOA Commons uses free web fonts with a similar character:
 
-| Use | IOA Hub font | Implementation |
+| Use | IOA Commons font | Implementation |
 |---|---|---|
 | Headings, navigation, buttons, labels and body | Source Sans 3 | Regular 400; semibold 600; bold 700 where needed |
 | Short editorial accent | Newsreader | Regular italic 400; regular roman 400 for page lead text |
 
-Source Sans is the guideline's recommended substitute for Apercu. Newsreader is IOA Hub's substitute for Lyon; it is not an official University substitute.
+Source Sans is the guideline's recommended substitute for Apercu. Newsreader is IOA Commons's substitute for Lyon; it is not an official University substitute.
 
 - Set headings in Source Sans 3. The earlier site stylesheet used a serif face for all headings; that did not follow the guideline's sans-serif heading treatment.
 - Use the serif sparingly: a short phrase in a heading, a tagline, a page lead, or a person's role. Keep mixed headline fonts at the same size.
@@ -42,7 +42,7 @@ The CSS variables at the top of `assets/css/style.css` are the source of truth. 
 
 Lead with ochre accents and use white, charcoal and sandstone to give them room. Tertiary colours (Heritage Rose, Jacaranda, Navy and Eucalypt) are for charts, diagrams and infographics, not general layout, tags or the footer.
 
-The guideline's Accessible Ochre is `#CE3D20`. IOA Hub uses the darker `#B8341A` for links and small text because links also appear on sandstone and light-grey backgrounds. Keep text contrast at WCAG AA.
+The guideline's Accessible Ochre is `#CE3D20`. IOA Commons uses the darker `#B8341A` for links and small text because links also appear on sandstone and light-grey backgrounds. Keep text contrast at WCAG AA.
 
 ## Layout and imagery
 
@@ -58,4 +58,4 @@ The guideline's Accessible Ochre is `#CE3D20`. IOA Hub uses the darker `#B8341A`
 - Header: site name in Source Sans 3; tagline in Newsreader italic.
 - Team: person's name in Source Sans 3; role may use Newsreader italic.
 
-These are IOA Hub design choices, not official University endorsements. When in doubt, check the saved PDF and preserve the site's accessible, unaffiliated presentation.
+These are IOA Commons design choices, not official University endorsements. When in doubt, check the saved PDF and preserve the site's accessible, unaffiliated presentation.

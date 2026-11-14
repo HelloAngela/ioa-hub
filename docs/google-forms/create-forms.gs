@@ -1,10 +1,10 @@
 /**
- * IOA Hub: creates the two Google Forms and their response sheets.
+ * IOA Commons: creates the two Google Forms and their response sheets.
  *
  * How to use (once):
  *   1. Go to https://script.google.com and choose "New project".
  *   2. Delete the sample code, paste in this whole file, and press Save.
- *   3. In the function list at the top, pick "createIoaHubForms" and press Run.
+ *   3. In the function list at the top, pick "createIoaCommonsForms" and press Run.
  *   4. Google asks for permission to manage your forms and sheets. Allow it.
  *   5. When it finishes, open View > Logs (or the Execution log). It lists the
  *      links you need. Copy them into _config.yml as the README explains.
@@ -12,11 +12,11 @@
  * Run it only once. Running it again makes a second copy of everything.
  *
  * What it makes, in your Google Drive:
- *   - "IOA Hub catalogue entry" form, linked to the "IOA Hub catalogue responses"
+ *   - "IOA commons catalogue entry" form, linked to the "IOA commons catalogue responses"
  *     sheet. The sheet has an Approved tick box column and a Public tab that holds
  *     approved rows only, in the columns the Catalogue page reads.
- *   - "IOA Hub request form" for suggestions, shared materials, corrections,
- *     removals and enquiries, linked to the "IOA Hub requests" sheet with Status,
+ *   - "IOA commons request form" for suggestions, shared materials, corrections,
+ *     removals and enquiries, linked to the "IOA commons requests" sheet with Status,
  *     Owner, Team notes and Last updated columns.
  *   - Two small automatic steps: each new catalogue response gets a tick box,
  *     and each new request gets the status "New".
@@ -34,7 +34,7 @@ var RESPONSES_TAB = "Form responses 1";
 var CATALOGUE_APPROVED_COLUMN = 21; // column U: timestamp + 18 answers + consent, then Approved
 var REQUEST_STATUSES = ["New", "In progress", "Waiting for submitter", "Done", "Closed"];
 
-function createIoaHubForms() {
+function createIoaCommonsForms() {
   var catalogue = createCatalogueForm_();
   var requests = createRequestForm_();
 
@@ -52,13 +52,13 @@ function createIoaHubForms() {
 // ---------------------------------------------------------------------------
 
 function createCatalogueForm_() {
-  var form = FormApp.create("IOA Hub catalogue entry");
-  form.setTitle("Add your oral assessment to the IOA Hub catalogue")
+  var form = FormApp.create("IOA commons catalogue entry");
+  form.setTitle("Add your oral assessment to the IOA Commons catalogue")
     .setDescription(
-      "The IOA Hub catalogue lists educators who run oral assessments, so colleagues " +
+      "The IOA Commons catalogue lists educators who run oral assessments, so colleagues " +
       "with a similar unit can find and contact them. It covers interactive oral " +
       "assessment (IOA), viva-style examinations and hybrid formats.\n\n" +
-      "Your answers will be published on the IOA Hub website after the team checks them. " +
+      "Your answers will be published on the IOA Commons website after the team checks them. " +
       "Only fill in what you are happy to have published. Optional questions can be left empty.\n\n" +
       "If your assessment combines features of more than one format (for example an " +
       "Honours viva run like an IOA), choose \"Hybrid oral assessment\" and describe it " +
@@ -70,9 +70,9 @@ function createCatalogueForm_() {
     .setPublishingSummary(false)
     .setShowLinkToRespondAgain(true)
     .setConfirmationMessage(
-      "Thank you. The team will check your entry, and it will appear in the IOA Hub " +
+      "Thank you. The team will check your entry, and it will appear in the IOA Commons " +
       "catalogue once approved. To change or remove it later, use the request form " +
-      "on the IOA Hub Contribute page.");
+      "on the IOA Commons Contribute page.");
 
   // The order below matches the PUBLIC_COLUMNS order. Do not reorder.
   text_(form, "Name", "As you want it shown, including a title such as Dr if you use one.", true);
@@ -110,11 +110,11 @@ function createCatalogueForm_() {
     "A link to a rubric, guide or paper about your assessment.", false);
   form.addCheckboxItem()
     .setTitle("Consent")
-    .setChoiceValues(["I agree to these details being published on IOA Hub"])
+    .setChoiceValues(["I agree to these details being published on IOA Commons"])
     .setRequired(true);
 
   // Response sheet.
-  var sheet = SpreadsheetApp.create("IOA Hub catalogue responses");
+  var sheet = SpreadsheetApp.create("IOA commons catalogue responses");
   form.setDestination(FormApp.DestinationType.SPREADSHEET, sheet.getId());
   var responses = findResponsesTab_(sheet.getId());
 
@@ -153,8 +153,8 @@ function addApprovalTickBox(e) {
 // ---------------------------------------------------------------------------
 
 function createRequestForm_() {
-  var form = FormApp.create("IOA Hub request form");
-  form.setTitle("IOA Hub request form")
+  var form = FormApp.create("IOA commons request form");
+  form.setTitle("IOA Commons request form")
     .setDescription(
       "Use this form to suggest a publication or video, share draft or working materials, " +
       "ask for a catalogue entry to be corrected or removed, report a problem with the " +
@@ -213,7 +213,7 @@ function createRequestForm_() {
     ])
     .setRequired(false);
 
-  var sheet = SpreadsheetApp.create("IOA Hub requests");
+  var sheet = SpreadsheetApp.create("IOA commons requests");
   form.setDestination(FormApp.DestinationType.SPREADSHEET, sheet.getId());
   var responses = findResponsesTab_(sheet.getId());
 

@@ -20,7 +20,7 @@
   file: sample-marker-training-slides.txt
   description: "[PLACEHOLDER: sample entry. Replace with a real resource or delete it.]"
   type: slides
-  authors: "[SAMPLE] IOA Hub team"
+  authors: "[SAMPLE] IOA Commons team"
   licence: CC BY 4.0
   updated: 2026-11-14
   status: current
@@ -31,7 +31,7 @@
   file: sample-scenario-template.txt
   description: "[PLACEHOLDER: sample entry. Replace with a real resource or delete it.]"
   type: template
-  authors: "[SAMPLE] IOA Hub team"
+  authors: "[SAMPLE] IOA Commons team"
   licence: CC BY 4.0
   updated: 2026-11-10
   status: draft

@@ -1,12 +1,12 @@
-# Preparing resources for IOA Hub: guidelines for Claude in Cowork
+# Preparing resources for IOA Commons: guidelines for Claude in Cowork
 
-These guidelines are for Claude (or any AI assistant) working in Cowork with Dr Angela Sun. They explain how to take Angela's teaching materials, prepare them for sharing, and put them in the right place so they appear on the IOA Hub website.
+These guidelines are for Claude (or any AI assistant) working in Cowork with Dr Angela Sun. They explain how to take Angela's teaching materials, prepare them for sharing, and put them in the right place so they appear on the IOA Commons website.
 
 Read this whole file before starting. For anything not covered here, read `AGENTS.md` in the same folder (the full site instructions) and follow it.
 
 ## 1. The website in one paragraph
 
-IOA Hub (Interactive Oral Assessment Hub) is a static website built with Jekyll and hosted on GitHub Pages. Its source is the folder `ioa-hub` (on Angela's computer: `C:\Users\hello\ioa-hub`). Pages read their content from data files in `_data/`. You never need to edit page layouts, HTML, CSS or JavaScript to add a resource. Adding a resource means: put the file in one folder, and add a short entry to one data file. The site rebuilds itself after Angela commits and pushes.
+IOA Commons (Interactive Oral Assessment Commons) is a static website built with Jekyll and hosted on GitHub Pages. Its source is the folder `ioa-hub` (on Angela's computer: `C:\Users\hello\ioa-hub`). Pages read their content from data files in `_data/`. You never need to edit page layouts, HTML, CSS or JavaScript to add a resource. Adding a resource means: put the file in one folder, and add a short entry to one data file. The site rebuilds itself after Angela commits and pushes.
 
 ## 2. Decide where each item belongs
 
@@ -67,8 +67,8 @@ Zenodo uploads are done by Angela in her Zenodo account; you prepare everything 
    - **Description:** 2 to 4 plain sentences (section 3 style)
    - **Licence:** Creative Commons Attribution 4.0 International (unless Angela chooses another)
    - **Keywords:** for example `interactive oral assessment`, `oral assessment`, `assessment design`, plus the discipline. Also add the **label** of each topic you suggest from `_data/topics.yml`, written exactly as the label (for example `Training markers`, `Rubrics and feedback`). The Resources page uses keywords that match a topic label as that record's topics.
-   - **Community:** IOA Hub (`https://zenodo.org/communities/ioahub`)
-3. Give Angela the checklist: create the upload, add the file and metadata, select the IOA Hub community, publish, then request inclusion in the community.
+   - **Community:** IOA Commons (`https://zenodo.org/communities/ioahub`)
+3. Give Angela the checklist: create the upload, add the file and metadata, select the IOA Commons community, publish, then request inclusion in the community.
 
 Once the community accepts the record, a daily automatic job copies it into `_data/zenodo.json` and it appears on the Resources page. Never edit `_data/zenodo.json` by hand.
 

@@ -1,13 +1,13 @@
 # Content licence
 
-The text of the IOA Hub website and the informal resources in `resources/files/` are licensed under the **Creative Commons Attribution 4.0 International licence (CC BY 4.0)**, unless a resource says otherwise.
+The text of the IOA Commons website and the informal resources in `resources/files/` are licensed under the **Creative Commons Attribution 4.0 International licence (CC BY 4.0)**, unless a resource says otherwise.
 
 You may copy, share and adapt this material for any purpose, including commercially, as long as you give credit.
 
 - Licence summary: <https://creativecommons.org/licenses/by/4.0/>
 - Full legal text: <https://creativecommons.org/licenses/by/4.0/legalcode>
 
-Suggested credit: "IOA Hub was developed by a team based at the University of Sydney and is maintained by Angela Sun, CC BY 4.0."
+Suggested credit: "IOA Commons was developed by a team based at the University of Sydney and is maintained by Angela Sun, CC BY 4.0."
 
 ## What this licence does not cover
 

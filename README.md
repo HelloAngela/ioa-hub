@@ -1,12 +1,12 @@
-# IOA Hub
+# IOA Commons
 
-The website for IOA Hub (Interactive Oral Assessment Hub). It was developed by a team based at the University of Sydney and is maintained by Angela Sun. It covers oral assessment broadly, including interactive oral assessment (IOA), viva-style examinations and hybrid formats. It is built with Jekyll and hosted on GitHub Pages.
+The website for IOA Commons (Interactive Oral Assessment Commons). It was developed by a team based at the University of Sydney and is maintained by Angela Sun. It covers oral assessment broadly, including interactive oral assessment (IOA), viva-style examinations and hybrid formats. It is built with Jekyll and hosted on GitHub Pages.
 
 This guide covers the everyday jobs. You only ever need to edit the files in `_data/`, the six `.md` pages, and `_config.yml`. The layout code is in `_layouts/`, `_includes/` and `assets/`, and you can leave it alone.
 
 ## Brand reference
 
-The University of Sydney Visual Identity Guidelines (February 2023) are saved in `assets/brand/brand-guidelines-2023.pdf` as a project reference; Jekyll excludes the PDF from the published website. Read [`docs/brand/brand-notes.md`](docs/brand/brand-notes.md) before designing a new page or component. IOA Hub is not formally affiliated with the University; the notes explain the site's accessible, unlicensed font and colour choices.
+The University of Sydney Visual Identity Guidelines (February 2023) are saved in `assets/brand/brand-guidelines-2023.pdf` as a project reference; Jekyll excludes the PDF from the published website. Read [`docs/brand/brand-notes.md`](docs/brand/brand-notes.md) before designing a new page or component. IOA Commons is not formally affiliated with the University; the notes explain the site's accessible, unlicensed font and colour choices.
 
 ## Add a video
 
@@ -113,9 +113,9 @@ A script builds the catalogue form, the request form and both response sheets fo
 
 1. Go to <https://script.google.com> while signed in to the Google account that should own the forms. Choose **New project**.
 2. Delete the sample code. Open `docs/google-forms/create-forms.gs` in VS Code, copy all of it, and paste it in. Press Save.
-3. In the bar at the top, choose `createIoaHubForms` and press **Run**. Google asks for permission to manage your forms and sheets: choose your account, then Advanced > Go to project, then Allow.
+3. In the bar at the top, choose `createIoaCommonsForms` and press **Run**. Google asks for permission to manage your forms and sheets: choose your account, then Advanced > Go to project, then Allow.
 4. When it finishes, the Execution log shows two form links and two sheet links. All four files are also in your Google Drive.
-5. Open the **IOA Hub catalogue responses** sheet. Choose File > Share > Publish to web. In the first box pick `Public` (not "Entire document"). In the second box pick "Comma-separated values (.csv)". Press Publish and copy the link.
+5. Open the **IOA commons catalogue responses** sheet. Choose File > Share > Publish to web. In the first box pick `Public` (not "Entire document"). In the second box pick "Comma-separated values (.csv)". Press Publish and copy the link.
 6. In `_config.yml`, paste:
    - the catalogue form link as `google_form_url`
    - the request form link as `intake_form_url`
@@ -158,7 +158,7 @@ Google does not email you about new submissions unless you turn it on.
 
 ## Shared requests: suggestions, materials, corrections and contact
 
-Everything that is not a catalogue entry goes through the **IOA Hub request form**: suggested publications and videos, draft or working materials to share, catalogue corrections and removals, website problems and general questions. The **IOA Hub requests** sheet is the team's to-do list.
+Everything that is not a catalogue entry goes through the **IOA commons request form**: suggested publications and videos, draft or working materials to share, catalogue corrections and removals, website problems and general questions. The **IOA Commons requests** sheet is the team's to-do list.
 
 - Columns A to I hold the answers. The script adds `Status`, `Owner`, `Team notes` and `Last updated` (J to M).
 - Each new request gets the status `New` and today's date automatically. The other statuses are `In progress`, `Waiting for submitter`, `Done` and `Closed`.

@@ -6,7 +6,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thank you for adding yourself. This issue is public, and the details below will be published on the IOA Hub catalogue once we have checked them.
+        Thank you for adding yourself. This issue is public, and the details below will be published on the IOA Commons catalogue once we have checked them.
         Leave optional fields empty if you do not want them published.
   - type: input
     id: name
@@ -148,5 +148,5 @@ body:
     attributes:
       label: Consent
       options:
-        - label: I agree to these details being published on IOA Hub
+        - label: I agree to these details being published on IOA Commons
           required: true
