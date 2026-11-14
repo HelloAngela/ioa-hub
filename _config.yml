@@ -16,7 +16,7 @@ url: ""            # leave empty until the domain is connected
 baseurl: "/ioa-hub"
 
 # --- Things Angela still needs to supply ----------------------------------
-google_form_url: "[PLACEHOLDER: Google Form URL]"
+google_form_url: "https://docs.google.com/forms/d/e/1FAIpQLSf4s_OLIVnc7kpKT8T3e2DYX_15ovez3QbIJvtR3BFWce9FHw/viewform"
 # Shared queue for suggestions, corrections, removals and general enquiries.
 intake_form_url: "[PLACEHOLDER: shared intake Google Form URL]"
 # The "Publish to web" CSV link of the Public tab of the catalogue Google Sheet (see README).
