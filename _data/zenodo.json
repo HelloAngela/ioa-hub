@@ -2,6 +2,54 @@
   "community": "ioahub",
   "records": [
     {
+      "title": "Mock interactive oral assessment (IOA): tutorial runsheet",
+      "creators": [
+        "Sun, Angela",
+        "McGuire, Helen"
+      ],
+      "publication_date": "2026-11-14",
+      "doi": "10.5281/zenodo.24231777",
+      "licence": "cc-by-4.0",
+      "resource_type": "Lesson",
+      "description": "A 60 to 75 minute tutorial plan in which students practise an interactive oral assessment (IOA) in groups of two or three, taking turns as student, assessor and observer. It includes a warm-up, a central briefing on the format and rubric, timed practice rounds, guidance for assessors, observers and ",
+      "keywords": [
+        "interactive oral assessment",
+        "oral assessment",
+        "mock assessment",
+        "higher education",
+        "Preparing students",
+        "Questions and prompts"
+      ],
+      "url": "https://zenodo.org/records/24231777",
+      "downloads": 0,
+      "views": 0
+    },
+    {
+      "title": "Interactive oral assessment (IOA) planning and delivery timeline",
+      "creators": [
+        "Sun, Angela",
+        "McGuire, Helen"
+      ],
+      "publication_date": "2026-11-14",
+      "doi": "10.5281/zenodo.24231770",
+      "licence": "cc-by-4.0",
+      "resource_type": "Other",
+      "description": "A week-by-week timeline for running an interactive oral assessment (IOA) in a large unit, from two to three months before semester to the exam period. Each row lists what staff and students do that week, including approvals, scenario and rubric design, tutor training, practice, scheduling, the asses",
+      "keywords": [
+        "interactive oral assessment",
+        "oral assessment",
+        "assessment design",
+        "higher education",
+        "Logistics",
+        "Design",
+        "Training markers",
+        "Preparing students"
+      ],
+      "url": "https://zenodo.org/records/24231770",
+      "downloads": 0,
+      "views": 0
+    },
+    {
       "title": "IOA Student Experience Forum talk",
       "creators": [
         "Sun, Angela",
