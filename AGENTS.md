@@ -4,7 +4,7 @@ This file tells any AI coding assistant (Claude Code, Codex, Copilot, Cursor, Ge
 
 ## 1. What this site is
 
-**IOA Hub** (Oral Assessment Hub) is a public website about oral assessment across higher education. It collects videos, teaching resources and educator examples, including interactive oral assessment (IOA), viva-style examinations and hybrid formats. The catalogue includes educators using these oral assessment formats.
+**IOA Hub** (Interactive Oral Assessment Hub) is a public website about oral assessment across higher education. It collects videos, teaching resources and educator examples, including interactive oral assessment (IOA), viva-style examinations and hybrid formats. The catalogue includes educators using these oral assessment formats.
 
 - **Owner:** Dr Angela Sun, Lecturer (Education-focused), School of Life and Environmental Sciences, University of Sydney.
 - **Led from:** the University of Sydney, with a cross-portfolio team from Science, FASS, the Division of Teaching and Learning (DTL) and the Learning Hub.
@@ -251,3 +251,4 @@ When Angela asks to "build the starter site":
 - **Analytics:** GoatCounter is live with code `ioahub` (dashboard `https://ioahub.goatcounter.com`). Do not switch to Google Analytics: it needs a cookie consent banner.
 - **`docs/`** holds reference material (brand notes, the forms script) and is excluded from the published site.
 - **Catalogue page:** no entry, institution or country counters above the filters (Angela removed them). The table and filters start straight after the intro text.
+- **Full name:** IOA Hub stands for **Interactive Oral Assessment Hub**, not "Oral Assessment Hub", even though the site also covers viva-style and hybrid formats.
