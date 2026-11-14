@@ -16,3 +16,13 @@
 - doi: 10.5281/zenodo.24209593
   topics: [preparing-students, research]
   audience: both
+
+# Interactive oral assessment (IOA) planning and delivery timeline
+- doi: 10.5281/zenodo.24231770
+  topics: [logistics, design, training-markers, preparing-students]
+  audience: staff
+
+# Mock interactive oral assessment (IOA): tutorial runsheet
+- doi: 10.5281/zenodo.24231777
+  topics: [preparing-students, questions-prompts]
+  audience: both
