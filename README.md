@@ -10,7 +10,7 @@ The University of Sydney Visual Identity Guidelines (February 2023) are saved in
 
 ## Add a video
 
-Add the video to the YouTube playlist. That is all. Once a day the site copies the playlist, and the new video appears on the Videos page in playlist order. The home page carousel shows the first 8 videos in the playlist, so reorder the playlist on YouTube to change what is featured.
+Add the video to the YouTube playlist. That is all. Once a day the site copies the playlist, and the new video appears on the Videos page in playlist order. The home page carousel shows 8 videos picked at random from the whole playlist. The pick changes once a day, and every visitor sees the same 8 that day. To show more or fewer, change `data-carousel-pick="8"` in `index.md`.
 
 To update the site straight away, go to the repository on GitHub, then Actions > YouTube playlist sync > Run workflow.
 

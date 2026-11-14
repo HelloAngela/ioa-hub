@@ -26,8 +26,8 @@ scripts:
 <button type="button" class="carousel__button" data-carousel-next aria-label="More videos"><span aria-hidden="true">&rarr;</span></button>
 </div>
 </div>
-<ul class="carousel__track" tabindex="0" aria-label="Featured videos">
-{% for item in site.data.playlist.videos limit: 8 %}
+<ul class="carousel__track" tabindex="0" aria-label="Featured videos" data-carousel-pick="8">
+{% for item in site.data.playlist.videos %}
 {% include video-card.html item=item %}
 {% endfor %}
 </ul>
