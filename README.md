@@ -182,10 +182,11 @@ Only add people who have agreed to be listed with this photo and title.
   unit: Faculty of Science
   photo: jane-citizen.jpg
   link: https://www.sydney.edu.au/
+  email: jane.citizen@sydney.edu.au
   group: Student partners
 ```
 
-- `photo` and `link` are optional. With no photo, the page shows the person's initials in a circle.
+- `photo`, `link` and `email` are optional. Add an email only if the person agreed to it being public. With no photo, the page shows the person's initials in a circle.
 - `group` is `Project team`, `Student partners` or `Contributors`. People with the same group appear together.
 
 ## Run the site on your own computer
@@ -211,7 +212,6 @@ Search the project for `PLACEHOLDER` to find them all.
 
 | What | Where |
 |---|---|
-| Public contact email (footer and About page) | `_config.yml` (`contact_email`) |
 | Audience and topic of each video (guessed from titles, to check) | `_data/videos.yml` |
 | Sample informal resources, marked `[SAMPLE]` | `_data/resources.yml` and `resources/files/` |
 | Sample catalogue rows, marked `[SAMPLE]` (shown until the sheet is connected) | `_data/catalog.csv` |

@@ -457,7 +457,8 @@ th[aria-sort="descending"] .sort-button::after { content: " \2193"; }
   color: var(--charcoal);
 }
 .team-name { display: block; font-weight: 600; }
-.team-role, .team-unit { display: block; font-size: 1rem; line-height: 1.4; }
+.team-role, .team-unit, .team-email { display: block; font-size: 1rem; line-height: 1.4; }
+.team-email { margin-top: 0.25rem; overflow-wrap: anywhere; }
 
 @media (max-width: 30rem) {
   .team-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1rem; }

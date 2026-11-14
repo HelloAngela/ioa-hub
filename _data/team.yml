@@ -1,30 +1,36 @@
 # Only add people who have agreed to be listed with this photo and title.
 #
 # Each entry: name, role, unit, photo (file name in images/team/, optional),
-# link (optional), group (Project team / Student partners / Contributors).
+# link (optional), email (optional, shown publicly: only with the person's agreement),
+# group (Project team / Student partners / Contributors).
 # Photos: square, 400x400 px, JPG, under 100 KB.
 
 - name: Dr Angela Sun
   role: Lecturer (Education-focused)
   unit: School of Life and Environmental Sciences, Faculty of Science
   photo: angela-sun.jpg
+  email: angela.sun@sydney.edu.au
   group: Project team
 - name: Dr Anne Rogerson
   role: Senior Lecturer
   unit: Faculty of Arts and Social Sciences
   photo: anne-rogerson.jpg
+  email: anne.rogerson@sydney.edu.au
   group: Project team
 - name: Associate Professor Eszter Kalman
   unit: Division of Teaching and Learning
   photo: eszter-kalman.jpg
+  email: eszter.kalman@sydney.edu.au
   group: Project team
 - name: Dr Adam Gall
   role: Learning Success Advisor
   unit: Learning Hub
   photo: adam-gall.jpg
+  email: adam.gall@sydney.edu.au
   group: Project team
 - name: Dr Alexandra García
   role: Learning Hub Lead
   unit: Academic Language and Learning, Learning Hub
   photo: alexandra-garcia.jpg
+  email: alexandra.garcia@sydney.edu.au
   group: Project team

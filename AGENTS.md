@@ -253,3 +253,4 @@ When Angela asks to "build the starter site":
 - **Catalogue page:** no entry, institution or country counters above the filters (Angela removed them). The table and filters start straight after the intro text.
 - **Full name:** IOA Hub stands for **Interactive Oral Assessment Hub**, not "Oral Assessment Hub", even though the site also covers viva-style and hybrid formats.
 - **Preparing resources outside Claude Code:** `docs/resource-guidelines.md` tells any assistant (for example Claude in Cowork) how to prepare materials and where to put them (Zenodo, `resources/files/` with `_data/resources.yml`, publications, videos). Keep it in step with this file when routes or data fields change.
+- **Contact emails:** the footer shows `contact_email` (Angela's address). The About page team grid shows each member's `email` from `_data/team.yml`. Only add an email with that person's agreement.

@@ -15,6 +15,7 @@
 {% if person.link %}<a class="team-name" href="{{ person.link | escape }}">{{ person.name | escape }}</a>{% else %}<span class="team-name">{{ person.name | escape }}</span>{% endif %}
 {% if person.role %}<span class="team-role">{{ person.role | escape }}</span>{% endif %}
 <span class="team-unit">{{ person.unit | escape }}</span>
+{% if person.email %}<a class="team-email" href="mailto:{{ person.email | escape }}">{{ person.email | escape }}</a>{% endif %}
 </li>
 {% endif %}
 {% endfor %}
