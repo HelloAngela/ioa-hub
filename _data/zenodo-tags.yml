@@ -12,8 +12,7 @@
 # keyword that matches a topic slug or label (capitals ignored) is used.
 # A record with no audience shows only under the "All" audience filter.
 
-# [SAMPLE] Tags for the current test record, so the filters can be tried.
-# Replace or delete once real records are published.
+# IOA Student Experience Forum talk
 - doi: 10.5281/zenodo.24209593
   topics: [preparing-students, research]
   audience: both
