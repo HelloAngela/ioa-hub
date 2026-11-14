@@ -112,6 +112,20 @@ Share the sheets with colleagues as editors if they will help. Never publish the
 
 Changes show on the site within about five minutes.
 
+### How an approved entry reaches the site
+
+1. Someone submits the catalogue form. Their answers become a new row in `Form responses 1`, with an empty Approved tick box.
+2. You tick Approved. The `Public` tab copies the row straight away.
+3. Google refreshes the published CSV copy of the `Public` tab about every five minutes.
+4. Each time someone opens the Catalogue page, it reads that CSV. Nothing needs editing, committing or pushing.
+
+### Get an email when someone submits
+
+Google does not email you about new submissions unless you turn it on.
+
+- **For yourself:** open each form in Google Forms, go to the **Responses** tab, click the three dots (⋮) and choose **Get email notifications for new responses**. Do this for both forms.
+- **For team members:** each person opens the response sheet and chooses **Tools > Notification settings > Edit notifications**, then **"A user submits a form"**.
+
 ## Shared requests: suggestions, materials, corrections and contact
 
 Everything that is not a catalogue entry goes through the **IOA Hub request form**: suggested publications and videos, draft or working materials to share, catalogue corrections and removals, website problems and general questions. The **IOA Hub requests** sheet is the team's to-do list.
@@ -122,9 +136,36 @@ Everything that is not a catalogue entry goes through the **IOA Hub request form
 
 People share materials as a link to a file in their own Google Drive, OneDrive or Dropbox. The form has no file upload question, because Google Forms makes everyone sign in to a Google account to upload. To add a shared file to the site, download it, put it in `resources/files/` and follow "Add an informal resource" above.
 
+Requests do not change the site by themselves. Someone acts on each one, then sets its Status to `Done`:
+
+| Request | What to do |
+|---|---|
+| Publication | Add an entry to `_data/publications.yml`, then commit and push |
+| Video | Add it to the YouTube playlist. The site picks it up within a day |
+| Draft or working materials | Download the file, put it in `resources/files/`, add an entry to `_data/resources.yml`, then commit and push |
+| Catalogue correction | Edit the row in the catalogue sheet. Shows within about five minutes, no push |
+| Catalogue removal | Untick Approved or delete the row in the catalogue sheet. Gone within about five minutes, no push |
+| Website problem | Fix the page, then commit and push |
+
+After a push, GitHub Pages updates the live site within a couple of minutes. You can also paste a request into an AI coding assistant and ask it to make the change.
+
 ### Before the sheet is connected
 
 Until `catalog_sheet_csv_url` is filled in, the Catalogue page shows the `[SAMPLE]` rows in `_data/catalog.csv`. Once the sheet is connected, that file is no longer used.
+
+## Website analytics (GoatCounter)
+
+The site counts visits with GoatCounter, which uses no cookies, so no consent banner is needed. Google Analytics would need one. The dashboard is at <https://ioahub.goatcounter.com>. Sign in with the GoatCounter account.
+
+- **What it shows:** page views, the most visited pages, where visitors came from, their countries and screen sizes.
+- **Events:** clicks on every resource download and Zenodo link are counted, so you can see how often each resource is opened. Find them under **Events** on the dashboard.
+- **Only the live site is counted.** Local previews do not load the counter. The site code is `goatcounter_code: ioahub` in `_config.yml`.
+- **Leave out your own visits:** in GoatCounter, go to **Settings** and add your IP address under **Ignore IPs**.
+- **When `ioahub.au` is connected,** nothing changes in GoatCounter.
+
+## Instructions for AI assistants
+
+`AGENTS.md` describes the site, its rules and the decisions made so far, for any AI coding assistant (Claude Code, Codex, Copilot, Cursor, Gemini and others). When you make a decision that should stick, ask the assistant to add it to `AGENTS.md`. `CLAUDE.md` only points Claude Code to `AGENTS.md`; do not edit it.
 
 ## Add a team member
 
