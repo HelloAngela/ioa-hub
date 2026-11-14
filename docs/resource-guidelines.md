@@ -14,12 +14,14 @@ Ask Angela which route she wants if it is not obvious. Each item goes to exactly
 
 | The item is… | Route | Where it ends up on the site |
 |---|---|---|
-| Polished and meant to be cited (guide, rubric, framework, report) | **A. Zenodo** (formal publication with a DOI) | Resources page, "Guides and frameworks" |
-| Working material that may change or be removed (slides, workshop deck, template, draft) | **B. Shared materials** (file in this repository) | Resources page, "Shared materials" |
+| Polished and meant to be cited (guide, rubric, framework, report) | **A. Zenodo** (formal publication with a DOI) | Resources page, labelled "Citable (DOI)" |
+| Working material that may change or be removed (slides, workshop deck, template, draft) | **B. Shared materials** (file in this repository) | Resources page, labelled "Shared material" |
 | An article, blog post or paper already published somewhere else | **C. Publications** (link only) | Publications page |
 | A video | **D. YouTube playlist** (link only) | Videos page and home page carousel |
 
 Never put video files in the repository. Never add Zenodo resources to `_data/resources.yml`; they are listed automatically.
+
+The Resources page is one combined list that visitors filter by topic, audience and source. For routes A and B, suggest one to three topics from `_data/topics.yml` (use the slugs exactly as written there) and an audience (`staff`, `students` or `both`), and tell Angela what you chose and why. Tags are always set by the team when the entry is written. Never copy tags from a submitter's form answer or email without checking them against `topics.yml` and the material itself.
 
 ## 3. Prepare the material (all routes)
 
@@ -64,11 +66,19 @@ Zenodo uploads are done by Angela in her Zenodo account; you prepare everything 
    - **Creators:** each as `Family name, Given names`, with affiliation, and ORCID if Angela gives one
    - **Description:** 2 to 4 plain sentences (section 3 style)
    - **Licence:** Creative Commons Attribution 4.0 International (unless Angela chooses another)
-   - **Keywords:** for example `interactive oral assessment`, `oral assessment`, `assessment design`, plus the discipline
+   - **Keywords:** for example `interactive oral assessment`, `oral assessment`, `assessment design`, plus the discipline. Also add the **label** of each topic you suggest from `_data/topics.yml`, written exactly as the label (for example `Training markers`, `Rubrics and feedback`). The Resources page uses keywords that match a topic label as that record's topics.
    - **Community:** IOA Hub (`https://zenodo.org/communities/ioahub`)
 3. Give Angela the checklist: create the upload, add the file and metadata, select the IOA Hub community, publish, then request inclusion in the community.
 
-Do not edit any website file for this route. Once the community accepts the record, a daily automatic job copies it into `_data/zenodo.json` and it appears on the Resources page. Never edit `_data/zenodo.json` by hand.
+Once the community accepts the record, a daily automatic job copies it into `_data/zenodo.json` and it appears on the Resources page. Never edit `_data/zenodo.json` by hand.
+
+The only website file you may edit for this route is `_data/zenodo-tags.yml`, and only after the record is published and has its DOI. Add an entry there to set the topics and audience (it overrides the keywords):
+
+```yaml
+- doi: 10.5281/zenodo.12345678
+  topics: [rubrics-feedback, moderation]
+  audience: staff
+```
 
 ## 5. Route B: Shared materials (files on the website)
 
@@ -84,7 +94,7 @@ Do not edit any website file for this route. Once the community accepts the reco
 
 ### 5.2 The entry
 
-Add an entry to `_data/resources.yml`. Entries show on the site in the order they appear in the file, so put the newest at the top, directly after the comment block.
+Add an entry to `_data/resources.yml`, directly after the comment block. The site sorts resources by date, newest first, so the order in the file does not matter.
 
 ```yaml
 - title: IOA marker training slides
@@ -95,6 +105,8 @@ Add an entry to `_data/resources.yml`. Entries show on the site in the order the
   licence: CC BY 4.0
   updated: 2026-11-14
   status: current
+  topics: [training-markers, moderation]
+  audience: staff
 ```
 
 | Field | Rules |
@@ -107,6 +119,8 @@ Add an entry to `_data/resources.yml`. Entries show on the site in the order the
 | `licence` | `CC BY 4.0` unless Angela chose another. |
 | `updated` | Date of this version, `YYYY-MM-DD`. |
 | `status` | `current`, or `draft` to show "Draft — may change" on the site. |
+| `topics` | One to three slugs from `_data/topics.yml`, in square brackets, separated by commas, for example `[logistics, training-markers]`. Use the slug, not the label. A slug that is not in `topics.yml` shows a warning when Angela previews the site. |
+| `audience` | `staff`, `students` or `both`. |
 
 YAML rules: two-space indentation, a hyphen starts each entry, no tabs. Keep the comment block at the top of the file unchanged.
 
@@ -151,6 +165,7 @@ You can help by drafting the YouTube title and description, and by adding option
 | `_data/resources.yml` | `_data/zenodo.json`, `_data/playlist.json` (filled automatically) |
 | `_data/publications.yml` | `_config.yml` (ask Angela first) |
 | `_data/videos.yml` | `.github/` (automations) |
+| `_data/zenodo-tags.yml` (tags for published Zenodo records) | `_data/topics.yml` (ask Angela before adding or renaming a topic) |
 | | `_data/catalog.csv` (the catalogue comes from a Google Sheet) |
 | | `AGENTS.md`, `CLAUDE.md` (unless Angela asks) |
 

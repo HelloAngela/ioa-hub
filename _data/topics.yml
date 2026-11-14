@@ -1,0 +1,60 @@
+# Topics for the Resources page. This is the only list of topics: the filter
+# buttons and the "Topics:" line under each resource come from here.
+#
+# Each entry:
+#   slug:        short code used in resources.yml and zenodo-tags.yml
+#                (lowercase, words joined by hyphens)
+#   label:       what visitors see on the button and under each resource
+#   description: one line, shown when a visitor hovers over the button
+#
+# The buttons appear in the order below. A topic with no resources is hidden.
+# Renaming a slug means changing every entry that uses it in resources.yml and
+# zenodo-tags.yml. Changing only the label or description needs nothing else.
+
+- slug: design
+  label: Design
+  description: Scenarios, where the IOA sits in the unit, open or closed
+
+- slug: formats
+  label: Formats
+  description: Group, panel, online, multi-part and hybrid formats
+
+- slug: preparing-students
+  label: Preparing students
+  description: Practice, mock IOAs, study guides, nerves
+
+- slug: questions-prompts
+  label: Questions and prompts
+  description: Follow-ups, steering the conversation, memorised answers
+
+- slug: rubrics-feedback
+  label: Rubrics and feedback
+  description: Rubric design, marking in the time, feedback
+
+- slug: training-markers
+  label: Training markers
+  description: Briefing tutors, calibration
+
+- slug: moderation
+  label: Moderation
+  description: Checking consistency across markers
+
+- slug: logistics
+  label: Logistics
+  description: Booking, rooms, check-in, running at scale
+
+- slug: adjustments-wellbeing
+  label: Adjustments and wellbeing
+  description: Adjustment plans, live adjustments, student wellbeing
+
+- slug: eal-students
+  label: EAL students
+  description: English as an additional language and international students
+
+- slug: honours-postgraduate
+  label: Honours and postgraduate
+  description: Vivas, capstones, research students
+
+- slug: research
+  label: Research
+  description: Surveys, evaluation, scholarship of teaching and learning

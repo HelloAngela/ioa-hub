@@ -10,6 +10,11 @@
 #   licence:     leave out for the default, CC BY 4.0
 #   updated:     date as YYYY-MM-DD
 #   status:      current / draft   (draft shows a "Draft — may change" label)
+#   topics:      a list of slugs from _data/topics.yml, e.g. [logistics, training-markers]
+#   audience:    staff / students / both   (for the audience filter)
+#
+# The Resources page sorts by the updated date, newest first, so the order in
+# this file does not matter. A resource with no audience shows only under "All".
 
 - title: "[SAMPLE] IOA marker training slides"
   file: sample-marker-training-slides.txt
@@ -19,6 +24,8 @@
   licence: CC BY 4.0
   updated: 2026-11-14
   status: current
+  topics: [training-markers, moderation]
+  audience: staff
 
 - title: "[SAMPLE] IOA scenario template"
   file: sample-scenario-template.txt
@@ -26,5 +33,7 @@
   type: template
   authors: "[SAMPLE] IOA Hub team"
   licence: CC BY 4.0
-  updated: 2026-11-14
+  updated: 2026-11-10
   status: draft
+  topics: [design, preparing-students]
+  audience: both

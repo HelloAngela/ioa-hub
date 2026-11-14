@@ -1,11 +1,157 @@
-<div class="resource-list">
-<ul class="pub-list">
-{% for resource in site.data.resources %}
-<li>
-<a class="pub-title" href="{{ resource.file | prepend: '/resources/files/' | relative_url }}" download data-goatcounter-click="download: {{ resource.file | escape }}" data-goatcounter-title="{{ resource.title | escape }}">{{ resource.title | escape }}</a>
-<span class="pub-meta">{{ resource.authors | escape }}. {{ resource.type | default: "other" | capitalize | escape }}. Licence: {{ resource.licence | default: "CC BY 4.0" | escape }}.{% if resource.updated %} Updated {{ resource.updated | date: "%-d %B %Y" }}.{% endif %}{% if resource.status == "draft" %} Draft — may change.{% endif %}</span>
-{% if resource.description %}<span class="pub-note">{{ resource.description | escape }}</span>{% endif %}
+{% comment %}
+  One combined list of resources, newest first:
+  - Zenodo records from _data/zenodo.json, with topics and audience from _data/zenodo-tags.yml
+    (or, if a record has no entry there, any Zenodo keywords that match a topic slug or label);
+  - shared materials from _data/resources.yml.
+  Topics come from _data/topics.yml. assets/js/resources.js adds the filters, search and sorting;
+  without JavaScript every resource still shows, newest first.
+  When previewing locally, unknown topic slugs and audience values are listed in a warning box.
+{% endcomment %}
+{%- assign all_topics = site.data.topics -%}
+{%- assign zenodo_tags = site.data["zenodo-tags"] -%}
+{%- assign item_sep = "@@RESOURCE@@" -%}
+{%- assign key_sep = "@@KEY@@" -%}
+{%- assign buffer = "" -%}
+{%- assign problems = "" -%}
+
+{%- for record in site.data.zenodo.records -%}
+  {%- if record.doi -%}{%- capture link -%}https://doi.org/{{ record.doi }}{%- endcapture -%}{%- else -%}{%- assign link = record.url -%}{%- endif -%}
+  {%- assign tags = nil -%}
+  {%- if record.doi and zenodo_tags -%}{%- assign tags = zenodo_tags | where: "doi", record.doi | first -%}{%- endif -%}
+  {%- assign slugs = "" -%}
+  {%- assign audience = "" -%}
+  {%- if tags -%}
+    {%- for slug in tags.topics -%}{%- assign slugs = slugs | append: slug | append: " " -%}{%- endfor -%}
+    {%- assign audience = tags.audience | default: "" | downcase | strip -%}
+    {%- assign where_set = "_data/zenodo-tags.yml, DOI " | append: record.doi -%}
+  {%- else -%}
+    {%- for keyword in record.keywords -%}
+      {%- assign kw = keyword | downcase | strip -%}
+      {%- for topic in all_topics -%}
+        {%- assign topic_label = topic.label | downcase -%}
+        {%- if kw == topic.slug or kw == topic_label -%}{%- assign slugs = slugs | append: topic.slug | append: " " -%}{%- endif -%}
+      {%- endfor -%}
+    {%- endfor -%}
+    {%- assign where_set = "Zenodo keywords" -%}
+  {%- endif -%}
+  {%- assign slug_list = slugs | split: " " | uniq -%}
+  {%- assign good_slugs = "" -%}
+  {%- assign labels = "" -%}
+  {%- for slug in slug_list -%}
+    {%- assign topic = all_topics | where: "slug", slug | first -%}
+    {%- if topic -%}
+      {%- assign good_slugs = good_slugs | append: slug | append: " " -%}
+      {%- if labels != "" -%}{%- assign labels = labels | append: ", " -%}{%- endif -%}
+      {%- assign labels = labels | append: topic.label -%}
+    {%- else -%}
+      {%- capture problems -%}{{ problems }}<li>Unknown topic <code>{{ slug | escape }}</code> for “{{ record.title | escape }}” ({{ where_set | escape }})</li>{%- endcapture -%}
+    {%- endif -%}
+  {%- endfor -%}
+  {%- if audience != "" and audience != "staff" and audience != "students" and audience != "both" -%}
+    {%- capture problems -%}{{ problems }}<li>Unknown audience <code>{{ audience | escape }}</code> for “{{ record.title | escape }}” (use staff, students or both)</li>{%- endcapture -%}
+  {%- endif -%}
+  {%- assign year = record.publication_date | slice: 0, 4 -%}
+  {%- assign authors = record.creators | join: "; " -%}
+  {%- capture search_text -%}{{ record.title }} {{ record.description }} {{ authors }} {{ labels }}{%- endcapture -%}
+  {%- capture item -%}{{ record.publication_date | default: "0000" }}{{ key_sep }}
+<li data-source="doi" data-date="{{ record.publication_date | default: '' | escape }}" data-title="{{ record.title | downcase | escape }}" data-audience="{{ audience | escape }}" data-topics="{{ good_slugs | strip | escape }}" data-search="{{ search_text | strip_newlines | downcase | escape }}">
+<a class="pub-title" href="{{ link | escape }}" data-goatcounter-click="zenodo: {{ link | escape }}" data-goatcounter-title="{{ record.title | escape }}">{{ record.title | escape }}</a>
+<span class="pub-meta"><span class="pub-source">Citable (DOI).</span> {{ authors | escape }}{% if year != "" %} ({{ year }}){% endif %}.{% if record.resource_type %} {{ record.resource_type | escape }}.{% endif %} Licence: {% if record.licence %}{{ record.licence | upcase | replace: "-", " " | escape }}{% else %}not stated{% endif %}.</span>
+{% if record.doi %}<span class="pub-meta">DOI: {{ record.doi | escape }}</span>{% endif %}
+{% if labels != "" %}<span class="pub-topics">Topics: {{ labels | escape }}</span>{% endif %}
 </li>
+{%- endcapture -%}
+  {%- assign buffer = buffer | append: item | append: item_sep -%}
+{%- endfor -%}
+
+{%- for resource in site.data.resources -%}
+  {%- assign slugs = "" -%}
+  {%- for slug in resource.topics -%}{%- assign slugs = slugs | append: slug | append: " " -%}{%- endfor -%}
+  {%- assign audience = resource.audience | default: "" | downcase | strip -%}
+  {%- assign slug_list = slugs | split: " " | uniq -%}
+  {%- assign good_slugs = "" -%}
+  {%- assign labels = "" -%}
+  {%- for slug in slug_list -%}
+    {%- assign topic = all_topics | where: "slug", slug | first -%}
+    {%- if topic -%}
+      {%- assign good_slugs = good_slugs | append: slug | append: " " -%}
+      {%- if labels != "" -%}{%- assign labels = labels | append: ", " -%}{%- endif -%}
+      {%- assign labels = labels | append: topic.label -%}
+    {%- else -%}
+      {%- capture problems -%}{{ problems }}<li>Unknown topic <code>{{ slug | escape }}</code> for “{{ resource.title | escape }}” (_data/resources.yml)</li>{%- endcapture -%}
+    {%- endif -%}
+  {%- endfor -%}
+  {%- if audience != "" and audience != "staff" and audience != "students" and audience != "both" -%}
+    {%- capture problems -%}{{ problems }}<li>Unknown audience <code>{{ audience | escape }}</code> for “{{ resource.title | escape }}” (use staff, students or both)</li>{%- endcapture -%}
+  {%- endif -%}
+  {%- if resource.updated -%}{%- assign date = resource.updated | date: "%Y-%m-%d" -%}{%- else -%}{%- assign date = "" -%}{%- endif -%}
+  {%- capture search_text -%}{{ resource.title }} {{ resource.description }} {{ resource.authors }} {{ labels }}{%- endcapture -%}
+  {%- capture item -%}{{ date | default: "0000" }}{{ key_sep }}
+<li data-source="shared" data-date="{{ date }}" data-title="{{ resource.title | downcase | escape }}" data-audience="{{ audience | escape }}" data-topics="{{ good_slugs | strip | escape }}" data-search="{{ search_text | strip_newlines | downcase | escape }}">
+<a class="pub-title" href="{{ resource.file | prepend: '/resources/files/' | relative_url }}" download data-goatcounter-click="download: {{ resource.file | escape }}" data-goatcounter-title="{{ resource.title | escape }}">{{ resource.title | escape }}</a>
+<span class="pub-meta"><span class="pub-source">Shared material.</span> {{ resource.authors | escape }}. {{ resource.type | default: "other" | capitalize | escape }}. Licence: {{ resource.licence | default: "CC BY 4.0" | escape }}.{% if resource.updated %} Updated {{ resource.updated | date: "%-d %B %Y" }}.{% endif %}{% if resource.status == "draft" %} Draft — may change.{% endif %}</span>
+{% if resource.description %}<span class="pub-note">{{ resource.description | escape }}</span>{% endif %}
+{% if labels != "" %}<span class="pub-topics">Topics: {{ labels | escape }}</span>{% endif %}
+</li>
+{%- endcapture -%}
+  {%- assign buffer = buffer | append: item | append: item_sep -%}
+{%- endfor -%}
+
+{%- assign entries = buffer | split: item_sep | sort | reverse -%}
+
+{% if jekyll.environment != "production" and problems != "" %}
+<div class="note note--warning" role="alert">
+<p><strong>Preview only: check these tags.</strong> Topics must match a slug in <code>_data/topics.yml</code>. This box is not shown on the published site.</p>
+<ul>{{ problems }}</ul>
+</div>
+{% endif %}
+
+<div class="resources" id="resources">
+<div class="filters resource-filters" id="resource-filters" hidden>
+<p class="resource-filters__intro">Filter by topic, audience or source, or search titles, authors and topics. The address in your browser keeps your filters, so you can copy it to share a filtered list.</p>
+<div class="filters--fields resource-filters__fields">
+<div class="field">
+<label for="resource-search">Search</label>
+<input type="search" id="resource-search" autocomplete="off">
+</div>
+<div class="field">
+<label for="resource-sort">Sort</label>
+<select id="resource-sort">
+<option value="newest">Newest first</option>
+<option value="oldest">Oldest first</option>
+<option value="title">Title A–Z</option>
+</select>
+</div>
+</div>
+<fieldset class="filters__group" data-filter-group="audience">
+<legend>Audience</legend>
+<button type="button" class="filter-button" data-filter-value="all" aria-pressed="true">All</button>
+<button type="button" class="filter-button" data-filter-value="staff" aria-pressed="false">Staff</button>
+<button type="button" class="filter-button" data-filter-value="students" aria-pressed="false">Students</button>
+</fieldset>
+<fieldset class="filters__group" data-filter-group="source">
+<legend>Source</legend>
+<button type="button" class="filter-button" data-filter-value="all" aria-pressed="true">All</button>
+<button type="button" class="filter-button" data-filter-value="doi" aria-pressed="false">Citable (DOI)</button>
+<button type="button" class="filter-button" data-filter-value="shared" aria-pressed="false">Shared material</button>
+</fieldset>
+<details class="topic-details" id="resource-topic-details" open>
+<summary>Filter by topic <span class="topic-details__count" id="resource-topic-count"></span></summary>
+<fieldset class="filters__group" data-filter-group="topic">
+<legend>Topic</legend>
+{% for topic in all_topics %}
+<button type="button" class="filter-button" data-filter-value="{{ topic.slug | escape }}" aria-pressed="false" title="{{ topic.description | escape }}">{{ topic.label | escape }}</button>
 {% endfor %}
+</fieldset>
+</details>
+<p class="resource-filters__clear"><button type="button" class="filter-button filter-button--clear" id="resource-clear">Clear filters</button></p>
+</div>
+<p class="status" id="resource-status" role="status" aria-live="polite"></p>
+{% if entries.size > 0 %}
+<ul class="pub-list resource-list" id="resource-list">
+{% for entry in entries %}{% assign parts = entry | split: key_sep %}{{ parts[1] }}{% endfor %}
 </ul>
+{% else %}
+<p>No resources are listed yet. The first ones will appear here once they are published in the IOA Hub community on Zenodo or added as shared materials.</p>
+{% endif %}
 </div>

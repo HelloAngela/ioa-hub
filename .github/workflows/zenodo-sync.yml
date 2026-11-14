@@ -75,6 +75,7 @@ jobs:
                     | .[0:300]
                     | if . == "" then null else . end
                   ),
+                  keywords: (.metadata.keywords // []),
                   url: (.links.self_html // .links.html // null),
                   downloads: (.stats.downloads // null),
                   views: (.stats.views // null)

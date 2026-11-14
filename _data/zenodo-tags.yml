@@ -1,0 +1,19 @@
+# Topics and audience for Zenodo records on the Resources page.
+#
+# The Zenodo records themselves are copied automatically into _data/zenodo.json
+# (do not edit that file by hand). Add an entry here only to set a record's tags.
+#
+# Each entry:
+#   doi:      (needed) the record's DOI exactly as shown on Zenodo, e.g. 10.5281/zenodo.24209593
+#   topics:   a list of slugs from _data/topics.yml, e.g. [logistics, training-markers]
+#   audience: staff / students / both
+#
+# A record with no entry here takes its topics from its Zenodo keywords: any
+# keyword that matches a topic slug or label (capitals ignored) is used.
+# A record with no audience shows only under the "All" audience filter.
+
+# [SAMPLE] Tags for the current test record, so the filters can be tried.
+# Replace or delete once real records are published.
+- doi: 10.5281/zenodo.24209593
+  topics: [preparing-students, research]
+  audience: both

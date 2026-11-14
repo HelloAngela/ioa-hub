@@ -65,13 +65,41 @@ To have an AI assistant (for example Claude in Cowork) prepare your materials an
   licence: CC BY 4.0
   updated: 2026-11-14
   status: current
+  topics: [training-markers, moderation]
+  audience: staff
 ```
 
 - `file` must match the file name exactly, including capital letters.
 - `type` is `slides`, `guide`, `template` or `other`.
 - `status: draft` shows a "Draft — may change" label.
+- `topics` is a list of slugs from `_data/topics.yml`, in square brackets and separated by commas. Visitors filter the Resources page by these.
+- `audience` is `staff`, `students` or `both`. A resource with no audience shows only under the "All" audience filter.
+- The page sorts by `updated`, newest first, so the order of entries in the file does not matter.
+- When you preview the site on your own computer, an orange-bordered box above the list names any topic slug that is not in `_data/topics.yml`, so typos are easy to spot. The box never appears on the published site.
 
 Citable resources are different. They live on Zenodo, and the site copies the list from Zenodo once a day. You do not add them here.
+
+You can link straight to a filtered view of the Resources page from an email or a slide. Choose the filters on the page, then copy the address from your browser, for example `…/resources/?topic=logistics,moderation&audience=staff`.
+
+## Tag a Zenodo record
+
+Zenodo records are listed automatically, but their topics and audience come from `_data/zenodo-tags.yml`. Add an entry with the record's DOI, exactly as Zenodo shows it:
+
+```yaml
+- doi: 10.5281/zenodo.24209593
+  topics: [preparing-students, research]
+  audience: both
+```
+
+If a record has no entry here, the site uses any of its Zenodo keywords that match a topic slug or label (capitals ignored). For example, a record with the keyword "Training markers" gets that topic. An entry in `zenodo-tags.yml` always wins over the keywords.
+
+## Add or rename a topic
+
+The topics are listed once, in `_data/topics.yml`. Each has a `slug` (the short code used in the data files), a `label` (what visitors see) and a `description` (shown when someone hovers over the button).
+
+- **Add a topic:** add an entry to `topics.yml`. Its button appears on the Resources page once at least one resource uses it.
+- **Change a label or description:** edit it in `topics.yml`. Nothing else needs changing.
+- **Rename a slug:** change it in `topics.yml` and in every entry that uses it in `_data/resources.yml` and `_data/zenodo-tags.yml`. Links people have already shared with the old slug will show the unfiltered list. Preview the site afterwards and check for the warning box.
 
 ## The catalogue: Google Form and Google Sheet
 
