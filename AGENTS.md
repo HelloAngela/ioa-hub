@@ -252,3 +252,4 @@ When Angela asks to "build the starter site":
 - **`docs/`** holds reference material (brand notes, the forms script) and is excluded from the published site.
 - **Catalogue page:** no entry, institution or country counters above the filters (Angela removed them). The table and filters start straight after the intro text.
 - **Full name:** IOA Hub stands for **Interactive Oral Assessment Hub**, not "Oral Assessment Hub", even though the site also covers viva-style and hybrid formats.
+- **Preparing resources outside Claude Code:** `docs/resource-guidelines.md` tells any assistant (for example Claude in Cowork) how to prepare materials and where to put them (Zenodo, `resources/files/` with `_data/resources.yml`, publications, videos). Keep it in step with this file when routes or data fields change.

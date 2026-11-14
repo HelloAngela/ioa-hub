@@ -51,6 +51,8 @@ The Publications page lists articles and posts that are already published somewh
 
 ## Add an informal resource
 
+To have an AI assistant (for example Claude in Cowork) prepare your materials and put them in the right place, point it to `docs/resource-guidelines.md`. It covers privacy checks, licence lines, accessibility, file names and the entries below.
+
 1. Put the file in `resources/files/`. Keep it under 20 MB.
 2. Open `_data/resources.yml` and add an entry:
 
