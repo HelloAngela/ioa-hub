@@ -1,28 +1,19 @@
 <div class="zenodo-list">
 {% assign records = site.data.zenodo.records %}
 {% if records and records.size > 0 %}
-<ul class="pub-list zenodo-list__items">
+<ul class="pub-list">
 {% for record in records %}
 {% assign year = record.publication_date | slice: 0, 4 %}
 {% assign authors = record.creators | join: "; " %}
+{% if record.doi %}{% capture link %}https://doi.org/{{ record.doi }}{% endcapture %}{% else %}{% assign link = record.url %}{% endif %}
 <li>
-<span class="pub-title">{{ record.title | escape }}</span>
-<ul class="tags">
-{% if record.resource_type %}<li class="tag">{{ record.resource_type | escape }}</li>{% endif %}
-<li class="tag">{% if record.licence %}{{ record.licence | upcase | escape }}{% else %}Licence not stated{% endif %}</li>
-</ul>
-<p class="pub-meta">{{ authors | escape }}{% if year != "" %} ({{ year }}){% endif %}</p>
-{% if record.doi %}
-<a href="https://doi.org/{{ record.doi | escape }}" data-goatcounter-click="zenodo: {{ record.doi | escape }}" data-goatcounter-title="{{ record.title | escape }}">Cite / DOI<span class="visually-hidden">: {{ record.title | escape }}</span></a>
-{% else %}
-<a href="{{ record.url | escape }}" data-goatcounter-click="zenodo: {{ record.url | escape }}" data-goatcounter-title="{{ record.title | escape }}">View on Zenodo<span class="visually-hidden">: {{ record.title | escape }}</span></a>
-{% endif %}
+<a class="pub-title" href="{{ link | escape }}" data-goatcounter-click="zenodo: {{ link | escape }}" data-goatcounter-title="{{ record.title | escape }}">{{ record.title | escape }}</a>
+<span class="pub-meta">{{ authors | escape }}{% if year != "" %} ({{ year }}){% endif %}.{% if record.resource_type %} {{ record.resource_type | escape }}.{% endif %} Licence: {% if record.licence %}{{ record.licence | upcase | replace: "-", " " | escape }}{% else %}not stated{% endif %}.</span>
+{% if record.doi %}<span class="pub-meta">DOI: {{ record.doi | escape }}</span>{% endif %}
 </li>
 {% endfor %}
 </ul>
 {% else %}
-<div class="note">
 <p>No citable resources are listed yet. The first ones will appear here once they are published in the IOA Hub community on Zenodo.</p>
-</div>
 {% endif %}
 </div>
