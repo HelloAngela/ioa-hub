@@ -127,7 +127,8 @@ def upload_record(api, token, record, folder, community, publish):
         print("    To change a published record, make a new version on the Zenodo website.")
         return None
     if drafts:
-        dep = drafts[0]
+        # The list leaves out some links (such as the file bucket), so fetch the full draft.
+        dep = request("GET", f"{api}/deposit/depositions/{drafts[0]['id']}", token)
         print(f"    Reusing the unpublished draft {dep['id']}.")
     else:
         dep = request("POST", f"{api}/deposit/depositions", token, data={})
