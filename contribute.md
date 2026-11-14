@@ -31,7 +31,7 @@ For a formal, citable publication, share a guide, rubric or framework through Ze
 
 ## 3. Share draft or working materials
 
-Send slides, workshop materials, templates or drafts that are ready for public sharing through the {% if site.intake_form_url contains "PLACEHOLDER" %}shared request form once its link is set up{% else %}<a href="{{ site.intake_form_url }}">shared IOA Hub request form</a>{% endif %}. The team adds submitted files to the website through GitHub, so you do not need a GitHub account. Materials are shared as supplied and may be labelled as drafts. Please make sure you have permission to share the file and remove confidential, personal or student information. To update or remove a file later, use the same form.
+Send a sharing link to slides, workshop materials, templates or drafts that are ready for public sharing (from Google Drive, OneDrive, Dropbox or similar) through the {% if site.intake_form_url contains "PLACEHOLDER" %}shared request form once its link is set up{% else %}<a href="{{ site.intake_form_url }}">shared IOA Hub request form</a>{% endif %}. The team adds submitted files to the website through GitHub, so you do not need a GitHub account. Materials are shared as supplied and may be labelled as drafts. Please make sure you have permission to share the file and remove confidential, personal or student information. To update or remove a file later, use the same form.
 
 ## 4. Suggest a publication or video, or report a problem
 

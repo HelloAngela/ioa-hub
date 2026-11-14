@@ -77,85 +77,50 @@ People submit a Google Form. Each response lands as a row in a Google Sheet. You
 
 Only a second tab of the sheet, called `Public`, is published. It holds approved rows only, without the timestamp or the consent answer.
 
-### Set it up (once)
+### Set up both forms (once)
 
-**1. Make the form.** In Google Forms, add these questions in this exact order. The order matters.
+A script builds the catalogue form, the request form and both response sheets for you. It is in `docs/google-forms/create-forms.gs`.
 
-| # | Question | Type | Required |
-|---|---|---|---|
-| 1 | Name (as you want it shown) | Short answer | Yes |
-| 2 | Position title | Short answer | No |
-| 3 | Institution | Short answer | Yes |
-| 4 | Country | Short answer | Yes |
-| 5 | Faculty or school | Short answer | No |
-| 6 | Discipline | Short answer | Yes |
-| 7 | Unit code | Short answer | No |
-| 8 | Unit name | Short answer | No |
-| 9 | Year level | Dropdown: 1st year, 2nd year, 3rd year, 4th year or Honours, Postgraduate, Other | No |
-| 10 | Assessment type | Dropdown: Interactive oral assessment (IOA), Viva or oral examination, Hybrid oral assessment, Other oral assessment | Yes |
-| 11 | Number of students (a number only) | Short answer, validation: number | No |
-| 12 | Typical length of this assessment in minutes (a number only) | Short answer, validation: number | No |
-| 13 | Weighting, as a percentage of the unit mark (a number only) | Short answer, validation: number | No |
-| 14 | Year you started using this assessment in this unit | Short answer | No |
-| 15 | How the assessment works, in one or two sentences | Paragraph | Yes |
-| 16 | Public contact: an email or link that will be shown on the site (optional) | Short answer | No |
-| 17 | Profile link (optional) | Short answer | No |
-| 18 | Resource link (optional) | Short answer | No |
-| 19 | Consent | Checkboxes, one option: "I agree to these details being published on IOA Hub" | Yes |
+1. Go to <https://script.google.com> while signed in to the Google account that should own the forms. Choose **New project**.
+2. Delete the sample code. Open `docs/google-forms/create-forms.gs` in VS Code, copy all of it, and paste it in. Press Save.
+3. In the bar at the top, choose `createIoaHubForms` and press **Run**. Google asks for permission to manage your forms and sheets: choose your account, then Advanced > Go to project, then Allow.
+4. When it finishes, the Execution log shows two form links and two sheet links. All four files are also in your Google Drive.
+5. Open the **IOA Hub catalogue responses** sheet. Choose File > Share > Publish to web. In the first box pick `Public` (not "Entire document"). In the second box pick "Comma-separated values (.csv)". Press Publish and copy the link.
+6. In `_config.yml`, paste:
+   - the catalogue form link as `google_form_url`
+   - the request form link as `intake_form_url`
+   - the published CSV link as `catalog_sheet_csv_url`
 
-At the top of the form, say that the answers will be published on IOA Hub after a check. Explain that the catalogue covers IOA, viva-style and hybrid oral assessments. For an Honours viva that combines features of a PhD defence and an IOA, choose "Hybrid oral assessment" and describe it in question 15. Do not turn on "Collect email addresses".
+   Then commit and push.
 
-**2. Link the sheet.** In the form's Responses tab, choose "Link to Sheets". The responses tab is called `Form responses 1`. Column A is the timestamp, B to S are questions 1 to 18, and T is consent (question 19).
+Run the script only once. A second run makes a second set of forms.
 
-**3. Add the Approved column.** In `Form responses 1`, type `Approved` in cell U1. Select column U, then choose Insert > Tick box.
+Open each form and check the wording before you share it. You can change question text, help text and the description freely. In the catalogue form, **do not add, remove or reorder questions**: the Public tab copies columns B to S by position. If you need a new question, add it after Consent and ask for help updating the Public tab.
 
-**4. Add the Public tab.** Add a new tab and name it `Public`. Paste this into cell A1 (it fills row 1 with the column names):
+Share the sheets with colleagues as editors if they will help. Never publish the `Form responses 1` tab of either sheet.
 
-```
-=SPLIT("name,title,institution,country,faculty_or_school,discipline,unit_code,unit_name,year_level,assessment_type,cohort_size,length_minutes,weighting_percent,year_started,assessment_format,contact_public,profile_url,resource_url", ",")
-```
+### What the catalogue sheet contains
 
-Paste this into cell A2 (it copies the approved rows):
-
-```
-=IFERROR(FILTER('Form responses 1'!B2:S, 'Form responses 1'!U2:U = TRUE), "")
-```
-
-**5. Publish the Public tab.** Choose File > Share > Publish to web. In the first box pick `Public` (not "Entire document"). In the second box pick "Comma-separated values (.csv)". Press Publish and copy the link.
-
-**6. Tell the site.** In `_config.yml`, paste that link as `catalog_sheet_csv_url` and the form's address as `google_form_url`. Commit and push.
-
-Share the sheet with colleagues as editors if they will help approve. Never publish the `Form responses 1` tab.
+- `Form responses 1`: every submission. Column A is the timestamp, B to S are the 18 answers, T is consent and U is **Approved**. Each new response gets an empty tick box in column U automatically.
+- `Public`: approved rows only, without the timestamp or consent answer, under the column names the Catalogue page reads. It fills itself; do not type in it.
 
 ### Approve, correct or remove an entry
 
-- **Approve:** read the row in `Form responses 1`, then tick its Approved box. If a new row has no tick box, type `TRUE` in the cell instead.
+- **Approve:** read the row in `Form responses 1`, then tick its Approved box. If a row has no tick box, type `TRUE` in the cell instead.
 - **Correct:** edit the row in `Form responses 1`.
 - **Remove:** untick the Approved box, or delete the row.
 
 Changes show on the site within about five minutes.
 
-## Shared requests: suggestions, corrections and contact
+## Shared requests: suggestions, materials, corrections and contact
 
-Suggestions, general enquiries, broken links, corrections and catalogue removal requests should go to one Google Form. The linked Google Sheet is the team's request queue, so submissions have an owner and status instead of arriving in separate email and GitHub channels. The catalogue submission form above remains separate because its approved answers feed the public catalogue.
+Everything that is not a catalogue entry goes through the **IOA Hub request form**: suggested publications and videos, draft or working materials to share, catalogue corrections and removals, website problems and general questions. The **IOA Hub requests** sheet is the team's to-do list.
 
-**1. Make a Google Form** with these questions:
+- Columns A to I hold the answers. The script adds `Status`, `Owner`, `Team notes` and `Last updated` (J to M).
+- Each new request gets the status `New` and today's date automatically. The other statuses are `In progress`, `Waiting for submitter`, `Done` and `Closed`.
+- Team notes are internal. Never publish this sheet.
 
-| # | Question | Type | Required |
-|---|---|---|---|
-| 1 | What is your request about? (Publication or link; video; informal resource; catalogue correction or removal; site problem; general enquiry; other) | Dropdown | Yes |
-| 2 | Short title | Short answer | Yes |
-| 3 | Link to the page, publication or resource (if relevant) | Short answer | No |
-| 4 | Tell us what you need | Paragraph | Yes |
-| 5 | Your name | Short answer | No |
-| 6 | Your email, if you would like a reply | Short answer | No |
-| 7 | Resource licence or sharing permission (if relevant) | Paragraph | No |
-
-Do not enable public response access to the linked sheet. Tell people not to include sensitive personal or student information.
-
-**2. Link the form to a Google Sheet.** Share the sheet with the team members who will triage requests. Add these columns to the right of the form response columns: `Status`, `Owner`, `Team notes`, `Last updated`. Suggested statuses: `New`, `In progress`, `Waiting for submitter`, `Done`, `Closed`. The assigned team member updates the status and notes as they work; team notes are internal and must not be published.
-
-**3. Connect the form to the site.** Put its URL in `_config.yml` as `intake_form_url`. Suggestions and correction/removal links on the site use this setting. Until it is set, those links show a placeholder, so set it before publishing the updated site.
+People share materials as a link to a file in their own Google Drive, OneDrive or Dropbox. The form has no file upload question, because Google Forms makes everyone sign in to a Google account to upload. To add a shared file to the site, download it, put it in `resources/files/` and follow "Add an informal resource" above.
 
 ### Before the sheet is connected
 

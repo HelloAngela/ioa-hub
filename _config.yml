@@ -35,6 +35,7 @@ youtube_playlist: PLJFJAoICnsnA
 markdown: kramdown
 exclude:
   - CLAUDE.md
+  - docs
   - README.md
   - assets/brand/brand-guidelines-2023.pdf
   - LICENSE

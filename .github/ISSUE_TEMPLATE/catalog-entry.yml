@@ -1,12 +1,12 @@
-name: Add me to the IOA catalog
-description: Add your details to the public catalog of people running interactive oral assessment (IOA).
+name: Add me to the oral assessment catalogue
+description: Add your details to the public catalogue of educators running oral assessments, including interactive oral assessment (IOA), viva-style and hybrid formats.
 title: "Catalog entry: "
 labels: ["catalog"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thank you for adding yourself. This issue is public, and the details below will be published on the IOA Hub catalog once we have checked them.
+        Thank you for adding yourself. This issue is public, and the details below will be published on the IOA Hub catalogue once we have checked them.
         Leave optional fields empty if you do not want them published.
   - type: input
     id: name
@@ -51,7 +51,7 @@ body:
     id: unit_code
     attributes:
       label: Unit code
-      description: The code of the unit (subject or course) that uses IOA.
+      description: The code of the unit (subject or course) that uses the oral assessment.
     validations:
       required: false
   - type: input
@@ -73,18 +73,29 @@ body:
         - Other
     validations:
       required: false
+  - type: dropdown
+    id: assessment_type
+    attributes:
+      label: Assessment type
+      options:
+        - Interactive oral assessment (IOA)
+        - Viva or oral examination
+        - Hybrid oral assessment
+        - Other oral assessment
+    validations:
+      required: true
   - type: input
     id: cohort_size
     attributes:
       label: Number of students
-      description: About how many students take the IOA each time it runs. A number only.
+      description: about how many students take this assessment each time it runs. A number only.
       placeholder: "450"
     validations:
       required: false
   - type: input
     id: length_minutes
     attributes:
-      label: Length of each IOA, in minutes
+      label: Typical length of this assessment, in minutes
       description: A number only.
       placeholder: "10"
     validations:
@@ -100,14 +111,14 @@ body:
   - type: input
     id: year_started
     attributes:
-      label: Year you started using IOA in this unit
+      label: Year you started using this assessment in this unit
       placeholder: "2023"
     validations:
       required: false
   - type: textarea
-    id: ioa_format
+    id: assessment_format
     attributes:
-      label: How you run it
+      label: How the assessment works
       description: One or two sentences. For example, "One-to-one conversation in person, set in a hospital laboratory scenario. Six markers run sessions in parallel over one week."
     validations:
       required: true
@@ -129,7 +140,7 @@ body:
     id: resource_url
     attributes:
       label: Resource link (optional)
-      description: A link to a rubric, guide or paper about your IOA.
+      description: A link to a rubric, guide or paper about your assessment.
     validations:
       required: false
   - type: checkboxes
