@@ -172,7 +172,7 @@ Requests do not change the site by themselves. Someone acts on each one, then se
 |---|---|
 | Publication | Add an entry to `_data/publications.yml`, then commit and push |
 | Video | Add it to the YouTube playlist. The site picks it up within a day |
-| Draft or working materials | Download the file, put it in `resources/files/`, add an entry to `_data/resources.yml`, then commit and push |
+| Draft or working materials | Download the file and check it is under 20 MB. If it is larger, ask the submitter to compress or split it, or to publish it on Zenodo. Then put it in `resources/files/`, add an entry to `_data/resources.yml`, and commit and push |
 | Catalogue correction | Edit the row in the catalogue sheet. Shows within about five minutes, no push |
 | Catalogue removal | Untick Approved or delete the row in the catalogue sheet. Gone within about five minutes, no push |
 | Website problem | Fix the page, then commit and push |

@@ -183,7 +183,8 @@ function createRequestForm_() {
     "The title of the publication, video or material, or a few words about the request.", true);
   text_(form, "Link (if relevant)",
     "The page, publication or video. For materials to share, a sharing link to the file " +
-    "(Google Drive, OneDrive, Dropbox or similar) set so that anyone with the link can view it.",
+    "(Google Drive, OneDrive, Dropbox or similar) set so that anyone with the link can view it. " +
+    "Each file must be under 20 MB; publish larger files on Zenodo instead.",
     false);
   form.addParagraphTextItem()
     .setTitle("Tell us what you need")

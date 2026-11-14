@@ -256,3 +256,49 @@ When Angela asks to "build the starter site":
 - **Name (changed 15 November 2026):** the site is **IOA Commons**, short for **Interactive Oral Assessment Commons** (keep "Interactive" even though the site also covers viva-style and hybrid formats). It was called IOA Hub until then; do not use "Hub" for the site in any visible text. Some identifiers still contain "ioahub" or "ioa-hub" because they belong to outside accounts: the GitHub repository and folder `ioa-hub` (and so `baseurl: "/ioa-hub"`), the Zenodo community slug `ioahub`, the GoatCounter code `ioahub` and the planned domain `ioahub.au`. Change them only when Angela asks, together with the matching account.
 - **Preparing resources outside Claude Code:** `docs/resource-guidelines.md` tells any assistant (for example Claude in Cowork) how to prepare materials and where to put them (Zenodo, `resources/files/` with `_data/resources.yml`, publications, videos). Keep it in step with this file when routes or data fields change.
 - **Contact emails:** the footer shows `contact_email` (Angela's address). The About page team grid shows each member's `email` from `_data/team.yml`. Only add an email with that person's agreement.
+- **File size for shared materials (15 November 2026):** every file in `resources/files/` must be under 20 MB (the site's own rule; GitHub warns above 50 MB and refuses files above 100 MB). The Contribute page (section 3) tells submitters this and points larger files to Zenodo (up to 50 GB per record) and videos to a link. The request form's link question says the same; `docs/google-forms/create-forms.gs` holds that wording, but the live form was changed by hand because the script is only run once.
+
+## 15. Handover: first MIMI2X02 resources (added 15 November 2026)
+
+Claude in Cowork prepared these changes and left them uncommitted. Angela is continuing in VS Code. Work through the steps in order, tick them off here, and delete this section once every box is ticked.
+
+**Already done (uncommitted):**
+- Eight redacted MIMI2X02 interactive oral assessment (IOA) resources added to `resources/files/`, with entries, topics and audience in `_data/resources.yml`. All are credited to "Angela Sun and Helen McGuire", CC BY 4.0, `status: current`. Angela has checked the redacted files and approved them for publishing.
+- The two `[SAMPLE]` resources and their files removed.
+- The 20 MB file limit added to `contribute.md` (section 3), `README.md` (requests table), `docs/google-forms/create-forms.gs` and section 14 above. `docs/resource-guidelines.md` section 5.3 updated.
+- Jekyll could not be run in Cowork (RubyGems is blocked there), so nothing has been previewed yet.
+
+**Steps**
+
+- [x] 1. **Preview.** Run `bundle exec jekyll serve` and open `http://localhost:4000/ioa-hub/resources/`. Check that all eight resources show, with no unknown-topic warning box; that the topic, audience and source filters, search and sort work; and that each download opens (PDF, `.pptx`, `.png` and the `.html` report). Check the Contribute page shows the 20 MB paragraph. Check phone and desktop widths. Fix any problem before committing.
+- [x] 2. **Commit**, in small steps, for example "Add the first eight MIMI2X02 IOA resources" and "Tell contributors about the 20 MB file limit". Do not push until Angela says so.
+- [ ] 3. **Live request form (Angela, by hand).** Remind Angela to add this to the help text of the "Link (if relevant)" question in the live Google request form: "Each file must be under 20 MB; publish larger files on Zenodo instead." The script in `docs/` already has this wording but is only run once.
+- [ ] 4. **Zenodo uploads (Angela).** Two resources go to Zenodo, not to this repository: the IOA planning and delivery timeline, and the mock IOA tutorial runsheet. The `.docx` files are in the `ioa hub` folder inside Angela's OneDrive folder "IOA Resources for Sharing". The metadata is below. For each record, Angela exports a tagged PDF from Word (File > Export > Create PDF/XPS > Options > "Document structure tags for accessibility") and uploads both the PDF and the `.docx`. Never put these files in `resources/files/`.
+- [ ] 5. **Tag the Zenodo records.** Once both records are accepted into the community, add their real DOIs to `_data/zenodo-tags.yml`:
+
+  ```yaml
+  - doi: 10.5281/zenodo.XXXXXXX   # planning timeline
+    topics: [logistics, design, training-markers, preparing-students]
+    audience: staff
+
+  - doi: 10.5281/zenodo.XXXXXXX   # mock IOA runsheet
+    topics: [preparing-students, questions-prompts]
+    audience: both
+  ```
+
+  Then remind Angela she can delete the two `.docx` files from the `ioa hub` folder.
+- [ ] 6. **Test record.** The community still holds a test record ("IOA Student Experience Forum talk", creator "test, test", DOI 10.5281/zenodo.24209593), and `_data/zenodo-tags.yml` has a `[SAMPLE]` entry for it. When Angela has fixed or removed that record, delete the sample entry.
+
+**Zenodo metadata for step 4** (both records: creators "Sun, Angela" and "McGuire, Helen", affiliation The University of Sydney; licence Creative Commons Attribution 4.0 International; community IOA Commons, `https://zenodo.org/communities/ioahub`)
+
+| | Planning timeline | Mock IOA runsheet |
+|---|---|---|
+| Files | `Planning_execution timeline.docx` and its PDF | `Tutorial activity - student Mock IOA runsheet.docx` and its PDF |
+| Resource type | Other | Lesson |
+| Title | Interactive oral assessment (IOA) planning and delivery timeline | Mock interactive oral assessment (IOA): tutorial runsheet |
+| Description | A week-by-week timeline for running an interactive oral assessment (IOA) in a large unit, from two to three months before semester to the exam period. Each row lists what staff and students do that week, including approvals, scenario and rubric design, tutor training, practice, scheduling, the assessment weeks and moderation. The example comes from a second-year microbiology and immunology unit, with 2025 dates to replace with your own. | A 60 to 75 minute tutorial plan in which students practise an interactive oral assessment (IOA) in groups of two or three, taking turns as student, assessor and observer. It includes a warm-up, a central briefing on the format and rubric, timed practice rounds, guidance for assessors, observers and facilitators, and a whole-class debrief. |
+| Keywords | interactive oral assessment; oral assessment; assessment design; higher education; Logistics; Design; Training markers; Preparing students | interactive oral assessment; oral assessment; mock assessment; higher education; Preparing students; Questions and prompts |
+
+The capitalised keywords match topic labels in `_data/topics.yml`, so the records get topic tags even before step 5.
+
+**Still to migrate later** (not part of this handover): the exemplar scenario and sample response, the student study guide, the ASCILITE webinar slides (needs Helen's and the named tutors' agreement), and two videos for YouTube (room set-up, demonstration IOA). Redaction is done in Cowork before files reach this repository.

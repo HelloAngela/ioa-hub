@@ -33,6 +33,8 @@ For a formal, citable publication, share a guide, rubric or framework through Ze
 
 Send a sharing link to slides, workshop materials, templates or drafts that are ready for public sharing (from Google Drive, OneDrive, Dropbox or similar) through the {% if site.intake_form_url contains "PLACEHOLDER" %}shared request form once its link is set up{% else %}<a href="{{ site.intake_form_url }}">shared IOA Commons request form</a>{% endif %}. The team adds submitted files to the website through GitHub, so you do not need a GitHub account. Materials are shared as supplied and may be labelled as drafts. Please make sure you have permission to share the file and remove confidential, personal or student information. To update or remove a file later, use the same form.
 
+Each file must be under 20 MB, because shared materials are stored in the site's GitHub repository. If a file is larger, compress the images in it or split it into smaller files. You can also publish it on Zenodo instead (see section 2), which accepts up to 50 GB per record. Share videos as a link (for example to YouTube) rather than as a file.
+
 ## 4. Suggest a publication or video, or report a problem
 
 {% if site.intake_form_url contains "PLACEHOLDER" %}Use the shared IOA Commons request form once it is set up to:{% else %}Use the [shared IOA Commons request form]({{ site.intake_form_url }}) to:{% endif %}
