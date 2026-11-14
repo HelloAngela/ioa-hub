@@ -1,6 +1,6 @@
 <footer class="site-footer">
   <div class="container">
-    <p class="site-footer__credit">IOA Hub resources were developed by the Advanced HE IOA team and are maintained by Dr Angela Sun. <a href="{{ '/about/' | relative_url }}">About the team</a>.</p>
+    <p class="site-footer__credit">IOA Hub was developed by a team based at the University of Sydney and is maintained by Dr Angela Sun. <a href="{{ '/about/' | relative_url }}">About the team</a>.{% unless site.contact_email contains "PLACEHOLDER" %} Contact: <a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a>{% endunless %}</p>
     <ul class="site-footer__links">
       <li><a href="https://github.com/{{ site.github_username }}/ioa-hub">GitHub repository</a></li>
       <li><a href="https://creativecommons.org/licenses/by/4.0/" rel="license">Content licence: CC BY 4.0</a></li>

@@ -8,7 +8,7 @@ lead: IOA Hub brings together oral assessment resources and examples, and connec
 
 Oral assessments take many forms. This site helps educators find examples, share resources and learn from one another. It includes interactive oral assessments (IOAs), viva-style examinations and hybrid approaches. The catalogue includes educators working across these formats.
 
-IOA Hub resources were developed by the Advanced HE IOA team and are maintained by Dr Angela Sun. Educators can [add an oral assessment to the catalogue]({{ '/contribute/' | relative_url }}).
+IOA Hub was developed by a team based at the University of Sydney and is maintained by Dr Angela Sun. Educators can [add an oral assessment to the catalogue]({{ '/contribute/' | relative_url }}).{% unless site.contact_email contains "PLACEHOLDER" %} To contact the team, email <a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a>.{% endunless %}
 
 ## Team
 

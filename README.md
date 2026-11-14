@@ -1,6 +1,6 @@
 # IOA Hub
 
-The website for IOA Hub (Interactive Oral Assessment Hub). Its resources were developed by the Advanced HE IOA team and it is maintained by Dr Angela Sun. It covers oral assessment broadly, including interactive oral assessment (IOA), viva-style examinations and hybrid formats. It is built with Jekyll and hosted on GitHub Pages.
+The website for IOA Hub (Interactive Oral Assessment Hub). It was developed by a team based at the University of Sydney and is maintained by Dr Angela Sun. It covers oral assessment broadly, including interactive oral assessment (IOA), viva-style examinations and hybrid formats. It is built with Jekyll and hosted on GitHub Pages.
 
 This guide covers the everyday jobs. You only ever need to edit the files in `_data/`, the six `.md` pages, and `_config.yml`. The layout code is in `_layouts/`, `_includes/` and `assets/`, and you can leave it alone.
 
@@ -209,6 +209,7 @@ Search the project for `PLACEHOLDER` to find them all.
 
 | What | Where |
 |---|---|
+| Public contact email (footer and About page) | `_config.yml` (`contact_email`) |
 | Audience and topic of each video (guessed from titles, to check) | `_data/videos.yml` |
 | Sample informal resources, marked `[SAMPLE]` | `_data/resources.yml` and `resources/files/` |
 | Sample catalogue rows, marked `[SAMPLE]` (shown until the sheet is connected) | `_data/catalog.csv` |
