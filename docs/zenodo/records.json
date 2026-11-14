@@ -1,0 +1,58 @@
+{
+  "_comment": "Records for docs/zenodo/upload-to-zenodo.py. Each record lists its files by name; the script looks for them in the folder given with --folder. Edit the metadata here, not in the script.",
+  "community": "ioahub",
+  "records": [
+    {
+      "files": [
+        "Planning_execution timeline.docx",
+        "Planning_execution timeline.pdf"
+      ],
+      "metadata": {
+        "upload_type": "other",
+        "title": "Interactive oral assessment (IOA) planning and delivery timeline",
+        "creators": [
+          {"name": "Sun, Angela", "affiliation": "The University of Sydney"},
+          {"name": "McGuire, Helen", "affiliation": "The University of Sydney"}
+        ],
+        "description": "<p>A week-by-week timeline for running an interactive oral assessment (IOA) in a large unit, from two to three months before semester to the exam period. Each row lists what staff and students do that week, including approvals, scenario and rubric design, tutor training, practice, scheduling, the assessment weeks and moderation. The example comes from a second-year microbiology and immunology unit, with 2025 dates to replace with your own.</p>",
+        "access_right": "open",
+        "license": "cc-by-4.0",
+        "keywords": [
+          "interactive oral assessment",
+          "oral assessment",
+          "assessment design",
+          "higher education",
+          "Logistics",
+          "Design",
+          "Training markers",
+          "Preparing students"
+        ]
+      }
+    },
+    {
+      "files": [
+        "Tutorial activity - student Mock IOA runsheet.docx",
+        "Tutorial activity - student Mock IOA runsheet.pdf"
+      ],
+      "metadata": {
+        "upload_type": "lesson",
+        "title": "Mock interactive oral assessment (IOA): tutorial runsheet",
+        "creators": [
+          {"name": "Sun, Angela", "affiliation": "The University of Sydney"},
+          {"name": "McGuire, Helen", "affiliation": "The University of Sydney"}
+        ],
+        "description": "<p>A 60 to 75 minute tutorial plan in which students practise an interactive oral assessment (IOA) in groups of two or three, taking turns as student, assessor and observer. It includes a warm-up, a central briefing on the format and rubric, timed practice rounds, guidance for assessors, observers and facilitators, and a whole-class debrief.</p>",
+        "access_right": "open",
+        "license": "cc-by-4.0",
+        "keywords": [
+          "interactive oral assessment",
+          "oral assessment",
+          "mock assessment",
+          "higher education",
+          "Preparing students",
+          "Questions and prompts"
+        ]
+      }
+    }
+  ]
+}

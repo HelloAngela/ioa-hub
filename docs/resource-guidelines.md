@@ -68,7 +68,7 @@ Zenodo uploads are done by Angela in her Zenodo account; you prepare everything 
    - **Licence:** Creative Commons Attribution 4.0 International (unless Angela chooses another)
    - **Keywords:** for example `interactive oral assessment`, `oral assessment`, `assessment design`, plus the discipline. Also add the **label** of each topic you suggest from `_data/topics.yml`, written exactly as the label (for example `Training markers`, `Rubrics and feedback`). The Resources page uses keywords that match a topic label as that record's topics.
    - **Community:** IOA Commons (`https://zenodo.org/communities/ioahub`)
-3. Give Angela the checklist: create the upload, add the file and metadata, select the IOA Commons community, publish, then request inclusion in the community.
+3. Give Angela the checklist: create the upload, add the file and metadata, select the IOA Commons community, publish, then request inclusion in the community. Alternatively, add the record to `docs/zenodo/records.json` and Angela uploads it with `docs/zenodo/upload-to-zenodo.py` (REST API; sandbox test first, see the notes at the top of the script).
 
 Once the community accepts the record, a daily automatic job copies it into `_data/zenodo.json` and it appears on the Resources page. Never edit `_data/zenodo.json` by hand.
 
