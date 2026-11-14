@@ -168,9 +168,6 @@ Search the project for `PLACEHOLDER` to find them all.
 
 | What | Where |
 |---|---|
-| Google Form address for catalogue entries | `_config.yml` (`google_form_url`) |
-| Shared Google Form for suggestions, corrections, removals and enquiries | `_config.yml` (`intake_form_url`) |
-| Published link of the catalogue sheet's Public tab | `_config.yml` (`catalog_sheet_csv_url`) |
 | GoatCounter site code | `_config.yml` (`goatcounter_code`) |
 | Audience and topic of each video (guessed from titles, to check) | `_data/videos.yml` |
 | Sample informal resources, marked `[SAMPLE]` | `_data/resources.yml` and `resources/files/` |
