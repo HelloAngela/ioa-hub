@@ -241,7 +241,6 @@ Search the project for `PLACEHOLDER` to find them all.
 | What | Where |
 |---|---|
 | Audience and topic of each video (guessed from titles, to check) | `_data/videos.yml` |
-| Sample informal resources, marked `[SAMPLE]` | `_data/resources.yml` and `resources/files/` |
 | Sample catalogue rows, marked `[SAMPLE]` (shown until the sheet is connected) | `_data/catalog.csv` |
 
 A video card shows "Video coming soon" until its YouTube ID is filled in.

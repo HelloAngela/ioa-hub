@@ -126,7 +126,7 @@ YAML rules: two-space indentation, a hyphen starts each entry, no tabs. Keep the
 
 ### 5.3 Sample entries
 
-The file currently starts with two entries marked `[SAMPLE]`, with files `sample-marker-training-slides.txt` and `sample-scenario-template.txt`. When the first real resource is added, ask Angela whether to remove the samples. Only remove them (entries and files) after she says yes.
+The two `[SAMPLE]` entries and their placeholder files were removed on 15 November 2026, when the first real resources were added. The file now holds real resources only.
 
 ## 6. Route C: Publications (links only)
 

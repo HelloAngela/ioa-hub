@@ -16,24 +16,90 @@
 # The Resources page sorts by the updated date, newest first, so the order in
 # this file does not matter. A resource with no audience shows only under "All".
 
-- title: "[SAMPLE] IOA marker training slides"
-  file: sample-marker-training-slides.txt
-  description: "[PLACEHOLDER: sample entry. Replace with a real resource or delete it.]"
+- title: "IOA assessor training slides"
+  file: ioa-assessor-training.pdf
+  description: "Slides from an assessor training session for a large second-year interactive oral assessment (IOA) in microbiology and immunology. Covers the IOA format, question types, the rubric, a mock run, marking calibration and the run sheet for assessment days. Assessor names are replaced with numbers."
   type: slides
-  authors: "[SAMPLE] IOA Commons team"
+  authors: Angela Sun and Helen McGuire
   licence: CC BY 4.0
-  updated: 2026-11-14
+  updated: 2026-11-15
   status: current
-  topics: [training-markers, moderation]
+  topics: [training-markers, rubrics-feedback, questions-prompts, logistics]
   audience: staff
 
-- title: "[SAMPLE] IOA scenario template"
-  file: sample-scenario-template.txt
-  description: "[PLACEHOLDER: sample entry. Replace with a real resource or delete it.]"
-  type: template
-  authors: "[SAMPLE] IOA Commons team"
+- title: "IOA concierge briefing pack"
+  file: ioa-concierge-info-pack.pptx
+  description: "Editable briefing slides for the staff who check students in and move them between rooms on interactive oral assessment (IOA) days. Covers QR code check-in, room set-up, an hourly routine and common problems. Links, phone numbers and names are placeholders to replace with your own."
+  type: slides
+  authors: Angela Sun and Helen McGuire
   licence: CC BY 4.0
-  updated: 2026-11-10
-  status: draft
-  topics: [design, preparing-students]
+  updated: 2026-11-15
+  status: current
+  topics: [logistics]
+  audience: staff
+
+- title: "IOA check-in and waitlist set-up in SRES"
+  file: sres-check-in-waitlist-setup.png
+  description: "Screenshot of the settings for an interactive oral assessment (IOA) check-in and waitlist column in SRES, the University of Sydney's Student Relationship Engagement System. Use it with the concierge briefing pack."
+  type: other
+  authors: Angela Sun and Helen McGuire
+  licence: CC BY 4.0
+  updated: 2026-11-15
+  status: current
+  topics: [logistics]
+  audience: staff
+
+- title: "IOA information page for students"
+  file: ioa-student-information-page.pdf
+  description: "Eight-page student guide to a second-year interactive oral assessment (IOA): format, assessment conditions, check-in, the question flow, the rubric and practice resources. Printed from the unit website, with internal links removed."
+  type: guide
+  authors: Angela Sun and Helen McGuire
+  licence: CC BY 4.0
+  updated: 2026-11-15
+  status: current
+  topics: [preparing-students, logistics, rubrics-feedback]
   audience: both
+
+- title: "IOA live marking form"
+  file: ioa-live-marking-rubric-schema.pdf
+  description: "Two-page example of a live marking form for an interactive oral assessment (IOA). Each part of the conversation has a score slider and tick-box feedback, so markers can mark and give feedback in the room within the time."
+  type: template
+  authors: Angela Sun and Helen McGuire
+  licence: CC BY 4.0
+  updated: 2026-11-15
+  status: current
+  topics: [rubrics-feedback]
+  audience: staff
+
+- title: "IOA rubric and conversation scaffold"
+  file: ioa-rubric-conversation-scaffold.pdf
+  description: "One-page rubric for an interactive oral assessment (IOA) that sets out each phase of the conversation with its timing and grade descriptors from Fail to Distinction."
+  type: template
+  authors: Angela Sun and Helen McGuire
+  licence: CC BY 4.0
+  updated: 2026-11-15
+  status: current
+  topics: [rubrics-feedback, design, questions-prompts]
+  audience: both
+
+- title: "IOA marking audit and moderation report"
+  file: ioa-marking-moderation-report.pdf
+  description: "Worked example of checking marking consistency across seven assessors in a large interactive oral assessment (IOA). Shows each assessor's mean and spread, severity and drift checks, and differences between scenarios. Assessors are numbered and the unit is not named."
+  type: other
+  authors: Angela Sun and Helen McGuire
+  licence: CC BY 4.0
+  updated: 2026-11-15
+  status: current
+  topics: [moderation, training-markers]
+  audience: staff
+
+- title: "IOA marking audit and moderation report, with R code"
+  file: ioa-marking-moderation-report.html
+  description: "The interactive oral assessment (IOA) moderation report above as a web page, with the R code behind each table and plot. Download it and open it in a browser, then adapt the code to your own marks export."
+  type: other
+  authors: Angela Sun and Helen McGuire
+  licence: CC BY 4.0
+  updated: 2026-11-15
+  status: current
+  topics: [moderation]
+  audience: staff
