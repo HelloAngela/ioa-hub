@@ -250,3 +250,4 @@ When Angela asks to "build the starter site":
 - **Resources page lists:** Zenodo resources and shared materials are plain text lists (title link, then one line of authors, year, type and licence), styled like the Publications page. No cards, tags or badges.
 - **Analytics:** GoatCounter is live with code `ioahub` (dashboard `https://ioahub.goatcounter.com`). Do not switch to Google Analytics: it needs a cookie consent banner.
 - **`docs/`** holds reference material (brand notes, the forms script) and is excluded from the published site.
+- **Catalogue page:** no entry, institution or country counters above the filters (Angela removed them). The table and filters start straight after the intro text.

@@ -12,7 +12,6 @@
   var controls = document.getElementById("catalog-filters");
   var search = document.getElementById("catalog-search");
   var status = document.getElementById("catalog-status");
-  var stats = document.getElementById("catalog-stats");
   var selects = Array.prototype.slice.call(controls.querySelectorAll("select[data-filter]"));
   var ranges = Array.prototype.slice.call(controls.querySelectorAll("select[data-range]"));
   var rows = [];
@@ -140,21 +139,6 @@
     return tr;
   }
 
-  function countDistinct(key) {
-    var seen = {};
-    rows.forEach(function (row) {
-      var value = row.getAttribute("data-" + key);
-      if (value) seen[value.toLowerCase()] = true;
-    });
-    return Object.keys(seen).length;
-  }
-
-  function setStat(name, count, singular, plural) {
-    var strong = stats.querySelector('[data-stat="' + name + '"]');
-    strong.textContent = count;
-    strong.parentNode.querySelector("span").textContent = count === 1 ? singular : plural;
-  }
-
   // ---------- Search and filters ----------
 
   function inRange(value, range) {
@@ -243,12 +227,6 @@
     entries = entries.filter(function (entry) { return clean(entry.name) !== ""; });
     rows = entries.map(buildRow);
     rows.forEach(function (row) { body.appendChild(row); });
-
-    setStat("entries", rows.length, "entry", "entries");
-    setStat("institutions", countDistinct("institution"), "institution", "institutions");
-    setStat("countries", countDistinct("country"), "country", "countries");
-    stats.hidden = false;
-
     if (!rows.length) {
       status.textContent = "No entries yet. Be the first to add yours.";
       return;

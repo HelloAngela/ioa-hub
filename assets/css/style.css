@@ -379,28 +379,7 @@ img { max-width: 100%; height: auto; }
 
 /* ---------- Catalogue ---------- */
 
-.stats {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin: 1.5rem 0;
-  padding: 0;
-  list-style: none;
-}
-.stats[hidden], .catalog-table[hidden] { display: none; }
-.stats li {
-  min-width: 9rem;
-  padding: 1rem 1.5rem;
-  background: var(--sandstone);
-  border-radius: var(--radius);
-}
-.stats strong {
-  display: block;
-  font-family: var(--font-body);
-  font-size: 2.25rem;
-  line-height: 1.1;
-  color: var(--ochre);
-}
+.catalog-table[hidden] { display: none; }
 
 .catalog-table {
   width: 100%;
