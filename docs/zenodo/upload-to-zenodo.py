@@ -17,7 +17,9 @@ The sandbox and the live site need separate accounts and separate tokens.
 Set it for this PowerShell window only, never in a file in this repository:
     $env:ZENODO_SANDBOX_TOKEN = "paste-token-here"   # for the sandbox
     $env:ZENODO_TOKEN = "paste-token-here"           # for the live site
-If the variable is not set, the script asks for the token (typing is hidden).
+Or put the lines ZENODO_TOKEN=... and ZENODO_SANDBOX_TOKEN=... in a file named .env
+in the ioa-hub folder (.gitignore keeps it out of GitHub).
+If neither is set, the script asks for the token (typing is hidden).
 
 Examples (run from the ioa-hub folder):
     # 1. Sandbox test: create drafts and upload files, do not publish
@@ -52,6 +54,18 @@ TOKEN_VARS = {
 
 class ZenodoError(Exception):
     pass
+
+
+def load_dotenv(path):
+    """Read KEY=value lines from a .env file (git-ignored) without overriding set variables."""
+    if not path.is_file():
+        return
+    for line in path.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, value = line.split("=", 1)
+        os.environ.setdefault(key.strip(), value.strip().strip("\"'"))
 
 
 def request(method, url, token, data=None, body=None, content_type="application/json"):
@@ -192,6 +206,7 @@ def main():
         if input("Type PUBLISH to publish on zenodo.org: ").strip() != "PUBLISH":
             sys.exit("Stopped. Nothing was published.")
 
+    load_dotenv(here.parent.parent / ".env")  # .env in the ioa-hub folder
     token = os.environ.get(TOKEN_VARS[env]) or getpass.getpass(f"{env} Zenodo token (hidden): ").strip()
     if not token:
         sys.exit(f"No token. Set ${TOKEN_VARS[env]} or paste one when asked.")

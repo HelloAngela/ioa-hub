@@ -4,3 +4,6 @@ _site/
 .sass-cache/
 vendor/
 Gemfile.lock
+
+# Secrets (Zenodo tokens). Never commit.
+.env
