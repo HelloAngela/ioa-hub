@@ -21,7 +21,7 @@ google_form_url: "[PLACEHOLDER: Google Form URL]"
 intake_form_url: "[PLACEHOLDER: shared intake Google Form URL]"
 # The "Publish to web" CSV link of the Public tab of the catalogue Google Sheet (see README).
 # Until this is filled in, the Catalogue page shows the sample rows in _data/catalog.csv.
-catalog_sheet_csv_url: "[PLACEHOLDER: published Google Sheet CSV link]"
+catalog_sheet_csv_url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQAvoqTBSupHm1-g8uYC01ZIKy6JQRZjmz1eP8Bl96lUpbgz-Egy7Ruqm4v0FhMMyW3EfYguK4BPgkT/pub?gid=2126475318&single=true&output=csv"
 goatcounter_code: "[PLACEHOLDER: goatcounter code]"
 # Zenodo community slug (https://zenodo.org/communities/ioahub/).
 zenodo_community: ioahub
