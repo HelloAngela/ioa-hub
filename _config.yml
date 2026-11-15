@@ -25,6 +25,9 @@ catalog_sheet_csv_url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQAvoqTB
 goatcounter_code: ioahub
 # Public contact email, shown in the footer and on the About page.
 contact_email: "angela.sun@sydney.edu.au"
+# Show the "still being built" notice under the header on every page.
+# Change to false to hide it.
+dev_notice: true
 # Zenodo community slug (https://zenodo.org/communities/ioahub/).
 zenodo_community: ioahub
 

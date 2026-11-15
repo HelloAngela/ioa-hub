@@ -83,6 +83,19 @@ img { max-width: 100%; height: auto; }
   padding: 0 1.25rem;
 }
 
+/* ---------- Development notice (dev_notice in _config.yml) ---------- */
+
+.dev-notice {
+  background: var(--sandstone);
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+.dev-notice p {
+  margin: 0;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+}
+
 /* ---------- Header ---------- */
 
 .site-header {
