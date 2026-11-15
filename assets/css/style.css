@@ -86,7 +86,8 @@ img { max-width: 100%; height: auto; }
 /* ---------- Development notice (dev_notice in _config.yml) ---------- */
 
 .dev-notice {
-  background: var(--sandstone);
+  /* Light grey so it stands apart from both white pages and the sandstone home banner. */
+  background: var(--grey-light);
   font-size: 0.8rem;
   line-height: 1.4;
 }
