@@ -16,6 +16,50 @@
 # The Resources page sorts by the updated date, newest first, so the order in
 # this file does not matter. A resource with no audience shows only under "All".
 
+- title: "IOA assessor playbook (excerpt)"
+  file: ioa-assessor-playbook-excerpt.pdf
+  description: "Nine-page excerpt from the assessor playbook for a large second-year interactive oral assessment (IOA) in microbiology and immunology. Covers how to run the conversation: four decision points, ways to extend, repair or rescue an answer, how to ask, and what to do in difficult moments. It contains no assessment questions."
+  type: guide
+  authors: Angela Sun
+  licence: CC BY 4.0
+  updated: 2026-11-15
+  status: current
+  topics: [questions-prompts, training-markers, adjustments-wellbeing]
+  audience: staff
+
+- title: "IOA student reading cards"
+  file: ioa-student-reading-cards.pdf
+  description: "Six cards students read from in the room during an interactive oral assessment (IOA): the pre-released Big Picture Question and five case scenarios, one to an A4 page. Shows one way to display pre-release information on the day so students can refer to it while they answer."
+  type: other
+  authors: Angela Sun
+  licence: CC BY 4.0
+  updated: 2026-11-15
+  status: current
+  topics: [design, preparing-students]
+  audience: both
+
+- title: "IOA schedule and roster template (Excel)"
+  file: ioa-schedule-template.xlsx
+  description: "Excel template for scheduling an interactive oral assessment (IOA) for a large cohort: sessions, room calendar, concierge roster, student roll, adjustment plans, re-sits, marker hours and a summary. The roll looks up each student's extra time, and marker hours are worked out from the session list. All names and details are invented examples."
+  type: template
+  authors: Angela Sun
+  licence: CC BY 4.0
+  updated: 2026-11-15
+  status: current
+  topics: [logistics, adjustments-wellbeing]
+  audience: staff
+
+- title: "IOA schedule and roster template (Word)"
+  file: ioa-schedule-template.docx
+  description: "Word version of the interactive oral assessment (IOA) schedule and roster template, with a page on how its eight parts fit together. All names and details are invented examples."
+  type: template
+  authors: Angela Sun
+  licence: CC BY 4.0
+  updated: 2026-11-15
+  status: current
+  topics: [logistics, adjustments-wellbeing]
+  audience: staff
+
 - title: "IOA assessor training slides"
   file: ioa-assessor-training.pdf
   description: "Slides from an assessor training session for a large second-year interactive oral assessment (IOA) in microbiology and immunology. Covers the IOA format, question types, the rubric, a mock run, marking calibration and the run sheet for assessment days. Assessor names are replaced with numbers."
