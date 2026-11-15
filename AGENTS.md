@@ -302,3 +302,31 @@ Claude in Cowork prepared these changes and left them uncommitted. Angela is con
 The capitalised keywords match topic labels in `_data/topics.yml`, so the records get topic tags even before step 5.
 
 **Still to migrate later** (not part of this handover): the exemplar scenario and sample response, the student study guide, the ASCILITE webinar slides (needs Helen's and the named tutors' agreement), and two videos for YouTube (room set-up, demonstration IOA). Redaction is done in Cowork before files reach this repository.
+
+## 16. Handover: second batch of MIMI2X02 resources (added 15 November 2026)
+
+Claude in Cowork prepared these changes and left them uncommitted. Angela is continuing in VS Code. Work through the steps in order, tick them off here, and delete this section once every box is ticked.
+
+**Already done (uncommitted):**
+- Four files added to `resources/files/`, each with an entry, topics and audience at the top of `_data/resources.yml`:
+
+  | File | Title on the site | Type | Topics | Audience |
+  |---|---|---|---|---|
+  | `ioa-assessor-playbook-excerpt.pdf` | IOA assessor playbook (excerpt) | guide | `questions-prompts`, `training-markers`, `adjustments-wellbeing` | staff |
+  | `ioa-student-reading-cards.pdf` | IOA student reading cards | other | `design`, `preparing-students` | both |
+  | `ioa-schedule-template.xlsx` | IOA schedule and roster template (Excel) | template | `logistics`, `adjustments-wellbeing` | staff |
+  | `ioa-schedule-template.docx` | IOA schedule and roster template (Word) | template | `logistics`, `adjustments-wellbeing` | staff |
+
+- **Credit:** all four are credited to "Angela Sun" only, not Helen McGuire (Angela's decision). CC BY 4.0, `status: current`, `updated: 2026-11-15`. Angela checked the drafts and approved them for publishing.
+- **Playbook excerpt:** written new from Angela's private assessor playbook. It covers conversation strategy only and contains no assessment questions, prompt wording, scenarios or marking pack, so students can read it. Never add the full playbook, the question set or the exemplar scripts to this repository: they hold the live question bank.
+- **Reading cards:** the pre-release Big Picture Question and five scenarios that every student already has, with a preface on how the cards are used on the day. Card text is reproduced word for word, including three small grammar slips the students saw.
+- **Schedule template:** built from scratch with invented rows; nothing was copied from the real schedule workbook, which holds student IDs and adjustment plans and must never be added. The Excel version has formulas (extra-time lookup, students booked, marker hours, summary counts) that were recalculated with no errors.
+- Both PDFs are tagged (accessible) exports with Angela Sun as author. All four files are under 200 KB.
+- This is the first resource tagged `adjustments-wellbeing`, so that topic button appears on the Resources page for the first time.
+- Jekyll could not be run in Cowork, so nothing has been previewed yet.
+
+**Steps**
+
+- [x] 1. **Preview.** Run `bundle exec jekyll serve` and open `http://localhost:4000/ioa-hub/resources/`. Check that all 12 shared materials show, with no unknown-topic warning box; that the new "Adjustments and wellbeing" topic button appears and filters to three items; and that each new download opens (`.pdf`, `.xlsx`, `.docx`). Check phone and desktop widths. Fix any problem before committing.
+- [x] 2. **Commit**, for example "Add the assessor playbook excerpt, student reading cards and schedule template". Do not push until Angela says so.
+- [ ] 3. **Later (Angela to decide):** once these have been up for a while, the playbook excerpt and the schedule template are candidates for Zenodo (route A), with "Sun, Angela" as the only creator.
