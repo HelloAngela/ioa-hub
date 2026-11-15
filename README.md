@@ -191,7 +191,7 @@ The site counts visits with GoatCounter, which uses no cookies, so no consent ba
 - **Events:** clicks on every resource download and Zenodo link are counted, so you can see how often each resource is opened. Find them under **Events** on the dashboard.
 - **Only the live site is counted.** Local previews do not load the counter. The site code is `goatcounter_code: ioahub` in `_config.yml`.
 - **Leave out your own visits:** in GoatCounter, go to **Settings** and add your IP address under **Ignore IPs**.
-- **When `ioahub.au` is connected,** nothing changes in GoatCounter.
+- **The `ioa.au` domain** needed no change in GoatCounter.
 
 ## Instructions for AI assistants
 
@@ -232,7 +232,7 @@ Each time you want to preview the site:
 bundle exec jekyll serve
 ```
 
-Then open <http://localhost:4000/ioa-hub/> in your browser. The page updates when you save a file. If you change `_config.yml`, stop the preview (Ctrl+C) and start it again.
+Then open <http://localhost:4000/> in your browser. The page updates when you save a file. If you change `_config.yml`, stop the preview (Ctrl+C) and start it again.
 
 ## Placeholders still to fill in
 

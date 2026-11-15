@@ -9,11 +9,11 @@ description: >-
 lang: en-AU
 
 # --- Address of the site -------------------------------------------------
-# Until the ioahub.au domain is connected, the site lives at
-# https://<github username>.github.io/ioa-hub
+# The site is served at https://ioa.au (custom domain, see the CNAME file).
+# baseurl stays empty because the site sits at the root of the domain.
 github_username: HelloAngela
-url: ""            # leave empty until the domain is connected
-baseurl: "/ioa-hub"
+url: "https://ioa.au"
+baseurl: ""
 
 # --- Things Angela still needs to supply ----------------------------------
 google_form_url: "https://docs.google.com/forms/d/e/1FAIpQLSf4s_OLIVnc7kpKT8T3e2DYX_15ovez3QbIJvtR3BFWce9FHw/viewform"

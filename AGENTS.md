@@ -12,7 +12,7 @@ This file tells any AI coding assistant (Claude Code, Codex, Copilot, Cursor, Ge
 - **Positioning:** treat oral assessment as the umbrella. Include IOAs, viva-style examinations and hybrids such as an Honours viva that combines features of an IOA and a PhD defence. Describe the specific assessment type where known; do not imply every oral assessment follows the IOA format.
 - **Tone:** make the site easy to approach. Focus on finding and sharing resources, examples and experience, and on educators learning from one another. Avoid promotional or self-congratulatory language.
 - **What an IOA is:** a short (about 10-minute), organic conversation, assessed against learning objectives and set in a discipline-relevant scenario. Students show learning by explaining and defending an argument.
-- **Planned domain:** `ioahub.au` (not connected yet; see section 10).
+- **Domain:** `ioa.au` (connected 16 November 2026; see section 10).
 - **Hosting:** GitHub Pages, from this repository on Angela's personal GitHub account.
 
 ## 2. How Angela works, and how to work with her
@@ -199,10 +199,10 @@ Local preview: use the `github-pages` gem in a `Gemfile` so local builds match G
 
 ## 10. Domain (do this last)
 
-The domain `ioahub.au` will be connected after the site works at the GitHub address. When Angela asks:
-- Add a `CNAME` file containing `ioahub.au`.
-- Give her the exact DNS records to add at her registrar (GitHub Pages A records and a `www` CNAME), and remind her to tick "Enforce HTTPS" and to verify the domain in her GitHub account settings.
-- Until then, set `baseurl` in `_config.yml` for the `username.github.io/ioa-hub` address, and make sure every link uses `relative_url` so nothing breaks when the domain is added.
+Done on 16 November 2026. The site is served at `https://ioa.au`:
+- The `CNAME` file contains `ioa.au`. Do not delete it.
+- `_config.yml` has `url: "https://ioa.au"` and `baseurl: ""`. Keep using `relative_url` for every link.
+- DNS is managed in the Quantum Core DNS Manager: four GitHub Pages A records on `ioa.au`, `www` CNAME to `HelloAngela.github.io`, and the `_github-pages-challenge-HelloAngela` TXT record that keeps the domain verified in Angela's GitHub account. Keep the TXT record.
 
 ## 11. README for Angela
 
@@ -230,7 +230,7 @@ When Angela asks to "build the starter site":
 - [x] GoatCounter site code (`ioahub`)
 - [ ] Consent from each team member to use their photo and title
 - [ ] Higher-resolution photo of Angela (the current one came from slides and is small)
-- [ ] Confirm the domain `ioahub.au` is purchased
+- [x] Domain purchased and connected (`ioa.au`)
 
 ## 14. Decisions made after the first build (these override the sections above)
 
@@ -238,7 +238,7 @@ When Angela asks to "build the starter site":
 - **Catalogue columns:** the catalogue covers oral assessment broadly. `assessment_type` identifies IOA, viva/oral examination, hybrid or other formats; `assessment_format` is shown as "How it runs" (one or two sentences). Filters: assessment type, institution, country, discipline, year level, number of students and length.
 - **Videos (replaces part of 6.1 and 6.2):** the video list is copied daily from the playlist `https://www.youtube.com/playlist?list=PLJFJAoICnsnA` into `_data/playlist.json` by `.github/workflows/youtube-sync.yml` (uses yt-dlp, no API key). `_data/videos.yml` now only holds optional extras per `youtube_id` (audience, topic, title, people, description). The home page has a video carousel directly under the introduction, showing 8 videos picked at random from the whole playlist; the pick changes once a day and is the same for every visitor that day (`pickForToday` in `assets/js/videos.js`, number set by `data-carousel-pick` in `index.md`). Without JavaScript it shows every playlist video. Do not show a count of videos.
 - **Institution-neutral wording (replaces parts of 1, 5, 6.1 and 6.6):** IOA Commons is presented as open to any institution. Do not imply that the site itself is a University of Sydney site. The Interactive Oral Exchange is hosted by the University and open to all educators. Footer attribution (on every page): "IOA Commons was developed by a team based at the University of Sydney and is maintained by Angela Sun.", a link to About ("About the team"), and the public contact email (`contact_email` in `_config.yml`). No GitHub repository link and no separate licence link in the footer (Angela removed them); the closing line "Site text and informal resources are licensed CC BY 4.0…" links to the licence. The same credit is used on the About page and in `LICENSE-content.md`. The About page acknowledges the University's grant and project contribution.
-- **Local preview (replaces part of 9):** Angela's computer has Ruby 4, which the `github-pages` gem does not support. The `Gemfile` uses `jekyll ~> 3.10.0` directly (the version GitHub Pages runs). Preview address: `http://localhost:4000/ioa-hub/`.
+- **Local preview (replaces part of 9):** Angela's computer has Ruby 4, which the `github-pages` gem does not support. The `Gemfile` uses `jekyll ~> 3.10.0` directly (the version GitHub Pages runs). Preview address: `http://localhost:4000/` (it was `/ioa-hub/` before the domain was connected).
 - **GitHub:** the repository is `HelloAngela/ioa-hub`.
 - **Publications page (adds to 6):** `/publications/` is a simple list of articles and posts already published elsewhere (starting with Teaching@Sydney posts), from `_data/publications.yml` (`title`, `url`, `authors`, `date`, `source`, optional `note`), newest first. Navigation order is now Home, Videos, Resources, Publications, Catalogue, Contribute, About.
 - **Interactive Oral Exchange:** its section (`https://bit.ly/IOAexchange`, with a button) is on the Home page, after "Resources and examples" and before the "Sharing" section (which covers only contributing); Angela moved it from the Resources page. Describe it as a community of practice hosted by the University of Sydney and open to all educators. The Resources page has no Publications section (the Publications page is in the navigation). Do not add a section on workshops for University of Sydney staff (Angela removed it). Do not add Learning Hub student support; Angela found it too niche.
@@ -253,7 +253,7 @@ When Angela asks to "build the starter site":
 - **Analytics:** GoatCounter is live with code `ioahub` (dashboard `https://ioahub.goatcounter.com`). Do not switch to Google Analytics: it needs a cookie consent banner.
 - **`docs/`** holds reference material (brand notes, the forms script) and is excluded from the published site.
 - **Catalogue page:** no entry, institution or country counters above the filters (Angela removed them). The table and filters start straight after the intro text.
-- **Name (changed 15 November 2026):** the site is **IOA Commons**, short for **Interactive Oral Assessment Commons** (keep "Interactive" even though the site also covers viva-style and hybrid formats). It was called IOA Hub until then; do not use "Hub" for the site in any visible text. Some identifiers still contain "ioahub" or "ioa-hub" because they belong to outside accounts: the GitHub repository and folder `ioa-hub` (and so `baseurl: "/ioa-hub"`), the Zenodo community slug `ioahub`, the GoatCounter code `ioahub` and the planned domain `ioahub.au`. Change them only when Angela asks, together with the matching account.
+- **Name (changed 15 November 2026):** the site is **IOA Commons**, short for **Interactive Oral Assessment Commons** (keep "Interactive" even though the site also covers viva-style and hybrid formats). It was called IOA Hub until then; do not use "Hub" for the site in any visible text. Some identifiers still contain "ioahub" or "ioa-hub" because they belong to outside accounts: the GitHub repository and folder `ioa-hub`, the Zenodo community slug `ioahub`, and the GoatCounter code `ioahub`. Change them only when Angela asks, together with the matching account. The domain is `ioa.au`, so `baseurl` is now empty.
 - **Preparing resources outside Claude Code:** `docs/resource-guidelines.md` tells any assistant (for example Claude in Cowork) how to prepare materials and where to put them (Zenodo, `resources/files/` with `_data/resources.yml`, publications, videos). Keep it in step with this file when routes or data fields change.
 - **Contact emails:** the footer shows `contact_email` (Angela's address). The About page team grid shows each member's `email` from `_data/team.yml`. Only add an email with that person's agreement.
 - **File size for shared materials (15 November 2026):** every file in `resources/files/` must be under 20 MB (the site's own rule; GitHub warns above 50 MB and refuses files above 100 MB). The Contribute page (section 3) tells submitters this and points larger files to Zenodo (up to 50 GB per record) and videos to a link. The request form's link question says the same; `docs/google-forms/create-forms.gs` holds that wording, but the live form was changed by hand because the script is only run once.
@@ -284,6 +284,6 @@ Claude in Cowork prepared these changes and left them uncommitted. Angela is con
 
 **Steps**
 
-- [x] 1. **Preview.** Run `bundle exec jekyll serve` and open `http://localhost:4000/ioa-hub/resources/`. Check that all 12 shared materials show, with no unknown-topic warning box; that the new "Adjustments and wellbeing" topic button appears and filters to three items; and that each new download opens (`.pdf`, `.xlsx`, `.docx`). Check phone and desktop widths. Fix any problem before committing.
+- [x] 1. **Preview.** Run `bundle exec jekyll serve` and open `http://localhost:4000/resources/`. Check that all 12 shared materials show, with no unknown-topic warning box; that the new "Adjustments and wellbeing" topic button appears and filters to three items; and that each new download opens (`.pdf`, `.xlsx`, `.docx`). Check phone and desktop widths. Fix any problem before committing.
 - [x] 2. **Commit**, for example "Add the assessor playbook excerpt, student reading cards and schedule template". Do not push until Angela says so.
 - [ ] 3. **Later (Angela to decide):** once these have been up for a while, the playbook excerpt and the schedule template are candidates for Zenodo (route A), with "Sun, Angela" as the only creator.
