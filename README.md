@@ -149,6 +149,17 @@ Changes show on the site within about five minutes.
 3. Google refreshes the published CSV copy of the `Public` tab about every five minutes.
 4. Each time someone opens the Catalogue page, it reads that CSV. Nothing needs editing, committing or pushing.
 
+### Add several entries at once (with each person's agreement)
+
+When you already hold someone's details (for example from a survey) and they have agreed to be listed, you can send them through the form in one go instead of typing each one.
+
+1. In the **IOA commons catalogue responses** sheet, choose Extensions > Apps Script, paste in `docs/google-forms/import-catalogue-entries.gs`, save, and reload the sheet. An **IOA Commons** menu appears.
+2. Add a tab called `Import`. Row 1 holds the 18 question titles exactly as in the form, then `Consent date` and `Import status`. Extra columns for your own notes are ignored.
+3. Fill in `Consent date` only for people who have agreed to their row as written. Rows without it are skipped.
+4. Choose **IOA Commons > Submit ready rows from Import tab**. Each row becomes a normal form response in `Form responses 1`, unapproved. Tick Approved to publish.
+
+Keep working files with unpublished details out of this repository.
+
 ### Get an email when someone submits
 
 Google does not email you about new submissions unless you turn it on.
