@@ -6,7 +6,7 @@
 # Photos: square, 400x400 px, JPG, under 100 KB.
 
 - name: Dr Angela Sun
-  role: Lecturer (Education-focused)
+  role: Lecturer
   unit: School of Life and Environmental Sciences, Faculty of Science
   photo: angela-sun.jpg
   email: angela.sun@sydney.edu.au
@@ -24,6 +24,7 @@
   role: Learning Success Advisor
   unit: Learning Hub
   photo: adam-gall.jpg
+  email: adam.gall@sydney.edu.au
   group: Project team
 - name: Dr Alexandra García
   role: Learning Hub Lead
