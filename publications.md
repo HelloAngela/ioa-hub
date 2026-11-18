@@ -3,7 +3,7 @@ layout: page
 title: Publications
 permalink: /publications/
 description: Articles and posts about oral assessment, published elsewhere and listed in one place.
-lead: These articles and posts about oral assessment are published on other sites. Each title links to the original. Most current entries are about interactive oral assessment (IOA).
+lead: These articles and posts about oral assessment are published on other sites. Each title links to the original.
 ---
 
 {% include publication-list.html %}
