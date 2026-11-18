@@ -1,12 +1,96 @@
-<div class="publications">
-{% assign publications = site.data.publications | sort: "date" | reverse %}
-<ul class="pub-list">
-{% for item in publications %}
-<li>
+{% comment %}
+  The Publications list, newest first, from _data/publications.yml.
+  Topics and types come from _data/publication-tags.yml.
+  assets/js/publications.js adds search, filters, sorting and the summaries switch;
+  without JavaScript every publication shows, newest first, with its summary.
+  When previewing locally, unknown topics or types are listed in a warning box.
+{% endcomment %}
+{%- assign tag_data = site.data["publication-tags"] -%}
+{%- assign all_topics = tag_data.topics -%}
+{%- assign all_types = tag_data.types -%}
+{%- assign publications = site.data.publications | sort: "date" | reverse -%}
+{%- assign problems = "" -%}
+{%- capture rows -%}
+{%- for item in publications -%}
+  {%- assign type = all_types | where: "slug", item.type | first -%}
+  {%- unless type -%}
+    {%- capture problems -%}{{ problems }}<li>Unknown or missing type <code>{{ item.type | escape }}</code> for “{{ item.title | escape }}”</li>{%- endcapture -%}
+  {%- endunless -%}
+  {%- assign good_slugs = "" -%}
+  {%- assign labels = "" -%}
+  {%- for slug in item.topics -%}
+    {%- assign topic = all_topics | where: "slug", slug | first -%}
+    {%- if topic -%}
+      {%- assign good_slugs = good_slugs | append: slug | append: " " -%}
+      {%- if labels != "" -%}{%- assign labels = labels | append: ", " -%}{%- endif -%}
+      {%- assign labels = labels | append: topic.label -%}
+    {%- else -%}
+      {%- capture problems -%}{{ problems }}<li>Unknown topic <code>{{ slug | escape }}</code> for “{{ item.title | escape }}”</li>{%- endcapture -%}
+    {%- endif -%}
+  {%- endfor -%}
+  {%- if item.access and item.access != "subscription" and item.access != "registration" -%}
+    {%- capture problems -%}{{ problems }}<li>Unknown access value <code>{{ item.access | escape }}</code> for “{{ item.title | escape }}” (use subscription or registration)</li>{%- endcapture -%}
+  {%- endif -%}
+  {%- assign date = item.date | date: "%Y-%m-%d" -%}
+  {%- assign year = item.date | date: "%Y" -%}
+  {%- capture search_text -%}{{ item.title }} {{ item.authors }} {{ item.source }} {{ item.note }} {{ labels }} {{ type.label }}{%- endcapture %}
+<li data-date="{{ date }}" data-title="{{ item.title | downcase | escape }}" data-type="{{ item.type | escape }}" data-topics="{{ good_slugs | strip | escape }}" data-search="{{ search_text | strip_newlines | downcase | escape }}">
+<span class="pub-year">{{ year }}</span>
+<div class="pub-body">
 <a class="pub-title" href="{{ item.url | escape }}" data-goatcounter-click="publication: {{ item.title | escape }}">{{ item.title | escape }}</a>
-<span class="pub-meta">{{ item.authors | escape }}{% if item.date %} ({{ item.date | date: "%Y" }}){% endif %}{% if item.source %}. {{ item.source | escape }}{% endif %}</span>
+<span class="pub-meta">{{ item.authors | escape }}{% if item.source %}. <cite>{{ item.source | escape }}</cite>{% endif %}.</span>
+<span class="pub-tags">{% if type %}<span class="pub-type">{{ type.label | escape }}</span>{% endif %}{% if labels != "" %}<span class="pub-sep" aria-hidden="true"> · </span><span class="visually-hidden">. Topics: </span>{{ labels | escape }}{% endif %}{% if item.access == "subscription" %}<span class="pub-sep" aria-hidden="true"> · </span><span class="pub-access">Subscription may be needed</span>{% elsif item.access == "registration" %}<span class="pub-sep" aria-hidden="true"> · </span><span class="pub-access">Free registration may be needed</span>{% endif %}{% if item.free_url %}<span class="pub-sep" aria-hidden="true"> · </span><a href="{{ item.free_url | escape }}" data-goatcounter-click="publication free copy: {{ item.title | escape }}">Free copy<span class="visually-hidden"> of {{ item.title | escape }}</span></a>{% endif %}</span>
 {% if item.note %}<span class="pub-note">{{ item.note | escape }}</span>{% endif %}
+</div>
 </li>
-{% endfor %}
+{%- endfor -%}
+{%- endcapture -%}
+
+{% if jekyll.environment != "production" and problems != "" %}
+<div class="note note--warning" role="alert">
+<p><strong>Preview only: check these entries.</strong> Topics and types must match a slug in <code>_data/publication-tags.yml</code>. This box is not shown on the published site.</p>
+<ul>{{ problems }}</ul>
+</div>
+{% endif %}
+
+<div class="publications" id="publications">
+<div class="filters pub-filters" id="pub-filters" hidden>
+<p class="resource-filters__intro">Search, or narrow the list by type and topic. Picking several topics shows items that have all of them. The address in your browser keeps your filters, so you can share a filtered list. Some journal articles need a library subscription; where a free copy exists, it is linked.</p>
+<div class="filters--fields filters--compact pub-filters__fields">
+<div class="field pub-filters__search">
+<label for="pub-search">Search titles, authors and sources</label>
+<input type="search" id="pub-search" autocomplete="off">
+</div>
+<div class="field">
+<label for="pub-type">Type</label>
+<select id="pub-type">
+<option value="all">All types</option>
+{% for type in all_types %}<option value="{{ type.slug | escape }}">{{ type.label | escape }}</option>
+{% endfor %}</select>
+</div>
+<div class="field">
+<label for="pub-sort">Sort</label>
+<select id="pub-sort">
+<option value="newest">Newest first</option>
+<option value="oldest">Oldest first</option>
+<option value="title">Title A–Z</option>
+</select>
+</div>
+</div>
+<details class="topic-details" id="pub-topic-details" open>
+<summary>Filter by topic <span class="topic-details__count" id="pub-topic-count"></span></summary>
+<fieldset class="filters__group pub-topics-group" data-filter-group="topic">
+<legend>Topics</legend>
+{% for topic in all_topics %}<button type="button" class="filter-button" data-filter-value="{{ topic.slug | escape }}" aria-pressed="false" title="{{ topic.description | escape }}">{{ topic.label | escape }}</button>
+{% endfor %}</fieldset>
+</details>
+<div class="pub-filters__bottom">
+<label class="pub-summaries"><input type="checkbox" id="pub-summaries"> Show summaries</label>
+<button type="button" class="filter-button filter-button--clear" id="pub-clear">Clear filters</button>
+</div>
+</div>
+<p class="status" id="pub-status" role="status" aria-live="polite"></p>
+<ul class="pub-list pub-list--compact" id="pub-list">
+{{ rows }}
 </ul>
 </div>

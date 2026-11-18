@@ -609,3 +609,40 @@ th[aria-sort="descending"] .sort-button::after { content: " \2193"; }
 .pub-list li:first-child { border-top: 1px solid var(--grey-light); }
 .pub-title { display: block; font-weight: 600; }
 .pub-meta, .pub-note { display: block; font-size: 1rem; }
+
+/* Compact, library-style publication rows: year on the left, details on the right. */
+.pub-list--compact { margin-top: 0.5rem; }
+.pub-list--compact li {
+  display: grid;
+  grid-template-columns: 3.25rem 1fr;
+  gap: 0 0.75rem;
+  padding: 0.6rem 0;
+  line-height: 1.4;
+}
+.pub-list--compact li[hidden] { display: none; }
+.pub-year { font-weight: 700; font-size: 1rem; padding-top: 0.05rem; }
+.pub-list--compact .pub-title { font-size: 1.05rem; }
+.pub-list--compact .pub-meta { font-size: 0.95rem; margin-top: 0.1rem; }
+.pub-list--compact .pub-meta cite { font-style: italic; }
+.pub-tags { display: block; font-size: 0.9rem; margin-top: 0.15rem; }
+.pub-type { font-weight: 600; }
+.pub-access { font-style: italic; }
+.pub-list--compact .pub-note { font-size: 0.95rem; margin-top: 0.25rem; }
+.pub-list--no-notes .pub-note { display: none; }
+
+.pub-filters__fields { max-width: var(--prose); }
+.pub-filters__search { grid-column: 1 / -1; }
+@media (min-width: 40rem) {
+  .pub-filters__fields { grid-template-columns: 2fr 1fr 1fr; }
+  .pub-filters__search { grid-column: auto; }
+}
+.pub-filters .topic-details { margin-top: 0.9rem; }
+.pub-topics-group .filter-button { padding: 0.2rem 0.75rem; font-size: 0.95rem; }
+.pub-filters__bottom { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.5rem; }
+.pub-summaries { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 1rem; cursor: pointer; }
+.pub-summaries input { width: 1.1rem; height: 1.1rem; accent-color: var(--charcoal); }
+.pub-filters__bottom .filter-button { padding: 0.2rem 0.75rem; font-size: 0.95rem; }
+@media (max-width: 30rem) {
+  .pub-list--compact li { grid-template-columns: 1fr; }
+  .pub-year { font-size: 0.9rem; }
+}

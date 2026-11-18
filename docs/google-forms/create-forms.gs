@@ -243,6 +243,8 @@ function createRequestForm_() {
 }
 
 // Runs automatically for each new request: sets Status to "New" and the date.
+// Replaced on 19 November 2026 by markNewRequestByHeader in add-publication-topics.gs,
+// which finds the columns by heading, because adding a form question can move them.
 function markNewRequest(e) {
   var row = e.range.getRow();
   var tab = e.range.getSheet();

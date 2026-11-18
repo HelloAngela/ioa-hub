@@ -3,18 +3,31 @@
 # The page sorts them newest first, so add new entries anywhere.
 #
 # Each entry:
-#   title:   the title of the article or post
-#   url:     its web address
-#   authors: who wrote it
-#   date:    when it was published, as YYYY-MM-DD (use the 1st if you only know the month)
-#   source:  where it was published, e.g. Teaching@Sydney, or a journal name
-#   note:    (optional) one sentence on what it covers
+#   title:    the title of the article or post
+#   url:      its web address
+#   authors:  who wrote it
+#   date:     when it was published, as YYYY-MM-DD (use the 1st if you only know the month or year)
+#   source:   where it was published, e.g. Teaching@Sydney, or a journal name
+#   type:     one of guide, post, research, recording (see _data/publication-tags.yml)
+#   topics:   one to four topic slugs from _data/publication-tags.yml, e.g. [ioa, large-classes]
+#   note:     (optional) one sentence on what it covers
+#   access:   (optional) subscription  -> shows "Subscription may be needed"
+#                        registration  -> shows "Free registration may be needed"
+#   free_url: (optional) a free copy (for example a repository or preprint) of a paywalled item
+#
+# Every entry should have at least one of the format topics: ioa or viva.
+
+# ---------------------------------------------------------------------------
+# Teaching@Sydney and podcasts
+# ---------------------------------------------------------------------------
 
 - title: Interactive oral examinations
   url: https://podcasts.apple.com/au/podcast/interactive-oral-examinations/id1494966251?i=1000763942275
   authors: Seb Kaempf and Al Stark, with guests Clara Sitbon and Benjamin Miller
   date: 2026-04-27
   source: Higher Ed Heroes (podcast)
+  type: recording
+  topics: [ioa, large-classes]
   note: A 30-minute episode on running interactive orals with classes of 20 to 900 students.
 
 - title: Teaching and Learning with Interactive Orals
@@ -22,45 +35,666 @@
   authors: Arpita Das
   date: 2026-10-23
   source: Teaching@Sydney
+  type: post
+  topics: [ioa, marking, preparing-students, equity]
+  note: A 10-minute interactive oral linked to group presentations in a first-year gender and cultural studies unit of 167 students.
 
 - title: A guide to Honours oral exams
   url: https://educational-innovation.sydney.edu.au/teaching@sydney/a-guide-to-honours-oral-exams/
   authors: Eszter Kalman and Mary Wright
   date: 2026-05-19
   source: Teaching@Sydney
+  type: guide
+  topics: [viva, design, marking]
 
 - title: What we learned from 400+ Interactive Oral Assessments in STEM
   url: https://educational-innovation.sydney.edu.au/teaching@sydney/what-we-learned-from-400-interactive-oral-assessments-in-stem/
   authors: Angela Sun and Helen McGuire
   date: 2026-02-16
   source: Teaching@Sydney
+  type: post
+  topics: [ioa, large-classes, marking, preparing-students]
+  note: A case-based 10-minute interactive oral for over 400 second-year microbiology and immunology students.
 
 - title: "From Page to Performance: How Interactive Orals Transform Academic Writing Pedagogy"
   url: https://educational-innovation.sydney.edu.au/teaching@sydney/from-page-to-performance-how-interactive-orals-transform-academic-writing-pedagogy/
   authors: Jiva Lamsal
   date: 2025-09-24
   source: Teaching@Sydney
+  type: post
+  topics: [ioa, design, staff, ai-integrity]
+  note: First-year writing students discuss publishing their essay with a tutor playing an editor.
 
 - title: Interactive Oral Assessment in practice
   url: https://educational-innovation.sydney.edu.au/teaching@sydney/interactive-oral-assessment-in-practice/
   authors: Leanne Stevenson, Benjamin Miller and Clara Sitbon
   date: 2025-06-03
   source: Teaching@Sydney
+  type: post
+  topics: [ioa, large-classes, preparing-students, staff]
+  note: Interactive orals in a senior French unit of about 30 and a first-year writing unit of 690.
 
 - title: Five myths about interactive oral assessments and how to get started
   url: https://educational-innovation.sydney.edu.au/teaching@sydney/five-myths-about-interactive-oral-assessments-and-how-to-get-started/
   authors: Eszter Kalman, Benjamin Miller and Danny Liu
   date: 2024-04-18
   source: Teaching@Sydney
+  type: post
+  topics: [ioa, design]
 
 - title: "'Tell me what you learned': oral assessments and assurance of learning in the age of generative AI"
   url: https://educational-innovation.sydney.edu.au/teaching@sydney/tell-me-what-you-learned-interactive-oral-assessments-and-assurance-of-learning-in-the-age-of-generative-ai/
   authors: Meraiah Foley, Ju Li Ng and Vanessa Loh
   date: 2024-01-26
   source: Teaching@Sydney
+  type: post
+  topics: [viva, ai-integrity, marking]
+  note: Oral presentations with follow-up questions replacing written assignments in three business units of 50 to 115 students.
 
 - title: "With living voice: the power of oral examinations"
   url: https://educational-innovation.sydney.edu.au/teaching@sydney/with-living-voice-the-power-of-oral-examinations/
   authors: Inam Haq, Ruth Weeks, Rebecca Denham and Adam Bridgeman
   date: 2021-06-02
   source: Teaching@Sydney
+  type: post
+  topics: [viva, design, equity, online]
+
+# ---------------------------------------------------------------------------
+# Guides and resource hubs from universities
+# ---------------------------------------------------------------------------
+
+- title: "Interactive Oral Assessment: An Authentic and Integral Alternative to Examination"
+  url: https://sway.cloud.microsoft/yQ2s0Bm3ILkWtGll?ref=Link
+  authors: Danielle Logan-Fleming, Popi Sotiriadou, Amanda Daly and Ross Guest
+  date: 2024-01-01
+  source: Griffith University (Microsoft Sway eBook)
+  type: guide
+  topics: [ioa, design]
+  note: The original Griffith guide to interactive orals, with design steps, examples and links to practice around the world.
+
+- title: Interactive Orals - a journey into assessment design in your discipline
+  url: https://griffithu.padlet.org/dloganfleming/interactive-orals-a-journey-into-assessment-design-in-your-d-pxavruv51adnbxjj
+  authors: Danielle Logan-Fleming
+  date: 2024-01-01
+  source: Griffith University (Padlet)
+  type: guide
+  topics: [ioa, design]
+  note: A board of discipline-specific interactive oral examples collected by the Griffith team.
+
+- title: Interactive Oral Assessment
+  url: https://www.dcu.ie/teu/interactive-oral-assessment
+  authors: Teaching Enhancement Unit, Dublin City University
+  date: 2023-12-19
+  source: Dublin City University
+  type: guide
+  topics: [ioa, design, marking]
+  note: DCU's resource hub, with an implementation guide, sample rubrics from computing, aviation, literacy and French, seminar recordings and a booking-tool guide.
+
+- title: "Interactive Oral Assessment: Implementation Guide (version 3)"
+  url: https://www.dcu.ie/sites/default/files/staff/2026-02/interactive-oral-assessment-implementation-guide-v3_10.2.26.docx.pdf
+  authors: Lily Girme and Martina Crehan, Teaching Enhancement Unit, Dublin City University
+  date: 2026-02-10
+  source: Dublin City University
+  type: guide
+  topics: [ioa, design]
+  note: Step-by-step guide to designing and running interactive orals, updated in February 2026.
+
+- title: "Interactive oral assessment: a model for robust and authentic assessment design"
+  url: https://www.qqi.ie/sites/default/files/2026-04/dcu-interactive-oral-assessment-a-model-for-robust-and-authentic-assessment-design.pdf
+  authors: Monica Ward, Martina Crehan, Lily Girme, Jagadeeswaran Thangaraj and Fiona O'Riordan
+  date: 2025-09-01
+  source: Quality and Qualifications Ireland (QQI)
+  type: research
+  topics: [ioa, staff]
+  note: Report on a QQI-funded project evaluating Dublin City University's use of interactive orals since 2020.
+
+- title: Interactive Oral Assessments User Guide
+  url: https://cdn.csu.edu.au/__data/assets/pdf_file/0003/4352061/Interactive-Oral-Assessments-User-Guide.pdf
+  authors: Interactive Oral Assessment Community of Practice, Charles Sturt University
+  date: 2023-01-01
+  source: Charles Sturt University
+  type: guide
+  topics: [ioa, design]
+  note: A guide written by a cross-disciplinary community of practice, covering each phase of design and delivery.
+
+- title: Interactive Oral Assessments
+  url: https://melbourne-cshe.unimelb.edu.au/resources/topics/assessment-and-feedback/specific-help/interactive-oral-assessments
+  authors: Tracii Ryan, Chris Ziguras and Raoul Mulder
+  date: 2025-07-01
+  source: Melbourne Centre for the Study of Higher Education
+  type: guide
+  topics: [ioa, design]
+  note: An evidence-based guide for educators, with disciplinary examples and a downloadable Word version.
+
+- title: "Implementing Interactive Oral Assessments: Frequently Asked Questions for Subject Coordinators"
+  url: https://melbourne-cshe.unimelb.edu.au/resources/topics/assessment-and-feedback/specific-help/implementing-interactive-oral-assessments
+  authors: Melbourne Centre for the Study of Higher Education and the Faculty of Arts Future of Assessment Working Group
+  date: 2026-09-01
+  source: Melbourne Centre for the Study of Higher Education
+  type: guide
+  topics: [ioa, staff, ai-integrity, equity]
+  note: Practical answers on workload, scheduling, marking sheets, integrity and inclusive design, with worked examples.
+
+- title: Interactive oral assessments
+  url: https://teachwell.auckland.ac.nz/assessment/interactive-oral-assessments/
+  authors: TeachWell, University of Auckland
+  date: 2026-05-29
+  source: University of Auckland TeachWell
+  type: guide
+  topics: [ioa]
+  note: Auckland's hub page, linking four staff case studies (law, commercial law, education) and its 2026 masterclass recordings.
+
+- title: "Virtual Interactive Oral Assessment (IOA) Masterclass series 2026: recordings and Q&As"
+  url: https://teachwell.auckland.ac.nz/announcement/virtual-interactive-oral-assessment-ioa-masterclass-series-2026-recordings-and-qa/
+  authors: Popi Sotiriadou, Todd Stretton, Andrew Withy, Stephanie Budgett and Richelle Hewin
+  date: 2026-09-01
+  source: University of Auckland TeachWell
+  type: recording
+  topics: [ioa, design, staff]
+  note: Three recorded sessions - a keynote, a design and logistics roadmap, and a panel of Auckland staff who have run interactive orals.
+
+- title: Interactive Oral Assessment
+  url: https://www.curtin.edu.au/assessment2030/assessment-design-studio/interactive-oral-assessment/
+  authors: Curtin University Assessment 2030
+  date: 2025-09-01
+  source: Curtin University
+  type: guide
+  topics: [ioa, design]
+  note: A one-page design guide with a worked example from a humanities unit (a 10-minute professional dialogue plus debrief).
+
+- title: Oral Assessment
+  url: https://teaching.unsw.edu.au/oral-assessment
+  authors: UNSW Teaching Gateway
+  date: 2024-12-16
+  source: UNSW Sydney
+  type: guide
+  topics: [viva, ioa]
+  note: Guidance on oral assessment types with short videos from UNSW staff in engineering, optometry and business.
+
+- title: IOAs in the Business School
+  url: https://ioassessment.wordpress.com/ioas-in-the-business-school/
+  authors: University of Sydney Business School
+  date: 2024-12-18
+  source: IO Assessment (University of Sydney Business School)
+  type: guide
+  topics: [ioa, design]
+  note: How the Business School piloted interactive orals in eight units in 2024, with scenario examples and the design process used.
+
+- title: "Assessment Type: Examination - Oral (Interactive)"
+  url: https://app.secure.griffith.edu.au/exlnt/entry/9569/view
+  authors: Griffith Business School
+  date: 2020-04-06
+  source: Griffith University Faculty Spark
+  type: guide
+  topics: [ioa, design]
+  note: Griffith's early guidance on interactive orals as an alternative to exams, drawing on the Business School's trial in first- and second-year courses.
+
+- title: Interactive oral assessment (IOA)
+  url: https://www.unimelb.edu.au/tli/lda/assessment-hub/choosing-assessment-tasks/interactive-oral-assessment-ioa
+  authors: Teaching and Learning Innovation, University of Melbourne
+  date: 2026-01-01
+  source: University of Melbourne Assessment Hub
+  type: guide
+  topics: [ioa, design, marking]
+  note: A practical guide to deciding on, designing, scheduling, recording and marking an interactive oral, building on the CSHE resource.
+
+- title: Interactive Oral (IO) as method of assessment
+  url: https://acdev.orgdev.coventry.domains/application/files/8116/3299/1560/Interactive_Orals_Guide.pdf
+  authors: Hannelie Du Plessis-Walker
+  date: 2021-03-01
+  source: Coventry University
+  type: guide
+  topics: [ioa, design]
+  note: A staff guide with Coventry examples from policing, nursing and counselling, plus examples from UCL and Griffith.
+
+- title: Implementing Oral Exams for Learning and Assessment
+  url: https://teaching.virginia.edu/collections/implementing-oral-exams-for-learning-and-assessment
+  authors: Derek Bruff
+  date: 2026-08-01
+  source: University of Virginia Teaching Hub
+  type: guide
+  topics: [viva, ai-integrity]
+  note: A curated reading list of US case studies and research on oral exams in the generative AI era.
+
+# ---------------------------------------------------------------------------
+# Posts and case studies
+# ---------------------------------------------------------------------------
+
+- title: "Interactive Oral Assessments: Charting the Course While Holding the Line"
+  url: https://blog.ascilite.org/?p=1516
+  authors: Danielle Logan-Fleming
+  date: 2025-08-01
+  source: ASCILITE TELall Blog
+  type: post
+  topics: [ioa, design]
+  note: Where interactive orals came from, what keeps them distinct from other oral formats, and a list of institution-led resources.
+
+- title: Interactive orals offer a solution to AI over-reliance in higher education
+  url: https://www.timeshighereducation.com/campus/interactive-orals-offer-solution-ai-overreliance-higher-education
+  authors: Popi Sotiriadou and Dani Logan-Fleming
+  date: 2025-08-11
+  source: Times Higher Education Campus
+  type: post
+  topics: [ioa, ai-integrity]
+  access: registration
+  note: A short guide to what interactive orals are and how they differ from oral exams and presentations.
+
+- title: How interactive orals transform assessment – and how to implement them
+  url: https://www.timeshighereducation.com/campus/how-ios-transform-assessment-and-how-implement-them
+  authors: Popi Sotiriadou and Dani Logan-Fleming
+  date: 2025-08-27
+  source: Times Higher Education Campus
+  type: post
+  topics: [ioa, design]
+  access: registration
+  note: Implementation advice on prompts, exemplars and keeping the format unscripted as uptake grows.
+
+- title: A community of practice supporting pedagogical change
+  url: https://herdsa.org.au/herdsa-connect/community-practice-supporting-pedagogical-change
+  authors: Amita Krautloher
+  date: 2023-04-03
+  source: HERDSA Connect
+  type: post
+  topics: [ioa, staff]
+  note: How a cross-disciplinary community of practice at Charles Sturt University helped academics design and trial interactive orals.
+
+- title: "Talk Nerdy to Me: How Interactive Oral Assessments Can Shake Up Science Labs"
+  url: https://herdsa.org.au/herdsa-connect/talk-nerdy-me-how-interactive-oral-assessments-can-shake-science-labs
+  authors: Chris Della Vedova and Sarah Davey
+  date: 2024-10-30
+  source: HERDSA Connect
+  type: post
+  topics: [ioa, design]
+  note: Replacing second-year genetics lab reports with 5 to 10 minute "mini-IOAs" between students and tutors.
+
+- title: "Interactive orals at scale: What happened when we tried to draw the owl?"
+  url: https://herdsa.org.au/herdsa-connect/interactive-orals-scale-what-happened-when-we-tried-draw-owl
+  authors: Jason M. Lodge, Daniel Taylor-Griffiths and Kate Newman
+  date: 2025-07-30
+  source: HERDSA Connect
+  type: post
+  topics: [ioa, large-classes]
+  note: Lessons from running 10-minute interactive orals with 230 postgraduate education students at the University of Queensland.
+
+- title: "Interactive Orals: Rethinking Assessment for Engagement, Authenticity and Assurance"
+  url: https://cbe-teaching-support.weblogs.anu.edu.au/interactive-orals-rethinking-assessment-for-engagement-authenticity-and-assurance/
+  authors: Dana Hanna
+  date: 2026-04-15
+  source: ANU College of Business and Economics teaching blog
+  type: post
+  topics: [ioa, marking, preparing-students]
+  note: Practical advice from two ANU seminars, including question pools, mock orals, recording and two-person marking for classes up to 130.
+
+- title: Oral assessment
+  url: https://teche.mq.edu.au/2023/10/oral-assessment/
+  authors: Mathew Hillier
+  date: 2023-10-31
+  source: TECHE (Macquarie University)
+  type: post
+  topics: [viva, ioa, online, preparing-students]
+  note: An overview of oral assessment types, including online interactive orals, and how to prepare students and run them.
+
+- title: Designing interactive oral assessment with roleplay to demonstrate understanding
+  url: https://teachwell.auckland.ac.nz/sharing-practice/case-studies-in-teaching/teaching-tips/interactive-oral-assessments-with-roleplay-law-study/
+  authors: Marcelo Rodriguez Ferrere
+  date: 2026-06-30
+  source: University of Auckland TeachWell
+  type: post
+  topics: [ioa, design]
+  note: A law course of about 70 students where the lecturer plays a law firm partner reviewing each student's draft advice.
+
+- title: Designing assessment for real-world impact
+  url: https://teachwell.auckland.ac.nz/sharing-practice/case-studies-in-teaching/teaching-tips/designing-assessment-for-real-world-impact/
+  authors: Anna Hales
+  date: 2026-05-29
+  source: University of Auckland TeachWell
+  type: post
+  topics: [ioa, design, large-classes]
+  note: MBA students defend a submission on a live parliamentary bill in a 10-minute interactive oral, later scaled to a group format for 250 undergraduates.
+
+- title: Bringing creative role-play to prepare students for interactive oral assessments
+  url: https://teachwell.auckland.ac.nz/sharing-practice/case-studies-in-teaching/teaching-tips/creative-and-scaffolded-interactive-oral-assessments/
+  authors: Toni Bruce
+  date: 2026-09-08
+  source: University of Auckland TeachWell
+  type: post
+  topics: [ioa, preparing-students, large-classes]
+  note: Weekly role-play tutorials prepare 138 first-year students for a 10-minute interactive oral that replaced a written exam.
+
+- title: Building graduate teaching assistant confidence in conducting interactive oral assessments
+  url: https://teachwell.auckland.ac.nz/sharing-practice/case-studies-in-teaching/teaching-tips/gtas-tips-to-prepare-for-conducting-interactive-oral-assessments/
+  authors: Luke Bird
+  date: 2026-09-08
+  source: University of Auckland TeachWell
+  type: post
+  topics: [ioa, staff, marking]
+  note: A graduate teaching assistant's account of preparing for, calibrating and running 60 interactive orals.
+
+- title: "From brief to broadcast: scenario-based IOAs in Public Relations and Communication"
+  url: https://melbourne-cshe.unimelb.edu.au/resources/topics/assessment-and-feedback/specific-help/interactive-oral-assessments/case-studies/public-relations-and-communication/public-relations-and-communication2
+  authors: Sean Chaidaroon
+  date: 2025-07-01
+  source: Melbourne Centre for the Study of Higher Education
+  type: post
+  topics: [ioa, design, large-classes]
+  note: Groups of four act as spokespeople in a PR crisis while classmates play journalists, in a class of about 200.
+
+- title: "Assessment as a Point of Connection: Piloting Interactive Oral Assessment in MGMT90291 Critical and Creative Thinking"
+  url: https://arts.unimelb.edu.au/about/arts-teaching-innovation-ati/blog/assessment-as-a-point-of-connection
+  authors: Alice Boer-Endacott and Seth Robinson
+  date: 2025-11-01
+  source: University of Melbourne Faculty of Arts teaching blog
+  type: post
+  topics: [ioa, design]
+  note: A 2025 pilot in an executive master's subject, with a prepared three-minute opening answer and responsive follow-up questions.
+
+- title: The new way to cut stress, boost grades and protect academic integrity
+  url: https://unisa.edu.au/media-centre/Releases/2024/out-with-exams-in-with-verbal-assessments
+  authors: University of South Australia
+  date: 2024-11-22
+  source: UniSA media release
+  type: post
+  topics: [ioa, equity, ai-integrity]
+  note: Interactive orals replacing final written exams in laboratory medicine and biomedical science, with results from the course team's study.
+
+- title: Interactive Oral Assessments in practice
+  url: https://about.unimelb.edu.au/education-melbourne/our-people-in-action/interactive-oral-assessments-in-practice
+  authors: University of Melbourne
+  date: 2025-12-01
+  source: University of Melbourne (Education at Melbourne)
+  type: post
+  topics: [ioa, equity]
+  note: How the Faculty of Arts piloted interactive orals in 2025 in a graduate academic English subject for international students.
+
+- title: "Supporting Students in Interactive Oral Assessments: From Challenge to Success"
+  url: https://uqcollege.uq.edu.au/whats-on/news/supporting-students-interactive-oral-assessments-challenge-success
+  authors: UQ College, University of Queensland
+  date: 2026-09-17
+  source: UQ College news
+  type: post
+  topics: [ioa, preparing-students, equity]
+  note: Ideas from a workshop by Kit Nuttall and Andrew Sankey on preparing students, including English language learners, for unscripted interactive orals.
+
+- title: "The use of oral assessments: our experience of \"Individual Evaluative Conversations\""
+  url: https://doi.org/10.53593/n4295a
+  authors: Kamilya Suleymenova and Joe Bromfield
+  date: 2025-08-01
+  source: Economics Network
+  type: post
+  topics: [viva, design]
+  note: Fifteen-minute oral conversations with randomly selected questions in a final-year economics module of about 90 students at the University of Birmingham.
+
+- title: Reducing anxiety through authentic oral assessment
+  url: https://www.qmul.ac.uk/queenmaryacademy/educators/resources/assessment-and-feedback/resources/assessment-case-studies/case-studies/reducing-anxiety-through-authentic-oral-assessment/index.html
+  authors: Javier Sajuria
+  date: 2026-10-26
+  source: Queen Mary Academy, Queen Mary University of London
+  type: post
+  topics: [viva, equity]
+  note: An open-book oral exam worth 50% in a final-year politics module, with 15 minutes to prepare and 15 minutes with two examiners.
+
+- title: Mathematics - Oral Examination
+  url: https://info.lse.ac.uk/staff/divisions/Eden-Centre/Resources-to-support-your-practice/Education-Case-Studies/Mathematics-Oral-Examination.aspx
+  authors: Christoph Czichowsky, Paola Iannone and Johannes Ruf
+  date: 2019-01-01
+  source: LSE Eden Centre education case studies
+  type: post
+  topics: [viva, design]
+  note: Replacing written exams with 30-minute oral exams in two third-year mathematics modules at the London School of Economics.
+
+- title: Professional conversations as authentic oral assessment in career development modules
+  url: https://microsites.ncl.ac.uk/casestudies/?p=4638
+  authors: Gigi Herbert
+  date: 2026-09-04
+  source: Newcastle University education case studies
+  type: post
+  topics: [viva, design]
+  note: Structured conversations with an assessor, linked to a development plan and portfolio, in Stage 3 and Masters career development modules.
+
+- title: "Building Deeper Learning Through Oral Exams: Conversations That Count"
+  url: https://cetli.upenn.edu/news-features/feature-stories/building-deeper-learning-through-oral-exams/
+  authors: Erin Bartnett
+  date: 2025-11-14
+  source: University of Pennsylvania Center for Excellence in Teaching, Learning, and Innovation
+  type: post
+  topics: [viva, design]
+  note: Five Penn instructors in maths, history, law, archaeology and biochemistry describe how they run oral exams and what changed.
+
+- title: "Oral Assessments to Reinforce and Evaluate Student Learning: A Case Study in Fluid Mechanics"
+  url: https://blogs.cornell.edu/teachingcasestudies/assessment/oral-assessments-to-reinforce-and-evaluate-student-learning-in-fluid-mechanics/
+  authors: Center for Teaching Innovation, Cornell University
+  date: 2025-01-01
+  source: Cornell University teaching case studies
+  type: post
+  topics: [viva, large-classes]
+  note: Four-minute mock job interviews about fluid mechanics for a class of about 180 engineering students.
+
+- title: Oral Exams Improve Engineering Student Performance, Motivation
+  url: https://today.ucsd.edu/story/oral-exams-improve-engineering-student-performance-motivation
+  authors: Katherine Connor
+  date: 2023-02-23
+  source: UC San Diego Today
+  type: post
+  topics: [viva, equity]
+  note: Early results from an NSF-funded study of 15-minute oral exams in UC San Diego engineering courses, including higher motivation among first-generation students.
+
+- title: "Online Assessment from a STEM Faculty Perspective Part 1: Oral Exams"
+  url: https://www.du.edu/otl/news/online-assessment-stem-faculty-perspective-part-1-oral-exams
+  authors: Sabine Lang and Lexi Schlosser
+  date: 2021-04-26
+  source: University of Denver Office of Teaching and Learning
+  type: post
+  topics: [viva, online, large-classes]
+  note: A maths instructor's approach to short one-to-one online oral exams in a large calculus course.
+
+# ---------------------------------------------------------------------------
+# Research: journal articles, conference papers, chapters and reports
+# ---------------------------------------------------------------------------
+
+- title: The role of authentic assessment to preserve academic integrity and promote skill development and employability
+  url: https://doi.org/10.1080/03075079.2019.1582015
+  authors: Popi Sotiriadou, Danielle Logan, Amanda Daly and Ross Guest
+  date: 2019-02-26
+  source: Studies in Higher Education
+  type: research
+  topics: [ioa, ai-integrity]
+  note: The founding study of the Griffith interactive oral model, linking scaffolded authentic tasks with integrity and employability.
+
+- title: "Prompting Candidates in Oral Assessment Contexts: A Taxonomy and Guiding Principles"
+  url: https://doi.org/10.1177/2382120520948881
+  authors: Jacob Pearce and Neville Chiavaroli
+  date: 2020-08-13
+  source: Journal of Medical Education and Curricular Development
+  type: research
+  topics: [viva, design, marking]
+  note: A taxonomy of the prompts examiners use in oral assessment, with principles for using them fairly.
+
+- title: Developing interactive oral assessments to foster graduate attributes in higher education
+  url: https://doi.org/10.1080/02602938.2021.2020722
+  authors: Chin Pei Tan, Dora Howes, Rendell K. W. Tan and Karina M. Dancza
+  date: 2021-12-30
+  source: Assessment & Evaluation in Higher Education
+  type: research
+  topics: [ioa, design]
+  note: Design and evaluation of interactive orals in occupational therapy, nursing and air transport management at the Singapore Institute of Technology.
+
+- title: Use of interactive oral assessment to increase workplace readiness of occupational therapy students
+  url: https://medicine.nus.edu.sg/taps/issues/use-of-interactive-oral-assessment-to-increase-workplace-readiness-of-occupational-therapy-students
+  authors: Sok Mui Lim and Chun Yi Lim
+  date: 2023-04-04
+  source: The Asia Pacific Scholar
+  type: research
+  topics: [ioa, design]
+  note: A short case study of an interactive oral for first-year occupational therapy students in Singapore.
+
+- title: "Interactive oral assessment case studies: An innovative, academically rigorous, authentic assessment approach"
+  url: https://doi.org/10.1080/14703297.2023.2251967
+  authors: Monica Ward, Fiona O'Riordan, Danielle Logan-Fleming, Dervila Cooke, Tara Concannon-Gibney, Marina Efthymiou and Niamh Watkins
+  date: 2023-08-29
+  source: Innovations in Education and Teaching International
+  type: research
+  topics: [ioa, design, staff]
+  free_url: https://doras.dcu.ie/30854/
+  note: Four Dublin City University case studies (computing, education, French literature and aviation) and the role of a community of practice.
+
+- title: Improving assessment equity using Interactive Oral Assessments
+  url: https://doi.org/10.53761/4hg1me11
+  authors: Amita Krautloher
+  date: 2024-03-29
+  source: Journal of University Teaching and Learning Practice
+  type: research
+  topics: [ioa, equity]
+  note: Two years of staff and student data from a regional Australian university, assessed against an equity framework.
+
+- title: "Mitigating the Impact of ChatGPT: Cultivating Professional Identity Through Interactive Oral Authentic Assessments"
+  url: https://doi.org/10.1080/10963758.2024.2331516
+  authors: Ryan Yung, Brent Moyle and Elaine C. L. Yang
+  date: 2024-03-28
+  source: Journal of Hospitality & Tourism Education
+  type: research
+  topics: [ioa, ai-integrity]
+  note: How interactive orals prompt reflection and professional identity in tourism and hospitality students (open access).
+
+- title: Implementing an interactive oral task to assess undergraduate psychology students' attainment of pre-professional competencies
+  url: https://publications.ascilite.org/index.php/APUB/article/download/1087/1469/8561
+  authors: Taneile A. Kitchingman, Genevieve D'Arment and Rhianydd Shakeshaft
+  date: 2024-12-01
+  source: ASCILITE 2024 Conference Proceedings
+  type: research
+  topics: [ioa, design, online]
+  note: A 15-minute role-played counselling session and reflection for fourth-year online psychology students at Charles Sturt University.
+
+- title: "Marking 'on the fly' in interactive oral assessments in Business"
+  url: https://publications.ascilite.org/index.php/APUB/article/download/1392/1525/8619
+  authors: Adrian Norman, Stephanie Wilson, Joanne Nash and Alison Casey
+  date: 2024-12-01
+  source: ASCILITE 2024 Conference Proceedings
+  type: research
+  topics: [ioa, marking]
+  note: Interviews with students and assessors from five University of Sydney Business School units about live marking during interactive orals.
+
+- title: "Harnessing the Potential of Interactive Oral Assessments in Blended Learning: Lessons from Case Studies"
+  url: https://doi.org/10.1007/978-981-96-0722-8_11
+  authors: Popi Sotiriadou and Danielle Logan-Fleming
+  date: 2025-03-20
+  source: Case Studies on Blended Learning in Higher Education (Springer)
+  type: research
+  topics: [ioa, online]
+  access: subscription
+  note: A book chapter on how interactive orals have changed while keeping their original purpose.
+
+- title: "Interactive oral assessment: Staff perceptions, challenges and benefits of this robust, authentic assessment design approach"
+  url: https://doi.org/10.1080/14703297.2025.2477160
+  authors: Fiona O'Riordan, Jagadeeswaran Thangaraj, Prajakta Girme and Monica Ward
+  date: 2025-03-13
+  source: Innovations in Education and Teaching International
+  type: research
+  topics: [ioa, staff]
+  note: What staff at Dublin City University found hard and worthwhile after adopting interactive orals.
+
+- title: Utilising one-on-one interactive oral assessments as the major final assessment within a bioscience course
+  url: https://doi.org/10.1080/02602938.2025.2502577
+  authors: Sarah K. Davey, David Birbeck, Shashi Nallaya, Georga Sallows and Chris B. Della Vedova
+  date: 2025-05-14
+  source: Assessment & Evaluation in Higher Education
+  type: research
+  topics: [ioa, equity]
+  note: Data from 722 students over 15 years comparing a written final exam with an interactive oral in a bioscience course.
+
+- title: "Voices of preservice teachers: An evaluation of interactive online oral assessment to assess learning"
+  url: https://doi.org/10.1080/14703297.2025.2507295
+  authors: Kathryn Gibbs, Loraine McKay and Eunjae Park
+  date: 2025-05-28
+  source: Innovations in Education and Teaching International
+  type: research
+  topics: [ioa, online, large-classes]
+  note: First-year education students' views of an online interactive oral in a course of 400 at a large Brisbane university.
+
+- title: "Interactive oral assessment: co-existence of formative and summative purposes"
+  url: https://doi.org/10.1080/13562517.2025.2549945
+  authors: Marcelle Droulers, Amita Krautloher and Saeed Shaeri
+  date: 2025-08-25
+  source: Teaching in Higher Education
+  type: research
+  topics: [ioa, marking]
+  note: How interactive orals can give feedback and extend learning while still serving as a graded assessment.
+
+- title: "Preparing learners, assessors and processes: a framework for implementing interactive oral assessments at any scale"
+  url: https://research.monash.edu/en/publications/af18fc31-3e02-4bb6-99d5-1569004901c4
+  authors: Erica Brady, Peter Wagstaff and Angela Cruz
+  date: 2026-07-06
+  source: HERDSA 2026 Conference (poster)
+  type: research
+  topics: [ioa, large-classes, staff, preparing-students]
+  note: A "3Ps" framework (learners, assessors, processes) drawn from 15 years of data across more than 9,000 students at Monash.
+
+- title: Evaluating competency development using interactive oral assessments
+  url: https://aaee.net.au/wp-content/uploads/2021/11/REES_AAEE_2021_paper_227.pdf
+  authors: Saeed Shaeri, Danielle Logan and Amita Krautloher
+  date: 2021-12-01
+  source: AAEE 2021 Conference (Australasian Association for Engineering Education)
+  type: research
+  topics: [ioa, marking]
+  note: An interactive oral in a postgraduate engineering work-placement subject at Charles Sturt University, framed as a feedback conversation before a chartered engineer application.
+
+- title: "Reconsidering the Use of Oral Exams and Assessments: An Old Way to Move Into a New Future"
+  url: https://doi.org/10.3102/0013189X251333638
+  authors: Andrea Fenton
+  date: 2025-06-29
+  source: Educational Researcher
+  type: research
+  topics: [viva, equity]
+  access: subscription
+  note: An essay from Monash University arguing for a return to oral assessment, with attention to fairness and practicality.
+
+- title: "Providing an Oral Examination as an Authentic Assessment in a Large Section, Undergraduate Diversity Class"
+  url: https://doi.org/10.20429/ijsotl.2019.130210
+  authors: Dredge Kang, Sara Goico, Sheena Ghanbari, Kathleen C. Bennallack, Taciana Pontes, Dylan H. O'Brien and Jace Hargis
+  date: 2019-05-29
+  source: International Journal for the Scholarship of Teaching and Learning
+  type: research
+  topics: [viva, large-classes, staff]
+  note: Mid-term oral exams run by teaching assistants in a large lecture course at UC San Diego, with student and TA feedback (open access).
+
+- title: "Oral Exams for a Generative AI World: Managing Concerns and Logistics for Undergraduate Humanities Instruction"
+  url: https://doi.org/10.1080/87567555.2025.2558563
+  authors: Catherine Hartmann
+  date: 2025-09-11
+  source: College Teaching
+  type: research
+  topics: [viva, ai-integrity]
+  access: subscription
+  note: A University of Wyoming case study of oral exams in an upper-level course on Tibetan Buddhism.
+
+- title: "The Conversational Exam: A Scalable Assessment Design for the AI Era"
+  url: https://doi.org/10.1109/MC.2026.3676461
+  authors: Lorena A. Barba and Laura Stegner
+  date: 2026-06-01
+  source: Computer (IEEE)
+  type: research
+  topics: [viva, ai-integrity, large-classes]
+  access: subscription
+  free_url: https://arxiv.org/abs/2601.10691
+  note: Small-group exams at George Washington University where students code live and explain their reasoning, with 58 students.
+
+# ---------------------------------------------------------------------------
+# Recordings on other channels
+# ---------------------------------------------------------------------------
+
+- title: Exploring Interactive Oral Assessment Seminar
+  url: https://youtu.be/9Dy5yX7WJMs
+  authors: Teaching Enhancement Unit, Dublin City University
+  date: 2025-10-01
+  source: YouTube (DCU Teaching Enhancement)
+  type: recording
+  topics: [ioa]
+  note: Recording of DCU's seminar on interactive orals from Teaching and Learning Week 2025.
+
+- title: Oral Assessment (video playlist)
+  url: https://www.youtube.com/playlist?list=PLHSIfioizVW3aG3HCliSsNGCyOg6wW-aZ
+  authors: UNSW eLearning
+  date: 2024-12-16
+  source: YouTube (UNSW eLearning)
+  type: recording
+  topics: [viva, ioa]
+  note: Short videos of UNSW staff explaining oral assessments in engineering, optometry and business, including an interactive oral in a new postgraduate course.

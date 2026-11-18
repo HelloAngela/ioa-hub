@@ -1,0 +1,65 @@
+# Topics and types for the Publications page. This is the only list: the filter
+# buttons, the drop-down and the line under each publication come from here.
+# (The Teaching materials page has its own, more detailed list in topics.yml.)
+#
+# Each entry:
+#   slug:        short code used in publications.yml (lowercase, words joined by hyphens)
+#   label:       what visitors see
+#   description: one line, shown when a visitor hovers over a topic button
+#
+# Keep topics to ten or fewer. The buttons appear in the order below; a topic with
+# no publications is hidden. Renaming a slug means changing every entry that uses it
+# in publications.yml, and the matching choice in the request form (see
+# docs/google-forms/add-publication-topics.gs). Changing a label or description here
+# needs nothing else on the site.
+
+topics:
+  - slug: ioa
+    label: Interactive orals (IOA)
+    description: The interactive oral model, a scenario-based professional conversation
+
+  - slug: viva
+    label: Vivas and oral exams
+    description: Oral examinations, vivas, defences and other question-led formats
+
+  - slug: large-classes
+    label: Large classes
+    description: Running oral assessment with a hundred students or more
+
+  - slug: design
+    label: Design and scenarios
+    description: Designing the task, scenarios, prompts and where it sits in the unit
+
+  - slug: marking
+    label: Marking and feedback
+    description: Rubrics, marking in the moment, calibration, moderation and feedback
+
+  - slug: preparing-students
+    label: Preparing students
+    description: Practice, scaffolding, study guides and helping with nerves
+
+  - slug: staff
+    label: Staff training and workload
+    description: Briefing assessors and tutors, workload and staff views
+
+  - slug: ai-integrity
+    label: AI and integrity
+    description: Generative AI, academic integrity and assurance of learning
+
+  - slug: equity
+    label: Equity and wellbeing
+    description: Fairness, anxiety, adjustments and students with English as an additional language
+
+  - slug: online
+    label: Online and blended
+    description: Oral assessment run online or in blended courses
+
+types:
+  - slug: guide
+    label: Guide
+  - slug: post
+    label: Post or case study
+  - slug: research
+    label: Research
+  - slug: recording
+    label: Podcast or video

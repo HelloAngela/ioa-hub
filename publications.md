@@ -4,6 +4,8 @@ title: Publications
 permalink: /publications/
 description: Articles, posts and podcasts by educators about their oral assessment practice, published on other sites.
 lead: Articles, posts and podcasts by educators about their oral assessment practice, published on other sites.
+scripts:
+  - publications.js
 ---
 
 {% include publication-list.html %}

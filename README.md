@@ -42,11 +42,18 @@ The Publications page lists articles and posts that are already published somewh
   authors: Eszter Kalman, Benjamin Miller and Danny Liu
   date: 2024-04-18
   source: Teaching@Sydney
+  type: post
+  topics: [ioa, design]
+  note: Optional. One sentence on what it covers.
 ```
 
 - The page sorts by `date`, newest first. If you only know the month, use the 1st.
 - `source` is where it was published.
-- `note` is optional: one sentence on what it covers.
+- `type` is one of `guide`, `post` (post or case study), `research` (journal article, conference paper, chapter or report) or `recording` (podcast or video).
+- `topics` lists one to four topics from `_data/publication-tags.yml`. Include `ioa` or `viva` (or both) so the format filters work. The ten topics are: `ioa`, `viva`, `large-classes`, `design`, `marking`, `preparing-students`, `staff`, `ai-integrity`, `equity`, `online`.
+- `note` is optional: one sentence on what it covers. Visitors see it when they tick "Show summaries".
+- For a paywalled item add `access: subscription` (or `access: registration` for a free sign-up), and `free_url:` if there is a free copy such as a repository version or preprint.
+- A local preview shows a warning box if a topic or type is misspelt.
 - If a title contains a colon or starts with a quote mark, put double quotes around the whole title.
 
 ## Add an informal resource
@@ -171,8 +178,8 @@ Google does not email you about new submissions unless you turn it on.
 
 Everything that is not a catalogue entry goes through the **IOA commons request form**: suggested publications and videos, draft or working materials to share, catalogue corrections and removals, website problems and general questions. The **IOA Commons requests** sheet is the team's to-do list.
 
-- Columns A to I hold the answers. The script adds `Status`, `Owner`, `Team notes` and `Last updated` (J to M).
-- Each new request gets the status `New` and today's date automatically. The other statuses are `In progress`, `Waiting for submitter`, `Done` and `Closed`.
+- The first columns hold the answers. The script added `Status`, `Owner`, `Team notes` and `Last updated` to the right of them. The optional "Topics" question (added by `docs/google-forms/add-publication-topics.gs`) has its own answer column; its ticks are suggestions to check before publishing.
+- Each new request gets the status `New` and today's date automatically. The automation finds those two columns by their headings, so keep the headings `Status` and `Last updated` as they are. The other statuses are `In progress`, `Waiting for submitter`, `Done` and `Closed`.
 - Team notes are internal. Never publish this sheet.
 
 People share materials as a link to a file in their own Google Drive, OneDrive or Dropbox. The form has no file upload question, because Google Forms makes everyone sign in to a Google account to upload. To add a shared file to the site, download it, put it in `resources/files/` and follow "Add an informal resource" above.
@@ -181,7 +188,7 @@ Requests do not change the site by themselves. Someone acts on each one, then se
 
 | Request | What to do |
 |---|---|
-| Publication | Add an entry to `_data/publications.yml`, then commit and push |
+| Publication | Add an entry to `_data/publications.yml` with its type and topics (check the topics the submitter ticked), then commit and push |
 | Video | Add it to the YouTube playlist. The site picks it up within a day |
 | Draft or working materials | Download the file and check it is under 20 MB. If it is larger, ask the submitter to compress or split it, or to publish it on Zenodo. Then put it in `resources/files/`, add an entry to `_data/resources.yml`, and commit and push |
 | Catalogue correction | Edit the row in the catalogue sheet. Shows within about five minutes, no push |

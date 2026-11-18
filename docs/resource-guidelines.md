@@ -138,10 +138,14 @@ Add an entry anywhere in `_data/publications.yml`; the page sorts by date, newes
   authors: Eszter Kalman, Benjamin Miller and Danny Liu
   date: 2024-04-18
   source: Teaching@Sydney
+  type: post
+  topics: [ioa, design]
   note: Optional. One sentence on what it covers.
 ```
 
 Use the publication date (the 1st of the month if only the month is known). Check the link opens.
+
+`type` is `guide`, `post`, `research` or `recording`. `topics` takes one to four slugs from `_data/publication-tags.yml` (ten broad topics; include `ioa` or `viva`). For paywalled items add `access: subscription` and, if there is a free copy, `free_url:`. Do not add new topics: the list is capped at ten and the request form's Topics question uses the same labels.
 
 ## 7. Route D: Videos (links only)
 
