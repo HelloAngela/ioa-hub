@@ -9,7 +9,7 @@
 {% if site.catalog_sheet_csv_url == nil or site.catalog_sheet_csv_url == "" or site.catalog_sheet_csv_url contains "PLACEHOLDER" %}{% assign use_sheet = false %}{% endif %}
 <div class="catalog" id="catalog"{% if use_sheet %} data-sheet-url="{{ site.catalog_sheet_csv_url | escape }}"{% endif %}>
 <noscript><p class="note">The catalogue needs JavaScript to load. Turn JavaScript on in your browser{% unless site.intake_form_url contains "PLACEHOLDER" %}, or <a href="{{ site.intake_form_url }}">ask the team for help</a>{% endunless %}.</p></noscript>
-<div class="filters filters--fields" id="catalog-filters" hidden>
+<div class="filters filters--fields filters--compact" id="catalog-filters" hidden>
 <div class="field">
 <label for="catalog-search">Search</label>
 <input type="search" id="catalog-search" autocomplete="off">
@@ -52,8 +52,12 @@
 <option value="16-">Over 15 minutes</option>
 </select>
 </div>
+<div class="field field--clear">
+<button type="button" class="filter-button filter-button--clear" id="catalog-clear" disabled>Clear filters</button>
+</div>
 </div>
 <p class="status" id="catalog-status" role="status"></p>
+<p class="catalog-hint" id="catalog-hint" hidden>Select a name to see how the assessment runs and how to get in touch.</p>
 <table class="catalog-table" id="catalog-table" role="table" hidden>
 <caption class="visually-hidden">Educators using oral assessment</caption>
 <thead role="rowgroup">
@@ -61,13 +65,11 @@
 <th scope="col" role="columnheader" data-sort="text">Name</th>
 <th scope="col" role="columnheader" data-sort="text">Institution</th>
 <th scope="col" role="columnheader" data-sort="text">Discipline</th>
-<th scope="col" role="columnheader" data-sort="text">Assessment type</th>
 <th scope="col" role="columnheader" data-sort="text">Unit</th>
+<th scope="col" role="columnheader" data-sort="text">Type</th>
 <th scope="col" role="columnheader" data-sort="number">Students</th>
 <th scope="col" role="columnheader" data-sort="number">Minutes</th>
 <th scope="col" role="columnheader" data-sort="number">Weighting</th>
-<th scope="col" role="columnheader">How it runs</th>
-<th scope="col" role="columnheader">Links</th>
 </tr>
 </thead>
 <tbody role="rowgroup"></tbody>

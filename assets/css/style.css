@@ -423,25 +423,60 @@ img { max-width: 100%; height: auto; }
 
 /* ---------- Catalogue ---------- */
 
-.catalog-table[hidden] { display: none; }
+/* Compact filters: smaller controls in a dense grid. */
+.filters--compact { grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); gap: 0.6rem 0.9rem; margin-top: 1rem; }
+.filters--compact .field label { font-size: 0.9rem; margin-bottom: 0.15rem; }
+.filters--compact .field input, .filters--compact .field select { padding: 0.3rem 0.45rem; font-size: 0.95rem; border-width: 1px; }
+.filters--compact .field input:focus, .filters--compact .field select:focus { outline: 3px solid var(--ochre); outline-offset: 1px; }
+.field--clear { display: flex; align-items: flex-end; }
+.field--clear .filter-button { padding: 0.25rem 0.9rem; font-size: 0.95rem; }
 
+.catalog-hint { margin: -0.5rem 0 0.5rem; font-size: 0.95rem; }
+.catalog-hint[hidden] { display: none; }
+
+.catalog-table[hidden] { display: none; }
 .catalog-table {
   width: 100%;
-  margin: 0.5rem 0 2rem;
+  margin: 0.25rem 0 2rem;
   border-collapse: collapse;
-  font-size: 1rem;
-  line-height: 1.45;
+  font-size: 0.95rem;
+  line-height: 1.35;
 }
 .catalog-table th, .catalog-table td {
-  padding: 0.6rem 0.75rem;
+  padding: 0.4rem 0.6rem;
   text-align: left;
   vertical-align: top;
   border-bottom: 1px solid var(--grey-light);
 }
 .catalog-table thead th { border-bottom: 3px solid var(--ochre); white-space: nowrap; }
-.catalog-table tbody tr:nth-child(even) { background: var(--grey-light); }
+.catalog-table td[data-label="Students"], .catalog-table td[data-label="Minutes"], .catalog-table td[data-label="Weighting"],
+.catalog-table td[data-label="Unit"], .catalog-table td[data-label="Type"] { white-space: nowrap; }
+.catalog-table tbody tr:hover:not(.catalog-detail) { background: var(--grey-light); }
 .catalog-table tr[hidden] { display: none; }
-.catalog-table .sub { display: block; font-size: 0.95rem; }
+.catalog-table abbr[title] { text-decoration: none; cursor: help; }
+
+.row-toggle {
+  padding: 0;
+  font: inherit;
+  font-weight: 600;
+  text-align: left;
+  color: var(--ochre-dark);
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.row-toggle::before { content: "\25B8\00A0"; color: var(--charcoal); }
+.row-toggle[aria-expanded="true"]::before { content: "\25BE\00A0"; }
+.row-toggle:hover { text-decoration: underline; }
+
+.catalog-table tr.is-open { background: var(--sandstone); }
+.catalog-table tr.is-open td { border-bottom: 0; }
+.catalog-detail td { padding: 0.25rem 0.6rem 0.9rem 1.6rem; background: var(--sandstone); }
+.catalog-detail dl { display: grid; grid-template-columns: max-content 1fr; gap: 0.25rem 1rem; margin: 0; max-width: 60rem; }
+.catalog-detail dt { font-weight: 600; }
+.catalog-detail dd { margin: 0; }
+.catalog-links a { margin-right: 1rem; }
+
 .sort-button {
   padding: 0;
   font: inherit;
@@ -455,28 +490,37 @@ img { max-width: 100%; height: auto; }
 th[aria-sort="ascending"] .sort-button::after { content: " \2191"; }
 th[aria-sort="descending"] .sort-button::after { content: " \2193"; }
 
-/* Phone: each row becomes a card. */
-@media (max-width: 59.99rem) {
+/* Phone: each entry becomes a short card; details open inside it. */
+@media (max-width: 39.99rem) {
   .catalog-table, .catalog-table tbody, .catalog-table tr, .catalog-table td { display: block; }
   .catalog-table thead { display: none; }
   .catalog-table tr[hidden] { display: none; }
-  .catalog-table tbody tr, .catalog-table tbody tr:nth-child(even) {
-    margin-bottom: 1rem;
-    padding: 1rem 1.25rem;
+  .catalog-table tbody tr:not(.catalog-detail) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 0.75rem;
+    margin-top: 0.75rem;
+    padding: 0.75rem 1rem;
     background: var(--sandstone);
     border-radius: var(--radius);
   }
-  .catalog-table td { padding: 0.2rem 0; border: 0; }
+  .catalog-table tr.is-open { border-radius: var(--radius) var(--radius) 0 0; }
+  .catalog-table td { padding: 0.1rem 0; border: 0; white-space: normal !important; }
   .catalog-table td::before { content: attr(data-label) ": "; font-weight: 600; }
-  .catalog-table td:first-child { font-size: 1.15rem; font-weight: 600; padding-bottom: 0.4rem; }
+  .catalog-table td:first-child { grid-column: 1 / -1; font-size: 1.05rem; padding-bottom: 0.3rem; }
+  .catalog-table td[data-label="Institution"], .catalog-table td[data-label="Discipline"] { grid-column: 1 / -1; }
   .catalog-table td:first-child::before, .catalog-table td:empty { display: none; }
+  .catalog-detail td { padding: 0 1rem 0.9rem; border-radius: 0 0 var(--radius) var(--radius); }
+  .catalog-detail td::before { display: none; }
+  .catalog-detail dl { grid-template-columns: 1fr; gap: 0; }
+  .catalog-detail dd { margin-bottom: 0.4rem; }
 }
 
 /* ---------- Team ---------- */
 
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
   gap: 2rem 1.5rem;
   margin: 1.5rem 0 0;
   padding: 0;
@@ -485,7 +529,7 @@ th[aria-sort="descending"] .sort-button::after { content: " \2193"; }
 }
 .team-photo {
   display: block;
-  width: 160px; height: 160px;
+  width: 120px; height: 120px;
   margin: 0 auto 0.75rem;
   border-radius: 50%;
   object-fit: cover;
@@ -497,17 +541,17 @@ th[aria-sort="descending"] .sort-button::after { content: " \2193"; }
   justify-content: center;
   font-family: var(--font-body);
   font-weight: 700;
-  font-size: 3rem;
+  font-size: 2.25rem;
   color: var(--charcoal);
 }
-.team-name { display: block; font-weight: 600; }
-.team-role, .team-unit, .team-email { display: block; font-size: 1rem; line-height: 1.4; }
-.team-email { margin-top: 0.25rem; overflow-wrap: anywhere; }
+.team-name { display: block; font-size: 1rem; font-weight: 600; line-height: 1.35; }
+.team-role, .team-unit, .team-email { display: block; font-size: 0.9rem; line-height: 1.35; }
+.team-email { margin-top: 0.25rem; font-size: 0.85rem; overflow-wrap: anywhere; }
 
 @media (max-width: 30rem) {
   .team-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1rem; }
-  .team-photo { width: 120px; height: 120px; }
-  .team-photo--initials { font-size: 2.25rem; }
+  .team-photo { width: 100px; height: 100px; }
+  .team-photo--initials { font-size: 1.9rem; }
 }
 
 /* ---------- Video carousel (home page) ---------- */

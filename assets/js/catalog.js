@@ -1,5 +1,6 @@
-// Catalogue page: loads the entries, builds the table, and runs the search,
-// filters and sortable columns.
+// Catalogue page: loads the entries, builds a compact table, and runs the search,
+// filters and sortable columns. Each entry is one line; selecting the name opens
+// a details row underneath (how it runs, unit details and links).
 //
 // The entries come from the public tab of the Google Sheet (if its link is set
 // in _config.yml), or from _data/catalog.csv otherwise.
@@ -12,9 +13,20 @@
   var controls = document.getElementById("catalog-filters");
   var search = document.getElementById("catalog-search");
   var status = document.getElementById("catalog-status");
+  var hint = document.getElementById("catalog-hint");
+  var clearButton = document.getElementById("catalog-clear");
   var selects = Array.prototype.slice.call(controls.querySelectorAll("select[data-filter]"));
   var ranges = Array.prototype.slice.call(controls.querySelectorAll("select[data-range]"));
-  var rows = [];
+  var columns = table.tHead.rows[0].cells.length;
+  var items = []; // one per entry: { row, detail, text }
+
+  // Short labels for the Type column. The filter keeps the full wording.
+  var TYPE_SHORT = {
+    "interactive oral assessment (ioa)": "IOA",
+    "viva or oral examination": "Viva",
+    "hybrid oral assessment": "Hybrid",
+    "other oral assessment": "Other"
+  };
 
   // ---------- Reading the data ----------
 
@@ -61,18 +73,12 @@
 
   // ---------- Building the table ----------
 
-  function cell(label, main, subs) {
+  function cell(label, content) {
     var td = document.createElement("td");
     td.setAttribute("role", "cell");
     td.setAttribute("data-label", label);
-    if (main) td.appendChild(document.createTextNode(main));
-    (subs || []).forEach(function (sub) {
-      if (!sub) return;
-      var span = document.createElement("span");
-      span.className = "sub";
-      span.textContent = sub;
-      td.appendChild(span);
-    });
+    if (typeof content === "string") td.textContent = content;
+    else if (content) td.appendChild(content);
     return td;
   }
 
@@ -89,54 +95,107 @@
 
   function isWebLink(value) { return /^https?:\/\//i.test(value); }
 
-  function linksCell(entry, name) {
-    var td = cell("Links", "");
-    var items = [];
+  function linkList(entry, name) {
+    var list = [];
     var contact = clean(entry.contact_public);
     var profile = clean(entry.profile_url);
     var resource = clean(entry.resource_url);
-
-    if (isWebLink(contact)) items.push(link(contact, "Contact", name));
-    else if (/^[^\s@]+@[^\s@]+$/.test(contact)) items.push(link("mailto:" + contact, "Email", name));
-    else if (contact) items.push(document.createTextNode(contact));
-    if (isWebLink(profile)) items.push(link(profile, "Profile", "of " + name));
-    if (isWebLink(resource)) items.push(link(resource, "Resource", "from " + name));
-
-    items.forEach(function (item, i) {
-      if (i > 0) td.appendChild(document.createElement("br"));
-      td.appendChild(item);
-    });
-    return td;
+    if (isWebLink(contact)) list.push(link(contact, "Contact", name));
+    else if (/^[^\s@]+@[^\s@]+$/.test(contact)) list.push(link("mailto:" + contact, "Email", name));
+    else if (contact) list.push(document.createTextNode(contact));
+    if (isWebLink(profile)) list.push(link(profile, "Profile", "of " + name));
+    if (isWebLink(resource)) list.push(link(resource, "Resource", "from " + name));
+    if (!list.length) return null;
+    var span = document.createElement("span");
+    span.className = "catalog-links";
+    list.forEach(function (item) { span.appendChild(item); });
+    return span;
   }
 
-  function buildRow(entry) {
+  function typeLabel(type) {
+    var short = TYPE_SHORT[type.toLowerCase()];
+    if (!short || short === type) return type;
+    var abbr = document.createElement("abbr");
+    abbr.title = type;
+    abbr.textContent = short;
+    return abbr;
+  }
+
+  function buildDetail(entry, name, id) {
+    var tr = document.createElement("tr");
+    tr.className = "catalog-detail";
+    tr.id = id;
+    tr.hidden = true;
+    var td = document.createElement("td");
+    td.colSpan = columns;
+    var dl = document.createElement("dl");
+
+    function add(term, value) {
+      if (!value) return;
+      var dt = document.createElement("dt");
+      dt.textContent = term;
+      var dd = document.createElement("dd");
+      if (typeof value === "string") dd.textContent = value; else dd.appendChild(value);
+      dl.appendChild(dt);
+      dl.appendChild(dd);
+    }
+
+    var unit = [clean(entry.unit_name), clean(entry.year_level)].filter(Boolean).join(", ");
+    add("How it runs", clean(entry.assessment_format));
+    add("Position", clean(entry.title));
+    add("Faculty or school", clean(entry.faculty_or_school));
+    add("Country", clean(entry.country));
+    add("Unit", unit);
+    add("Assessment type", clean(entry.assessment_type));
+    add("Running since", clean(entry.year_started));
+    add("Links", linkList(entry, name));
+    td.appendChild(dl);
+    tr.appendChild(td);
+    return tr;
+  }
+
+  function buildItem(entry, index) {
     var name = clean(entry.name);
     var students = number(entry.cohort_size);
     var minutes = number(entry.length_minutes);
     var weighting = number(entry.weighting_percent);
-    var started = clean(entry.year_started);
+    var detailId = "catalog-detail-" + index;
 
-    var tr = document.createElement("tr");
-    tr.setAttribute("role", "row");
-    tr.setAttribute("data-institution", clean(entry.institution));
-    tr.setAttribute("data-country", clean(entry.country));
-    tr.setAttribute("data-discipline", clean(entry.discipline));
-    tr.setAttribute("data-year", clean(entry.year_level));
-    tr.setAttribute("data-assessment_type", clean(entry.assessment_type));
-    if (students !== null) tr.setAttribute("data-students", students);
-    if (minutes !== null) tr.setAttribute("data-minutes", minutes);
+    var row = document.createElement("tr");
+    row.setAttribute("role", "row");
+    row.setAttribute("data-institution", clean(entry.institution));
+    row.setAttribute("data-country", clean(entry.country));
+    row.setAttribute("data-discipline", clean(entry.discipline));
+    row.setAttribute("data-year", clean(entry.year_level));
+    row.setAttribute("data-assessment_type", clean(entry.assessment_type));
+    if (students !== null) row.setAttribute("data-students", students);
+    if (minutes !== null) row.setAttribute("data-minutes", minutes);
 
-    tr.appendChild(cell("Name", name, [clean(entry.title)]));
-    tr.appendChild(cell("Institution", clean(entry.institution), [clean(entry.faculty_or_school), clean(entry.country)]));
-    tr.appendChild(cell("Discipline", clean(entry.discipline)));
-    tr.appendChild(cell("Assessment type", clean(entry.assessment_type)));
-    tr.appendChild(cell("Unit", clean(entry.unit_code), [clean(entry.unit_name), clean(entry.year_level), started ? "Since " + started : ""]));
-    tr.appendChild(cell("Students", students === null ? "" : String(students)));
-    tr.appendChild(cell("Minutes", minutes === null ? "" : String(minutes)));
-    tr.appendChild(cell("Weighting", weighting === null ? "" : weighting + "%"));
-    tr.appendChild(cell("How it runs", clean(entry.assessment_format)));
-    tr.appendChild(linksCell(entry, name));
-    return tr;
+    var toggle = document.createElement("button");
+    toggle.type = "button";
+    toggle.className = "row-toggle";
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-controls", detailId);
+    toggle.textContent = name;
+
+    var detail = buildDetail(entry, name, detailId);
+    toggle.addEventListener("click", function () {
+      var open = toggle.getAttribute("aria-expanded") !== "true";
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      row.classList.toggle("is-open", open);
+      detail.hidden = !open;
+    });
+
+    row.appendChild(cell("Name", toggle));
+    row.appendChild(cell("Institution", clean(entry.institution)));
+    row.appendChild(cell("Discipline", clean(entry.discipline)));
+    row.appendChild(cell("Unit", clean(entry.unit_code)));
+    row.appendChild(cell("Type", typeLabel(clean(entry.assessment_type))));
+    row.appendChild(cell("Students", students === null ? "" : String(students)));
+    row.appendChild(cell("Minutes", minutes === null ? "" : String(minutes)));
+    row.appendChild(cell("Weighting", weighting === null ? "" : weighting + "%"));
+
+    return { row: row, detail: detail, toggle: toggle, text: (row.textContent + " " + detail.textContent).toLowerCase() };
   }
 
   // ---------- Search and filters ----------
@@ -149,12 +208,16 @@
     return parts[1] === "" || n <= parseFloat(parts[1]);
   }
 
+  function anyFilterSet() {
+    return search.value.trim() !== "" || selects.concat(ranges).some(function (s) { return s.value; });
+  }
+
   function update() {
     var words = search.value.toLowerCase().split(/\s+/).filter(Boolean);
     var shown = 0;
-    rows.forEach(function (row) {
-      var text = row.textContent.toLowerCase();
-      var show = words.every(function (word) { return text.indexOf(word) !== -1; });
+    items.forEach(function (item) {
+      var row = item.row;
+      var show = words.every(function (word) { return item.text.indexOf(word) !== -1; });
       selects.forEach(function (select) {
         if (select.value && row.getAttribute("data-" + select.getAttribute("data-filter")) !== select.value) show = false;
       });
@@ -162,19 +225,28 @@
         if (select.value && !inRange(row.getAttribute("data-" + select.getAttribute("data-range")), select.value)) show = false;
       });
       row.hidden = !show;
+      item.detail.hidden = !show || item.toggle.getAttribute("aria-expanded") !== "true";
       if (show) shown += 1;
     });
+    clearButton.disabled = !anyFilterSet();
     status.textContent = shown === 0
       ? "No entries match. Try a different search or filter."
-      : "Showing " + shown + " of " + rows.length + " entries.";
+      : "Showing " + shown + " of " + items.length + (items.length === 1 ? " entry." : " entries.");
+  }
+
+  function clearFilters() {
+    search.value = "";
+    selects.concat(ranges).forEach(function (select) { select.value = ""; });
+    update();
+    search.focus();
   }
 
   function fillSelects() {
     selects.forEach(function (select) {
       var key = select.getAttribute("data-filter");
       var values = [];
-      rows.forEach(function (row) {
-        var value = row.getAttribute("data-" + key);
+      items.forEach(function (item) {
+        var value = item.row.getAttribute("data-" + key);
         if (value && values.indexOf(value) === -1) values.push(value);
       });
       values.sort(function (a, b) { return a.localeCompare(b); });
@@ -184,6 +256,13 @@
         option.textContent = value;
         select.appendChild(option);
       });
+    });
+  }
+
+  function placeRows() {
+    items.forEach(function (item) {
+      body.appendChild(item.row);
+      body.appendChild(item.detail);
     });
   }
 
@@ -206,9 +285,9 @@
         header.setAttribute("aria-sort", direction);
         var sign = direction === "ascending" ? 1 : -1;
 
-        rows.sort(function (a, b) {
-          var x = a.cells[index].textContent.trim();
-          var y = b.cells[index].textContent.trim();
+        items.sort(function (a, b) {
+          var x = a.row.cells[index].textContent.trim();
+          var y = b.row.cells[index].textContent.trim();
           if (type === "number") {
             // Entries with no number always go last.
             if (x === "" || y === "") return (x === "" ? 1 : 0) - (y === "" ? 1 : 0);
@@ -216,7 +295,7 @@
           }
           return sign * x.localeCompare(y);
         });
-        rows.forEach(function (row) { body.appendChild(row); });
+        placeRows();
       });
     });
   }
@@ -225,18 +304,21 @@
 
   function show(entries) {
     entries = entries.filter(function (entry) { return clean(entry.name) !== ""; });
-    rows = entries.map(buildRow);
-    rows.forEach(function (row) { body.appendChild(row); });
-    if (!rows.length) {
+    entries.sort(function (a, b) { return clean(a.name).localeCompare(clean(b.name)); });
+    items = entries.map(buildItem);
+    if (!items.length) {
       status.textContent = "No entries yet. Be the first to add yours.";
       return;
     }
 
+    placeRows();
     fillSelects();
     makeSortable();
     search.addEventListener("input", update);
     selects.concat(ranges).forEach(function (select) { select.addEventListener("change", update); });
+    clearButton.addEventListener("click", clearFilters);
     controls.hidden = false;
+    hint.hidden = false;
     table.hidden = false;
     update();
   }

@@ -6,7 +6,7 @@ This file tells any AI coding assistant (Claude Code, Codex, Copilot, Cursor, Ge
 
 **IOA Commons** (Interactive Oral Assessment Commons) is a public website about oral assessment across higher education. It collects videos, teaching resources and educator examples, including interactive oral assessment (IOA), viva-style examinations and hybrid formats. The catalogue includes educators using these oral assessment formats.
 
-- **Owner:** Dr Angela Sun, Lecturer (Education-focused), School of Life and Environmental Sciences, University of Sydney.
+- **Owner:** Dr Angela Sun, Lecturer, School of Life and Environmental Sciences, University of Sydney.
 - **Led from:** the University of Sydney, with a cross-portfolio team from Science, FASS, the Division of Teaching and Learning (DTL) and the Learning Hub.
 - **Audience:** educators and educational designers (main), academic leaders, and students preparing for oral assessments.
 - **Positioning:** treat oral assessment as the umbrella. Include IOAs, viva-style examinations and hybrids such as an Honours viva that combines features of an IOA and a PhD defence. Describe the specific assessment type where known; do not imply every oral assessment follows the IOA format.
@@ -131,13 +131,13 @@ Keep public suggestions, corrections and general enquiries in the shared Google 
 ### 6.6 About
 - Short paragraph: why IOA Commons exists, who leads it, and the funding (2026 Seed and Scale Grant through the University of Sydney Community and Leadership Portfolio, for "Creating Space for Collective Leadership: Cross-Portfolio Pilot for Translational Assessment Practice"; 18 collaborators across Science, FASS, DTL and the Learning Hub, including 6 students).
 - Team grid from `_data/team.yml`. Each entry: `name`, `role`, `unit`, `photo` (file name in `images/team/`), `link` (optional), `group` (e.g. Project team / Student partners / Contributors).
-- Circular photos, 160px on desktop, name and role underneath, grouped by `group`. Alt text is the person's name.
+- Circular photos, 120px on desktop (100px on phones), name and role underneath, grouped by `group`. Alt text is the person's name.
 - If an entry has no photo, show initials in a sandstone circle.
 - Starting entries (photos already in `images/team/`):
 
 ```yaml
 - name: Dr Angela Sun
-  role: Lecturer (Education-focused)
+  role: Lecturer
   unit: School of Life and Environmental Sciences, Faculty of Science
   photo: angela-sun.jpg
   group: Project team
@@ -257,6 +257,7 @@ When Angela asks to "build the starter site":
 - **Analytics:** GoatCounter is live with code `ioahub` (dashboard `https://ioahub.goatcounter.com`). Do not switch to Google Analytics: it needs a cookie consent banner.
 - **`docs/`** holds reference material (brand notes, the forms script) and is excluded from the published site.
 - **Catalogue page:** no entry, institution or country counters above the filters (Angela removed them). The table and filters start straight after the intro text.
+- **Catalogue layout (18 November 2026, Angela asked for it more compact):** one line per entry with Name, Institution, Discipline, Unit, Type (short label: IOA, Viva, Hybrid, Other, full wording on hover), Students, Minutes, Weighting. Selecting the name opens a details row (how it runs, position, faculty or school, country, unit name and year level, assessment type, running since, links). Compact filters with a "Clear filters" button. The table shows from 640 px up; below that each entry is a short two-column card.
 - **Name (changed 15 November 2026):** the site is **IOA Commons**, short for **Interactive Oral Assessment Commons** (keep "Interactive" even though the site also covers viva-style and hybrid formats). It was called IOA Hub until then; do not use "Hub" for the site in any visible text. Some identifiers still contain "ioahub" or "ioa-hub" because they belong to outside accounts: the GitHub repository and folder `ioa-hub`, the Zenodo community slug `ioahub`, and the GoatCounter code `ioahub`. Change them only when Angela asks, together with the matching account. The domain is `ioa.au`, so `baseurl` is now empty.
 - **Preparing resources outside Claude Code:** `docs/resource-guidelines.md` tells any assistant (for example Claude in Cowork) how to prepare materials and where to put them (Zenodo, `resources/files/` with `_data/resources.yml`, publications, videos). Keep it in step with this file when routes or data fields change.
 - **Development notice (16 November 2026):** a one-line, small-print light grey notice (grey so it stays visible above the sandstone home banner) under the header on every page ("We're still working on this site. Please send any suggestions or issues here.") links to the request form (`intake_form_url`). Keep it small so it does not get in the way of the page. It lives in `_includes/dev-notice.html` and is switched on and off with `dev_notice` in `_config.yml`.
