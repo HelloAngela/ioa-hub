@@ -13,8 +13,8 @@
  *
  * Each time:
  *   1. Add a tab called "Import" (or clear the old one). Row 1 holds the column names.
- *      Columns A to R must be the 18 catalogue questions, with the exact question titles
- *      below. Then two more columns: "Consent date" and "Import status". Any further
+ *      Include a column for each catalogue question below, titled exactly as the
+ *      question (the order does not matter). Then two more columns: "Consent date" and "Import status". Any further
  *      columns (private notes) are ignored.
  *   2. Fill in "Consent date" only for people who have agreed to their row as written.
  *      Rows without a consent date are skipped.
@@ -34,11 +34,12 @@ var APPROVED_COLUMN = 21; // column U, as in create-forms.gs
 var CONSENT_DATE_HEADER = "Consent date";
 var STATUS_HEADER = "Import status";
 var CONSENT_QUESTION = "Consent";
-var CONSENT_CHOICE = "I agree to these details being published on IOA Commons";
+var CONSENT_CHOICE = "I agree to these details being published on IOA commons"; // exactly as in the live form
 
 // The catalogue form's questions, in form order. Titles must match the live form exactly.
+// "Position title" was removed from the form on 18 November 2026 (titles change too often).
 var QUESTIONS = [
-  "Name", "Position title", "Institution", "Country", "Faculty or school", "Discipline",
+  "Name", "Institution", "Country", "Faculty or school", "Discipline",
   "Unit code", "Unit name", "Year level", "Assessment type", "Number of students",
   "Typical length of this assessment, in minutes",
   "Weighting, as a percentage of the unit mark",

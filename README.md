@@ -125,7 +125,7 @@ A script builds the catalogue form, the request form and both response sheets fo
 
 Run the script only once. A second run makes a second set of forms.
 
-Open each form and check the wording before you share it. You can change question text, help text and the description freely. In the catalogue form, **do not add, remove or reorder questions**: the Public tab copies columns B to S by position. If you need a new question, add it after Consent and ask for help updating the Public tab.
+Open each form and check the wording before you share it. You can change question text, help text and the description freely. In the catalogue form, **do not add, remove or reorder questions**: the Public tab copies columns B to S by position. If you need a new question, add it after Consent and ask for help updating the Public tab. The "Position title" question was removed on purpose; its column stays in the sheet, so leave that column in place.
 
 Share the sheets with colleagues as editors if they will help. Never publish the `Form responses 1` tab of either sheet.
 

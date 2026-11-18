@@ -130,7 +130,8 @@
     return span;
   }
 
-  // Details: one line per person with position and links.
+  // Details: one line per person with their links. Position titles are not shown
+  // because they change often.
   function peopleDetail(unit) {
     var ul = document.createElement("ul");
     ul.className = "catalog-people-list";
@@ -139,7 +140,6 @@
       var strong = document.createElement("strong");
       strong.textContent = person.name;
       li.appendChild(strong);
-      if (person.title) li.appendChild(document.createTextNode(", " + person.title));
       [contactLink(person), isWebLink(person.profile) ? link(person.profile, "Profile", "of " + person.name) : null]
         .filter(Boolean)
         .forEach(function (item) {
@@ -200,7 +200,6 @@
       if (isWebLink(resource) && unit.resources.indexOf(resource) === -1) unit.resources.push(resource);
       unit.people.push({
         name: clean(entry.name),
-        title: clean(entry.title),
         contact: clean(entry.contact_public),
         profile: clean(entry.profile_url)
       });
