@@ -450,7 +450,12 @@ img { max-width: 100%; height: auto; }
 }
 .catalog-table thead th { border-bottom: 3px solid var(--ochre); white-space: nowrap; }
 .catalog-table td[data-label="Students"], .catalog-table td[data-label="Minutes"], .catalog-table td[data-label="Weighting"],
-.catalog-table td[data-label="Unit"], .catalog-table td[data-label="Type"] { white-space: nowrap; }
+.catalog-table td[data-label="Type"], .catalog-table td[data-label="Year level"], .row-toggle { white-space: nowrap; }
+.catalog-table td[data-label="Unit"] { min-width: 9rem; }
+.catalog-table td[data-label="People"] { min-width: 10rem; }
+.catalog-unit-name { display: block; padding-left: 1.1em; font-size: 0.85rem; line-height: 1.3; }
+.catalog-people-list { margin: 0; padding: 0; list-style: none; }
+.catalog-people-list li { margin: 0 0 0.15rem; }
 .catalog-table tbody tr:hover:not(.catalog-detail) { background: var(--grey-light); }
 .catalog-table tr[hidden] { display: none; }
 .catalog-table abbr[title] { text-decoration: none; cursor: help; }
@@ -508,7 +513,8 @@ th[aria-sort="descending"] .sort-button::after { content: " \2193"; }
   .catalog-table td { padding: 0.1rem 0; border: 0; white-space: normal !important; }
   .catalog-table td::before { content: attr(data-label) ": "; font-weight: 600; }
   .catalog-table td:first-child { grid-column: 1 / -1; font-size: 1.05rem; padding-bottom: 0.3rem; }
-  .catalog-table td[data-label="Institution"], .catalog-table td[data-label="Discipline"] { grid-column: 1 / -1; }
+  .catalog-table td[data-label="Discipline"], .catalog-table td[data-label="Institution"],
+  .catalog-table td[data-label="People"] { grid-column: 1 / -1; }
   .catalog-table td:first-child::before, .catalog-table td:empty { display: none; }
   .catalog-detail td { padding: 0 1rem 0.9rem; border-radius: 0 0 var(--radius) var(--radius); }
   .catalog-detail td::before { display: none; }

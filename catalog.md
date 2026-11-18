@@ -8,7 +8,7 @@ scripts:
   - catalog.js
 ---
 
-Everyone listed has agreed to be here. Search by assessment type, institution, year level, student numbers or assessment length to find an educator using an oral assessment format like yours.
+Each row is a unit that uses an oral assessment, with the people who run it. Filter by discipline, assessment type or number of students to find an example close to your own. Everyone listed has agreed to be here.
 
 {% include catalog-table.html %}
 

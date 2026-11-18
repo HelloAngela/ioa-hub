@@ -10,7 +10,7 @@ lead: Share work on oral assessment, including interactive oral assessment (IOA)
 
 Would you like educators using similar oral assessments to contact you? Add yourself to the [catalogue]({{ '/catalog/' | relative_url }}). You can include a public contact or profile link if you’d like people to get in touch. We publish only the details you approve.
 
-Fill in the {% if site.google_form_url contains "PLACEHOLDER" %}catalogue form once its link is set up{% else %}<a href="{{ site.google_form_url }}">catalogue form</a>{% endif %}. It takes about five minutes. The team checks submissions in the linked sheet before an entry appears.
+Fill in the {% if site.google_form_url contains "PLACEHOLDER" %}catalogue form once its link is set up{% else %}<a href="{{ site.google_form_url }}">catalogue form</a>{% endif %}. It takes about five minutes. The team checks submissions in the linked sheet before an entry appears. Fill in the form once for each unit. If you share a unit with colleagues, each of you can add yourself with the same unit code, and you will appear together on one row.
 
 To change or remove your entry later, {% if site.intake_form_url contains "PLACEHOLDER" %}use the shared team request form once it is set up.{% else %}[send the team a request]({{ site.intake_form_url }}).{% endif %}
 

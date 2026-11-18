@@ -1,6 +1,11 @@
 // Catalogue page: loads the entries, builds a compact table, and runs the search,
-// filters and sortable columns. Each entry is one line; selecting the name opens
-// a details row underneath (how it runs, unit details and links).
+// filters and sortable columns.
+//
+// Each row is one unit. People submit the form once per unit, so entries with the
+// same institution and unit code are grouped into one row, and everyone involved is
+// listed under People. For unit details (students, minutes and so on) the earliest
+// submission wins; blanks are filled from later ones. Selecting the unit opens a
+// details row underneath (how it runs, people and links).
 //
 // The entries come from the public tab of the Google Sheet (if its link is set
 // in _config.yml), or from _data/catalog.csv otherwise.
@@ -95,20 +100,64 @@
 
   function isWebLink(value) { return /^https?:\/\//i.test(value); }
 
-  function linkList(entry, name) {
-    var list = [];
-    var contact = clean(entry.contact_public);
-    var profile = clean(entry.profile_url);
-    var resource = clean(entry.resource_url);
-    if (isWebLink(contact)) list.push(link(contact, "Contact", name));
-    else if (/^[^\s@]+@[^\s@]+$/.test(contact)) list.push(link("mailto:" + contact, "Email", name));
-    else if (contact) list.push(document.createTextNode(contact));
-    if (isWebLink(profile)) list.push(link(profile, "Profile", "of " + name));
-    if (isWebLink(resource)) list.push(link(resource, "Resource", "from " + name));
-    if (!list.length) return null;
+  function isEmail(value) { return /^[^\s@]+@[^\s@]+$/.test(value); }
+
+  function contactLink(person) {
+    if (isWebLink(person.contact)) return link(person.contact, "Contact", person.name);
+    if (isEmail(person.contact)) return link("mailto:" + person.contact, "Email", person.name);
+    if (person.contact) return document.createTextNode(person.contact);
+    return null;
+  }
+
+  // People column: names, each linked to their email or profile when public.
+  function peopleList(unit) {
+    var span = document.createElement("span");
+    span.className = "catalog-people";
+    unit.people.forEach(function (person, i) {
+      if (i > 0) span.appendChild(document.createTextNode(", "));
+      var href = isEmail(person.contact) ? "mailto:" + person.contact
+        : isWebLink(person.contact) ? person.contact
+        : isWebLink(person.profile) ? person.profile : "";
+      if (href) {
+        var a = document.createElement("a");
+        a.href = href;
+        a.textContent = person.name;
+        span.appendChild(a);
+      } else {
+        span.appendChild(document.createTextNode(person.name));
+      }
+    });
+    return span;
+  }
+
+  // Details: one line per person with position and links.
+  function peopleDetail(unit) {
+    var ul = document.createElement("ul");
+    ul.className = "catalog-people-list";
+    unit.people.forEach(function (person) {
+      var li = document.createElement("li");
+      var strong = document.createElement("strong");
+      strong.textContent = person.name;
+      li.appendChild(strong);
+      if (person.title) li.appendChild(document.createTextNode(", " + person.title));
+      [contactLink(person), isWebLink(person.profile) ? link(person.profile, "Profile", "of " + person.name) : null]
+        .filter(Boolean)
+        .forEach(function (item) {
+          li.appendChild(document.createTextNode(" · "));
+          li.appendChild(item);
+        });
+      ul.appendChild(li);
+    });
+    return ul;
+  }
+
+  function resourceLinks(unit) {
+    if (!unit.resources.length) return null;
     var span = document.createElement("span");
     span.className = "catalog-links";
-    list.forEach(function (item) { span.appendChild(item); });
+    unit.resources.forEach(function (url, i) {
+      span.appendChild(link(url, unit.resources.length > 1 ? "Resource " + (i + 1) : "Resource", "about " + unit.label));
+    });
     return span;
   }
 
@@ -121,7 +170,48 @@
     return abbr;
   }
 
-  function buildDetail(entry, name, id) {
+  // ---------- Grouping entries into units ----------
+
+  var UNIT_FIELDS = ["institution", "country", "faculty_or_school", "discipline", "unit_code", "unit_name",
+    "year_level", "assessment_type", "cohort_size", "length_minutes", "weighting_percent", "year_started",
+    "assessment_format"];
+
+  function unitKey(entry, index) {
+    var code = clean(entry.unit_code).toUpperCase().replace(/\s+/g, "");
+    var name = clean(entry.unit_name).toLowerCase();
+    if (!code && !name) return "person-" + index; // no unit given: keep as its own row
+    return clean(entry.institution).toLowerCase() + "|" + (code || name);
+  }
+
+  function groupUnits(entries) {
+    var units = [], byKey = {};
+    entries.forEach(function (entry, index) {
+      var key = unitKey(entry, index);
+      var unit = byKey[key];
+      if (!unit) {
+        unit = byKey[key] = { people: [], resources: [] };
+        UNIT_FIELDS.forEach(function (field) { unit[field] = ""; });
+        units.push(unit);
+      }
+      UNIT_FIELDS.forEach(function (field) {
+        if (!unit[field]) unit[field] = clean(entry[field]);
+      });
+      var resource = clean(entry.resource_url);
+      if (isWebLink(resource) && unit.resources.indexOf(resource) === -1) unit.resources.push(resource);
+      unit.people.push({
+        name: clean(entry.name),
+        title: clean(entry.title),
+        contact: clean(entry.contact_public),
+        profile: clean(entry.profile_url)
+      });
+    });
+    units.forEach(function (unit) { unit.label = unit.unit_code || unit.unit_name || unit.people[0].name; });
+    return units;
+  }
+
+  // ---------- Building the table ----------
+
+  function buildDetail(unit, id) {
     var tr = document.createElement("tr");
     tr.className = "catalog-detail";
     tr.id = id;
@@ -140,34 +230,32 @@
       dl.appendChild(dd);
     }
 
-    var unit = [clean(entry.unit_name), clean(entry.year_level)].filter(Boolean).join(", ");
-    add("How it runs", clean(entry.assessment_format));
-    add("Position", clean(entry.title));
-    add("Faculty or school", clean(entry.faculty_or_school));
-    add("Country", clean(entry.country));
-    add("Unit", unit);
-    add("Assessment type", clean(entry.assessment_type));
-    add("Running since", clean(entry.year_started));
-    add("Links", linkList(entry, name));
+    add("How it runs", unit.assessment_format);
+    add(unit.people.length > 1 ? "People" : "Person", peopleDetail(unit));
+    add("Unit", [unit.unit_code, unit.unit_name].filter(Boolean).join(" "));
+    add("Faculty or school", unit.faculty_or_school);
+    add("Institution", [unit.institution, unit.country].filter(Boolean).join(", "));
+    add("Assessment type", unit.assessment_type);
+    add("Running since", unit.year_started);
+    add("Resources", resourceLinks(unit));
     td.appendChild(dl);
     tr.appendChild(td);
     return tr;
   }
 
-  function buildItem(entry, index) {
-    var name = clean(entry.name);
-    var students = number(entry.cohort_size);
-    var minutes = number(entry.length_minutes);
-    var weighting = number(entry.weighting_percent);
+  function buildItem(unit, index) {
+    var students = number(unit.cohort_size);
+    var minutes = number(unit.length_minutes);
+    var weighting = number(unit.weighting_percent);
     var detailId = "catalog-detail-" + index;
 
     var row = document.createElement("tr");
     row.setAttribute("role", "row");
-    row.setAttribute("data-institution", clean(entry.institution));
-    row.setAttribute("data-country", clean(entry.country));
-    row.setAttribute("data-discipline", clean(entry.discipline));
-    row.setAttribute("data-year", clean(entry.year_level));
-    row.setAttribute("data-assessment_type", clean(entry.assessment_type));
+    row.setAttribute("data-institution", unit.institution);
+    row.setAttribute("data-country", unit.country);
+    row.setAttribute("data-discipline", unit.discipline);
+    row.setAttribute("data-year", unit.year_level);
+    row.setAttribute("data-assessment_type", unit.assessment_type);
     if (students !== null) row.setAttribute("data-students", students);
     if (minutes !== null) row.setAttribute("data-minutes", minutes);
 
@@ -176,9 +264,17 @@
     toggle.className = "row-toggle";
     toggle.setAttribute("aria-expanded", "false");
     toggle.setAttribute("aria-controls", detailId);
-    toggle.textContent = name;
+    toggle.textContent = unit.label;
+    var unitCell = document.createElement("span");
+    unitCell.appendChild(toggle);
+    if (unit.unit_code && unit.unit_name) {
+      var sub = document.createElement("span");
+      sub.className = "catalog-unit-name";
+      sub.textContent = unit.unit_name;
+      unitCell.appendChild(sub);
+    }
 
-    var detail = buildDetail(entry, name, detailId);
+    var detail = buildDetail(unit, detailId);
     toggle.addEventListener("click", function () {
       var open = toggle.getAttribute("aria-expanded") !== "true";
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
@@ -186,14 +282,15 @@
       detail.hidden = !open;
     });
 
-    row.appendChild(cell("Name", toggle));
-    row.appendChild(cell("Institution", clean(entry.institution)));
-    row.appendChild(cell("Discipline", clean(entry.discipline)));
-    row.appendChild(cell("Unit", clean(entry.unit_code)));
-    row.appendChild(cell("Type", typeLabel(clean(entry.assessment_type))));
+    row.appendChild(cell("Unit", unitCell));
+    row.appendChild(cell("Discipline", unit.discipline));
+    row.appendChild(cell("Type", typeLabel(unit.assessment_type)));
+    row.appendChild(cell("Year level", unit.year_level));
     row.appendChild(cell("Students", students === null ? "" : String(students)));
     row.appendChild(cell("Minutes", minutes === null ? "" : String(minutes)));
     row.appendChild(cell("Weighting", weighting === null ? "" : weighting + "%"));
+    row.appendChild(cell("Institution", unit.institution));
+    row.appendChild(cell("People", peopleList(unit)));
 
     return { row: row, detail: detail, toggle: toggle, text: (row.textContent + " " + detail.textContent).toLowerCase() };
   }
@@ -231,7 +328,7 @@
     clearButton.disabled = !anyFilterSet();
     status.textContent = shown === 0
       ? "No entries match. Try a different search or filter."
-      : "Showing " + shown + " of " + items.length + (items.length === 1 ? " entry." : " entries.");
+      : "Showing " + shown + " of " + items.length + (items.length === 1 ? " unit." : " units.");
   }
 
   function clearFilters() {
@@ -304,8 +401,12 @@
 
   function show(entries) {
     entries = entries.filter(function (entry) { return clean(entry.name) !== ""; });
-    entries.sort(function (a, b) { return clean(a.name).localeCompare(clean(b.name)); });
-    items = entries.map(buildItem);
+    var units = groupUnits(entries);
+    // Start with similar units together: by discipline, then unit.
+    units.sort(function (a, b) {
+      return a.discipline.localeCompare(b.discipline) || a.label.localeCompare(b.label);
+    });
+    items = units.map(buildItem);
     if (!items.length) {
       status.textContent = "No entries yet. Be the first to add yours.";
       return;

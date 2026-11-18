@@ -15,24 +15,12 @@
 <input type="search" id="catalog-search" autocomplete="off">
 </div>
 <div class="field">
-<label for="catalog-institution">Institution</label>
-<select id="catalog-institution" data-filter="institution"><option value="">All institutions</option></select>
-</div>
-<div class="field">
-<label for="catalog-country">Country</label>
-<select id="catalog-country" data-filter="country"><option value="">All countries</option></select>
-</div>
-<div class="field">
 <label for="catalog-discipline">Discipline</label>
 <select id="catalog-discipline" data-filter="discipline"><option value="">All disciplines</option></select>
 </div>
 <div class="field">
 <label for="catalog-assessment-type">Assessment type</label>
 <select id="catalog-assessment-type" data-filter="assessment_type"><option value="">All assessment types</option></select>
-</div>
-<div class="field">
-<label for="catalog-year">Year level</label>
-<select id="catalog-year" data-filter="year"><option value="">All year levels</option></select>
 </div>
 <div class="field">
 <label for="catalog-students">Number of students</label>
@@ -44,6 +32,10 @@
 </select>
 </div>
 <div class="field">
+<label for="catalog-year">Year level</label>
+<select id="catalog-year" data-filter="year"><option value="">All year levels</option></select>
+</div>
+<div class="field">
 <label for="catalog-minutes">Length of assessment</label>
 <select id="catalog-minutes" data-range="minutes">
 <option value="">Any length</option>
@@ -52,24 +44,33 @@
 <option value="16-">Over 15 minutes</option>
 </select>
 </div>
+<div class="field">
+<label for="catalog-institution">Institution</label>
+<select id="catalog-institution" data-filter="institution"><option value="">All institutions</option></select>
+</div>
+<div class="field">
+<label for="catalog-country">Country</label>
+<select id="catalog-country" data-filter="country"><option value="">All countries</option></select>
+</div>
 <div class="field field--clear">
 <button type="button" class="filter-button filter-button--clear" id="catalog-clear" disabled>Clear filters</button>
 </div>
 </div>
 <p class="status" id="catalog-status" role="status"></p>
-<p class="catalog-hint" id="catalog-hint" hidden>Select a name to see how the assessment runs and how to get in touch.</p>
+<p class="catalog-hint" id="catalog-hint" hidden>Select a unit to see how the assessment runs and who to contact.</p>
 <table class="catalog-table" id="catalog-table" role="table" hidden>
-<caption class="visually-hidden">Educators using oral assessment</caption>
+<caption class="visually-hidden">Units using oral assessment</caption>
 <thead role="rowgroup">
 <tr role="row">
-<th scope="col" role="columnheader" data-sort="text">Name</th>
-<th scope="col" role="columnheader" data-sort="text">Institution</th>
-<th scope="col" role="columnheader" data-sort="text">Discipline</th>
 <th scope="col" role="columnheader" data-sort="text">Unit</th>
+<th scope="col" role="columnheader" data-sort="text">Discipline</th>
 <th scope="col" role="columnheader" data-sort="text">Type</th>
+<th scope="col" role="columnheader" data-sort="text">Year level</th>
 <th scope="col" role="columnheader" data-sort="number">Students</th>
 <th scope="col" role="columnheader" data-sort="number">Minutes</th>
 <th scope="col" role="columnheader" data-sort="number">Weighting</th>
+<th scope="col" role="columnheader" data-sort="text">Institution</th>
+<th scope="col" role="columnheader">People</th>
 </tr>
 </thead>
 <tbody role="rowgroup"></tbody>
