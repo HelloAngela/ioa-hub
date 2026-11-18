@@ -6,7 +6,7 @@ description: Why IOA Commons exists, who developed it and the team behind it.
 lead: IOA Commons brings together oral assessment resources and examples, and connects educators who want to share their practice.
 ---
 
-Oral assessments take many forms. This site helps educators find examples, share resources and learn from one another. It includes interactive oral assessments (IOAs), viva-style examinations and hybrid approaches. The catalogue includes educators working across these formats.
+We are a team of educators who have run oral assessments in our own units, or supported the educators and students taking part in them. We started IOA Commons to share what we have learned, and we hope it makes oral assessment easier to approach for everyone involved. Oral assessments take many forms, and this site covers interactive oral assessments (IOAs), viva-style examinations and hybrid approaches. Here you can find examples, share resources and learn from one another.
 
 IOA Commons was developed by a team based at the University of Sydney and is maintained by Angela Sun. Educators can [add an oral assessment to the catalogue]({{ '/contribute/' | relative_url }}).
 
