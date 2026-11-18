@@ -520,8 +520,8 @@ th[aria-sort="descending"] .sort-button::after { content: " \2193"; }
 
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
-  gap: 2rem 1.5rem;
+  grid-template-columns: repeat(auto-fill, 10rem);
+  gap: 1.75rem 0.75rem;
   margin: 1.5rem 0 0;
   padding: 0;
   list-style: none;
