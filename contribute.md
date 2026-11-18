@@ -16,14 +16,14 @@ To change or remove your entry later, {% if site.intake_form_url contains "PLACE
 
 ## 2. Publish a citable resource on Zenodo
 
-For a formal, citable publication, share a guide, rubric or framework through Zenodo, a free research repository run by CERN (the European Organization for Nuclear Research). Zenodo assigns a DOI when you publish the record. You can then request to add it to the IOA Commons community; community moderators review that request before it appears in the community and on our Resources page.
+For a formal, citable publication, share a guide, rubric or framework through Zenodo, a free research repository run by CERN (the European Organization for Nuclear Research). Zenodo assigns a DOI when you publish the record. You can then request to add it to the IOA Commons community; community moderators review that request before it appears in the community and on our Teaching materials page.
 
 1. Create a free account at [zenodo.org](https://zenodo.org/).
 2. Choose "New upload" and add your file. PDF is best for guides and rubrics.
 3. Fill in the title, authors and a short description.
 4. Choose a licence. We recommend CC BY 4.0, which lets others reuse your work if they credit you.
 5. Under "Communities", select the [IOA Commons community](https://zenodo.org/communities/{{ site.zenodo_community }}).
-6. Publish the record, then request to add it to the IOA Commons community. Once moderators accept it, the record appears on the [Resources page]({{ '/resources/' | relative_url }}) within a day.
+6. Publish the record, then request to add it to the IOA Commons community. Once moderators accept it, the record appears on the [Teaching materials page]({{ '/resources/' | relative_url }}) within a day.
 
 <div class="note">
 <p><strong>Zenodo records are formal publications.</strong> A published record stays available and has a DOI. You can update it by publishing a new version, so check your file before publishing.</p>

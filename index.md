@@ -47,9 +47,9 @@ scripts:
 <p class="card__action"><a href="{{ '/videos/' | relative_url }}">Watch the videos</a></p>
 </li>
 <li class="card">
-<h3>Resources</h3>
+<h3>Teaching materials</h3>
 <p>Guides, rubrics, training slides and other shared materials.</p>
-<p class="card__action"><a href="{{ '/resources/' | relative_url }}">Resources</a></p>
+<p class="card__action"><a href="{{ '/resources/' | relative_url }}">Browse teaching materials</a></p>
 </li>
 <li class="card">
 <h3>Catalogue</h3>

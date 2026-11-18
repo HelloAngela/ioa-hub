@@ -1,11 +1,11 @@
 ---
 layout: page
-title: Resources
+title: Teaching materials
 permalink: /resources/
-description: Citable guides, rubrics and frameworks for oral assessment, informal training slides and a community of practice.
+description: Guides, rubrics, templates and training slides for oral assessment that you can download and adapt.
 scripts:
   - resources.js
-lead: Guides, examples, publications and training materials for oral assessment, from interactive oral assessment (IOA) to viva-style and hybrid formats.
+lead: Guides, rubrics and templates you can download and adapt for your own teaching, from interactive oral assessment (IOA) to viva-style and hybrid formats.
 ---
 
 ## Find a resource

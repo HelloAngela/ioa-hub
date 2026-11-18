@@ -2,8 +2,8 @@
 layout: page
 title: Publications
 permalink: /publications/
-description: Articles and posts about oral assessment, published elsewhere and listed in one place.
-lead: These articles and posts about oral assessment are published on other sites. Each title links to the original.
+description: Articles, posts and podcasts by educators about their oral assessment practice, published on other sites.
+lead: Articles, posts and podcasts by educators about their oral assessment practice, published on other sites. Each title links to the original.
 ---
 
 {% include publication-list.html %}

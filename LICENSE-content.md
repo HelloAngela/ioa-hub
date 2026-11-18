@@ -11,7 +11,7 @@ Suggested credit: "IOA Commons was developed by a team based at the University o
 
 ## What this licence does not cover
 
-- **Resources on Zenodo.** Each keeps the licence its authors chose. The licence is shown beside each resource on the Resources page.
+- **Resources on Zenodo.** Each keeps the licence its authors chose. The licence is shown beside each resource on the Teaching materials page.
 - **Videos.** These are hosted on YouTube and are not part of this repository.
 - **Photos of people** in `images/team/`. These may not be reused without the person's permission.
 - **Site code.** This is under the MIT licence. See `LICENSE`.
