@@ -127,7 +127,8 @@ function createCatalogueForm_() {
   var publicTab = sheet.insertSheet("Public");
   publicTab.getRange(1, 1, 1, PUBLIC_COLUMNS.length).setValues([PUBLIC_COLUMNS]);
   publicTab.getRange("A2").setFormula(
-    "=IFERROR(FILTER('" + RESPONSES_TAB + "'!B2:S, '" + RESPONSES_TAB + "'!U2:U = TRUE), \"\")");
+    // Whole-column ranges: each form response inserts a row, which would shift B2:S down past it.
+    "=IFERROR(FILTER('" + RESPONSES_TAB + "'!B:S, '" + RESPONSES_TAB + "'!U:U = TRUE), \"\")");
   publicTab.setFrozenRows(1);
   publicTab.getRange("A1").setNote(
     "Do not type in this tab. It fills itself from the approved rows in '" + RESPONSES_TAB + "'.");
