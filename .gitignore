@@ -7,3 +7,6 @@ Gemfile.lock
 
 # Secrets (Zenodo tokens). Never commit.
 .env
+
+# Draft catalogue and publication candidates for review. Names people who have not consented. Never commit.
+docs/review/
