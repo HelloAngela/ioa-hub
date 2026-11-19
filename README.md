@@ -65,7 +65,7 @@ Below the main catalogue table there is a collapsed section, "Examples from publ
   country: Australia
   faculty_or_school: School of Education
   discipline: Education (learning and development)
-  unit_name: Postgraduate course on learning and development theories (name not given)
+  unit_name: Postgraduate course on learning and development theories
   year_level: Postgraduate
   assessment_type: Interactive oral assessment (IOA)
   cohort_size: 230

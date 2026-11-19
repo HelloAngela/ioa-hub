@@ -117,7 +117,7 @@
   country: Ireland
   faculty_or_school: School of Law
   discipline: Law
-  unit_name: Undergraduate law module (name not given)
+  unit_name: Undergraduate law module
   assessment_type: Interactive oral assessment (IOA)
   year_started: 2024
   assessment_format: An interactive oral examination piloted as an authentic assessment, simulating a workplace dialogue to build professional communication.
@@ -137,7 +137,7 @@
   faculty_or_school: Faculty of Law
   discipline: Law
   unit_code: LAWPUBL 414
-  unit_name: Law course (name not given)
+  unit_name: Law course
   assessment_type: Interactive oral assessment (IOA)
   cohort_size: 70
   length_minutes: 15
@@ -156,7 +156,7 @@
   country: New Zealand
   faculty_or_school: Faculty of Business and Economics (Commercial Law)
   discipline: Commercial law
-  unit_name: MBA course (name not given)
+  unit_name: MBA course
   year_level: Postgraduate
   assessment_type: Interactive oral assessment (IOA)
   cohort_size: 30
@@ -175,7 +175,7 @@
   country: New Zealand
   faculty_or_school: Education and Social Practice, Faculty of Arts and Education
   discipline: Education and social practice
-  unit_name: First-year course (name not given)
+  unit_name: First-year course
   year_level: 1st year
   assessment_type: Interactive oral assessment (IOA)
   cohort_size: 138
@@ -203,7 +203,7 @@
   country: Australia
   faculty_or_school: Faculty of Humanities
   discipline: Information and records management
-  unit_name: Humanities unit (name not given)
+  unit_name: Humanities unit
   assessment_type: Interactive oral assessment (IOA)
   length_minutes: 10
   assessment_format: Students role-play organisational recordkeeping specialists and present the impact of a report, protocol or legislative change to staff playing line managers, followed by a 5-minute debrief. Hybrid delivery, fewer than 50 students.
@@ -260,7 +260,7 @@
   country: Australia
   faculty_or_school: Faculty of Engineering and Information Technology
   discipline: Information technology
-  unit_name: Large undergraduate IT subject (name not given)
+  unit_name: Large undergraduate IT subject
   assessment_type: Interactive oral assessment (IOA)
   assessment_format: Interactive orals integrated into a large undergraduate information technology subject.
   sources:
@@ -332,7 +332,7 @@
 - institution: University of South Australia (now Adelaide University)
   country: Australia
   discipline: Genetics and biomedical science
-  unit_name: Undergraduate genetics course (name not given)
+  unit_name: Undergraduate genetics course
   year_level: 2nd year
   assessment_type: Interactive oral assessment (IOA)
   assessment_format: Short "mini-IOAs" (5 to 10 minutes with tutors) replace lab reports, and a one-to-one interactive oral replaces the final written exam.
@@ -354,7 +354,7 @@
 - institution: Flinders University
   country: Australia
   discipline: Biology
-  unit_name: First-year biology unit (name not given)
+  unit_name: First-year biology unit
   year_level: 1st year
   assessment_type: Interactive oral assessment (IOA)
   cohort_size: 600
@@ -373,7 +373,7 @@
   country: Australia
   faculty_or_school: School of Education
   discipline: Education (learning and development)
-  unit_name: Postgraduate course on learning and development theories (name not given)
+  unit_name: Postgraduate course on learning and development theories
   year_level: Postgraduate
   assessment_type: Interactive oral assessment (IOA)
   cohort_size: 230
@@ -392,7 +392,7 @@
   country: Australia
   faculty_or_school: Department of Tourism and Marketing
   discipline: Sport management
-  unit_name: First-year sport management course (name not given)
+  unit_name: First-year sport management course
   year_level: 1st year
   assessment_type: Interactive oral assessment (IOA)
   assessment_format: The final task in a scaffolded sequence of assessments; students attend a mock job interview for a role in the sport organisation they studied in earlier tasks.
@@ -428,7 +428,7 @@
   country: Australia
   faculty_or_school: Faculty of Engineering
   discipline: Engineering
-  unit_name: Engineering course (name not given)
+  unit_name: Engineering course
   assessment_type: Hybrid oral assessment
   assessment_format: Group presentations followed by individually assessed questions and answers.
   reported: 2024
@@ -722,7 +722,7 @@
   country: United States
   faculty_or_school: Department of Mathematics
   discipline: Mathematics
-  unit_name: Mathematics course (name not given)
+  unit_name: Mathematics course
   assessment_type: Viva or oral examination
   length_minutes: 30
   year_started: 2020
@@ -753,7 +753,7 @@
   country: United States
   faculty_or_school: History and Penn Carey Law
   discipline: History and law
-  unit_name: Large legal history survey (name not given)
+  unit_name: Large legal history survey
   assessment_type: Viva or oral examination
   cohort_size: 140
   assessment_format: Low-stakes small-group conversations before the final exam, on prompts released in advance that ask students to connect material across the course. Run with teaching assistants and a rubric.
@@ -788,7 +788,7 @@
   country: United States
   faculty_or_school: Department of Philosophy and Religious Studies
   discipline: Religious studies
-  unit_name: Upper-level course on Tibetan Buddhism (name not given)
+  unit_name: Upper-level course on Tibetan Buddhism
   assessment_type: Viva or oral examination
   assessment_format: Oral exams in an upper-level undergraduate humanities course, introduced in response to generative AI. The article covers student concerns and logistics.
   reported: 2025
@@ -803,7 +803,7 @@
 - institution: The George Washington University
   country: United States
   discipline: Engineering computations
-  unit_name: Engineering computations course (name not given)
+  unit_name: Engineering computations course
   assessment_type: Other oral assessment
   cohort_size: 58
   year_started: 2025
@@ -821,7 +821,7 @@
   country: United States
   faculty_or_school: Department of Mechanical and Aerospace Engineering
   discipline: Mechanical engineering
-  unit_name: Engineering courses (not named)
+  unit_name: Engineering courses
   assessment_type: Viva or oral examination
   length_minutes: 15
   year_started: 2020
@@ -838,7 +838,7 @@
 - institution: University of California San Diego
   country: United States
   discipline: Diversity and race studies
-  unit_name: Large undergraduate diversity class (name not given)
+  unit_name: Large undergraduate diversity class
   assessment_type: Viva or oral examination
   cohort_size: 279
   assessment_format: Mid-term oral exams run by teaching assistants in a large lecture course on diversity, offered twice (279 and 167 students).
