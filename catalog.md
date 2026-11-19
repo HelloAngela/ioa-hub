@@ -8,7 +8,7 @@ scripts:
   - catalog.js
 ---
 
-Each row is a unit that uses an oral assessment, with the people who run it. Filter by discipline, assessment type or number of students to find an example close to your own. Everyone listed has agreed to be here.
+Each row is a unit that uses an oral assessment, with the people who run it. Filter by discipline, assessment type or number of students to find an example close to your own. Everyone listed in the main table has agreed to be here. Below it, you can open more examples taken from published articles and case studies; the filters apply to both.
 
 {% include catalog-table.html %}
 

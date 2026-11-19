@@ -453,8 +453,10 @@ img { max-width: 100%; height: auto; }
 .catalog-table td[data-label="Type"], .catalog-table td[data-label="Year level"], .row-toggle { white-space: nowrap; }
 .catalog-table td[data-label="Unit"] { min-width: 9rem; }
 .catalog-table td[data-label="People"] { min-width: 10rem; }
+.catalog-table td[data-label="Source"] { min-width: 10rem; font-size: 0.95rem; }
 .catalog-unit-name { display: block; padding-left: 1.1em; font-size: 0.85rem; line-height: 1.3; }
-.catalog-people-list { margin: 0; padding: 0; list-style: none; }
+.catalog-people-list, .catalog-sources-list { margin: 0; padding: 0; list-style: none; }
+.catalog-sources-list li { margin: 0 0 0.35rem; }
 .catalog-people-list li { margin: 0 0 0.15rem; }
 .catalog-table tbody tr:hover:not(.catalog-detail) { background: var(--grey-light); }
 .catalog-table tr[hidden] { display: none; }
@@ -514,7 +516,7 @@ th[aria-sort="descending"] .sort-button::after { content: " \2193"; }
   .catalog-table td::before { content: attr(data-label) ": "; font-weight: 600; }
   .catalog-table td:first-child { grid-column: 1 / -1; font-size: 1.05rem; padding-bottom: 0.3rem; }
   .catalog-table td[data-label="Discipline"], .catalog-table td[data-label="Institution"],
-  .catalog-table td[data-label="People"] { grid-column: 1 / -1; }
+  .catalog-table td[data-label="People"], .catalog-table td[data-label="Source"] { grid-column: 1 / -1; }
   .catalog-table td:first-child::before, .catalog-table td:empty { display: none; }
   .catalog-detail td { padding: 0 1rem 0.9rem; border-radius: 0 0 var(--radius) var(--radius); }
   .catalog-detail td::before { display: none; }
@@ -646,3 +648,16 @@ th[aria-sort="descending"] .sort-button::after { content: " \2193"; }
   .pub-list--compact li { grid-template-columns: 1fr; }
   .pub-year { font-size: 0.9rem; }
 }
+
+/* Catalogue: examples from published sources (collapsed at first). */
+.catalog-published { margin: 2.5rem 0 1rem; padding-top: 1rem; border-top: 2px solid var(--grey-light); }
+.catalog-published[hidden] { display: none; }
+.catalog-published > summary { cursor: pointer; }
+.catalog-published > summary::marker { color: var(--ochre); }
+.catalog-published__heading { display: inline; margin: 0; font-size: 1.5rem; }
+.catalog-published__count { font-size: 1rem; font-weight: 400; }
+.catalog-published > p { max-width: var(--prose); }
+.catalog-published[open] > summary { margin-bottom: 0.75rem; }
+/* Published examples often have long unit names and no code, so let them wrap. */
+#catalog-published-table .row-toggle { white-space: normal; text-align: left; }
+#catalog-published-table td[data-label="Unit"] { min-width: 11rem; max-width: 16rem; }

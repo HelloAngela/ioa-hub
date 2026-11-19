@@ -1,0 +1,871 @@
+# Catalogue: examples from published sources.
+#
+# Units that use oral assessment, as described in articles, guides, case studies and
+# conference abstracts. The people involved have not reviewed these entries, so:
+#   - Only include a unit if a linked, public source describes the assessment itself.
+#     (A conference programme that lists only a talk title is not enough.)
+#   - Only enter facts the source states. Leave anything else out.
+#   - No people column, contact details, profiles or position titles. Authors appear
+#     only as part of the source citation, exactly as the source's byline gives them.
+#     Never name a person the source does not name as an author.
+#   - Remove an entry promptly if anyone involved asks (through the request form).
+# When a unit is added to the main catalogue through the form and approved, the page
+# hides the matching entry here automatically (same institution and unit code, or
+# unit name if there is no code).
+#
+# Each entry:
+#   institution, country, faculty_or_school, discipline, unit_code, unit_name,
+#   year_level (1st year / 2nd year / 3rd year / 4th year or Honours / Postgraduate / Other),
+#   assessment_type (Interactive oral assessment (IOA) / Viva or oral examination /
+#                    Hybrid oral assessment / Other oral assessment),
+#   cohort_size, length_minutes, weighting_percent, year_started (numbers only),
+#   assessment_format: one or two sentences on how it runs
+#   resource_url:      (optional) a public rubric or guide for this unit
+#   reported:          the year of the main source
+#   sources:           one or more, main source first:
+#     short:   how it shows in the table, e.g. "Ward et al. (2023)"
+#     authors: the byline, as the source gives it
+#     year, title, publisher, url
+
+# --- Ireland ---
+
+- institution: Dublin City University
+  country: Ireland
+  faculty_or_school: School of Applied Languages and Intercultural Studies
+  discipline: French literature
+  unit_name: French literature and culture (two undergraduate modules)
+  year_level: Other
+  assessment_type: Interactive oral assessment (IOA)
+  cohort_size: 36
+  length_minutes: 20
+  weighting_percent: 50
+  year_started: 2020
+  assessment_format: "A 15 to 20 minute radio show: the student plays a literary correspondent and the lecturer plays the host. Individual, run in two modules (19 and 17 students)."
+  resource_url: https://www.dcu.ie/teu/interactive-oral-assessment
+  reported: 2023
+  sources:
+    - short: Ward et al. (2023), case 3
+      authors: Monica Ward, Fiona O'Riordan, Danielle Logan-Fleming, Dervila Cooke, Tara Concannon-Gibney, Marina Efthymiou and Niamh Watkins
+      year: 2023
+      title: "Interactive oral assessment case studies: An innovative, academically rigorous, authentic assessment approach"
+      publisher: Innovations in Education and Teaching International
+      url: https://doi.org/10.1080/14703297.2023.2251967
+
+- institution: Dublin City University
+  country: Ireland
+  faculty_or_school: DCU Business School
+  discipline: Aviation management
+  unit_name: Sustainable Aviation
+  year_level: 2nd year
+  assessment_type: Interactive oral assessment (IOA)
+  cohort_size: 52
+  weighting_percent: 30
+  year_started: 2020
+  assessment_format: "Set at a student aviation conference: students attend in pairs and discuss sustainable aviation with a 'delegate' played by the assessor. Run on Zoom; each student is marked individually."
+  resource_url: https://www.dcu.ie/sites/default/files/inline-files/ef220-io-rubric.pdf
+  reported: 2023
+  sources:
+    - short: Ward et al. (2023), case 4
+      authors: Monica Ward, Fiona O'Riordan, Danielle Logan-Fleming, Dervila Cooke, Tara Concannon-Gibney, Marina Efthymiou and Niamh Watkins
+      year: 2023
+      title: "Interactive oral assessment case studies: An innovative, academically rigorous, authentic assessment approach"
+      publisher: Innovations in Education and Teaching International
+      url: https://doi.org/10.1080/14703297.2023.2251967
+
+- institution: Dublin City University
+  country: Ireland
+  faculty_or_school: School of Computing
+  discipline: Computing
+  unit_name: Collaboration and Innovation
+  year_level: 1st year
+  assessment_type: Interactive oral assessment (IOA)
+  cohort_size: 90
+  year_started: 2020
+  assessment_format: "Teams act as a software consultancy advising a client organisation (for example, choosing between two technologies). Students work in groups but are marked individually."
+  resource_url: https://www.dcu.ie/sites/default/files/inline-files/io-rubric_0.pdf
+  reported: 2023
+  sources:
+    - short: Ward et al. (2023), case 1
+      authors: Monica Ward, Fiona O'Riordan, Danielle Logan-Fleming, Dervila Cooke, Tara Concannon-Gibney, Marina Efthymiou and Niamh Watkins
+      year: 2023
+      title: "Interactive oral assessment case studies: An innovative, academically rigorous, authentic assessment approach"
+      publisher: Innovations in Education and Teaching International
+      url: https://doi.org/10.1080/14703297.2023.2251967
+
+- institution: Dublin City University
+  country: Ireland
+  faculty_or_school: School of Language, Literacy and Early Childhood Education, Institute of Education
+  discipline: Education (literacy)
+  unit_name: Literacy in the Early Years
+  year_level: Postgraduate
+  assessment_type: Interactive oral assessment (IOA)
+  cohort_size: 67
+  weighting_percent: 90
+  year_started: 2020
+  assessment_format: "Students attend in pairs, playing a classroom teacher talking with a colleague (the assessor) in a school staff room about a literacy unit built on children's literature. Marked individually."
+  resource_url: https://www.dcu.ie/sites/default/files/inline-files/grading-rubric-interactive-oral-2020-6.11.2020.pdf
+  reported: 2023
+  sources:
+    - short: Ward et al. (2023), case 2
+      authors: Monica Ward, Fiona O'Riordan, Danielle Logan-Fleming, Dervila Cooke, Tara Concannon-Gibney, Marina Efthymiou and Niamh Watkins
+      year: 2023
+      title: "Interactive oral assessment case studies: An innovative, academically rigorous, authentic assessment approach"
+      publisher: Innovations in Education and Teaching International
+      url: https://doi.org/10.1080/14703297.2023.2251967
+
+- institution: University of Galway
+  country: Ireland
+  faculty_or_school: School of Law
+  discipline: Law
+  unit_name: Undergraduate law module (name not given)
+  assessment_type: Interactive oral assessment (IOA)
+  year_started: 2024
+  assessment_format: An interactive oral examination piloted as an authentic assessment, simulating a workplace dialogue to build professional communication.
+  reported: 2024
+  sources:
+    - short: Smyth and Kelly (2024)
+      authors: Ciara Smyth and Emily Kelly
+      year: 2024
+      title: The interactive oral as an authentic assessment
+      publisher: Enlight Conference on Innovation and Creativity in Higher Education (invited paper)
+      url: https://research.universityofgalway.ie/en/publications/the-interactive-oral-as-an-authentic-assessment/
+
+# --- New Zealand ---
+
+- institution: University of Auckland
+  country: New Zealand
+  faculty_or_school: Faculty of Law
+  discipline: Law
+  unit_code: LAWPUBL 414
+  unit_name: Law course (name not given)
+  assessment_type: Interactive oral assessment (IOA)
+  cohort_size: 70
+  length_minutes: 15
+  weighting_percent: 10
+  assessment_format: Students draft legal advice on a fact pattern, then meet the lecturer, who plays a law firm partner questioning their reasoning and cases (10 to 15 minutes). Verbal feedback follows straight after, out of role.
+  reported: 2026
+  sources:
+    - short: Rodriguez Ferrere (2026)
+      authors: Marcelo Rodriguez Ferrere
+      year: 2026
+      title: Designing interactive oral assessment with roleplay to demonstrate understanding
+      publisher: University of Auckland TeachWell
+      url: https://teachwell.auckland.ac.nz/sharing-practice/case-studies-in-teaching/teaching-tips/interactive-oral-assessments-with-roleplay-law-study/
+
+- institution: University of Auckland
+  country: New Zealand
+  faculty_or_school: Faculty of Business and Economics (Commercial Law)
+  discipline: Commercial law
+  unit_name: MBA course (name not given)
+  year_level: Postgraduate
+  assessment_type: Interactive oral assessment (IOA)
+  cohort_size: 30
+  length_minutes: 10
+  assessment_format: Students write a formal submission on a live parliamentary bill, then give a 2-minute overview and answer three questions on Zoom that clarify, justify and extend their position.
+  reported: 2026
+  sources:
+    - short: Hales (2026)
+      authors: Anna Hales
+      year: 2026
+      title: Designing assessment for real-world impact
+      publisher: University of Auckland TeachWell
+      url: https://teachwell.auckland.ac.nz/sharing-practice/case-studies-in-teaching/teaching-tips/designing-assessment-for-real-world-impact/
+
+- institution: University of Auckland
+  country: New Zealand
+  faculty_or_school: Education and Social Practice, Faculty of Arts and Education
+  discipline: Education and social practice
+  unit_name: First-year course (name not given)
+  year_level: 1st year
+  assessment_type: Interactive oral assessment (IOA)
+  cohort_size: 138
+  length_minutes: 10
+  weighting_percent: 30
+  assessment_format: Students take roles such as coach, referee, parent or athlete. On the day they draw a scenario and role and have a 10-minute conversation; it replaced a 40% written exam. Weekly role-play tutorials prepare them.
+  reported: 2026
+  sources:
+    - short: Bruce (2026)
+      authors: Toni Bruce
+      year: 2026
+      title: Bringing creative role-play to prepare students for interactive oral assessments
+      publisher: University of Auckland TeachWell
+      url: https://teachwell.auckland.ac.nz/sharing-practice/case-studies-in-teaching/teaching-tips/creative-and-scaffolded-interactive-oral-assessments/
+    - short: Bird (2026)
+      authors: Luke Bird
+      year: 2026
+      title: Building graduate teaching assistant confidence in conducting interactive oral assessments
+      publisher: University of Auckland TeachWell
+      url: https://teachwell.auckland.ac.nz/sharing-practice/case-studies-in-teaching/teaching-tips/gtas-tips-to-prepare-for-conducting-interactive-oral-assessments/
+
+# --- Australia ---
+
+- institution: Curtin University
+  country: Australia
+  faculty_or_school: Faculty of Humanities
+  discipline: Information and records management
+  unit_name: Humanities unit (name not given)
+  assessment_type: Interactive oral assessment (IOA)
+  length_minutes: 10
+  assessment_format: Students role-play organisational recordkeeping specialists and present the impact of a report, protocol or legislative change to staff playing line managers, followed by a 5-minute debrief. Hybrid delivery, fewer than 50 students.
+  reported: 2025
+  sources:
+    - short: Curtin University (2025)
+      authors: Curtin University Assessment 2030
+      year: 2025
+      title: Interactive Oral Assessment
+      publisher: Curtin University Assessment Design Studio
+      url: https://www.curtin.edu.au/assessment2030/assessment-design-studio/interactive-oral-assessment/
+
+- institution: University of Melbourne
+  country: Australia
+  faculty_or_school: Faculty of Arts
+  discipline: Communication
+  unit_code: MECM40006
+  unit_name: Public Relations and Communication
+  year_level: 4th year or Honours
+  assessment_type: Interactive oral assessment (IOA)
+  cohort_size: 200
+  length_minutes: 20
+  weighting_percent: 40
+  assessment_format: Groups of four act as spokespeople for an organisation in a public relations crisis while classmates play journalists. Run in class in week 7; each student is marked individually (about 5 minutes of questions each).
+  reported: 2025
+  sources:
+    - short: Chaidaroon (2025)
+      authors: Sean Chaidaroon
+      year: 2025
+      title: "From brief to broadcast: scenario-based IOAs in Public Relations and Communication"
+      publisher: Melbourne Centre for the Study of Higher Education
+      url: https://melbourne-cshe.unimelb.edu.au/resources/topics/assessment-and-feedback/specific-help/interactive-oral-assessments/case-studies/public-relations-and-communication/public-relations-and-communication2
+
+- institution: University of Melbourne
+  country: Australia
+  faculty_or_school: Faculty of Arts
+  discipline: Humanities (critical and creative thinking)
+  unit_code: MGMT90291
+  unit_name: Critical and Creative Thinking
+  year_level: Postgraduate
+  assessment_type: Interactive oral assessment (IOA)
+  year_started: 2025
+  assessment_format: Students get a broad opening question in advance and give a prepared answer of up to three minutes using one cue card; follow-up questions build on what they say. Two assessors share the interviewer and note-taker roles.
+  reported: 2025
+  sources:
+    - short: Boer-Endacott and Robinson (2025)
+      authors: Alice Boer-Endacott and Seth Robinson
+      year: 2025
+      title: "Assessment as a Point of Connection: Piloting Interactive Oral Assessment in MGMT90291 Critical and Creative Thinking"
+      publisher: University of Melbourne Faculty of Arts teaching blog
+      url: https://arts.unimelb.edu.au/about/arts-teaching-innovation-ati/blog/assessment-as-a-point-of-connection
+
+- institution: University of Melbourne
+  country: Australia
+  faculty_or_school: Faculty of Engineering and Information Technology
+  discipline: Information technology
+  unit_name: Large undergraduate IT subject (name not given)
+  assessment_type: Interactive oral assessment (IOA)
+  assessment_format: Interactive orals integrated into a large undergraduate information technology subject.
+  sources:
+    - short: Samadi, Melbourne CSHE case study
+      authors: Hasti Samadi
+      title: "From code to conversation: integrating IOAs into a large undergraduate IT subject"
+      publisher: Melbourne Centre for the Study of Higher Education
+      url: https://melbourne-cshe.unimelb.edu.au/resources/topics/assessment-and-feedback/specific-help/interactive-oral-assessments/case-studies/from-code-to-conversation-integrating-ioas-into-a-large-undergraduate-it-subject2
+
+- institution: University of Melbourne
+  country: Australia
+  faculty_or_school: Faculty of Arts
+  discipline: Academic English
+  unit_name: Academic English for Graduate Studies
+  year_level: Postgraduate
+  assessment_type: Interactive oral assessment (IOA)
+  year_started: 2025
+  assessment_format: Unscripted two-way conversations on key topics from the subject, with assessors probing the student's work. Students prepare through class discussion and pair work, and may use generative AI to practise English beforehand.
+  reported: 2025
+  sources:
+    - short: University of Melbourne (2025)
+      authors: University of Melbourne
+      year: 2025
+      title: Interactive Oral Assessments in practice
+      publisher: Education at Melbourne
+      url: https://about.unimelb.edu.au/education-melbourne/our-people-in-action/interactive-oral-assessments-in-practice
+
+- institution: Charles Sturt University
+  country: Australia
+  faculty_or_school: School of Psychology
+  discipline: Psychology
+  unit_code: PSY474
+  unit_name: Counselling Skills
+  year_level: 4th year or Honours
+  assessment_type: Interactive oral assessment (IOA)
+  cohort_size: 118
+  length_minutes: 15
+  year_started: 2023
+  assessment_format: Online students run a 10-minute role-played counselling session with a registered psychologist playing the client, then a 5-minute self-reflection. Two psychologists mark.
+  reported: 2024
+  sources:
+    - short: Kitchingman et al. (2024)
+      authors: Taneile A. Kitchingman, Genevieve D'Arment and Rhianydd Shakeshaft
+      year: 2024
+      title: Implementing an interactive oral task to assess undergraduate psychology students' attainment of pre-professional competencies
+      publisher: ASCILITE 2024 Conference Proceedings
+      url: https://open-publishing.org/publications/index.php/APUB/article/download/1087/1469/8561
+
+- institution: Charles Sturt University
+  country: Australia
+  faculty_or_school: School of Computing, Mathematics and Engineering
+  discipline: Engineering
+  unit_name: Engineering Portfolio - Advanced
+  year_level: Postgraduate
+  assessment_type: Interactive oral assessment (IOA)
+  cohort_size: 14
+  length_minutes: 25
+  year_started: 2021
+  assessment_format: "A junior engineer preparing a chartered engineer application asks a senior colleague (the assessor) for feedback: a 10 to 12 minute case on two competencies, then a 10 to 13 minute unscripted discussion. Online and recorded."
+  reported: 2021
+  sources:
+    - short: Shaeri et al. (2021)
+      authors: Saeed Shaeri, Danielle Logan and Amita Krautloher
+      year: 2021
+      title: Evaluating competency development using interactive oral assessments
+      publisher: AAEE 2021 Conference (Australasian Association for Engineering Education)
+      url: https://aaee.net.au/wp-content/uploads/2021/11/REES_AAEE_2021_paper_227.pdf
+
+- institution: University of South Australia (now Adelaide University)
+  country: Australia
+  discipline: Genetics and biomedical science
+  unit_name: Undergraduate genetics course (name not given)
+  year_level: 2nd year
+  assessment_type: Interactive oral assessment (IOA)
+  assessment_format: Short "mini-IOAs" (5 to 10 minutes with tutors) replace lab reports, and a one-to-one interactive oral replaces the final written exam.
+  reported: 2024
+  sources:
+    - short: Della Vedova and Davey (2024)
+      authors: Chris Della Vedova and Sarah Davey
+      year: 2024
+      title: "Talk Nerdy to Me: How Interactive Oral Assessments Can Shake Up Science Labs"
+      publisher: HERDSA Connect
+      url: https://herdsa.org.au/herdsa-connect/talk-nerdy-me-how-interactive-oral-assessments-can-shake-science-labs
+    - short: Davey et al. (2025)
+      authors: Sarah K. Davey, David Birbeck, Shashi Nallaya, Georga Sallows and Chris B. Della Vedova
+      year: 2025
+      title: Utilising one-on-one interactive oral assessments as the major final assessment within a bioscience course
+      publisher: Assessment & Evaluation in Higher Education
+      url: https://doi.org/10.1080/02602938.2025.2502577
+
+- institution: Flinders University
+  country: Australia
+  discipline: Biology
+  unit_name: First-year biology unit (name not given)
+  year_level: 1st year
+  assessment_type: Interactive oral assessment (IOA)
+  cohort_size: 600
+  length_minutes: 10
+  assessment_format: An interactive oral replaced a report. Students keep laboratory books through the semester and are assessed on one randomly selected practical in a 10-minute one-on-one conversation.
+  reported: 2025
+  sources:
+    - short: Smallhorn et al. (2025)
+      authors: Masha Smallhorn, Narelle Hunter, Sarah Davey and Chris Della Vedova
+      year: 2025
+      title: Interactive oral assessment at scale to evaluate student learning
+      publisher: HERGA Conference abstract
+      url: https://researchnow.flinders.edu.au/en/publications/interactive-oral-assessment-at-scale-to-evaluate-student-learning/
+
+- institution: University of Queensland
+  country: Australia
+  faculty_or_school: School of Education
+  discipline: Education (learning and development)
+  unit_name: Postgraduate course on learning and development theories (name not given)
+  year_level: Postgraduate
+  assessment_type: Interactive oral assessment (IOA)
+  cohort_size: 230
+  length_minutes: 10
+  assessment_format: Each student has a 10-minute recorded conversation about a lesson plan they created, with questions drawn from a bank. Run over about three weeks.
+  reported: 2025
+  sources:
+    - short: Lodge et al. (2025)
+      authors: Jason M. Lodge, Daniel Taylor-Griffiths and Kate Newman
+      year: 2025
+      title: "Interactive orals at scale: What happened when we tried to draw the owl?"
+      publisher: HERDSA Connect
+      url: https://herdsa.org.au/herdsa-connect/interactive-orals-scale-what-happened-when-we-tried-draw-owl
+
+- institution: Griffith University
+  country: Australia
+  faculty_or_school: Department of Tourism and Marketing
+  discipline: Sport management
+  unit_name: First-year sport management course (name not given)
+  year_level: 1st year
+  assessment_type: Interactive oral assessment (IOA)
+  assessment_format: The final task in a scaffolded sequence of assessments; students attend a mock job interview for a role in the sport organisation they studied in earlier tasks.
+  reported: 2019
+  sources:
+    - short: Sotiriadou et al. (2019)
+      authors: Popi Sotiriadou, Danielle Logan, Amanda Daly and Ross Guest
+      year: 2019
+      title: The role of authentic assessment to preserve academic integrity and promote skill development and employability
+      publisher: Studies in Higher Education
+      url: https://doi.org/10.1080/03075079.2019.1582015
+
+- institution: UNSW Sydney
+  country: Australia
+  faculty_or_school: UNSW Business School (Information Systems and Technology Management)
+  discipline: Cybersecurity management
+  unit_code: INFS5922
+  unit_name: Contemporary Practices in Cybersecurity Management
+  year_level: Postgraduate
+  assessment_type: Interactive oral assessment (IOA)
+  year_started: 2023
+  assessment_format: An interactive oral built into a new postgraduate course, chosen for its fit with industry expectations.
+  reported: 2024
+  sources:
+    - short: UNSW Teaching Gateway (2024)
+      authors: UNSW Teaching Gateway
+      year: 2024
+      title: Oral Assessment (video case studies)
+      publisher: UNSW Sydney
+      url: https://www.teaching.unsw.edu.au/assessment-methods/oral-assessment
+
+- institution: UNSW Sydney
+  country: Australia
+  faculty_or_school: Faculty of Engineering
+  discipline: Engineering
+  unit_name: Engineering course (name not given)
+  assessment_type: Hybrid oral assessment
+  assessment_format: Group presentations followed by individually assessed questions and answers.
+  reported: 2024
+  sources:
+    - short: UNSW Teaching Gateway (2024)
+      authors: UNSW Teaching Gateway
+      year: 2024
+      title: Oral Assessment (video case studies)
+      publisher: UNSW Sydney
+      url: https://www.teaching.unsw.edu.au/assessment-methods/oral-assessment
+
+# University of Sydney Business School 2024 pilot (the IO Assessment site lists the units;
+# cohort sizes are from Norman et al. 2024).
+
+- institution: University of Sydney
+  country: Australia
+  faculty_or_school: University of Sydney Business School
+  discipline: Management
+  unit_name: Management and Organisations
+  assessment_type: Interactive oral assessment (IOA)
+  cohort_size: 25
+  year_started: 2024
+  assessment_format: Part of the Business School's 2024 pilot. The student takes a professional role in a scenario linked to the unit, gives a short presentation or proposal, then has an unscripted conversation of about 10 minutes with the coordinator playing a senior figure.
+  reported: 2024
+  sources: &usyd_bs
+    - short: University of Sydney Business School (2024)
+      authors: University of Sydney Business School
+      year: 2024
+      title: IOAs in the Business School
+      publisher: IO Assessment
+      url: https://ioassessment.wordpress.com/ioas-in-the-business-school/
+    - short: Norman et al. (2024)
+      authors: Adrian Norman, Stephanie Wilson, Joanne Nash and Alison Casey
+      year: 2024
+      title: "Marking 'on the fly' in interactive oral assessments in Business"
+      publisher: ASCILITE 2024 Conference Proceedings
+      url: https://open-publishing.org/publications/index.php/APUB/article/download/1392/1525/8619
+
+- institution: University of Sydney
+  country: Australia
+  faculty_or_school: University of Sydney Business School
+  discipline: Management
+  unit_name: Global Management and Culture
+  assessment_type: Interactive oral assessment (IOA)
+  cohort_size: 61
+  year_started: 2024
+  assessment_format: Part of the Business School's 2024 pilot. The student takes a professional role in a scenario linked to the unit, gives a short presentation or proposal, then has an unscripted conversation of about 10 minutes with the coordinator playing a senior figure.
+  reported: 2024
+  sources: *usyd_bs
+
+- institution: University of Sydney
+  country: Australia
+  faculty_or_school: University of Sydney Business School
+  discipline: Digital transformation
+  unit_name: Digital Transformation
+  assessment_type: Interactive oral assessment (IOA)
+  year_started: 2024
+  assessment_format: Part of the Business School's 2024 pilot. The student takes a professional role in a scenario linked to the unit, gives a short presentation or proposal, then has an unscripted conversation of about 10 minutes with the coordinator playing a senior figure.
+  reported: 2024
+  sources: *usyd_bs
+
+- institution: University of Sydney
+  country: Australia
+  faculty_or_school: University of Sydney Business School
+  discipline: Finance
+  unit_name: Behavioural Finance
+  assessment_type: Interactive oral assessment (IOA)
+  year_started: 2024
+  assessment_format: Part of the Business School's 2024 pilot. The student takes a professional role in a scenario linked to the unit, gives a short presentation or proposal, then has an unscripted conversation of about 10 minutes with the coordinator playing a senior figure.
+  reported: 2024
+  sources: *usyd_bs
+
+- institution: University of Sydney
+  country: Australia
+  faculty_or_school: University of Sydney Business School
+  discipline: Human resources (people analytics)
+  unit_name: People Analytics in the 4th Industrial Revolution
+  assessment_type: Interactive oral assessment (IOA)
+  year_started: 2024
+  assessment_format: Part of the Business School's 2024 pilot. The student takes a professional role in a scenario linked to the unit, gives a short presentation or proposal, then has an unscripted conversation of about 10 minutes with the coordinator playing a senior figure.
+  reported: 2024
+  sources: *usyd_bs
+
+- institution: University of Sydney
+  country: Australia
+  faculty_or_school: University of Sydney Business School
+  discipline: International business
+  unit_name: Ethical International Business Decisions
+  assessment_type: Interactive oral assessment (IOA)
+  year_started: 2024
+  assessment_format: Part of the Business School's 2024 pilot. The student takes a professional role in a scenario linked to the unit, gives a short presentation or proposal, then has an unscripted conversation of about 10 minutes with the coordinator playing a senior figure.
+  reported: 2024
+  sources: *usyd_bs
+
+- institution: University of Sydney
+  country: Australia
+  faculty_or_school: University of Sydney Business School
+  discipline: Customer experience
+  unit_name: Building Organisational Customer Experiences
+  assessment_type: Interactive oral assessment (IOA)
+  cohort_size: 20
+  year_started: 2024
+  assessment_format: Part of the Business School's 2024 pilot. The student takes a professional role in a scenario linked to the unit, gives a short presentation or proposal, then has an unscripted conversation of about 10 minutes with the coordinator playing a senior figure.
+  reported: 2024
+  sources: *usyd_bs
+
+# --- Singapore ---
+
+- institution: Singapore Institute of Technology
+  country: Singapore
+  faculty_or_school: Health and Social Sciences
+  discipline: Occupational therapy
+  unit_name: Occupational Performance Across Lifespan
+  year_level: 1st year
+  assessment_type: Interactive oral assessment (IOA)
+  assessment_format: An interactive oral built on workplace scenarios for first-year students, designed with a four-step model for authentic assessment.
+  reported: 2023
+  sources:
+    - short: Lim and Lim (2023)
+      authors: Sok Mui Lim and Chun Yi Lim
+      year: 2023
+      title: Use of interactive oral assessment to increase workplace readiness of occupational therapy students
+      publisher: The Asia Pacific Scholar
+      url: https://medicine.nus.edu.sg/taps/issues/use-of-interactive-oral-assessment-to-increase-workplace-readiness-of-occupational-therapy-students
+
+# --- United Kingdom ---
+
+- institution: Queen Mary University of London
+  country: United Kingdom
+  faculty_or_school: Faculty of Humanities and Social Sciences
+  discipline: Politics
+  unit_code: POL309
+  unit_name: Making Democracy Work
+  year_level: 3rd year
+  assessment_type: Viva or oral examination
+  length_minutes: 15
+  weighting_percent: 50
+  assessment_format: "Open-book oral exam: students pick a question, prepare for 15 minutes with any tools, then present to two examiners and answer follow-up questions (about 15 minutes)."
+  reported: 2026
+  sources:
+    - short: Sajuria (2026)
+      authors: Javier Sajuria
+      year: 2026
+      title: Reducing anxiety through authentic oral assessment
+      publisher: Queen Mary Academy, Queen Mary University of London
+      url: https://www.qmul.ac.uk/queenmaryacademy/educators/resources/assessment-and-feedback/resources/assessment-case-studies/case-studies/reducing-anxiety-through-authentic-oral-assessment/index.html
+
+- institution: University of Birmingham
+  country: United Kingdom
+  faculty_or_school: Birmingham Business School
+  discipline: Economics
+  unit_name: History of Economic Thought
+  year_level: 3rd year
+  assessment_type: Viva or oral examination
+  cohort_size: 90
+  length_minutes: 15
+  weighting_percent: 50
+  assessment_format: Fifteen-minute in-person "Individual Evaluative Conversations" with randomly selected questions, a right to veto one question, and follow-up prompts. Prepared through practice seminars and peer-led mocks.
+  reported: 2025
+  sources:
+    - short: Suleymenova and Bromfield (2025)
+      authors: Kamilya Suleymenova and Joe Bromfield
+      year: 2025
+      title: "The use of oral assessments: our experience of \"Individual Evaluative Conversations\""
+      publisher: Economics Network
+      url: https://doi.org/10.53593/n4295a
+
+- institution: London School of Economics and Political Science
+  country: United Kingdom
+  faculty_or_school: Department of Mathematics
+  discipline: Mathematics
+  unit_code: MA310, MA313
+  unit_name: Introduction to Financial Mathematics; Introduction to Probability
+  year_level: 3rd year
+  assessment_type: Viva or oral examination
+  cohort_size: 18
+  length_minutes: 30
+  weighting_percent: 100
+  year_started: 2018
+  assessment_format: Thirty-minute oral exams on course content over three days in the summer term, filmed for the external examiner. Mock orals were held with each student.
+  reported: 2019
+  sources:
+    - short: Czichowsky et al. (2019)
+      authors: Christoph Czichowsky, Paola Iannone and Johannes Ruf
+      year: 2019
+      title: Mathematics - Oral Examination
+      publisher: LSE Eden Centre education case studies
+      url: https://info.lse.ac.uk/staff/divisions/Eden-Centre/Resources-to-support-your-practice/Education-Case-Studies/Mathematics-Oral-Examination
+
+- institution: Newcastle University
+  country: United Kingdom
+  faculty_or_school: Careers Service (Student Services)
+  discipline: Career development
+  unit_name: Career development modules (20 credits, year-long)
+  year_level: Other
+  assessment_type: Other oral assessment
+  length_minutes: 15
+  assessment_format: Live "professional conversations" modelled on a talk with a manager, linked to a personal development plan and an impact portfolio. Stage 3 students have one; Masters students have two. Audio-recorded for moderation.
+  reported: 2026
+  sources:
+    - short: Herbert (2026)
+      authors: Gigi Herbert
+      year: 2026
+      title: Professional conversations as authentic oral assessment in career development modules
+      publisher: Newcastle University education case studies
+      url: https://microsites.ncl.ac.uk/casestudies/2026/09/04/professional-conversations-as-authentic-oral-assessment-in-career-development-modules/
+
+- institution: University of Manchester
+  country: United Kingdom
+  discipline: English for academic purposes
+  unit_name: Pre-sessional English programme
+  year_level: Other
+  assessment_type: Viva or oral examination
+  cohort_size: 1800
+  assessment_format: A scaffolded viva-style assessment on a large pre-sessional programme, delivered consistently through structured questioning and training for more than 120 tutors.
+  reported: 2026
+  sources:
+    - short: Davis and Harding (2026)
+      authors: Craig Davis and Nicola Harding
+      year: 2026
+      title: Scaffolding oral viva assessments on a large scale language course
+      publisher: Advance HE Teaching and Learning Conference 2026, abstract D1.1.9b (Day 1 abstracts, PDF)
+      url: "https://advance-he.ac.uk/sites/default/files/2026-06/Day%201%20-%20Abstracts%20T%26L%20Conference%202026_7.pdf"
+
+- institution: University of East Anglia
+  country: United Kingdom
+  discipline: Social work
+  unit_name: Undergraduate social work qualifying programmes
+  assessment_type: Other oral assessment
+  assessment_format: Recorded oral assessments replaced traditional written assignments, to support authentic learning, widen participation and build communication skills for practice.
+  reported: 2026
+  sources:
+    - short: Rawcliffe and Sach (2026)
+      authors: Cassian Rawcliffe and Andrew Sach
+      year: 2026
+      title: "Evaluating conversation: The use of oral assessment in undergraduate social work qualifying programmes"
+      publisher: Advance HE Teaching and Learning Conference 2026, abstract D1.1.9c (Day 1 abstracts, PDF)
+      url: "https://advance-he.ac.uk/sites/default/files/2026-06/Day%201%20-%20Abstracts%20T%26L%20Conference%202026_7.pdf"
+
+- institution: Coventry University
+  country: United Kingdom
+  discipline: Policing
+  unit_code: 209POL
+  unit_name: Domestic Abuse
+  assessment_type: Hybrid oral assessment
+  assessment_format: Groups receive a domestic abuse scenario passed on by a call handler and brief a panel of tutors, peers and police staff on their planned actions and reasoning. A second, individual coursework builds on it.
+  reported: 2021
+  sources: &coventry
+    - short: Du Plessis-Walker (2021)
+      authors: Hannelie Du Plessis-Walker
+      year: 2021
+      title: Interactive Oral (IO) as method of assessment
+      publisher: Coventry University
+      url: https://acdev.orgdev.coventry.domains/application/files/8116/3299/1560/Interactive_Orals_Guide.pdf
+
+- institution: Coventry University
+  country: United Kingdom
+  discipline: Counselling
+  unit_code: 112HSC
+  unit_name: Social, legal and ethical framework context in Counselling
+  assessment_type: Interactive oral assessment (IOA)
+  cohort_size: 22
+  length_minutes: 15
+  assessment_format: Students respond to a short client dilemma, then answer scaffolded questions on ethical frameworks and legislation asked in random order. Double-marked and recorded for the external examiner.
+  reported: 2021
+  sources: *coventry
+
+# --- United States ---
+
+- institution: Cornell University
+  country: United States
+  faculty_or_school: Sibley School of Mechanical and Aerospace Engineering
+  discipline: Mechanical engineering
+  unit_code: MAE 3230
+  unit_name: Introductory Fluid Mechanics
+  assessment_type: Other oral assessment
+  cohort_size: 180
+  length_minutes: 4
+  year_started: 2019
+  assessment_format: "A mock job interview: a four-minute conversation about fluid mechanics, with questions drawn from a list of 35 shared at the start of term. About 18 hours over one week for 180 students."
+  reported: 2025
+  sources:
+    - short: Center for Teaching Innovation, Cornell (2025)
+      authors: Center for Teaching Innovation, Cornell University
+      year: 2025
+      title: "Oral Assessments to Reinforce and Evaluate Student Learning: A Case Study in Fluid Mechanics"
+      publisher: Cornell University teaching case studies
+      url: https://blogs.cornell.edu/teachingcasestudies/assessment/oral-assessments-to-reinforce-and-evaluate-student-learning-in-fluid-mechanics/
+
+- institution: University of Pennsylvania
+  country: United States
+  faculty_or_school: Department of Mathematics
+  discipline: Mathematics
+  unit_name: Mathematics course (name not given)
+  assessment_type: Viva or oral examination
+  length_minutes: 30
+  year_started: 2020
+  assessment_format: A 30-minute Zoom conversation that replaced the final written exam. It opens with what the student wants to discuss, then a prepared question tied to their interests and follow-ups.
+  reported: 2025
+  sources: &penn
+    - short: Bartnett (2025)
+      authors: Erin Bartnett
+      year: 2025
+      title: "Building Deeper Learning Through Oral Exams: Conversations That Count"
+      publisher: University of Pennsylvania Center for Excellence in Teaching, Learning, and Innovation
+      url: https://cetli.upenn.edu/news-features/feature-stories/building-deeper-learning-through-oral-exams/
+
+- institution: University of Pennsylvania
+  country: United States
+  faculty_or_school: Department of Mathematics
+  discipline: Mathematics
+  unit_name: Freshman Calculus
+  year_level: 1st year
+  assessment_type: Viva or oral examination
+  cohort_size: 50
+  length_minutes: 15
+  assessment_format: Each student works two problems (one easier, one harder) at the board, talking through their reasoning, in 15 minutes.
+  reported: 2025
+  sources: *penn
+
+- institution: University of Pennsylvania
+  country: United States
+  faculty_or_school: History and Penn Carey Law
+  discipline: History and law
+  unit_name: Large legal history survey (name not given)
+  assessment_type: Viva or oral examination
+  cohort_size: 140
+  assessment_format: Low-stakes small-group conversations before the final exam, on prompts released in advance that ask students to connect material across the course. Run with teaching assistants and a rubric.
+  reported: 2025
+  sources: *penn
+
+- institution: University of Pennsylvania
+  country: United States
+  faculty_or_school: Middle Eastern Languages and Cultures, School of Arts and Sciences
+  discipline: Archaeology and Middle Eastern studies
+  unit_name: "Who Owns the Past? Archaeology and Politics in the Middle East"
+  assessment_type: Viva or oral examination
+  length_minutes: 20
+  year_started: 2025
+  assessment_format: Each of two take-home papers is followed by a 15 to 20 minute oral defence about the student's own paper.
+  reported: 2025
+  sources: *penn
+
+- institution: University of Pennsylvania
+  country: United States
+  faculty_or_school: College of Liberal and Professional Studies
+  discipline: Biochemistry
+  unit_name: Pre-Med Biochemistry
+  assessment_type: Viva or oral examination
+  length_minutes: 15
+  year_started: 2024
+  assessment_format: Students get two papers in advance; one is drawn at random and the student answers big-picture and detailed questions in 15 minutes. It counted only if it raised the final grade.
+  reported: 2025
+  sources: *penn
+
+- institution: University of Wyoming
+  country: United States
+  faculty_or_school: Department of Philosophy and Religious Studies
+  discipline: Religious studies
+  unit_name: Upper-level course on Tibetan Buddhism (name not given)
+  assessment_type: Viva or oral examination
+  assessment_format: Oral exams in an upper-level undergraduate humanities course, introduced in response to generative AI. The article covers student concerns and logistics.
+  reported: 2025
+  sources:
+    - short: Hartmann (2025)
+      authors: Catherine Hartmann
+      year: 2025
+      title: "Oral Exams for a Generative AI World: Managing Concerns and Logistics for Undergraduate Humanities Instruction"
+      publisher: College Teaching
+      url: https://doi.org/10.1080/87567555.2025.2558563
+
+- institution: The George Washington University
+  country: United States
+  discipline: Engineering computations
+  unit_name: Engineering computations course (name not given)
+  assessment_type: Other oral assessment
+  cohort_size: 58
+  year_started: 2025
+  assessment_format: "A 'conversational exam': students code live in small groups while explaining their reasoning, with documentation and supervised AI access, over two days."
+  reported: 2026
+  sources:
+    - short: Barba and Stegner (2026)
+      authors: Lorena A. Barba and Laura Stegner
+      year: 2026
+      title: "The Conversational Exam: A Scalable Assessment Design for the AI Era"
+      publisher: Computer (IEEE)
+      url: https://doi.org/10.1109/MC.2026.3676461
+
+- institution: University of California San Diego
+  country: United States
+  faculty_or_school: Department of Mechanical and Aerospace Engineering
+  discipline: Mechanical engineering
+  unit_name: Engineering courses (not named)
+  assessment_type: Viva or oral examination
+  length_minutes: 15
+  year_started: 2020
+  assessment_format: Fifteen-minute oral exams run by instructors and teaching assistants across large engineering courses, as part of an NSF-funded study.
+  reported: 2023
+  sources:
+    - short: Connor (2023)
+      authors: Katherine Connor
+      year: 2023
+      title: Oral Exams Improve Engineering Student Performance, Motivation
+      publisher: UC San Diego Today
+      url: https://today.ucsd.edu/story/oral-exams-improve-engineering-student-performance-motivation
+
+- institution: University of California San Diego
+  country: United States
+  discipline: Diversity and race studies
+  unit_name: Large undergraduate diversity class (name not given)
+  assessment_type: Viva or oral examination
+  cohort_size: 279
+  assessment_format: Mid-term oral exams run by teaching assistants in a large lecture course on diversity, offered twice (279 and 167 students).
+  reported: 2019
+  sources:
+    - short: Kang et al. (2019)
+      authors: Dredge Kang, Sara Goico, Sheena Ghanbari, Kathleen C. Bennallack, Taciana Pontes, Dylan H. O'Brien and Jace Hargis
+      year: 2019
+      title: "Providing an Oral Examination as an Authentic Assessment in a Large Section, Undergraduate Diversity Class"
+      publisher: International Journal for the Scholarship of Teaching and Learning
+      url: https://doi.org/10.20429/ijsotl.2019.130210
+
+- institution: University of Denver
+  country: United States
+  faculty_or_school: Department of Mathematics
+  discipline: Mathematics
+  unit_code: MATH 1200
+  unit_name: Calculus for Business and Social Sciences
+  year_level: 1st year
+  assessment_type: Viva or oral examination
+  year_started: 2020
+  assessment_format: Short one-to-one online oral exams early in the term, with the rubric shared beforehand and immediate feedback; a small part of the grade.
+  reported: 2021
+  sources:
+    - short: Lang and Schlosser (2021)
+      authors: Sabine Lang and Lexi Schlosser
+      year: 2021
+      title: "Online Assessment from a STEM Faculty Perspective Part 1: Oral Exams"
+      publisher: University of Denver Office of Teaching and Learning
+      url: https://www.du.edu/otl/news/online-assessment-stem-faculty-perspective-part-1-oral-exams

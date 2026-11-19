@@ -1,29 +1,47 @@
-// Catalogue page: loads the entries, builds a compact table, and runs the search,
-// filters and sortable columns.
+// Catalogue page: loads the entries, builds two compact tables, and runs the shared
+// search, filters and sortable columns.
 //
-// Each row is one unit. People submit the form once per unit, so entries with the
-// same institution and unit code are grouped into one row, and everyone involved is
-// listed under People. For unit details (students, minutes and so on) the earliest
-// submission wins; blanks are filled from later ones. Selecting the unit opens a
-// details row underneath (how it runs, people and links).
+// 1. The main table: educators who submitted the form and were approved. Each row is
+//    one unit. People submit the form once per unit, so entries with the same
+//    institution and unit code are grouped into one row, and everyone involved is
+//    listed under People. For unit details (students, minutes and so on) the earliest
+//    submission wins; blanks are filled from later ones.
+//    The entries come from the public tab of the Google Sheet (if its link is set in
+//    _config.yml), or from _data/catalog.csv otherwise.
+// 2. "Examples from published sources" (collapsed at first): units described in
+//    published work, from _data/catalog-published.yml. These show the source instead
+//    of people. A unit that is also in the main table is left out here.
 //
-// The entries come from the public tab of the Google Sheet (if its link is set
-// in _config.yml), or from _data/catalog.csv otherwise.
+// Selecting a unit opens a details row underneath. The filters above apply to both tables.
 (function () {
   var wrap = document.getElementById("catalog");
   if (!wrap) return;
 
-  var table = document.getElementById("catalog-table");
-  var body = table.tBodies[0];
   var controls = document.getElementById("catalog-filters");
   var search = document.getElementById("catalog-search");
-  var status = document.getElementById("catalog-status");
   var hint = document.getElementById("catalog-hint");
   var clearButton = document.getElementById("catalog-clear");
   var selects = Array.prototype.slice.call(controls.querySelectorAll("select[data-filter]"));
   var ranges = Array.prototype.slice.call(controls.querySelectorAll("select[data-range]"));
-  var columns = table.tHead.rows[0].cells.length;
-  var items = []; // one per entry: { row, detail, text }
+
+  function makeList(tableId, statusId, kind) {
+    var table = document.getElementById(tableId);
+    if (!table) return null;
+    return {
+      kind: kind, // "people" or "sources"
+      table: table,
+      body: table.tBodies[0],
+      status: document.getElementById(statusId),
+      columns: table.tHead.rows[0].cells.length,
+      items: [] // one per unit: { row, detail, toggle, text }
+    };
+  }
+
+  var approved = makeList("catalog-table", "catalog-status", "people");
+  var published = makeList("catalog-published-table", "catalog-published-status", "sources");
+  var publishedSection = document.getElementById("catalog-published");
+  var publishedCount = document.getElementById("catalog-published-count");
+  var lists = [approved, published].filter(Boolean);
 
   // Short labels for the Type column. The filter keeps the full wording.
   var TYPE_SHORT = {
@@ -76,7 +94,7 @@
     return isNaN(n) ? null : n;
   }
 
-  // ---------- Building the table ----------
+  // ---------- Small building blocks ----------
 
   function cell(label, content) {
     var td = document.createElement("td");
@@ -91,10 +109,12 @@
     var a = document.createElement("a");
     a.href = href;
     a.textContent = text;
-    var hidden = document.createElement("span");
-    hidden.className = "visually-hidden";
-    hidden.textContent = " " + hiddenText;
-    a.appendChild(hidden);
+    if (hiddenText) {
+      var hidden = document.createElement("span");
+      hidden.className = "visually-hidden";
+      hidden.textContent = " " + hiddenText;
+      a.appendChild(hidden);
+    }
     return a;
   }
 
@@ -151,6 +171,41 @@
     return ul;
   }
 
+  // Source column: the main source as a short citation, linked to the original.
+  function sourceShort(unit) {
+    var first = unit.sources[0];
+    if (!first) return null;
+    var span = document.createElement("span");
+    span.className = "catalog-source";
+    if (isWebLink(first.url)) span.appendChild(link(first.url, first.short, ""));
+    else span.textContent = first.short;
+    if (unit.sources.length > 1) {
+      span.appendChild(document.createTextNode(" +" + (unit.sources.length - 1)));
+    }
+    return span;
+  }
+
+  // Details: each source written out in full.
+  function sourcesDetail(unit) {
+    var ul = document.createElement("ul");
+    ul.className = "catalog-sources-list";
+    unit.sources.forEach(function (source) {
+      var li = document.createElement("li");
+      li.appendChild(document.createTextNode(source.authors + (source.year ? " (" + source.year + "). " : ". ")));
+      if (isWebLink(source.url)) li.appendChild(link(source.url, source.title, ""));
+      else li.appendChild(document.createTextNode(source.title));
+      if (source.publisher) {
+        li.appendChild(document.createTextNode(". "));
+        var cite = document.createElement("cite");
+        cite.textContent = source.publisher;
+        li.appendChild(cite);
+      }
+      li.appendChild(document.createTextNode("."));
+      ul.appendChild(li);
+    });
+    return ul;
+  }
+
   function resourceLinks(unit) {
     if (!unit.resources.length) return null;
     var span = document.createElement("span");
@@ -176,20 +231,21 @@
     "year_level", "assessment_type", "cohort_size", "length_minutes", "weighting_percent", "year_started",
     "assessment_format"];
 
-  function unitKey(entry, index) {
+  // Same institution and unit code (or unit name if there is no code) = same unit.
+  function unitKey(entry) {
     var code = clean(entry.unit_code).toUpperCase().replace(/\s+/g, "");
     var name = clean(entry.unit_name).toLowerCase();
-    if (!code && !name) return "person-" + index; // no unit given: keep as its own row
+    if (!code && !name) return "";
     return clean(entry.institution).toLowerCase() + "|" + (code || name);
   }
 
   function groupUnits(entries) {
     var units = [], byKey = {};
     entries.forEach(function (entry, index) {
-      var key = unitKey(entry, index);
+      var key = unitKey(entry) || "person-" + index; // no unit given: keep as its own row
       var unit = byKey[key];
       if (!unit) {
-        unit = byKey[key] = { people: [], resources: [] };
+        unit = byKey[key] = { key: key, people: [], resources: [] };
         UNIT_FIELDS.forEach(function (field) { unit[field] = ""; });
         units.push(unit);
       }
@@ -208,15 +264,41 @@
     return units;
   }
 
-  // ---------- Building the table ----------
+  // Published examples: one entry per unit already, with its sources.
+  function publishedUnits(entries, skipKeys) {
+    var units = [];
+    entries.forEach(function (entry) {
+      var key = unitKey(entry);
+      if (key && skipKeys[key]) return; // also in the main table
+      var unit = { key: key, resources: [], sources: [], reported: clean(entry.reported) };
+      UNIT_FIELDS.forEach(function (field) { unit[field] = clean(entry[field]); });
+      var resource = clean(entry.resource_url);
+      if (isWebLink(resource)) unit.resources.push(resource);
+      (entry.sources || []).forEach(function (source) {
+        unit.sources.push({
+          short: clean(source.short) || clean(source.authors),
+          authors: clean(source.authors),
+          year: clean(source.year),
+          title: clean(source.title),
+          publisher: clean(source.publisher),
+          url: clean(source.url)
+        });
+      });
+      unit.label = unit.unit_code || unit.unit_name || unit.discipline;
+      units.push(unit);
+    });
+    return units;
+  }
 
-  function buildDetail(unit, id) {
+  // ---------- Building the tables ----------
+
+  function buildDetail(unit, id, list) {
     var tr = document.createElement("tr");
     tr.className = "catalog-detail";
     tr.id = id;
     tr.hidden = true;
     var td = document.createElement("td");
-    td.colSpan = columns;
+    td.colSpan = list.columns;
     var dl = document.createElement("dl");
 
     function add(term, value) {
@@ -230,23 +312,28 @@
     }
 
     add("How it runs", unit.assessment_format);
-    add(unit.people.length > 1 ? "People" : "Person", peopleDetail(unit));
+    if (list.kind === "people") add(unit.people.length > 1 ? "People" : "Person", peopleDetail(unit));
+    else add(unit.sources.length > 1 ? "Sources" : "Source", sourcesDetail(unit));
     add("Unit", [unit.unit_code, unit.unit_name].filter(Boolean).join(" "));
     add("Faculty or school", unit.faculty_or_school);
     add("Institution", [unit.institution, unit.country].filter(Boolean).join(", "));
     add("Assessment type", unit.assessment_type);
-    add("Running since", unit.year_started);
+    if (list.kind === "people") add("Running since", unit.year_started);
+    else {
+      add("Started", unit.year_started);
+      add("Reported in", unit.reported);
+    }
     add("Resources", resourceLinks(unit));
     td.appendChild(dl);
     tr.appendChild(td);
     return tr;
   }
 
-  function buildItem(unit, index) {
+  function buildItem(unit, index, list) {
     var students = number(unit.cohort_size);
     var minutes = number(unit.length_minutes);
     var weighting = number(unit.weighting_percent);
-    var detailId = "catalog-detail-" + index;
+    var detailId = list.table.id + "-detail-" + index;
 
     var row = document.createElement("tr");
     row.setAttribute("role", "row");
@@ -273,7 +360,7 @@
       unitCell.appendChild(sub);
     }
 
-    var detail = buildDetail(unit, detailId);
+    var detail = buildDetail(unit, detailId, list);
     toggle.addEventListener("click", function () {
       var open = toggle.getAttribute("aria-expanded") !== "true";
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
@@ -289,9 +376,15 @@
     row.appendChild(cell("Minutes", minutes === null ? "" : String(minutes)));
     row.appendChild(cell("Weighting", weighting === null ? "" : weighting + "%"));
     row.appendChild(cell("Institution", unit.institution));
-    row.appendChild(cell("People", peopleList(unit)));
+    if (list.kind === "people") row.appendChild(cell("People", peopleList(unit)));
+    else row.appendChild(cell("Source", sourceShort(unit)));
 
     return { row: row, detail: detail, toggle: toggle, text: (row.textContent + " " + detail.textContent).toLowerCase() };
+  }
+
+  // Start with similar units together: by discipline, then unit.
+  function byDiscipline(a, b) {
+    return a.discipline.localeCompare(b.discipline) || a.label.localeCompare(b.label);
   }
 
   // ---------- Search and filters ----------
@@ -308,26 +401,41 @@
     return search.value.trim() !== "" || selects.concat(ranges).some(function (s) { return s.value; });
   }
 
+  function matches(item, words) {
+    var row = item.row;
+    var show = words.every(function (word) { return item.text.indexOf(word) !== -1; });
+    selects.forEach(function (select) {
+      if (select.value && row.getAttribute("data-" + select.getAttribute("data-filter")) !== select.value) show = false;
+    });
+    ranges.forEach(function (select) {
+      if (select.value && !inRange(row.getAttribute("data-" + select.getAttribute("data-range")), select.value)) show = false;
+    });
+    return show;
+  }
+
   function update() {
     var words = search.value.toLowerCase().split(/\s+/).filter(Boolean);
-    var shown = 0;
-    items.forEach(function (item) {
-      var row = item.row;
-      var show = words.every(function (word) { return item.text.indexOf(word) !== -1; });
-      selects.forEach(function (select) {
-        if (select.value && row.getAttribute("data-" + select.getAttribute("data-filter")) !== select.value) show = false;
+    var filtered = anyFilterSet();
+    lists.forEach(function (list) {
+      var shown = 0;
+      list.items.forEach(function (item) {
+        var show = matches(item, words);
+        item.row.hidden = !show;
+        item.detail.hidden = !show || item.toggle.getAttribute("aria-expanded") !== "true";
+        if (show) shown += 1;
       });
-      ranges.forEach(function (select) {
-        if (select.value && !inRange(row.getAttribute("data-" + select.getAttribute("data-range")), select.value)) show = false;
-      });
-      row.hidden = !show;
-      item.detail.hidden = !show || item.toggle.getAttribute("aria-expanded") !== "true";
-      if (show) shown += 1;
+      list.shown = shown;
+      if (!list.items.length) return;
+      list.status.textContent = shown === 0
+        ? "No units match. Try a different search or filter."
+        : "Showing " + shown + " of " + list.items.length + (list.items.length === 1 ? " unit." : " units.");
     });
-    clearButton.disabled = !anyFilterSet();
-    status.textContent = shown === 0
-      ? "No entries match. Try a different search or filter."
-      : "Showing " + shown + " of " + items.length + (items.length === 1 ? " unit." : " units.");
+    if (published && publishedCount && published.items.length) {
+      publishedCount.textContent = filtered
+        ? "(" + published.shown + " of " + published.items.length + " match)"
+        : "(" + published.items.length + " units)";
+    }
+    clearButton.disabled = !filtered;
   }
 
   function clearFilters() {
@@ -337,13 +445,16 @@
     search.focus();
   }
 
+  // Filter choices come from both tables.
   function fillSelects() {
     selects.forEach(function (select) {
       var key = select.getAttribute("data-filter");
       var values = [];
-      items.forEach(function (item) {
-        var value = item.row.getAttribute("data-" + key);
-        if (value && values.indexOf(value) === -1) values.push(value);
+      lists.forEach(function (list) {
+        list.items.forEach(function (item) {
+          var value = item.row.getAttribute("data-" + key);
+          if (value && values.indexOf(value) === -1) values.push(value);
+        });
       });
       values.sort(function (a, b) { return a.localeCompare(b); });
       values.forEach(function (value) {
@@ -355,16 +466,16 @@
     });
   }
 
-  function placeRows() {
-    items.forEach(function (item) {
-      body.appendChild(item.row);
-      body.appendChild(item.detail);
+  function placeRows(list) {
+    list.items.forEach(function (item) {
+      list.body.appendChild(item.row);
+      list.body.appendChild(item.detail);
     });
   }
 
   // Turn the sortable column headings into buttons.
-  function makeSortable() {
-    var headers = Array.prototype.slice.call(table.tHead.rows[0].cells);
+  function makeSortable(list) {
+    var headers = Array.prototype.slice.call(list.table.tHead.rows[0].cells);
     headers.forEach(function (header, index) {
       var type = header.getAttribute("data-sort");
       if (!type) return;
@@ -381,7 +492,7 @@
         header.setAttribute("aria-sort", direction);
         var sign = direction === "ascending" ? 1 : -1;
 
-        items.sort(function (a, b) {
+        list.items.sort(function (a, b) {
           var x = a.row.cells[index].textContent.trim();
           var y = b.row.cells[index].textContent.trim();
           if (type === "number") {
@@ -391,35 +502,53 @@
           }
           return sign * x.localeCompare(y);
         });
-        placeRows();
+        placeRows(list);
       });
     });
   }
 
   // ---------- Start ----------
 
-  function show(entries) {
-    entries = entries.filter(function (entry) { return clean(entry.name) !== ""; });
-    var units = groupUnits(entries);
-    // Start with similar units together: by discipline, then unit.
-    units.sort(function (a, b) {
-      return a.discipline.localeCompare(b.discipline) || a.label.localeCompare(b.label);
-    });
-    items = units.map(buildItem);
-    if (!items.length) {
-      status.textContent = "No entries yet. Be the first to add yours.";
-      return;
+  function readPublished() {
+    var script = document.getElementById("catalog-published-data");
+    if (!script) return [];
+    try { return JSON.parse(script.textContent) || []; } catch (e) { return []; }
+  }
+
+  // approvedEntries is null when the main catalogue could not be loaded.
+  function start(approvedEntries) {
+    var approvedKeys = {};
+    if (approved && approvedEntries) {
+      var entries = approvedEntries.filter(function (entry) { return clean(entry.name) !== ""; });
+      var units = groupUnits(entries).sort(byDiscipline);
+      units.forEach(function (unit) { approvedKeys[unit.key] = true; });
+      approved.items = units.map(function (unit, i) { return buildItem(unit, i, approved); });
+      if (approved.items.length) approved.table.hidden = false;
+      else approved.status.textContent = "No entries yet. Be the first to add yours.";
     }
 
-    placeRows();
+    if (published) {
+      var examples = publishedUnits(readPublished(), approvedKeys).sort(byDiscipline);
+      published.items = examples.map(function (unit, i) { return buildItem(unit, i, published); });
+      if (published.items.length) {
+        published.table.hidden = false;
+        publishedSection.hidden = false;
+      }
+    }
+
+    var withItems = lists.filter(function (list) { return list.items.length; });
+    if (!withItems.length) return;
+
+    withItems.forEach(function (list) {
+      placeRows(list);
+      makeSortable(list);
+    });
     fillSelects();
-    makeSortable();
     search.addEventListener("input", update);
     selects.concat(ranges).forEach(function (select) { select.addEventListener("change", update); });
     clearButton.addEventListener("click", clearFilters);
     controls.hidden = false;
-    hint.hidden = false;
-    table.hidden = false;
+    if (approved && approved.items.length) hint.hidden = false;
     update();
   }
 
@@ -427,17 +556,17 @@
   var local = document.getElementById("catalog-local");
 
   if (sheetUrl) {
-    status.textContent = "Loading the catalogue…";
+    approved.status.textContent = "Loading the catalogue…";
     fetch(sheetUrl)
       .then(function (response) {
         if (!response.ok) throw new Error("HTTP " + response.status);
         return response.text();
       })
-      .then(function (text) { show(csvToEntries(text)); })
-      .catch(function () {
-        status.textContent = "The catalogue could not be loaded. Please try again later.";
+      .then(function (text) { start(csvToEntries(text)); }, function () {
+        approved.status.textContent = "The catalogue could not be loaded. Please try again later.";
+        start(null);
       });
-  } else if (local) {
-    show(JSON.parse(local.textContent));
+  } else {
+    start(local ? JSON.parse(local.textContent) : []);
   }
 })();

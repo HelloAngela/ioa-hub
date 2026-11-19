@@ -75,6 +75,35 @@
 </thead>
 <tbody role="rowgroup"></tbody>
 </table>
+{% comment %}
+  Examples from published sources: _data/catalog-published.yml. Collapsed at first.
+  catalog.js fills the table, applies the same filters, and leaves out any unit that
+  is also in the main table.
+{% endcomment %}
+<details class="catalog-published" id="catalog-published" hidden>
+<summary><h2 class="catalog-published__heading">Examples from published sources <span class="catalog-published__count" id="catalog-published-count"></span></h2></summary>
+<p>These units are described in published articles, guides, case studies and conference abstracts. Details are as reported at the time and may have changed. The people involved have not reviewed these entries, so each one credits its source and links to it.</p>
+<p>If one of these is your unit, you can <a href="{{ '/contribute/' | relative_url }}">add it to the catalogue</a> with your own details{% unless site.intake_form_url contains "PLACEHOLDER" %}, or <a href="{{ site.intake_form_url }}">ask us to correct or remove it</a>{% endunless %}.</p>
+<p class="status" id="catalog-published-status" role="status"></p>
+<table class="catalog-table" id="catalog-published-table" role="table" hidden>
+<caption class="visually-hidden">Units using oral assessment, from published sources</caption>
+<thead role="rowgroup">
+<tr role="row">
+<th scope="col" role="columnheader" data-sort="text">Unit</th>
+<th scope="col" role="columnheader" data-sort="text">Discipline</th>
+<th scope="col" role="columnheader" data-sort="text">Type</th>
+<th scope="col" role="columnheader" data-sort="text">Year level</th>
+<th scope="col" role="columnheader" data-sort="number">Students</th>
+<th scope="col" role="columnheader" data-sort="number">Minutes</th>
+<th scope="col" role="columnheader" data-sort="number">Weighting</th>
+<th scope="col" role="columnheader" data-sort="text">Institution</th>
+<th scope="col" role="columnheader" data-sort="text">Source</th>
+</tr>
+</thead>
+<tbody role="rowgroup"></tbody>
+</table>
+</details>
+<script type="application/json" id="catalog-published-data">{{ site.data["catalog-published"] | jsonify }}</script>
 {% unless use_sheet %}
 <script type="application/json" id="catalog-local">[
 {% assign first = true %}

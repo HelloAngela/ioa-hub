@@ -56,6 +56,36 @@ The Publications page lists articles and posts that are already published somewh
 - A local preview shows a warning box if a topic or type is misspelt.
 - If a title contains a colon or starts with a quote mark, put double quotes around the whole title.
 
+## Add a published example to the catalogue
+
+Below the main catalogue table there is a collapsed section, "Examples from published sources", for units described in articles, guides, case studies and conference abstracts. The people involved have not agreed to be listed, so these entries credit the source and never list people. Add one to `_data/catalog-published.yml`:
+
+```yaml
+- institution: University of Queensland
+  country: Australia
+  faculty_or_school: School of Education
+  discipline: Education (learning and development)
+  unit_name: Postgraduate course on learning and development theories (name not given)
+  year_level: Postgraduate
+  assessment_type: Interactive oral assessment (IOA)
+  cohort_size: 230
+  length_minutes: 10
+  assessment_format: Each student has a 10-minute recorded conversation about a lesson plan they created.
+  reported: 2025
+  sources:
+    - short: Lodge et al. (2025)
+      authors: Jason M. Lodge, Daniel Taylor-Griffiths and Kate Newman
+      year: 2025
+      title: "Interactive orals at scale: What happened when we tried to draw the owl?"
+      publisher: HERDSA Connect
+      url: https://herdsa.org.au/herdsa-connect/interactive-orals-scale-what-happened-when-we-tried-draw-owl
+```
+
+- Only add a unit if the linked source itself describes the assessment, and only enter what the source says.
+- Authors appear only as the source's byline. Do not add contact details or name anyone the source does not list as an author.
+- If someone asks, remove their unit straight away.
+- When the same unit is approved in the main catalogue, the site hides the published entry automatically (it matches on institution and unit code, or unit name).
+
 ## Add an informal resource
 
 To have an AI assistant (for example Claude in Cowork) prepare your materials and put them in the right place, point it to `docs/resource-guidelines.md`. It covers privacy checks, licence lines, accessibility, file names and the entries below.
