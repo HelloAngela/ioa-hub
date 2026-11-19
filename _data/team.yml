@@ -15,10 +15,12 @@
   role: Senior Lecturer
   unit: Faculty of Arts and Social Sciences
   photo: anne-rogerson.jpg
+  email: anne.rogerson@sydney.edu.au
   group: Project team
 - name: Associate Professor Eszter Kalman
   unit: Division of Teaching and Learning
   photo: eszter-kalman.jpg
+  email: eszter.kalman@sydney.edu.au
   group: Project team
 - name: Dr Adam Gall
   role: Learning Success Advisor
@@ -30,4 +32,5 @@
   role: Learning Hub Lead
   unit: Academic Language and Learning, Learning Hub
   photo: alexandra-garcia.jpg
+  email: alexandra.garcia@sydney.edu.au
   group: Project team
