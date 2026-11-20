@@ -16,6 +16,28 @@
 # The Resources page sorts by the updated date, newest first, so the order in
 # this file does not matter. A resource with no audience shows only under "All".
 
+- title: "Preparing for an essay-based interactive oral: student guide (philosophy)"
+  file: ioa-philosophy-preparation-guide.pdf
+  description: "Five-page student guide for a ten-minute interactive oral assessment (IOA) about the argument of a planned philosophy essay. Covers the two-minute opening, four ways to respond to an objection, how to prepare without a script, and two worked examples of a good and a weaker oral, each explained against the rubric."
+  type: guide
+  authors: Ryan Cox
+  licence: CC BY 4.0
+  updated: 2026-11-18
+  status: current
+  topics: [preparing-students, questions-prompts, rubrics-feedback]
+  audience: both
+
+- title: "Interactive oral rubric: understanding and responsiveness (philosophy)"
+  file: ioa-philosophy-rubric.pdf
+  description: "One-page rubric for an essay-based interactive oral assessment (IOA) with two equally weighted criteria, understanding and responsiveness, at five levels from Fail to High Distinction. A High Distinction for responsiveness needs a moment where the student reasons past what they prepared."
+  type: template
+  authors: Ryan Cox
+  licence: CC BY 4.0
+  updated: 2026-11-18
+  status: current
+  topics: [rubrics-feedback]
+  audience: both
+
 - title: "IOA assessor playbook (excerpt)"
   file: ioa-assessor-playbook-excerpt.pdf
   description: "Nine-page excerpt from the assessor playbook for a large second-year interactive oral assessment (IOA) in microbiology and immunology. Covers how to run the conversation: four decision points, ways to extend, repair or rescue an answer, how to ask, and what to do in difficult moments. It contains no assessment questions."
